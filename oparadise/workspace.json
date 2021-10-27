@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "projects": {
+    "front-react": "apps/front-react",
+    "front-react-e2e": "apps/front-react-e2e",
+    "react-components": "libs/react-components",
+    "react-components-e2e": "apps/react-components-e2e",
+    "server-back": "apps/server-back",
+    "server-graphql": "apps/server-graphql"
+  }
+}

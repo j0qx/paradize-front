@@ -1,6 +1,7 @@
 import CardOffer from './lib/CardOffer/CardOffer';
 
 export * from './lib/CreateOffer/CreateOffer';
+export * from './lib/Offer/Offer';
 
 export * from './lib/SearchZoneSettings/SearchZoneSettings';
 export * from './lib/ButtonSubmit/ButtonSubmit';

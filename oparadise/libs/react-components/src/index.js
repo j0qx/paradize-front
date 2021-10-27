@@ -1,6 +1,7 @@
 import CardOffer from './lib/CardOffer/CardOffer';
 
 export * from './lib/Modal/Modal';
+export * from './lib/ToolTip/ToolTip';
 
 export * from './lib/CardFavoriteSearch/CardFavoriteSearch';
 

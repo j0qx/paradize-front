@@ -1,5 +1,7 @@
 import CardOffer from './lib/CardOffer/CardOffer';
 
+export * from './lib/CardFavoriteSearch/CardFavoriteSearch';
+
 export * from './lib/CreateOffer/CreateOffer';
 export * from './lib/Offer/Offer';
 

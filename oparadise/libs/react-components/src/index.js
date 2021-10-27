@@ -1,5 +1,7 @@
 import CardOffer from './lib/CardOffer/CardOffer';
 
+export * from './lib/NavBar/NavBar';
+
 export * from './lib/ButtonClose/ButtonClose';
 
 export * from './lib/Modal/Modal';

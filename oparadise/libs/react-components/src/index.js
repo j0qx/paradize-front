@@ -1,8 +1,4 @@
-import Chart from "./lib/Chart";
-import Card from "./lib/Card";
-import CardOffer from "./lib/CardOffer/CardOffer";
-export { 
-    Chart ,
-    CardOffer ,
-    Card
-} 
+import CardOffer from './lib/CardOffer/CardOffer';
+
+export * from './lib/TabNavBar/TabNavBar';
+export { CardOffer };

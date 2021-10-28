@@ -9,7 +9,6 @@ export function Main(props) {
   return (
     <div>
       <Modal />
-      <Modal />
       <URLError />
       <Explore />
       <Account />

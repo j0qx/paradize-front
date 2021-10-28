@@ -1,8 +1,12 @@
-import './NavBar.module.scss';
+import style from './NavBar.module.scss';
 export function NavBar(props) {
+
   return (
-    <div>
-      <h1>Welcome to NavBar!</h1>
+
+// Both h2 are becoming NavLink after Router is going to be OK.
+    <div className={style.navBar_Container}>
+      <h2 className={style.navBar_Container_Title}>Mentions légales</h2>
+      <h2 className={style.navBar_Container_Title}>Contacts</h2>
     </div>
   );
 }

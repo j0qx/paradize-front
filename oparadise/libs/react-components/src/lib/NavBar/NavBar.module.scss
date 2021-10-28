@@ -1,12 +1,39 @@
-.navBar_Container{
+/* Mobile + */
 
-  display: flex;
-  width: 30%;
-  justify-content: space-evenly;
-  align-items: flex-end;
 
-  &_Title{
-    color: #293845;
+  .navBar_Container{
+
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin-right: 2%;
+    margin-left: 2%;
+    padding-bottom: 2%;
+
+    &_Title{
+      color: #293845;
+      margin-right: 2%;
+    }
   }
-}
 
+
+
+/* Desktop */
+@media (min-width: 800px) {
+
+  .navBar_Container{
+
+    display: flex;
+    width: 100%;
+    justify-content: end;
+    align-items: flex-end;
+    margin-right: 2%;
+
+    &_Title{
+      color: #293845;
+      margin-right: 2%;
+    }
+  }
+ }

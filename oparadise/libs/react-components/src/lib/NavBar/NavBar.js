@@ -6,8 +6,8 @@ export function NavBar(props) {
 // Both h2 are becoming NavLink after Router is going to be OK.
 // Need to link  both pages
     <div className={style.navBar_Container}>
-      <h2 className={style.navBar_Container_Title}>Mentions légales</h2>
-      <h2 className={style.navBar_Container_Title}>Contacts</h2>
+      <span className={style.navBar_Container_Title}>Mentions légales</span>
+      <span className={style.navBar_Container_Title}>Contacts</span>
     </div>
   );
 }

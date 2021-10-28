@@ -7,8 +7,15 @@
   flex-direction: column;
   align-items: center;
 
-  &__button {
+
+  &__mainButtons{
+    display: flex;
+  }
+
+  &__mainButtons__button {
     display: none;
+    color: white;
+    background-color: rgb(102, 102, 173) ;
   }
 
   &__burger {
@@ -42,15 +49,23 @@
     max-height: 10%;
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+
     align-items: center;
 
     &__burger {
       display: none;
     }
 
-    &__button {
+    &__mainButtons{
+      display: flex;
+      width: 50%;
+      justify-content: flex-end;
+      margin-right: 2%;
+
+    }
+    &__mainButtons__button{
       display: block;
+      margin-right: 2%;
     }
 
     &__mainLogo {

@@ -15,12 +15,15 @@ export function Header(props) {
 
       </div>
       <span>Welcome Prénom</span>
+      <div className={style.header__mainButtons}>
       <ButtonSubmit
-      className={style.header__button}
-      //classCSS
-      //buttonName
+      classCSS={style.header__mainButtons__button}
+      buttonName ={"Inscription"}
       />
-      <ButtonSubmit className={style.header__button} />
+      <ButtonSubmit
+      classCSS={style.header__mainButtons__button}
+      buttonName ={"Connexion"} />
+      </div>
     </div>
   );
 }

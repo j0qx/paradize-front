@@ -4,14 +4,16 @@ import logo from '../../assets/image/logo.svg';
 import style from './Header.module.scss';
 
 export function Header(props) {
+
   return (
-    <div className={style.container}>
-      <div className={style.mainLogo}>
-        <img className ={style.mainLogo__logo} src={logo} alt=""  />
+    <div className={style.header}>
+      <div className={style.header__mainlogo}>
+        <img className={style.header__mainlogo__logo} src={logo} alt="logo de O'Paradise" />
+        <div className={style.header__burger}> Burger </div>
       </div>
-      <h1>Welcome Prénom</h1>
-      <ButtonSubmit />
-      <ButtonSubmit />
+      <span>Welcome Prénom</span>
+      <ButtonSubmit className={style.header__button} />
+      <ButtonSubmit className={style.header__button} />
     </div>
   );
 }

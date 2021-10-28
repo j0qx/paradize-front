@@ -7,7 +7,6 @@ export * from './lib/ToolTip/ToolTip';
 export * from './lib/CardFavoriteSearch/CardFavoriteSearch';
 export * from './lib/MyOffers/MyOffers';
 export * from './lib/CreateOffer/CreateOffer';
-export * from './lib/Offer/Offer';
 export * from './lib/ListCardOffer/ListCardOffer';
 export * from './lib/SearchZoneSettings/SearchZoneSettings';
 export * from './lib/ButtonSubmit/ButtonSubmit';

@@ -14,7 +14,7 @@ export function Header(props) {
         <i className={` ${style.header__burger} fas fa-bars fa-4x`}  />
 
       </div>
-      <span>Welcome Prénom</span>
+      <span className={style.header__userName}>Welcome Prénom</span>
       <div className={style.header__mainButtons}>
       <ButtonSubmit
       classCSS={style.header__mainButtons__button}

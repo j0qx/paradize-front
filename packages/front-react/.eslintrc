@@ -10,6 +10,7 @@
     "browser": true
   },
   "rules": {
+    "import/no-extraneous-dependencies": "off",
     "brace-style": ["error", "stroustrup"],
     "no-param-reassign": [
       "error",

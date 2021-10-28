@@ -1,0 +1,24 @@
+{
+  "name": "@oparadise/server-back",
+  "version": "1.0.0",
+  "description": "oparadise's backend server",
+  "homepage": "https://github.com/O-clock-Valhalla/projet-07-paradize#readme",
+  "license": "MIT",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/O-clock-Valhalla/projet-07-paradize.git"
+  },
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "bugs": {
+    "url": "https://github.com/O-clock-Valhalla/projet-07-paradize/issues"
+  },
+  "type": "module",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.14"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "name": "@oparadize/root",
+  "private": true,
+  "scripts": {
+    "start": "lerna run start --parallel --scope @oparadise/* "
+  },
+  "devDependencies": {
+    "lerna": "^4.0.0"
+  },
+  "workspaces": {
+    "packages": [
+      "packages/**"
+    ]
+  },
+  "dependencies": {
+    "install": "^0.13.0"
+  }
+}

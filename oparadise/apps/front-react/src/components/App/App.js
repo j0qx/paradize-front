@@ -1,11 +1,17 @@
+// import component
+import Main from '../Main/Main';
+import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
 import styles from './app.module.scss';
 
-import { CardOffer} from '@oparadise/react-components'
+
 
 export function App() {
   return (
     <div className={styles.app}>
-      <CardOffer />
+      <Header />
+      <Main />
+      <Footer />
     </div>
   );
 }

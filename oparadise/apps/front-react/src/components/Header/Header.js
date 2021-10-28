@@ -9,9 +9,9 @@ export function Header(props) {
       <div className={style.mainLogo}>
         <img className ={style.mainLogo__logo} src={logo} alt=""  />
       </div>
+      <h1>Welcome Prénom</h1>
       <ButtonSubmit />
       <ButtonSubmit />
-      <h1>Welcome to Header!</h1>
     </div>
   );
 }

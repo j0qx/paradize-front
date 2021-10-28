@@ -1,11 +1,16 @@
-.mainLogo{
-  width: 30%;
-  height: 15%;
-}
 
 .container{
   width: 100%;
+  height: 25%;
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+
+
+
+}
+.mainLogo{
+  width: 30%;
   height: 15%;
-
-
+  align-items: center;
 }

@@ -45,8 +45,9 @@
     .container__contact{
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: center;
         flex-wrap: wrap;
+        align-items: center;
 
         &__card{
             display: flex;
@@ -60,10 +61,11 @@
             &__name{
                 color: rgb(0, 0, 0);
                 font-weight: bold;
-                font-size: xx-large;
+                font-size: x-large;
             }
             &__role{
                 color: black;
+                font-size: larger;
             }
             &__img {
                 margin:2%;

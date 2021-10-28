@@ -50,6 +50,17 @@ const Contact = () => {
         <a target="_blank" href="https://www.linkedin.com/in/romainleclerc/">Profil LinkedIn</a>
       </div>
 
+      <div className={style.container__contact__card}>
+        <img className={style.container__contact__card__img}
+      src="https://media-exp1.licdn.com/dms/image/C5603AQGxMw6eUI_JFQ/profile-displayphoto-shrink_200_200/0/1609191606222?e=1640822400&v=beta&t=bWrScqLp7tI5Lu3wcm1RMou3wjCkLW_PKtYhQNCFLQE"
+      alt="Avatar" />
+        <h1 className={style.container__contact__card__name}>Benjamin Vasseur</h1>
+        <h2 className={style.container__contact__card__role}>Rôle</h2>
+        <h3>Git-Master</h3>
+        <a target="_blank" href="https://github.com/j0qx">Profil Github</a>
+        <a target="_blank" href="https://www.linkedin.com/in/benjamin-vasseur-1030b81b9/">Profil LinkedIn</a>
+      </div>
+
     </div>
     
   );

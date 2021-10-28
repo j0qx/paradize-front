@@ -1,5 +1,6 @@
 /* Mobile + */
 
+@media (max-width: 600px) {
 
   .navBar_Container{
 
@@ -10,7 +11,7 @@
     justify-content: center;
     margin-right: 2%;
     margin-left: 2%;
-    padding-bottom: 2%;
+
 
     &_Title{
       color: #293845;
@@ -18,7 +19,7 @@
     }
   }
 
-
+}
 
 /* Desktop */
 @media (min-width: 800px) {
@@ -28,8 +29,9 @@
     display: flex;
     width: 100%;
     justify-content: end;
-    align-items: flex-end;
+    align-items: center;
     margin-right: 2%;
+
 
     &_Title{
       color: #293845;

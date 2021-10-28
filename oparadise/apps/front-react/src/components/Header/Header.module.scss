@@ -1,0 +1,99 @@
+/* Mobile */
+
+.header {
+  width: 100%;
+  height: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 3%;
+
+
+  &__mainButtons{
+    display: flex;
+  }
+
+  &__mainButtons__button {
+    display: none;
+    color: white;
+    background-color: rgb(102, 102, 173) ;
+  }
+
+  &__burger {
+    display: block;
+    color: #0c4249;
+    margin-left: 5%;
+
+  }
+
+  &__mainlogo {
+    width: 80%;
+    height: 15%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-bottom: 3%;
+  }
+
+  &__mainlogo__logo {
+    display: block;
+    width: 80%;
+    height: 70%;
+    margin-top: 2%;
+
+  }
+}
+
+/*  Desktop*/
+@media (min-width: 800px) {
+
+  .header {
+    width: 100%;
+    height: 8%;
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+
+    &__userName{
+      display: flex;
+      width: 40%;
+      justify-content: center;
+      align-items: center;
+
+    }
+
+    &__burger {
+      display: none;
+    }
+
+    &__mainButtons{
+      display: flex;
+      width: 30%;
+      justify-content: flex-end;
+      margin-right: 2%;
+
+    }
+    &__mainButtons__button{
+      display: block;
+      margin-right: 2%;
+    }
+
+    &__mainLogo {
+      width: 30%;
+      height: 10%;
+      display: block;
+      align-items: flex-start;
+
+    }
+
+    &__mainlogo__logo {
+      display: block;
+      flex-wrap: wrap;
+      width: 80%;
+      height: auto;
+
+    }
+  }
+}

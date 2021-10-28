@@ -1,9 +1,10 @@
 import './ButtonSubmit.module.scss';
+
 export function ButtonSubmit(props) {
   return (
-    <div>
-      <h1>Welcome to ButtonSubmit!</h1>
-    </div>
+    // The button will receive in props, the text it will shows.
+    // This button is meant for every purpose based on him.
+    <button type="submit">{}</button>
   );
 }
 export default ButtonSubmit;

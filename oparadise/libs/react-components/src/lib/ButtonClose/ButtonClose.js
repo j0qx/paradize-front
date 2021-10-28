@@ -1,8 +1,8 @@
 import './ButtonClose.module.scss';
 
-export function ButtonClose(props) {
+export function ButtonClose({classCSS}) {
   return (
-      <i className="fas fa-times" />
+      <i className={`fas fa-times ${classCSS}`} />
   );
 }
 export default ButtonClose;

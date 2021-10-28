@@ -7,8 +7,9 @@ export function Explore(props) {
     <div>
       <Map />
       <MapSettings />
+      <Modal>
       <BoardDatas />
-      <Modal />
+      </Modal>
       <h1>Welcome to Explore!</h1>
     </div>
   );

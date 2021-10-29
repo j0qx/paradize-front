@@ -21,7 +21,7 @@
       border-radius: 10px;
       margin: 2% 2% 2% 2%;
       padding: 2%;
-      background-color: rgb(143, 185, 185);
+      background-color: rgb(177, 199, 199);
 
 
       &__picture{
@@ -76,8 +76,7 @@
       display: flex;
       border-radius: 5px;
       padding: 1%;
-
-      &__picture{
+      box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;      &__picture{
         width: 40%;
         height: 100%;
       }

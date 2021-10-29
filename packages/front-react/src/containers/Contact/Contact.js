@@ -54,7 +54,7 @@ const Contact = () => (
       <h2 className={style.container__contact__card__role}>Rôle</h2>
       <h3>Lead Développeur Back-end</h3>
       <a target="_blank" href="https://github.com/Pierre-joel96" rel="noreferrer">Profil Github</a>
-      <a target="_blank" href="https://www.linkedin.com/in/romainleclerc/" rel="noreferrer">Profil LinkedIn</a>
+      <a target="_blank" href="" rel="noreferrer">Profil LinkedIn</a>
     </div>
 
     <div className={style.container__contact__card}>

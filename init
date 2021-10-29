@@ -1,0 +1,16 @@
+
+# je  pars de la racine
+export PGUSER=postgres
+
+cd oparadise/apps/server-back/BDD/data
+
+psql -f create_db.sql
+
+export PGUSER=oparadise
+export PGPASSWORD=Oparadise0clocks
+
+cd ..
+
+bash sqitch deploy
+  
+#ou sqitch deploy db:pg:oparadise

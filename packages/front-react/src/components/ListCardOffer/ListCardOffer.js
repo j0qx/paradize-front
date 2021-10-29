@@ -10,7 +10,7 @@ const ListCardOffer = () => {
 // need mapping on data to dysplay real offers.
 
   return (
-
+      
     <div className={style.list__container}>
       <div className={style.list__container__title}>
         <h3>Liste des annonces</h3>
@@ -64,6 +64,7 @@ const ListCardOffer = () => {
             <p>Nom de l'annonce</p>
           </div>
         </div>
+        
       </div>
     </div>
   );

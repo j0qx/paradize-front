@@ -13,8 +13,8 @@ const Explore = () => (
     <ListCardOffer />
     <MapSettings />
     <Modal>
-      <BoardDatas />
     </Modal>
+    <BoardDatas />
     <h1>Welcome to Explore!</h1>
   </div>
 );

@@ -1,8 +1,11 @@
-import './BoardDatas.module.scss';
+import style from './BoardDatas.module.scss';
 
 const BoardDatas = () => (
-  <div>
-    <h1>Welcome to BoardDatas!</h1>
+  <div className={style.boarddatas_container}>
+    <div>
+  <h1>Lorem</h1>
+    </div>
+    
   </div>
 );
 

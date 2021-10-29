@@ -1,8 +1,9 @@
 import './ListCardOffer.module.scss';
+import CardOffer from '../CardOffer';
 
 const ListCardOffer = () => (
   <div>
-    <h1>Welcome to ListCardOffer!</h1>
+    <CardOffer />
   </div>
 );
 export default ListCardOffer;

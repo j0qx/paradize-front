@@ -1,7 +1,7 @@
-import './CardOffer.module.scss';
+import style from './CardOffer.module.scss';
 
 const CardOffer = () => (
-  <div>
+  <div className={style.cardOffer__main}>
     <h1>Welcome to CardOffer!</h1>
   </div>
 );

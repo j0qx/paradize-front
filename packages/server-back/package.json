@@ -15,10 +15,19 @@
   "bugs": {
     "url": "https://github.com/O-clock-Valhalla/projet-07-paradize/issues"
   },
-  "type": "module",
   "dependencies": {
     "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "esm": "^3.2.25",
     "express": "^4.17.1",
-    "nodemon": "^2.0.14"
+    "nodemon": "^2.0.14",
+    "pg": "^8.7.1",
+    "postgresql": "^0.0.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.14.5",
+    "@babel/core": "^7.8.4",
+    "@babel/preset-env": "^7.8.4",
+    "cross-env": "^5.2.1"
   }
 }

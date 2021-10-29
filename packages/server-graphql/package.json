@@ -12,16 +12,18 @@
   },
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js",
+    "start": "nodemon --experimental-modules --es-module-specifier-resolution=node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "type": "module",
   "license": "MIT",
   "dependencies": {
+    "apollo-server-express": "^3.4.0",
     "axios": "^0.23.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "express-graphql": "^0.12.0",
+    "express-session": "^1.17.2",
     "graphql": "^15.6.1",
     "nodemon": "^2.0.14"
   }

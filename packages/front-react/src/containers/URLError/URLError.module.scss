@@ -11,9 +11,9 @@
   height: 500px;
   background-color: transparent;
 }
-
+/* display to chage to show the error*/
 .urlError{
- display: flex;
+ display: none;
  justify-content: center;
  align-items: center;
   background-color: transparent;

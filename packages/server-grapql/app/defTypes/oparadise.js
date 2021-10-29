@@ -7,6 +7,8 @@ import {
   GraphQLNonNull,
 } from 'graphql';
 
+// TODO : type from  base seems strange , check it and ajust this file
+
 const userType = new GraphQLObjectType({
   name: 'user',
   fields: () => ({

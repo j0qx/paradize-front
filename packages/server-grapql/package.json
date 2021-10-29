@@ -1,5 +1,5 @@
 {
-  "name": "@oparadise/server-back",
+  "name": "@oparadise/server-graphql",
   "version": "1.0.0",
   "description": "oparadise's backend server",
   "homepage": "https://github.com/O-clock-Valhalla/projet-07-paradize#readme",

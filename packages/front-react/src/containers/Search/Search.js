@@ -1,8 +1,6 @@
-import './Search.module.scss';
+import style from './Search.module.scss';
 
 const Search = () => (
-  <div>
-    <h1>Welcome to Search!</h1>
-  </div>
+  <div className={style.searchContainer} />
 );
 export default Search;

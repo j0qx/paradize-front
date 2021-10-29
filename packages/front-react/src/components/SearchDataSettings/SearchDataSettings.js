@@ -1,9 +1,65 @@
-import './SearchDataSettings.module.scss';
+import style from './SearchDataSettings.module.scss';
 
 const SearchDataSettings = () => (
-  <div>
-    <h1>Welcome to SearchDataSettings!</h1>
-  </div>
+  <div className={style.container__control}>
+
+    <label className={`${style.control__label} ${style.control__checkbox}`}> 
+            <input type="checkbox" checked="checked" />
+            Future icone 
+    </label>
+
+    <label className={`${style.control__label} ${style.control__checkbox}`}> 
+            <input type="checkbox" checked="checked" />
+            Future icone 
+    </label>
+
+    <label className={`${style.control__label} ${style.control__checkbox}`}> 
+            <input type="checkbox" checked="checked" />
+            Future icone 
+    </label>
+
+    <label className={`${style.control__label} ${style.control__checkbox}`}> 
+            <input type="checkbox" checked="checked" />
+            Future icone 
+    </label>
+
+    <label className={`${style.control__label} ${style.control__checkbox}`}> 
+            <input type="checkbox" checked="checked" />
+            Future icone 
+    </label>
+
+    <label className={`${style.control__label} ${style.control__checkbox}`}> 
+            <input type="checkbox" checked="checked" />
+            Future icone 
+    </label>
+
+    <label className={`${style.control__label} ${style.control__checkbox}`}> 
+            <input type="checkbox" checked="checked" />
+            Future icone 
+    </label>
+
+    <label className={`${style.control__label} ${style.control__checkbox}`}> 
+            <input type="checkbox" checked="checked" />
+            Future icone 
+    </label>
+
+    <label className={`${style.control__label} ${style.control__checkbox}`}> 
+            <input type="checkbox" checked="checked" />
+            Future icone 
+    </label>
+    <label className={`${style.control__label} ${style.control__checkbox}`}> 
+            <input type="checkbox" checked="checked" />
+            Future icone 
+    </label>
+    <label className={`${style.control__label} ${style.control__checkbox}`}> 
+            <input type="checkbox" checked="checked" />
+            Future icone 
+    </label>
+    <label className={`${style.control__label} ${style.control__checkbox}`}> 
+            <input type="checkbox" checked="checked" />
+            Future icone 
+    </label>
+    </div>
 );
 
 export default SearchDataSettings;

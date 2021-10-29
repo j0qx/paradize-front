@@ -1,10 +1,10 @@
 import './UserSettings.module.scss';
-import Contact from '../Contact/Contact';
+import SearchDataSettings from '../../components/SearchDataSettings/SearchDataSettings';
 
 const UserSettings = () => (
   <div>
     <h1>Welcome to UserSettings!</h1>
-    <Contact />
+    <SearchDataSettings />
   </div>
 );
 export default UserSettings;

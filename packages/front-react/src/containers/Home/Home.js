@@ -1,9 +1,8 @@
 import './Home.module.scss';
+import Search from '../Search/Search';
 
 const Home = () => (
-  <div>
-    <h1>Welcome to Home!</h1>
-  </div>
+  <Search />
 );
 
 export default Home;

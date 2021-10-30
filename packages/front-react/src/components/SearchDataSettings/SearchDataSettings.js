@@ -1,5 +1,9 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import { useDispatch, useSelector } from 'react-redux';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faCocktail, faClinicMedical, faShoppingCart, faTree, faHatCowboy, faSchool,
+} from '@fortawesome/free-solid-svg-icons';
 import style from './SearchDataSettings.module.scss';
 import { CHECKBOX_TOGGLE } from '../../store/actions';
 
@@ -33,7 +37,7 @@ const SearchDataSettings = () => {
             checked={bars}
           />
           <span className={`${style.slider} ${style.round}`} />
-          <p className={style.slider__icon}>Future icone</p>
+          <p className={style.slider__icon}><FontAwesomeIcon className={style.switch__font} icon={faCocktail} size="2x" /></p>
         </label>
       </div>
       {/* Each label is meant to be a checkbox */}
@@ -53,7 +57,7 @@ const SearchDataSettings = () => {
             checked={medic}
           />
           <span className={`${style.slider} ${style.round}`} />
-          <p className={style.slider__icon}>Future icone</p>
+          <p className={style.slider__icon}><FontAwesomeIcon className={style.switch__font} icon={faClinicMedical} size="2x" /></p>
         </label>
       </div>
       {/* Each label is meant to be a checkbox */}
@@ -74,7 +78,7 @@ const SearchDataSettings = () => {
             checked={shops}
           />
           <span className={`${style.slider} ${style.round}`} />
-          <p className={style.slider__icon}>Future icone</p>
+          <p className={style.slider__icon}><FontAwesomeIcon className={style.switch__font} icon={faShoppingCart} size="2x" /></p>
         </label>
       </div>
       {/* Each label is meant to be a checkbox */}
@@ -95,7 +99,7 @@ const SearchDataSettings = () => {
             checked={parcs}
           />
           <span className={`${style.slider} ${style.round}`} />
-          <p className={style.slider__icon}>Future icone</p>
+          <p className={style.slider__icon}><FontAwesomeIcon className={style.switch__font} icon={faTree} size="2x" /></p>
         </label>
       </div>
       {/* Each label is meant to be a checkbox */}
@@ -116,27 +120,29 @@ const SearchDataSettings = () => {
             checked={police}
           />
           <span className={`${style.slider} ${style.round}`} />
-          <p className={style.slider__icon}>Future icone</p>
+          <p className={style.slider__icon}><FontAwesomeIcon className={style.switch__font} icon={faHatCowboy} size="2x" /></p>
         </label>
       </div>
       {/* Each label is meant to be a checkbox */}
-      <label
-        className={style.switch}
-      >
-        <input
-          onChange={(e) => {
-            dispatch({
-              type: CHECKBOX_TOGGLE,
-              checkBoxField: e.target.name,
-            });
-          }}
-          name="schools"
-          type="checkbox"
-          checked={schools}
-        />
-        <span className={`${style.slider} ${style.round}`} />
-      </label>
-      <p className={style.slider__icon}>Future icone</p>
+      <div className={style.container__switch}>
+        <label
+          className={style.switch}
+        >
+          <input
+            onChange={(e) => {
+              dispatch({
+                type: CHECKBOX_TOGGLE,
+                checkBoxField: e.target.name,
+              });
+            }}
+            name="schools"
+            type="checkbox"
+            checked={schools}
+          />
+          <span className={`${style.slider} ${style.round}`} />
+        </label>
+        <p className={style.slider__icon}><FontAwesomeIcon className={style.switch__font} icon={faSchool} size="2x" /></p>
+      </div>
       {/* Each label is meant to be a checkbox */}
     </div>
   );

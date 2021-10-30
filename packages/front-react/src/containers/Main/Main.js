@@ -7,15 +7,15 @@ import URLError from '../URLError';
 import Explore from '../Explore';
 import Home from '../Home';
 import Contact from '../Contact';
-import style from './Main.module.scss';
 import UserConnect from '../UserConnect';
 import { Modal } from '../../components';
-import './Main.module.scss';
+
+import style from './Main.module.scss';
 
 const Main = () => {
   const isModalHidden = useSelector((state) => state.domSettings.isModalHidden);
   return (
-    <div>
+    <div className={style.main}>
       {isModalHidden === false && (
       <Modal>
         <UserConnect />

@@ -65,14 +65,13 @@
     flex-direction: column;
     width: 100%;
     height: 100%;
-    background-color: whitesmoke;
+    
   
   
     &__main {
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding-bottom: 3%;
       width: 100%;
       height: 100%;
       
@@ -102,7 +101,7 @@
       justify-content: center;
       width: 100%;
       height: fit-content;
-      padding-bottom: 3%;
+      
       
   
       &__graph {

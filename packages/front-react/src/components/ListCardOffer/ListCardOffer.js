@@ -12,9 +12,7 @@ const ListCardOffer = () => {
   return (
       
     <div className={style.list__container}>
-      <div className={style.list__container__title}>
-        <h3>Les annonces</h3>
-      </div>
+      
       <div className={style.list__container__main}>
         <div className={style.list__container__main__offer}>
           <img className={style.list__container__main__offer__picture} src={house} alt="annonce" />

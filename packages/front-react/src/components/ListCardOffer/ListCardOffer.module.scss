@@ -14,13 +14,14 @@
     flex-direction: row;
     flex-wrap: wrap;
     width: 100%;
+    padding: 0%;
 
     &__offer{
       width: 100%;
       display: flex;
       border-radius: 10px;
       margin: 2% 2% 2% 2%;
-      padding: 2%;
+      padding: 1%;
       background-color: rgb(177, 199, 199);
 
 

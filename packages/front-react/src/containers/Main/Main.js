@@ -7,9 +7,17 @@ import Explore from '../Explore';
 import Home from '../Home';
 import Contact from '../Contact';
 import style from './Main.module.scss';
+import UserConnect from '../UserConnect';
+import { Modal } from '../../components';
+import './Main.module.scss';
+
+
 
 const Main = () => (
   <div className={style.main}>
+    <Modal>
+      <UserConnect />
+    </Modal>
     <Switch>
       <Route exact path="/">
         <Home />

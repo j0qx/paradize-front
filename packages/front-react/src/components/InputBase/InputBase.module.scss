@@ -1,0 +1,19 @@
+.inputContainer{
+  width: 50%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+  border-radius: 4px;
+  border: 1px solid rgb(157, 189, 178);
+  padding: 0.5rem 1rem;
+  color:rgb(157, 189, 178);
+  
+  &__input{
+    display: block;
+    width:90%;
+    font-size: 1rem;
+    padding: 0.2rem 1rem;
+    border: none;
+}
+
+}

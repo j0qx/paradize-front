@@ -15,6 +15,7 @@ import SearchDataSettings from './SearchDataSettings';
 import SearchZoneSettings from './SearchZoneSettings';
 import TabNavBar from './TabNavBar';
 import ToolTip from './ToolTip';
+import InputBase from './InputBase';
 
 export {
   ButtonClose,
@@ -34,4 +35,5 @@ export {
   SearchZoneSettings,
   TabNavBar,
   ToolTip,
+  InputBase,
 };

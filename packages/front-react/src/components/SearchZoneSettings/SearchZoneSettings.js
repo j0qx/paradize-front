@@ -1,8 +1,9 @@
-import './SearchZoneSettings.module.scss';
+import style from './SearchZoneSettings.module.scss';
+import InputBase from '../InputBase';
 
 const SearchZoneSettings = () => (
-  <div>
-    <h1>Welcome to SearchZoneSettings!</h1>
-  </div>
+  <InputBase
+    placeholder="ex: 13 rue mozart, paris"
+  />
 );
 export default SearchZoneSettings;

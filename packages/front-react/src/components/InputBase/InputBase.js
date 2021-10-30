@@ -1,31 +1,41 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { PropTypes } from 'prop-types';
-import style from './InputBase.scss';
+import { useDispatch } from 'react-redux';
+import style from './InputBase.module.scss';
+import { CHANGE_INPUT_VALUE } from '../../store/actions';
 
 const InputBase = ({
-  icon, placeholder, inputName, handleOnChange, classCSS,
-}) => (
-  //
-  <div className={`${style.userConnect__inputContainer} ${classCSS}`}>
-    <div>
-      <FontAwesomeIcon icon={icon} />
+  icon, placeholder, inputName, classCSS, inputValue,
+}) => {
+  const dispatch = useDispatch();
+  return (
+    <div className={`${style.inputContainer} ${classCSS}`}>
+      <div>
+        <FontAwesomeIcon icon={icon} />
+      </div>
+      <input
+        type="text"
+        className={style.inputContainer__input}
+        placeholder={placeholder}
+        name={inputName}
+        value={inputValue}
+        onChange={(event) => {
+          dispatch({
+            type: CHANGE_INPUT_VALUE,
+            inputField: inputName,
+            newValue: event.target.value,
+          });
+        }}
+      />
     </div>
-    <input
-      type="text"
-      className={style.userConnect__input}
-      placeholder={placeholder}
-      name={inputName}
-      onChange={handleOnChange}
-    />
-  </div>
-
-);
+  );
+};
 
 InputBase.propTypes = {
-  icon: PropTypes.string.isRequired,
+  icon: PropTypes.shape({}).isRequired,
   placeholder: PropTypes.string.isRequired,
   inputName: PropTypes.string.isRequired,
-  handleOnChange: PropTypes.func.isRequired,
+  inputValue: PropTypes.string.isRequired,
   classCSS: PropTypes.string.isRequired,
 };
 

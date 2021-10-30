@@ -7,12 +7,12 @@ import house from '../../assets/image/house.jpg';
 const ListCardOffer = () => {
   const tata = 'toto';
 
-// need mapping on data to dysplay real offers.
+  // need mapping on data to dysplay real offers.
 
   return (
-      
+
     <div className={style.list__container}>
-      
+
       <div className={style.list__container__main}>
         <div className={style.list__container__main__offer}>
           <img className={style.list__container__main__offer__picture} src={house} alt="annonce" />
@@ -50,8 +50,8 @@ const ListCardOffer = () => {
             <p>Nom de l'annonce</p>
           </div>
         </div>
-        
-        
+
+
       </div>
     </div>
   );

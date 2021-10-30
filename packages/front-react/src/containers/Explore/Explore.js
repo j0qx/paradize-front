@@ -20,7 +20,7 @@ const Explore = () => (
   <div className={style.container}>
 
     <div className={style.container__tabnavbar}>
-      <FontAwesomeIcon icon={faHome} size='3x' color='#406F8A ' />
+      <FontAwesomeIcon icon={faHome} size='3x' color='#406F8A' />
       <h4>Recherche</h4>
       <h4>Annonces</h4>
       <h4>Statistique</h4>
@@ -33,7 +33,7 @@ const Explore = () => (
       <div className={style.container__map__map}>
         <img className={style.container__map__picture} src={map} alt="" />
       </div>
-      
+
     </div>
 
     <div className={style.container__boarddatas}>

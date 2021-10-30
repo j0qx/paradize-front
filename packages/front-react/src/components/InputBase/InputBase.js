@@ -22,7 +22,11 @@ const InputBase = ({
 );
 
 InputBase.propTypes = {
-  
-}
+  icon: PropTypes.string.isRequired,
+  placeholder: PropTypes.string.isRequired,
+  inputName: PropTypes.string.isRequired,
+  handleOnChange: PropTypes.func.isRequired,
+  classCSS: PropTypes.string.isRequired,
+};
 
 export default InputBase;

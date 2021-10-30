@@ -14,7 +14,7 @@ h4 {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 2% 0 2% 0;
+    padding: 2% 0  2% 0;
   }
 
   &__listcardoffer {
@@ -47,7 +47,7 @@ h4 {
 
 
 /* Desktop */
-@media (min-width: 800px) {
+@media (min-width: 1100px) {
 
 .container {
     display: flex;

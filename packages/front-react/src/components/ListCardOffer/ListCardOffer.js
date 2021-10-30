@@ -13,7 +13,7 @@ const ListCardOffer = () => {
       
     <div className={style.list__container}>
       <div className={style.list__container__title}>
-        <h3>Liste des annonces</h3>
+        <h3>Les annonces</h3>
       </div>
       <div className={style.list__container__main}>
         <div className={style.list__container__main__offer}>

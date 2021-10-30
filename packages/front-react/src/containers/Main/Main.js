@@ -6,10 +6,10 @@ import URLError from '../URLError';
 import Explore from '../Explore';
 import Home from '../Home';
 import Contact from '../Contact';
-import './Main.module.scss';
+import style from './Main.module.scss';
 
 const Main = () => (
-  <div>
+  <div className={style.main}>
     <Switch>
       <Route exact path="/">
         <Home />

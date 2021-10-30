@@ -50,18 +50,7 @@ const ListCardOffer = () => {
             <p>Nom de l'annonce</p>
           </div>
         </div>
-        <div className={style.list__container__main__offer}>
-          <img className={style.list__container__main__offer__picture} src={house} alt="annonce" />
-          <div className={style.list__container__main__offer__title}>
-            <p>Nom de l'annonce</p>
-          </div>
-        </div>
-        <div className={style.list__container__main__offer}>
-          <img className={style.list__container__main__offer__picture} src={house} alt="annonce" />
-          <div className={style.list__container__main__offer__title}>
-            <p>Nom de l'annonce</p>
-          </div>
-        </div>
+        
         
       </div>
     </div>

@@ -1,8 +1,7 @@
 import './Search.module.scss';
+import SearchDataSettings from '../../components/SearchDataSettings/SearchDataSettings';
 
 const Search = () => (
-  <div>
-    <h1>Welcome to Search!</h1>
-  </div>
+  <SearchDataSettings />
 );
 export default Search;

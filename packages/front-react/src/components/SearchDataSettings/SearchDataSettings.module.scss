@@ -1,0 +1,31 @@
+.container__control {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 200px;
+  height: 200px;
+  flex-flow: wrap;
+}
+.container__switch {
+  display: flex;
+  flex-direction: row;
+}
+ .switch {
+    display: flex;
+    flex-direction: row;
+  }
+  
+   .switch input { 
+     position: relative;
+     vertical-align: middle;
+     top: 10px;
+  }
+  .slider__icon {
+    margin-left: 5px;
+  }
+
+  .switch__font {
+    color: #406F8A;
+    filter:drop-shadow(1px 1px 1px rgb(209, 206, 0))
+  }

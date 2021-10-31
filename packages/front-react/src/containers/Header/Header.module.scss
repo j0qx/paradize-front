@@ -1,93 +1,99 @@
-/* Mobile */
-
-.header {
-  width: 100%;
+.navbar{
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   align-items: center;
+  justify-content:  space-between;
+  width: 100%;
+  min-height: 75px;
+  padding: 1rem 5rem;
+  background-color: white;
 
-
-  &__mainButtons{
-    display: flex;
+  &__logoContainer{
+    width: 15%;
+    z-index: 2;
   }
 
-  &__mainButtons__button {
+  &__linksContainer{
+    display: flex;
+
+    &__link{
+      padding: 0 0.3rem;
+    }  
+  }
+  &__burger{
     display: none;
-  }
-
-  &__burger {
-    display: block;
-    color: #0c4249;
-    margin-left: 5%;
-
-  }
-
-  &__mainlogo {
-    width: 80%;
-    height: 15%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-evenly;
-  }
-
-  &__mainlogo__logo {
-    display: block;
-    width: 80%;
-    height: 70%;
-
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+  
   }
 }
 
-/*  Desktop*/
-@media (min-width: 800px) {
+@media screen and (max-width: 800px){
 
-  .header {
-    width: 100%;
-    height: 2vh;
-    display: flex;
-    flex-direction: row;
-    padding: 3% 0 3% 0;
+  .navbar{
+    padding: 1.5rem;
 
-    align-items: center;
-
-    &__userName{
-      display: flex;
-      width: 40%;
-      justify-content: center;
-      align-items: center;
-
+    &__message{
+    display: none;
     }
 
-    &__burger {
-      display: none;
-    }
-
-    &__mainButtons{
-      display: flex;
-      width: 30%;
-      justify-content: flex-end;
-      margin-right: 2%;
-
-    }
-    &__mainButtons__button{
-      display: block;
-      margin-right: 1.5rem;
-    }
-
-    &__mainLogo {
-      width: 30%;
-      display: block;
-      align-items: flex-start;
-
-    }
-
-    &__mainlogo__logo {
-      display: block;
-      flex-wrap: wrap;
+    &__logoContainer{
       width: 50%;
-      height: auto;
+      z-index: 3;
+    }
 
+    &__linksContainer{
+
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+      position: absolute;
+      left:0;
+      right: 0;
+      top: -100vh;
+      padding: 1rem;
+      padding-top: 80px;
+      background-color: rgb(157, 189, 178);
+      z-index: 3;
+      visibility: hidden;
+      transition: all ease-out 250ms;
+
+      
+  
+      &__link{
+        display: block;
+        padding: 0.3rem 1.5rem;
+        text-align: center;
+      }
+    } 
+    &__burger{
+      display: block;
+      z-index: 3;
     }
   }
+  .navbarOpened .navbar__linksContainer{
+      top:0;
+      visibility: visible;
+
+      &__link{
+        width: 100%;
+        &::after{
+          content: "";
+          display: block;
+          margin: 0.2rem auto;
+          width: 50vw;
+          height: 1px;
+          background-color: white;
+        }
+        &:last-child::after{
+       display: none;
+        }
+      }
+    
+  }
+  .navbarOpened .navbar__button{
+    width: 100%;
+  }
 }
+  

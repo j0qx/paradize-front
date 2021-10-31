@@ -1,3 +1,4 @@
+@use '../../styles/vars';
 
 .list__container{
   display: flex;
@@ -22,7 +23,7 @@
       border-radius: 10px;
       margin: 2% 2% 2% 2%;
       padding: 1%;
-      background-color: rgb(177, 199, 199);
+      background-color: vars.$primaryColor;
 
 
       &__picture{

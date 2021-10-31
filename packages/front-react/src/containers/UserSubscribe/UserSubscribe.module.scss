@@ -1,3 +1,5 @@
+@use '../../styles/vars';
+
 .userSubscribe{
 
   width: 100%;
@@ -7,7 +9,7 @@
     font-size: 1.8rem;
     margin-bottom: 5rem;
     font-weight: bolder;
-    color: #406F8A;
+    color: vars.$secondaryColor;
   }
 
   &__form{

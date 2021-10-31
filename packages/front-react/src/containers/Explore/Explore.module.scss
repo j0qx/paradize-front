@@ -1,6 +1,8 @@
+@use '../../styles/vars';
+
 h4 {
   padding: 0 2% 0 2%;
-  color: #406F8A;
+  color: vars.$secondaryColor;
 }
 
 .container {

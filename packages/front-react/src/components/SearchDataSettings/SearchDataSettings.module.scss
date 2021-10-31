@@ -1,3 +1,4 @@
+@use '../../styles/vars';
 .container__control {
   display: flex;
   flex-direction: row;
@@ -26,6 +27,6 @@
   }
 
   .switch__font {
-    color: #406F8A;
+    color: vars.$secondaryColor;
     filter:drop-shadow(1px 1px 1px rgb(209, 206, 0))
   }

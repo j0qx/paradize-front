@@ -1,3 +1,5 @@
+@use '../../styles/vars';
+
 .userConnect{
 
   width: 100%;
@@ -6,7 +8,7 @@
     text-align: center;
     font-size: 1.8rem;
     margin-bottom: 5rem;
-    color: #406F8A;
+    color: vars.$secondaryColor;
     font-weight: bolder;
   }
 

@@ -1,12 +1,14 @@
+@use '../../styles/vars';
+
 .inputContainer{
   width: 50%;
   display: flex;
   align-items: center;
   margin-bottom: 2rem;
   border-radius: 4px;
-  border: 1px solid rgb(157, 189, 178);
+  border: 1px solid vars.$primaryColor;
   padding: 0.5rem 1rem;
-  color:rgb(157, 189, 178);
+  color:vars.$primaryColor;
   
   &__input{
     display: block;

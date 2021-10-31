@@ -70,6 +70,8 @@
     &__burger{
       display: block;
       z-index: 3;
+      color: #406F8A;
+      transition: color ease-out 250ms;
     }
   }
   .navbarOpened .navbar__linksContainer{
@@ -94,6 +96,10 @@
   }
   .navbarOpened .navbar__button{
     width: 100%;
+  }
+
+  .navbarOpened .navbar__burger{
+    color: white;
   }
 }
   

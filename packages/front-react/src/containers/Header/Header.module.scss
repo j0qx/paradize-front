@@ -71,7 +71,6 @@
       display: block;
       z-index: 3;
       color: #406F8A;
-      transition: color ease-out 250ms;
     }
   }
   .navbarOpened .navbar__linksContainer{
@@ -100,6 +99,7 @@
 
   .navbarOpened .navbar__burger{
     color: white;
+    transition: color ease-in 150ms 100ms;
   }
 }
   

@@ -2,32 +2,20 @@
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
-import { ApolloProvider } from 'react-apollo';
 
 // == Import : local
 // Composants
 import App from './containers/App';
 import store from './store';
 
-const restLink = new RestLink({
-  uri: 'https://swapi.dev/api/',
-});
-
-const client = new ApolloClient({
-  link: restLink,
-  cache: new InMemoryCache(),
-});
-
 // == Render
 // 1. Élément React racine (celui qui contient l'ensemble de l'app)
 //    => crée une structure d'objets imbriqués (DOM virtuel)
 const rootReactElement = (
   <Provider store={store}>
-    <ApolloProvider client={client}>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </ApolloProvider>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </Provider>
 
 );

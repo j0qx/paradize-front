@@ -1,20 +1,36 @@
 import express from 'express';
 import cors from 'cors';
-import { graphqlHTTP } from 'express-graphql';
-import schema from './schemas/Oparadise_schema';
+import { ApolloServer } from 'apollo-server-express';
 
-const server = express();
+import typeDefs from './typesDefs';
+import resolvers from './resolvers';
+import TomtomApi from './datasources/TomtomApi';
+import oparadiseDb from './datasources/oparadiseDb';
 
 const PORT = 3333;
 
-server.use(cors());
+(async () => {
+  const app = express();
+  app.use(cors());
+  app.get('/', (req, res) => {
+    res.send('welcome on graphql server');
+  });
 
-server.use('/graphiql', graphqlHTTP({
-  graphiql: true,
-  schema,
-}));
+  const apolloServer = new ApolloServer({
+    typeDefs,
+    resolvers,
+    context: () => ({
+      client: oparadiseDb,
+    }),
+    dataSources: () => ({
+      tomtomApi: new TomtomApi(),
+    }),
+  });
+  await apolloServer.start();
+  apolloServer.applyMiddleware({ app });
 
-server.listen(PORT, () => {
-  // eslint-disable-next-line no-console
-  console.log('server listening on : ', PORT);
-});
+  app.listen(PORT, () => {
+    // eslint-disable-next-line no-console
+    console.log('server listening on : ', PORT);
+  });
+})();

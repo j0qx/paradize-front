@@ -1,6 +1,6 @@
 import root from './root';
-import user from './user';
-import tomtom from './tomtom';
+import user from './db/user';
+import tomtom from './apis/tomtom';
 
 const schemaArray = [
   root,

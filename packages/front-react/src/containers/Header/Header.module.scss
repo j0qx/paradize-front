@@ -33,39 +33,47 @@
 @media screen and (max-width: 800px){
 
   .navbar{
+    width: 100%;
     padding: 1.5rem;
+    position:relative;
+    overflow-x: hidden;
 
+    &__button{
+      width: 100%;
+      background-color: inherit;
+      color: black;
+    }
     &__message{
     display: none;
     }
 
     &__logoContainer{
       width: 60%;
-      z-index: 3;
+      z-index: 4;
     }
 
     &__linksContainer{
 
       flex-direction: column;
-      justify-content: flex-end;
+      justify-content: flex-start;
+      height: 100vh;
+      width: 75vw;
       align-items: center;
       position: absolute;
-      left:0;
-      right: 0;
-      top: -100vh;
+      right:-100vw;
+      top: 0;
       padding: 2rem 1rem;
-      padding-top: 70px;
-      background-color: vars.$primaryColor;
+      padding-top: 100px;
+      background: linear-gradient(to bottom, rgba(255, 255, 255,1), rgba(255, 255, 255, 0.8)) ;
       z-index: 3;
-      visibility: hidden;
-      transition: all ease-out 250ms;
+      transition: all ease 600ms;
 
       
   
       &__link{
         display: block;
         padding: 0.3rem 1.5rem;
-        text-align: center;
+        text-align: right;
       }
     } 
     &__burger{
@@ -73,37 +81,28 @@
       z-index: 3;
     }
   }
+  .navbarOpened{
+    overflow-x: visible;
+  }
   .navbarOpened .navbar__linksContainer{
-      top:0;
-      visibility: visible;
+      right: 0;
+      transition: all ease-out 250ms;
 
       &__link{
         width: 100%;
+        white-space: nowrap;
         &::after{
           content: "";
           display: block;
-          margin: 0.2rem auto;
-          width: 50vw;
+          margin: 0.3rem 0 0.3rem auto;
+          width: 35vw;
           height: 1px;
-          background-color: white;
+          background-color: rgb(211, 211, 211);
         }
         &:last-child::after{
        display: none;
         }
       }
-    
-  }
-  .navbarOpened .navbar__button{
-    width: 100%;
-
-    &:hover{
-      background-color: vars.$primaryColor;
     }
-  }
-
-  .navbarOpened .navbar__burger{
-    color: white;
-    transition: color ease-out 150ms 100ms;
-  }
 }
   

@@ -1,9 +1,12 @@
-import { TOGGLE_PRINT_MODAL, SET_MODAL_CONTENT } from '../actions';
+import { TOGGLE_PRINT_MODAL, SET_MODAL_CONTENT,TOGGLE_OPEN_SLIDE } from '../actions';
 
 const initialState = {
   isModalHidden: true,
   isLoginModal: false,
   isSubscribeModal: false,
+  isLeftSlideOpen:false,
+  isRightSlideOpen:false,
+  isBottomSlideOpen:false,
 };
 
 const domSettingsReducer = (state = initialState, action = {}) => {
@@ -20,6 +23,12 @@ const domSettingsReducer = (state = initialState, action = {}) => {
         ...state,
         [action.modalContent]: !state[action.modalContent],
       };
+      // Action who will toggle different Slide in explore
+      case TOGGLE_OPEN_SLIDE:
+        return{
+          ...state,
+          [action.slide]: !state[action.slide], 
+        }
 
     default:
       return state;

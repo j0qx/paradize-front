@@ -12,8 +12,6 @@ import {
 } from '@apollo/client'
 
 
-import { useState } from 'react';
-
 const DefaultIcon = L.icon({
   iconUrl: icon,
   shadowUrl: iconShadow,
@@ -22,23 +20,23 @@ const DefaultIcon = L.icon({
 const Map = () => {
   const position = [48.863007, 2.338288]
   const { loading, error, data } = useQuery(gql`
-      query Query {
-  tomtomSearch(keyword: "theatre", lat: 48.863007, lon: 2.338288, radius: 1000) {
-    position {
-      lat
-      lon
+  query Query {
+    tomtomSearch(keyword: "bar bistrot", lat: 48.863007, lon: 2.338288, radius: 100000, limit:1000) {
+      position {
+        lat
+        lon
+      }
+      address {
+        streetName
+        postalCode
+        municipality
+      }
+      poi {
+        name
+      }
+      id
     }
-    address {
-      streetName
-      postalCode
-      municipality
-    }
-    poi {
-      name
-    }
-    id
   }
-}
 
     `);
 
@@ -48,6 +46,7 @@ const Map = () => {
   const maps = {
     base: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
     sattelite: 'http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',
+    pretty:'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw'
   };
   return (
     <MapContainer
@@ -70,9 +69,16 @@ const Map = () => {
             subdomains={['mt0', 'mt1', 'mt2', 'mt3']}
           />
         </LayersControl.BaseLayer>
+        <LayersControl.BaseLayer name="Pretty">
+          <TileLayer
+            url={maps.pretty}
+            maxZoom={18}
+            id={'mapbox/streets-v11'}
+          />
+        </LayersControl.BaseLayer>
       </LayersControl>
       {
-        data.tomtomSearch.map(({id,position, address, poi} )=> (
+        data.tomtomSearch.map(({id,position, address, poi})=> (
           <Marker key={id} icon={DefaultIcon} position={position}>
           <Popup>
           <p>{poi.name}</p>

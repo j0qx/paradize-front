@@ -70,6 +70,7 @@ const tomtom = gql`
       lat: Float!,
       lon: Float!
       radius: Int!
+      limit: Int
     ):[poiSearch]!
   }
 

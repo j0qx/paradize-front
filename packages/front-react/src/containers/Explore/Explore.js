@@ -27,10 +27,7 @@ const Explore = () => (
     </div>
 
     <div className={style.container__map}>
-      <div className={style.container__map__map}>
         <Map />
-      </div>
-
     </div>
 
     <div className={style.container__boarddatas}>

@@ -23,7 +23,7 @@ const domSettingsReducer = (state = initialState, action = {}) => {
         ...state,
         [action.modalContent]: !state[action.modalContent],
       };
-      // Action who will toggle different Slide in explore
+      // Action who will toggle different Slides in explore
       case TOGGLE_OPEN_SLIDE:
         return{
           ...state,

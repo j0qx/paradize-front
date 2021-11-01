@@ -13,6 +13,8 @@ import NavBar from './NavBar';
 import Pointer from './Pointer';
 import SearchDataSettings from './SearchDataSettings';
 import SearchZoneSettings from './SearchZoneSettings';
+import SlideLeft from './SlideLeft/SlideLeft';
+import SlideRight from './SlideRight/SlideRight';
 import TabNavBar from './TabNavBar';
 import ToolTip from './ToolTip';
 import InputBase from './InputBase';
@@ -33,6 +35,8 @@ export {
   Pointer,
   SearchDataSettings,
   SearchZoneSettings,
+  SlideLeft,
+  SlideRight,
   TabNavBar,
   ToolTip,
   InputBase,

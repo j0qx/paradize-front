@@ -47,33 +47,8 @@ h4 {
 
     &__tabnavbar {
       display: none;
-    }
-
-    &__listcardoffer {
-      display: flex;
-      width: 50%;
-      height: 100%;
-      transition: all ease-out 250ms;
-    }
-    &__icon{
-      transition: all ease-out 250ms;
-      transform: rotate(0deg);
-      margin:0 0.5% 0 0.5%;
-    }
-
-    &__listcardoffer_open {
-      transition: all ease-out 250ms;
-      transform: translateX(-50%);
-      width: 0%;
-
-      
-    }
-    &__icon_open {
-      
-      transform: rotate(180deg);
-      margin: 0 1% 0 1%;
-    }
-
+    }    
+   
     &__map {
       display: flex;
       flex-direction: column;

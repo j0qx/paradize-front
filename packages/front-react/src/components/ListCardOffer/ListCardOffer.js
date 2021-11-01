@@ -50,8 +50,6 @@ const ListCardOffer = () => {
             <p>Nom de l'annonce</p>
           </div>
         </div>
-
-
       </div>
     </div>
   );

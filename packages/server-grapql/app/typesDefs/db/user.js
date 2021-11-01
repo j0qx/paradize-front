@@ -1,7 +1,9 @@
-/* eslint-disable import/prefer-default-export */
 import { gql } from 'apollo-server-express';
-// TODO : type from  base seems strange , check it and ajust this file
 
+// TODO : type from  base seems strange , check it and ajust this file
+// describe witch keyword will be available in api
+
+// this type need to corresponding to db's user types
 const user = gql`
   type User {
     id: String!,
@@ -16,12 +18,9 @@ const user = gql`
     number_phone: String,
   }
 
-  type SucessMessage {
-    message: String!
-  }
-  extend type Query {
+  extend type Query { # extend root Query
     users:[User]!
-    user(email:String!):[User]!
+    user(email:String!):User! # argument is email
   }
 
   extend type Mutation {
@@ -34,7 +33,7 @@ const user = gql`
       address: String,
       city_code: String,
       city: String,
-      number_phone: String,
+      number_phone: String!,
     ): User!
   }
 `;

@@ -1,5 +1,9 @@
 const queryOparadise = {
+  // actions when we execute graphql requests
+  // default resolvers's inputs are : (parent, args, context, info) => ...
+  // cf: https://www.apollographql.com/docs/apollo-server/data/resolvers/
   users: async (_, __, { client }) => {
+    // client come from context , cf : app/index.js
     const response = await client.query('SELECT * FROM "user_account"');
     return response.rows;
   },
@@ -9,7 +13,7 @@ const queryOparadise = {
       values: [email],
     };
     const response = await client.query(query);
-    return response.rows;
+    return response.rows[0];
   },
 };
 

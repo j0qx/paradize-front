@@ -1,10 +1,9 @@
 // import components
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faAngleDoubleLeft, faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons';
+import { faHome } from '@fortawesome/free-solid-svg-icons';
 import { Map, ListCardOffer, SlideRight, SlideLeft } from '../../components';
-import { useSelector, useDispatch } from 'react-redux';
 
-import { TOGGLE_OPEN_SLIDE } from '../../store/actions'
+
 // import container
 import BoardDatas from '../BoardDatas';
 

@@ -1,16 +1,13 @@
 // import components
-import {
-  Map, MapSettings, Modal, ListCardOffer,
-} from '../../components';
-//import container
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHome } from '@fortawesome/free-solid-svg-icons';
+import { Map, ListCardOffer } from '../../components';
+// import container
 import BoardDatas from '../BoardDatas';
 
-//import icons
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHome } from '@fortawesome/free-solid-svg-icons'
+// import icons
 
-import map from '../../assets/image/map.jpg'
-//import style
+// import style
 import style from './Explore.module.scss';
 
 // Comments
@@ -20,7 +17,7 @@ const Explore = () => (
   <div className={style.container}>
 
     <div className={style.container__tabnavbar}>
-      <FontAwesomeIcon icon={faHome} size='3x' color='#406F8A' />
+      <FontAwesomeIcon icon={faHome} size="3x" color="#406F8A " />
       <h4>Recherche</h4>
       <h4>Annonces</h4>
       <h4>Statistique</h4>
@@ -31,7 +28,7 @@ const Explore = () => (
 
     <div className={style.container__map}>
       <div className={style.container__map__map}>
-        <img className={style.container__map__picture} src={map} alt="" />
+        <Map />
       </div>
 
     </div>

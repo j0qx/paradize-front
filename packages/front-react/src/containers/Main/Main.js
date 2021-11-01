@@ -8,18 +8,30 @@ import Explore from '../Explore';
 import Home from '../Home';
 import Contact from '../Contact';
 import UserConnect from '../UserConnect';
+import UserSubscribe from '../UserSubscribe';
 import { Modal } from '../../components';
 
 import style from './Main.module.scss';
 
 const Main = () => {
   const isModalHidden = useSelector((state) => state.domSettings.isModalHidden);
+  const isLoginModal = useSelector((state) => state.domSettings.isLoginModal);
+  const isSubscribeModal = useSelector((state) => state.domSettings.isSubscribeModal);
   return (
     <div className={style.main}>
-      {isModalHidden === false && (
+      {/* If the modal is openned and the state isLoginModal is true ( so the click was
+        on signIn button) then we print the modal and UserConnect */}
+      {(isModalHidden === false) && isLoginModal && (
       <Modal>
         <UserConnect />
       </Modal>
+      )}
+      {/* If the modal is openned and the state isSubscribeModal is true ( so the click was
+        on signUp button) then we print the modal and UserSubscribe */}
+      {(isModalHidden === false) && isSubscribeModal && (
+        <Modal>
+          <UserSubscribe />
+        </Modal>
       )}
       <Switch>
         <Route exact path="/">

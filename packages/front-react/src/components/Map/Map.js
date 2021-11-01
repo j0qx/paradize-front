@@ -20,17 +20,28 @@ const DefaultIcon = L.icon({
 });
 
 const Map = () => {
-  const [map, setMap] = useState(null);
-  const [position, setPosition] = useState([51.505, -0.09]);
-
+  const position = [48.863007, 2.338288]
   const { loading, error, data } = useQuery(gql`
-      query GetUsers {
-        users{
-          first_name
-          mail
-          }
-        }
+      query Query {
+  tomtomSearch(keyword: "theatre", lat: 48.863007, lon: 2.338288, radius: 1000) {
+    position {
+      lat
+      lon
+    }
+    address {
+      streetName
+      postalCode
+      municipality
+    }
+    poi {
+      name
+    }
+    id
+  }
+}
+
     `);
+
   if (loading) return 'Loading...';
   if (error) return `Error! ${error.message}`;
   // Base map tile:
@@ -40,7 +51,7 @@ const Map = () => {
   };
   return (
     <MapContainer
-      style={{ height: '74vh' }}
+      style={{ height: '100%' }}
       center={position}
       zoom={13}
       zoomControl={false}
@@ -60,13 +71,19 @@ const Map = () => {
           />
         </LayersControl.BaseLayer>
       </LayersControl>
-      <Marker icon={DefaultIcon} position={[51.505, -0.09]}>
-        <Popup>
-          {
-            data.users.map(user => <p key={user.mail}>{user.first_name}</p>)
-          }
-        </Popup>
-      </Marker>
+      {
+        data.tomtomSearch.map(({id,position, address, poi} )=> (
+          <Marker key={id} icon={DefaultIcon} position={position}>
+          <Popup>
+          <p>{poi.name}</p>
+          <p>{address.streetName}</p>
+          <p>{address.postalCode}</p>
+          <p>{address.municipality}</p>
+          </Popup>
+        </Marker>
+        ))
+      }
+
     </MapContainer>
   );
 };

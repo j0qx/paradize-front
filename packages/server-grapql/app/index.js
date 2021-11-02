@@ -5,7 +5,6 @@ import { ApolloServer } from 'apollo-server-express';
 import typeDefs from './typesDefs';
 import resolvers from './resolvers';
 import TomtomApi from './datasources/TomtomApi';
-import oparadiseDb from './datasources/oparadiseDb';
 
 const PORT = 3333;
 
@@ -24,10 +23,6 @@ const PORT = 3333;
     typeDefs,
     // describe actions to db or externals api
     resolvers,
-    context: () => ({
-      // with context each resolver can access to the client connected to the db
-      client: oparadiseDb,
-    }),
     dataSources: () => ({
       // datasources is very useful to use lots of external api
       // datasource will be available inside the context from resolver

@@ -52,8 +52,7 @@ const Map = () => {
       style={{ height: '100%' }}
       center={initPosition}
       zoom={13}
-      zoomControl={false}
-      tap
+
     >
       <LayersControl position="topright">
         <LayersControl.BaseLayer checked name="Map">

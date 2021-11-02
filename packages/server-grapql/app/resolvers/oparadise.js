@@ -29,7 +29,7 @@ const mutationOparadise = {
 
     // create query before to convert protect from sql injections
     const query = {
-      text: `INSERT INTO user_account(${keys}) VALUES(${indexs})`,
+      text: `INSERT INTO user_account(${keys}) VALUES(${indexs}) AND  Password='. md5($password)`,
       values: values,
     };
     const response = await client.query(query);

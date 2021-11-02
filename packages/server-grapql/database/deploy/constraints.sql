@@ -2,7 +2,7 @@
 
 BEGIN;
 
-CREATE DOMAIN city_code AS text CHECK(
+CREATE DOMAIN city_code AS INT CHECK(
     VALUE ~ '^\d{5}$' -- cas général  \d correspond à [0-9] en SQL
     AND (
       VALUE ~ '^0[1-9]\d{3}$' -- codes qui commencent par 0 sauf 00
@@ -17,16 +17,16 @@ CREATE DOMAIN city_code AS text CHECK(
 ALTER COLUMN
   city_code TYPE city_code;
 
-  CREATE DOMAIN mail AS text CHECK (
+  CREATE DOMAIN email AS text CHECK (
       VALUE ~ '^\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\Z$'
   );
 
 ALTER TABLE
    user_account
     ALTER COLUMN
-    mail TYPE mail;
+    email TYPE email;
 
-    CREATE DOMAIN number_phone AS VARCHAR CHECK (
+    CREATE DOMAIN number_phone AS INT CHECK (
     VALUE ~ '^(?:(?:\+|00)33|0)\s*[1-9](?:[\s.-]*\d{2}){4}$'
 );
 

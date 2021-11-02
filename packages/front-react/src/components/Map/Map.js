@@ -21,45 +21,43 @@ const DefaultIcon = L.icon({
 
 const Map = () => {
   const initPosition = [48.863007, 2.338288];
+  const { loading, error, data } = useQuery(gql`
+  query Query {
+    tomtomSearch(keyword: "hopital", lat: 48.863007, lon: 2.338288, radius: 100000, limit:1000) {
+      position {
+        lat
+        lon
+      }
+      address {
+        streetName
+        postalCode
+        municipality
+      }
+      poi {
+        name
+      }
+      id
+    }
+  }
 
+    `);
+
+  if (loading) return 'Loading...';
+  if (error) return `Error! ${error.message}`;
+  // Base map tile:
   const maps = {
     base: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
     sattelite: 'http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',
     pretty: 'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw',
   };
-
-  const keywords = ['bar', 'ecole'];
-
-  const { loading, error, data } = useQuery(gql`
-    query Query {
-      tomtomSearch(keywords: ${keywords}, lat: 48.863007, lon: 2.338288, radius: 100000, limit:1000) {
-        position {
-          lat
-          lon
-        }
-        address {
-          streetName
-          postalCode
-          municipality
-        }
-        poi {
-          name
-        }
-        id
-      }
-    }
-  `);
-
-  if (loading) return 'Loading...';
-  if (error) return `Error! ${error.message}`;
-  // Base map tile:
-
   return (
     <MapContainer
       style={{ height: '100%' }}
       center={initPosition}
       zoom={13}
-
+      onClick={(e) => {
+        console.log(e.latlng);
+      }}
     >
       <LayersControl position="topright">
         <LayersControl.BaseLayer name="Map">
@@ -97,7 +95,6 @@ const Map = () => {
           </Marker>
         ))
       }
-
     </MapContainer>
   );
 };

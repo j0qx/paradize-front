@@ -1,15 +1,24 @@
 import { faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { ButtonSubmit, InputBase } from '../../components';
+import { GET_USER_TOKEN } from '../../store/actions';
 import style from './UserConnect.module.scss';
 
 const UserConnect = () => {
   const mail = useSelector((state) => state.signIn.mail);
   const password = useSelector((state) => state.signIn.password);
+  const dispatch = useDispatch();
+  const handleSubmitForm = (event) => {
+    event.preventDefault();
+    dispatch({ type: GET_USER_TOKEN });
+  };
   return (
     <div className={style.userConnect}>
       <h1 className={style.userConnect__title}> Connexion</h1>
-      <form className={style.userConnect__form}>
+      <form
+        className={style.userConnect__form}
+        onSubmit={handleSubmitForm}
+      >
         <InputBase
           icon={faEnvelope}
           inputName="mail"

@@ -33,7 +33,7 @@ const user = gql`
       email: String!,
       password: String!,
       address: String,
-      city_code: String,
+      city_code: Int,
       city: String,
       number_phone: Int,
     ): User!

@@ -14,6 +14,9 @@ import {
 const DefaultIcon = L.icon({
   iconUrl: icon,
   shadowUrl: iconShadow,
+  iconSize: [25, 41],
+  iconAnchor: [10, 41],
+  popupAnchor: [2, -40],
 });
 
 const Map = () => {
@@ -56,8 +59,7 @@ const Map = () => {
       style={{ height: '100%' }}
       center={initPosition}
       zoom={13}
-      zoomControl={false}
-      tap
+
     >
       <LayersControl position="topright">
         <LayersControl.BaseLayer name="Map">

@@ -9,7 +9,7 @@ const InputBase = ({
 }) => {
   const dispatch = useDispatch();
   return (
-    <div className={`${style.inputContainer} ${classCSS}`}>
+    <div className={`${style[classCSS]} ${style.inputContainer}`}>
       <div>
         <FontAwesomeIcon icon={icon} />
       </div>
@@ -32,7 +32,7 @@ const InputBase = ({
 };
 
 InputBase.propTypes = {
-  icon: PropTypes.shape({}).isRequired,
+  icon: PropTypes.shape({}),
   placeholder: PropTypes.string.isRequired,
   inputName: PropTypes.string.isRequired,
   inputValue: PropTypes.string.isRequired,

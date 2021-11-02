@@ -1,0 +1,68 @@
+@use '../../styles/vars';
+
+h4 {
+  padding: 0 2% 0 2%;
+  color: vars.$secondaryColor;
+}
+
+.container {
+
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 74vh;
+
+  &__tabnavbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2% 0 2% 0;
+  }
+
+  &__listcardoffer {
+    display: none;
+
+  }
+
+  &__map {
+    width: 100%;
+    height: 100%;
+
+  }
+
+  &__boarddatas {
+    display: none;
+
+  }
+}
+
+
+/* Desktop */
+@media (min-width: 1100px) {
+
+
+  .container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+
+    &__tabnavbar {
+      display: none;
+    }    
+   
+    &__map {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 100%;
+    }
+
+    &__boarddatas {
+      display: flex;
+      width: 50%;
+      height: 100%;
+      overflow-y: scroll;
+    }
+  }
+}

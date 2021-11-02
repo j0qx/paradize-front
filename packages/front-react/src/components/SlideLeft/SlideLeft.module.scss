@@ -1,6 +1,19 @@
 
 
+.slide{
+  display: none;
 
+  &__icon{
+    display: none;
+  }
+  &__icon_open{
+    display: none;
+  }
+}
+
+
+/* Desktop */
+@media (min-width: 1100px) {
 .slide {
   display: flex;
   width: 50%;
@@ -8,12 +21,13 @@
   transition: all ease-out 250ms;
   
   &__icon{
+    display: block;
     transition: all ease-out 250ms;
     transform: rotate(0deg);
     margin:0 0.5% 0 0.5%;
   }  
   &__icon_open {
-    
+    display: block;
     transform: rotate(180deg);
     margin: 0 1% 0 1%;
   }
@@ -27,4 +41,4 @@
   
 }
 
-
+}

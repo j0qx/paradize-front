@@ -1,8 +1,9 @@
 // import components
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
-import { Map, ListCardOffer, SlideRight, SlideLeft } from '../../components';
-
+import {
+  Map, ListCardOffer, SlideRight, SlideLeft,
+} from '../../components';
 
 // import container
 import BoardDatas from '../BoardDatas';
@@ -15,33 +16,28 @@ import style from './Explore.module.scss';
 // Comments
 // Modal to add after div Boardatas
 
-const Explore = () => {
-  //
+const Explore = () => (
 
-  return (
+  <div className={style.container}>
+    <div className={style.container__tabnavbar}>
+      <FontAwesomeIcon icon={faHome} size="3x" color="#406F8A" />
+      <h4>Recherche</h4>
+      <h4>Annonces</h4>
+      <h4>Statistique</h4>
+    </div>
 
-    <div className={style.container}>
+    <SlideLeft>
+      <ListCardOffer />
+    </SlideLeft>
+    <div className={style.container__map}>
+      <Map />
+    </div>
 
-      <div className={style.container__tabnavbar}>
-        <FontAwesomeIcon icon={faHome} size="3x" color="#406F8A" />
-        <h4>Recherche</h4>
-        <h4>Annonces</h4>
-        <h4>Statistique</h4>
-      </div>
+    <SlideRight>
+      <BoardDatas />
+    </SlideRight>
 
-      <SlideLeft >
-        <ListCardOffer />
-      </SlideLeft>
-      <div className={style.container__map}>
-        <Map />
-      </div>
-
-      <SlideRight>
-        <BoardDatas />
-      </SlideRight>
-
-    </div >
-  );
-}
+  </div>
+);
 
 export default Explore;

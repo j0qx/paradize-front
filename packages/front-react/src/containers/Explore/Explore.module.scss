@@ -10,7 +10,7 @@ h4 {
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 100%;
+  height: 74vh;
 
   &__tabnavbar {
     display: flex;
@@ -63,7 +63,6 @@ h4 {
       width: 50%;
       height: 100%;
       overflow-y: scroll;
-
     }
   }
 }

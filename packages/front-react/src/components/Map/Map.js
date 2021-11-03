@@ -55,9 +55,6 @@ const Map = () => {
       style={{ height: '100%' }}
       center={initPosition}
       zoom={13}
-      onClick={(e) => {
-        console.log(e.latlng);
-      }}
     >
       <LayersControl position="topright">
         <LayersControl.BaseLayer name="Map">

@@ -1,5 +1,6 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import authMiddleware from './middlewares/userToken';
+import getdatasAPI from './middlewares/getdatasAPI';
 
 import reducer from './reducers';
 
@@ -9,6 +10,7 @@ const enhancers = composeEnhancers(
   applyMiddleware(
   // Middlewares ici =>
     authMiddleware,
+    getdatasAPI,
   ),
 );
 

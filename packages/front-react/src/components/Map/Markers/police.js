@@ -1,6 +1,4 @@
 import { Marker, Popup } from 'react-leaflet';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHatCowboy } from '@fortawesome/free-solid-svg-icons';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { divIcon } from 'leaflet';
 
@@ -9,7 +7,12 @@ import { PropTypes } from 'prop-types';
 const PoliceMarker = ({
   address, id, position, poi,
 }) => {
-  const customPoliceIcon = renderToStaticMarkup(<FontAwesomeIcon icon={faHatCowboy} size="4x" />);
+  const customPoliceIcon = renderToStaticMarkup(
+    <img
+      src="https://img.icons8.com/fluency/48/000000/police-station.png"
+      alt="police logo"
+    />,
+  );
   const iconPolice = divIcon({
     html: customPoliceIcon,
     iconSize: [0, 0],

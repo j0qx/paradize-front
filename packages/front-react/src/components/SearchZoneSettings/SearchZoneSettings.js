@@ -1,8 +1,130 @@
-import './SearchZoneSettings.module.scss';
+import { PropTypes } from 'prop-types';
+import { useDispatch, useSelector } from 'react-redux';
+import style from './SearchZoneSettings.module.scss';
+import InputBase from '../InputBase';
+import ButtonSubmit from '../ButtonSubmit';
+import { CHANGE_INPUT_TIME_VALUE,
+  CHANGE_INPUT_MILES_VALUE, 
+  CHANGE_INPUT_TRANS_VALUE,
+CHANGE_RADIO_BUTTON } from '../../store/actions';
 
-const SearchZoneSettings = () => (
-  <div>
-    <h1>Welcome to SearchZoneSettings!</h1>
+const SearchZoneSettings = () => {
+  const dispatch = useDispatch();
+  const inputValueAddress = useSelector((state) => state.search.inputValueAddress);
+  const inputValueTime = useSelector((state) => state.search.inputValueTime);
+  const inputValueMiles = useSelector((state) => state.search.inputValueMiles);
+  const inputValueTrans = useSelector((state) => state.search.inputValueTrans);
+  const valueRadio = useSelector((state) => state.search.valueRadio);
+
+  return (
+  <div className={style.search__zone}>
+    <form method="GET" onSubmit={(e) => {
+      e.preventDefault;
+    }}>
+      <InputBase
+        type="text"
+        classCSS="input__search__zone"
+        placeholder="À partir de l'adresse..."
+        inputName="inputValueAddress"
+        inputValue={inputValueAddress}
+      />
+      <div className={style.container__selects}>
+      <input type="radio" name="choice" value="1" onChange={(e) => {
+          dispatch({
+            type: CHANGE_RADIO_BUTTON,
+            inputRadio: "valueRadio",
+            newValue: e.target.value,
+          })
+        }} />
+        <select
+        disabled={ valueRadio == 2 ? true : false }
+        name="isochrone"
+        className={style.container__selects__select}
+        value={inputValueTime}
+        onChange={(e) => {
+          console.log(e.target.value);
+          dispatch({
+            type: CHANGE_INPUT_TIME_VALUE,
+            inputField: "inputValueTime",
+            newValue: e.target.value,
+          })
+        }}
+        >
+          <option value="">À moins de...</option>
+          <option value="15">15 Minutes</option>
+          <option value="30">30 Minutes</option>
+          <option value="45">45 Minutes</option>
+          <option value="60">1 heure</option>
+          <option value="75">1 heure, 15 minutes</option>
+          <option value="90">1 heure, 30 minutes</option>
+          <option value="120">2 heures</option>
+        </select>
+        <input type="radio" name="choice" value="2" onChange={(e) => {
+          dispatch({
+            type: CHANGE_RADIO_BUTTON,
+            inputRadio: "valueRadio",
+            newValue: e.target.value,
+          })
+        }} />
+        <select
+        disabled={ valueRadio == 2 ? false : true }
+        name="radius"
+        className={style.container__selects__select}
+        value={inputValueMiles}
+        onChange={(e) => {
+          console.log(e.target.value);
+          dispatch({
+            type: CHANGE_INPUT_MILES_VALUE,
+            inputField: "inputValueMiles",
+            newValue: e.target.value,
+          })
+        }}
+        >
+          <option value="">Sur une distance de...</option>
+          <option value="5">5 km</option>
+          <option value="10">10 km</option>
+          <option value="15">15 km</option>
+          <option value="20">20 km</option>
+          <option value="25">25 km</option>
+          <option value="30">30 km</option>
+          <option value="35">35 km</option>
+          <option value="40">40 km</option>
+          <option value="45">45 km</option>
+          <option value="50">50 km</option>
+          <option value="75">75 km</option>
+          <option value="100">100 km</option>
+          <option value="150">150 km</option>
+        </select>
+        <select
+        disabled={ valueRadio == 2 ? true : false }
+        name="means"
+        className={style.container__selects__select}
+        value={inputValueTrans}
+        onChange={(e) => {
+          console.log(e.target.value);
+          dispatch({
+            type: CHANGE_INPUT_TRANS_VALUE,
+            inputField: "inputValueTrans",
+            newValue: e.target.value,
+          })
+        }}
+        >
+          <option value="">Moyen de transport...</option>
+          <option value="voiture">Voiture</option>
+          <option value="piéton">Piéton</option>
+          <option value="vélo">Vélo</option>
+          <option value="bus">Bus</option>
+          <option value="train">Train </option>
+        </select>
+      </div>
+      <div>
+        <ButtonSubmit
+        buttonName="C'est parti!"
+        classCSS=""
+        />
+        </div>
+    </form>
   </div>
-);
+  );
+};
 export default SearchZoneSettings;

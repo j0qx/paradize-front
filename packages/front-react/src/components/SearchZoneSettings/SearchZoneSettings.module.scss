@@ -1,0 +1,16 @@
+.search__zone{
+  width: 450px;
+  height: 200px;
+  justify-content: flex-start;
+  display: flex;
+  flex-direction: column;
+}
+.container__selects{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  &__select{
+margin-right: 10%;
+margin-bottom: 5%;
+  }
+}

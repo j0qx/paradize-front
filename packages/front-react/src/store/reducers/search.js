@@ -7,6 +7,8 @@ import {
   CHANGE_INPUT_TRANS_VALUE,
   CHANGE_INPUT_VALUE,
   CHANGE_RADIO_BUTTON,
+  GET_DATAS_FROM_API_SUCCESS,
+  // GET_DATAS_FROM_API_ERROR,
 } from '../actions';
 
 export const initialState = {
@@ -16,31 +18,37 @@ export const initialState = {
        checkBoxeName: 'bars',
        checked: false,
        icon: faCocktail,
+       result: [],
      },
      {
        checkBoxeName: 'hopital',
        checked: false,
        icon: faClinicMedical,
+       result: [],
      },
      {
        checkBoxeName: 'shops',
        checked: false,
        icon: faShoppingCart,
+       result: [],
      },
      {
        checkBoxeName: 'ecoles',
        checked: false,
        icon: faSchool,
+       result: [],
      },
      {
        checkBoxeName: 'parcs',
        checked: false,
        icon: faTree,
+       result: [],
      },
      {
        checkBoxeName: 'police',
        checked: false,
        icon: faHatCowboy,
+       result: [],
      },
    ],
   inputValueAddress: '',
@@ -94,6 +102,21 @@ const searchReducer = (state = initialState, action = {}) => {
         ...state,
         [action.inputRadio]: action.newValue,
       };
+    case GET_DATAS_FROM_API_SUCCESS: {
+      const newApiSettings = [];
+      state.apiSettings.forEach((element) => {
+        if (element.checkBoxeName === action.keyword) {
+          newApiSettings.push({ ...element, result: action.payload.data.data.tomtomSearch });
+        }
+        else {
+          newApiSettings.push(element);
+        }
+      });
+      return {
+        ...state,
+        apiSettings: newApiSettings,
+      };
+    }
     default:
       return state;
   }

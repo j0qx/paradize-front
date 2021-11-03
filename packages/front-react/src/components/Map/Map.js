@@ -1,20 +1,22 @@
 import './Map.module.scss';
 import 'leaflet/dist/leaflet.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faCocktail, faClinicMedical, faShoppingCart, faTree, faHatCowboy, faSchool,
-} from '@fortawesome/free-solid-svg-icons';
-import {
-  MapContainer, TileLayer, Marker, Popup, LayersControl,
-} from 'react-leaflet';
-import { divIcon } from 'leaflet';
-import { renderToStaticMarkup } from 'react-dom/server';
-import { useSelector } from 'react-redux';
-import {
 
-} from '@apollo/client';
+import {
+  MapContainer, TileLayer, LayersControl,
+} from 'react-leaflet';
+
+import { useSelector } from 'react-redux';
 import Pointer from '../Pointer';
 import { CHANGE_CURRENT_POS } from '../../store/actions';
+import {
+  BarsMarker,
+  SchoolMarker,
+  PoliceMarker,
+  ShopMarker,
+  HospitalMarker,
+  ParkMarker,
+} from './Markers';
+import getCheckboxs from '../../store/selectors/getCheckboxs';
 
 /* const DefaultIcon = L.icon({
   iconUrl: icon,
@@ -24,56 +26,10 @@ import { CHANGE_CURRENT_POS } from '../../store/actions';
   popupAnchor: [2, -40],
 }); */
 
-const customPub = renderToStaticMarkup(<FontAwesomeIcon icon={faCocktail} size="4x" />);
-const iconPub = divIcon({
-  html: customPub,
-  iconSize: [0, 0],
-  iconAnchor: [10, 41],
-  popupAnchor: [2, -40],
-});
-const customMedic = renderToStaticMarkup(<FontAwesomeIcon icon={faClinicMedical} size="4x" />);
-const iconMedic = divIcon({
-  html: customMedic,
-  iconSize: [0, 0],
-  iconAnchor: [10, 41],
-  popupAnchor: [2, -40],
-});
-const customSchool = renderToStaticMarkup(<FontAwesomeIcon icon={faSchool} size="4x" />);
-const iconSchool = divIcon({
-  html: customSchool,
-  iconSize: [0, 0],
-  iconAnchor: [10, 41],
-  popupAnchor: [2, -40],
-});
-const customPolice = renderToStaticMarkup(<FontAwesomeIcon icon={faHatCowboy} size="4x" />);
-const iconPolice = divIcon({
-  html: customPolice,
-  iconSize: [0, 0],
-  iconAnchor: [10, 41],
-  popupAnchor: [2, -40],
-});
-const customPark = renderToStaticMarkup(<FontAwesomeIcon icon={faTree} size="4x" />);
-const iconPark = divIcon({
-  html: customPark,
-  iconSize: [0, 0],
-  iconAnchor: [10, 41],
-  popupAnchor: [2, -40],
-});
-const customShop = renderToStaticMarkup(<FontAwesomeIcon icon={faShoppingCart} size="4x" />);
-const iconShop = divIcon({
-  html: customShop,
-  iconSize: [0, 0],
-  iconAnchor: [10, 41],
-  popupAnchor: [2, -40],
-});
 const Map = () => {
   const currentPos = useSelector((state) => state.map.mapEvents.currentPos);
-  const bars = useSelector((state) => state.dataApi.bars);
-  const medics = useSelector((state) => state.dataApi.hopital);
-  const parcs = useSelector((state) => state.dataApi.parcs);
-  const police = useSelector((state) => state.dataApi.police);
-  const school = useSelector((state) => state.dataApi.ecoles);
-  const shops = useSelector((state) => state.dataApi.shops);
+  const allCheckboxs = useSelector((state) => state.search.apiSettings);
+
   // Base map tile:
   const maps = {
     base: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
@@ -118,19 +74,98 @@ const Map = () => {
         </LayersControl.BaseLayer>
       </LayersControl>
       {
-        [...school, ...bars, ...medics, ...police, ...parcs, ...shops].map(({
+        getCheckboxs('bars', allCheckboxs).result.map(({
           id, position, address, poi,
         }) => {
           const newId = ((Number.isNaN(id) ? id : 1) + Math.random()) * 100;
           return (
-            <Marker key={newId} icon={iconPark} position={position}>
-              <Popup>
-                <p>{poi.name}</p>
-                <p>{address.streetName}</p>
-                <p>{address.postalCode}</p>
-                <p>{address.municipality}</p>
-              </Popup>
-            </Marker>
+            <BarsMarker
+              id={newId}
+              key={newId}
+              position={position}
+              address={address}
+              poi={poi}
+            />
+          );
+        })
+}
+      {
+        getCheckboxs('ecoles', allCheckboxs).result.map(({
+          id, position, address, poi,
+        }) => {
+          const newId = ((Number.isNaN(id) ? id : 1) + Math.random()) * 100;
+          return (
+            <SchoolMarker
+              id={newId}
+              key={newId}
+              position={position}
+              address={address}
+              poi={poi}
+            />
+          );
+        })
+}
+      {
+        getCheckboxs('police', allCheckboxs).result.map(({
+          id, position, address, poi,
+        }) => {
+          const newId = ((Number.isNaN(id) ? id : 1) + Math.random()) * 100;
+          return (
+            <PoliceMarker
+              id={newId}
+              key={newId}
+              position={position}
+              address={address}
+              poi={poi}
+            />
+          );
+        })
+}
+      {
+        getCheckboxs('parcs', allCheckboxs).result.map(({
+          id, position, address, poi,
+        }) => {
+          const newId = ((Number.isNaN(id) ? id : 1) + Math.random()) * 100;
+          return (
+            <ParkMarker
+              id={newId}
+              key={newId}
+              position={position}
+              address={address}
+              poi={poi}
+            />
+          );
+        })
+}
+      {
+        getCheckboxs('hopital', allCheckboxs).result.map(({
+          id, position, address, poi,
+        }) => {
+          const newId = ((Number.isNaN(id) ? id : 1) + Math.random()) * 100;
+          return (
+            <HospitalMarker
+              id={newId}
+              key={newId}
+              position={position}
+              address={address}
+              poi={poi}
+            />
+          );
+        })
+}
+      {
+        getCheckboxs('shops', allCheckboxs).result.map(({
+          id, position, address, poi,
+        }) => {
+          const newId = ((Number.isNaN(id) ? id : 1) + Math.random()) * 100;
+          return (
+            <ShopMarker
+              id={newId}
+              key={newId}
+              position={position}
+              address={address}
+              poi={poi}
+            />
           );
         })
 }

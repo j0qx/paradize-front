@@ -1,4 +1,3 @@
-
 const initialState = {
   mapEvents: {
     currentPos: [0, 0],
@@ -7,14 +6,6 @@ const initialState = {
 
 const mapReducer = (state = initialState, action = {}) => {
   switch (action.type) {
-    case 'CHECKBOX_TOGGLE':
-      return {
-        ...state,
-        apiSettings: {
-          ...state.apiSettings,
-          [action.checkBoxField]: !state.apiSettings[action.checkBoxField],
-        },
-      };
     case 'CHANGE_CURRENT_POS':
       return {
         ...state,

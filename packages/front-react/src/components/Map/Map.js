@@ -1,21 +1,71 @@
 import './Map.module.scss';
 import 'leaflet/dist/leaflet.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faCocktail, faClinicMedical, faShoppingCart, faTree, faHatCowboy, faSchool,
+} from '@fortawesome/free-solid-svg-icons';
 import {
   MapContainer, TileLayer, Marker, Popup, LayersControl,
 } from 'react-leaflet';
-import L from 'leaflet';
-import icon from 'leaflet/dist/images/marker-icon.png';
-import iconShadow from 'leaflet/dist/images/marker-shadow.png';
+import { divIcon } from 'leaflet';
+import { renderToStaticMarkup } from 'react-dom/server';
 import { useSelector } from 'react-redux';
+import {
 
-const DefaultIcon = L.icon({
+} from '@apollo/client';
+import Pointer from '../Pointer';
+import { CHANGE_CURRENT_POS } from '../../store/actions';
+
+/* const DefaultIcon = L.icon({
   iconUrl: icon,
   shadowUrl: iconShadow,
   iconSize: [25, 41],
   iconAnchor: [10, 41],
   popupAnchor: [2, -40],
-});
+}); */
 
+const customPub = renderToStaticMarkup(<FontAwesomeIcon icon={faCocktail} size="4x" />);
+const iconPub = divIcon({
+  html: customPub,
+  iconSize: [0, 0],
+  iconAnchor: [10, 41],
+  popupAnchor: [2, -40],
+});
+const customMedic = renderToStaticMarkup(<FontAwesomeIcon icon={faClinicMedical} size="4x" />);
+const iconMedic = divIcon({
+  html: customMedic,
+  iconSize: [0, 0],
+  iconAnchor: [10, 41],
+  popupAnchor: [2, -40],
+});
+const customSchool = renderToStaticMarkup(<FontAwesomeIcon icon={faSchool} size="4x" />);
+const iconSchool = divIcon({
+  html: customSchool,
+  iconSize: [0, 0],
+  iconAnchor: [10, 41],
+  popupAnchor: [2, -40],
+});
+const customPolice = renderToStaticMarkup(<FontAwesomeIcon icon={faHatCowboy} size="4x" />);
+const iconPolice = divIcon({
+  html: customPolice,
+  iconSize: [0, 0],
+  iconAnchor: [10, 41],
+  popupAnchor: [2, -40],
+});
+const customPark = renderToStaticMarkup(<FontAwesomeIcon icon={faTree} size="4x" />);
+const iconPark = divIcon({
+  html: customPark,
+  iconSize: [0, 0],
+  iconAnchor: [10, 41],
+  popupAnchor: [2, -40],
+});
+const customShop = renderToStaticMarkup(<FontAwesomeIcon icon={faShoppingCart} size="4x" />);
+const iconShop = divIcon({
+  html: customShop,
+  iconSize: [0, 0],
+  iconAnchor: [10, 41],
+  popupAnchor: [2, -40],
+});
 const Map = () => {
   const currentPos = useSelector((state) => state.map.mapEvents.currentPos);
   const bars = useSelector((state) => state.dataApi.bars);
@@ -30,13 +80,21 @@ const Map = () => {
     sattelite: 'http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',
     pretty: 'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw',
   };
+
   return (
     <MapContainer
       style={{ height: '100%' }}
       center={currentPos}
       zoom={13}
-
+      /* onClick={(e) => {
+        dispatch({
+          type: CHANGE_CURRENT_POS,
+          inputLatPos: e.latlng.lat,
+          inputLngPos: e.latlng.lng,
+        });
+      }} */
     >
+      <Pointer />
       <LayersControl position="topright">
         <LayersControl.BaseLayer checked name="Map">
           <TileLayer
@@ -63,9 +121,9 @@ const Map = () => {
         [...school, ...bars, ...medics, ...police, ...parcs, ...shops].map(({
           id, position, address, poi,
         }) => {
-          const newId = (Number(Number.isNaN(id) ? id : 1) + Math.random()) * 100;
+          const newId = ((Number.isNaN(id) ? id : 1) + Math.random()) * 100;
           return (
-            <Marker key={newId} icon={DefaultIcon} position={position}>
+            <Marker key={newId} icon={iconPark} position={position}>
               <Popup>
                 <p>{poi.name}</p>
                 <p>{address.streetName}</p>

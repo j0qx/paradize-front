@@ -15,7 +15,6 @@ const rootReducer = combineReducers({
   signIn: signInReducer,
   domSettings: domSettingsReducer,
   map: mapReducer,
-
 });
 
 export default rootReducer;

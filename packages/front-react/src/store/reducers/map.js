@@ -1,4 +1,3 @@
-import { CHANGE_INPUT_VALUE } from '../actions';
 
 const initialState = {
   mapEvents: {
@@ -16,7 +15,7 @@ const mapReducer = (state = initialState, action = {}) => {
           [action.checkBoxField]: !state.apiSettings[action.checkBoxField],
         },
       };
-      case 'CHANGE_CURRENT_POS':
+    case 'CHANGE_CURRENT_POS':
       return {
         ...state,
         mapEvents: {

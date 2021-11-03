@@ -54,22 +54,43 @@ const Map = () => {
     pretty: 'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw',
   };
   const dispatch = useDispatch();
-  const map = useMapEvents({
-    click(e) {
-      dispatch({
-        type: CHANGE_CURRENT_POS,
-        inputLatPos: e.latlng.lat,
-        inputLngPos: e.latlng.lng,
-      });
-    },
-  });
+  const Markers = () => {
+    const map = useMapEvents({
+      click(e) {
+        dispatch({
+          type: CHANGE_CURRENT_POS,
+          inputLatPos: e.latlng.lat,
+          inputLngPos: e.latlng.lng,
+        });
+      },
+    });
+
+    return (
+      selectedPosition
+        ? (
+          <Marker
+            key={selectedPosition[0]}
+            position={selectedPosition}
+            interactive={false}
+          />
+        )
+        : null
+    );
+  };
   return (
     <MapContainer
       style={{ height: '100%' }}
       center={initPosition}
       zoom={13}
-      onClick={map}
+      onClick={(e) => {
+        dispatch({
+          type: CHANGE_CURRENT_POS,
+          inputLatPos: e.latlng.lat,
+          inputLngPos: e.latlng.lng,
+        });
+      }}
     >
+      <Markers />
       <LayersControl position="topright">
         <LayersControl.BaseLayer name="Map">
           <TileLayer

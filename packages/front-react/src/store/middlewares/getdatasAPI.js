@@ -8,7 +8,7 @@ import {
   GET_DATAS_FROM_API_ERROR,
 } from '../actions';
 
-const authMiddleware = (store) => (next) => (action) => {
+const getDateApi = (store) => (next) => (action) => {
   if (action.type === GET_DATAS_FROM_API) {
     const state = store.getState();
 
@@ -18,14 +18,18 @@ const authMiddleware = (store) => (next) => (action) => {
       data: {
         query: tomtomSearch(
           action.keyword,
-          state.mapEvents.position.lat,
-          state.mapEvents.position.lon,
-          state.inputValueMiles,
+          state.map.mapEvents.currentPos[0],
+          state.map.mapEvents.currentPos[1],
+          state.search.inputValueMiles,
           1000,
         ),
       },
     }).then((result) => {
-      store.dispatch({ type: GET_DATAS_FROM_API_SUCCESS, payload: result });
+      store.dispatch({
+        type: GET_DATAS_FROM_API_SUCCESS,
+        payload: result,
+        keyword: action.keyword,
+      });
     }).catch((error) => {
       store.dispatch({ type: GET_DATAS_FROM_API_ERROR, payload: error });
     });
@@ -37,4 +41,4 @@ const authMiddleware = (store) => (next) => (action) => {
   }
 };
 
-export default authMiddleware;
+export default getDateApi;

@@ -2,7 +2,7 @@
 
 const tomtomSearch = (keyword, lat, lon, radius, limit) => `
     query hopital{
-        tomtomSearch(keyword: ${keyword}, lat: ${lat}, lon: ${lon}, radius: ${radius}, limit:${limit}) {
+        tomtomSearch(keyword: "${keyword}", lat: ${lat}, lon: ${lon}, radius: ${radius}, limit:${limit}) {
             position {
                 lat
                 lon

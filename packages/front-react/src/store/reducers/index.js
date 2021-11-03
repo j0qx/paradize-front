@@ -5,6 +5,7 @@ import dataApiReducer from './dataApi';
 import signUpReducer from './signUp';
 import domSettingsReducer from './domSettings';
 import signInReducer from './signIn';
+import mapReducer from './map';
 
 const rootReducer = combineReducers({
   user: userReducer,
@@ -13,6 +14,8 @@ const rootReducer = combineReducers({
   signUp: signUpReducer,
   signIn: signInReducer,
   domSettings: domSettingsReducer,
+  map: mapReducer,
+
 });
 
 export default rootReducer;

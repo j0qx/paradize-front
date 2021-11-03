@@ -4,17 +4,17 @@ BEGIN;
 
 CREATE TABLE user_account (
     id int GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    first_name VARCHAR(64) NOT NULL,
-    last_name VARCHAR(64) NOT NULL,
-    civility VARCHAR(32) NOT NULL,
-    mail TEXT NOT NULL UNIQUE,
+    username VARCHAR(32) NOT NULL,
+    first_name VARCHAR(64) ,
+    last_name VARCHAR(64) ,
+    civility VARCHAR(32) ,
+    email TEXT NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
-    address  TEXT NOT NULL,
-    city_code INT NOT NULL,
-    city TEXT NOT NULL,
-    number_phone varchar(15) NOT NULL UNIQUE
+    address TEXT ,
+    city_code INT ,
+    city TEXT ,
+    number_phone INT UNIQUE
 );
-
 CREATE TABLE coordinate (
     id int GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     latitude decimal(10, 6) NOT NULL,
@@ -36,8 +36,8 @@ CREATE TABLE offer (
 
 CREATE TABLE search ( 
     id int GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    calculation_typeof_zone TEXT NOT NULL,
-    distance FLOAT NOT NULL,
+    calculation_typeof_zone TEXT,
+    distance FLOAT ,
     travel_time TIME NOT NULL,
     travel_type TEXT NOT NULL,
     "zone" POLYGON NOT NULL,

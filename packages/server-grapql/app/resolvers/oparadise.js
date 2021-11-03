@@ -1,13 +1,15 @@
+import client from '../db';
+
 const queryOparadise = {
   // actions when we execute graphql requests
   // default resolvers's inputs are : (parent, args, context, info) => ...
   // cf: https://www.apollographql.com/docs/apollo-server/data/resolvers/
-  users: async (_, __, { client }) => {
+  users: async () => {
     // client come from context , cf : app/index.js
     const response = await client.query('SELECT * FROM "user_account"');
     return response.rows;
   },
-  user: async (_, { email }, { client }) => {
+  user: async (_, { email }) => {
     const query = {
       text: 'SELECT * FROM "user_account" WHERE mail=$1',
       values: [email],
@@ -18,7 +20,7 @@ const queryOparadise = {
 };
 
 const mutationOparadise = {
-  registerUser: async (_, args, { client }) => {
+  registerUser: async (_, args) => {
     // get names of table's columns
     const keys = Object.keys(args);
     // get value from user to put inside table's columns

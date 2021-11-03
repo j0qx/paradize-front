@@ -10,10 +10,15 @@ import {
   useQuery,
   gql,
 } from '@apollo/client';
+import Pointer from '../Pointer';
+import { CHANGE_CURRENT_POS } from '../../store/actions';
 
 const DefaultIcon = L.icon({
   iconUrl: icon,
   shadowUrl: iconShadow,
+  iconSize: [25, 41],
+  iconAnchor: [10, 41],
+  popupAnchor: [2, -40],
 });
 
 const Map = () => {
@@ -47,16 +52,23 @@ const Map = () => {
     sattelite: 'http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',
     pretty: 'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw',
   };
+
   return (
     <MapContainer
       style={{ height: '100%' }}
       center={initPosition}
       zoom={13}
-      zoomControl={false}
-      tap
+      /* onClick={(e) => {
+        dispatch({
+          type: CHANGE_CURRENT_POS,
+          inputLatPos: e.latlng.lat,
+          inputLngPos: e.latlng.lng,
+        });
+      }} */
     >
+      <Pointer />
       <LayersControl position="topright">
-        <LayersControl.BaseLayer checked name="Map">
+        <LayersControl.BaseLayer name="Map">
           <TileLayer
             attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
             url={maps.base}
@@ -69,7 +81,7 @@ const Map = () => {
             subdomains={['mt0', 'mt1', 'mt2', 'mt3']}
           />
         </LayersControl.BaseLayer>
-        <LayersControl.BaseLayer name="Pretty">
+        <LayersControl.BaseLayer checked name="Pretty">
           <TileLayer
             url={maps.pretty}
             maxZoom={18}

@@ -32,6 +32,7 @@ const UserInfo = () => {
                 placeholder=""
                 classCSS="input__userinfo"
                 inputValue={inputValueLastName}
+                actionType="CHANGE_INPUT_VALUE_ACCOUNT"
               />
             </div>
             <div className={style.userinfo__second__right__inputs__input}>
@@ -42,6 +43,7 @@ const UserInfo = () => {
                 placeholder=""
                 classCSS="input__userinfo"
                 inputValue={inputValueFirstName}
+                actionType="CHANGE_INPUT_VALUE_ACCOUNT"
               />
             </div>
             <div className={style.userinfo__second__right__inputs__input}>
@@ -52,6 +54,7 @@ const UserInfo = () => {
                 placeholder=""
                 classCSS="input__userinfo"
                 inputValue={inputValueNickName}
+                actionType="CHANGE_INPUT_VALUE_ACCOUNT"
               />
             </div>
             <div className={style.userinfo__second__right__inputs__input}>
@@ -62,6 +65,7 @@ const UserInfo = () => {
                 placeholder=""
                 classCSS="input__userinfo"
                 inputValue={inputValueEmail}
+                actionType="CHANGE_INPUT_VALUE_ACCOUNT"
               />
             </div>
             <div className={style.userinfo__second__right__inputs__input}>
@@ -72,6 +76,7 @@ const UserInfo = () => {
                 placeholder=""
                 classCSS="input__userinfo"
                 inputValue={inputValuePhone}
+                actionType="CHANGE_INPUT_VALUE_ACCOUNT"
               />
             </div>
             <div className={style.userinfo__second__right__inputs__input}>
@@ -82,6 +87,7 @@ const UserInfo = () => {
                 placeholder=""
                 classCSS="input__userinfo"
                 inputValue={inputValueAddress}
+                actionType="CHANGE_INPUT_VALUE_ACCOUNT"
               />
             </div>
             <div className={style.userinfo__second__right__inputs__input}>
@@ -92,6 +98,7 @@ const UserInfo = () => {
                 placeholder=""
                 classCSS="input__userinfo"
                 inputValue={inputValuePostalCode}
+                actionType="CHANGE_INPUT_VALUE_ACCOUNT"
               />
             </div>
             <div className={style.userinfo__second__right__inputs__input}>
@@ -102,6 +109,7 @@ const UserInfo = () => {
                 placeholder=""
                 classCSS="input__userinfo"
                 inputValue={inputValueCity}
+                actionType="CHANGE_INPUT_VALUE_ACCOUNT"
               />
             </div>
             <div className={style.userinfo__second__right__inputs__button}>

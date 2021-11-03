@@ -11,7 +11,7 @@ const initialState = {
 
 const accountReducer = (state = initialState, action = {}) => {
   switch (action.type) {
-    case 'CHANGE_INPUT_VALUE':
+    case 'CHANGE_INPUT_VALUE_ACCOUNT':
       return {
         ...state,
         [action.inputField]: action.newValue,

@@ -26,14 +26,48 @@ import { CHANGE_CURRENT_POS } from '../../store/actions';
   popupAnchor: [2, -40],
 }); */
 
-const customIcon = renderToStaticMarkup(<FontAwesomeIcon icon={faCocktail} size="4x" />);
-const iconTest = divIcon({
-  html: customIcon,
+const customPub = renderToStaticMarkup(<FontAwesomeIcon icon={faCocktail} size="4x" />);
+const iconPub = divIcon({
+  html: customPub,
   iconSize: [0, 0],
   iconAnchor: [10, 41],
   popupAnchor: [2, -40],
 });
-
+const customMedic = renderToStaticMarkup(<FontAwesomeIcon icon={faClinicMedical} size="4x" />);
+const iconMedic = divIcon({
+  html: customMedic,
+  iconSize: [0, 0],
+  iconAnchor: [10, 41],
+  popupAnchor: [2, -40],
+});
+const customSchool = renderToStaticMarkup(<FontAwesomeIcon icon={faSchool} size="4x" />);
+const iconSchool = divIcon({
+  html: customSchool,
+  iconSize: [0, 0],
+  iconAnchor: [10, 41],
+  popupAnchor: [2, -40],
+});
+const customPolice = renderToStaticMarkup(<FontAwesomeIcon icon={faHatCowboy} size="4x" />);
+const iconPolice = divIcon({
+  html: customPolice,
+  iconSize: [0, 0],
+  iconAnchor: [10, 41],
+  popupAnchor: [2, -40],
+});
+const customPark = renderToStaticMarkup(<FontAwesomeIcon icon={faTree} size="4x" />);
+const iconPark = divIcon({
+  html: customPark,
+  iconSize: [0, 0],
+  iconAnchor: [10, 41],
+  popupAnchor: [2, -40],
+});
+const customShop = renderToStaticMarkup(<FontAwesomeIcon icon={faShoppingCart} size="4x" />);
+const iconShop = divIcon({
+  html: customShop,
+  iconSize: [0, 0],
+  iconAnchor: [10, 41],
+  popupAnchor: [2, -40],
+});
 const Map = () => {
   const initPosition = [48.863007, 2.338288];
   const { loading, error, data } = useQuery(gql`

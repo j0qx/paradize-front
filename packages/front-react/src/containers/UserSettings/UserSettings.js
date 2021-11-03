@@ -1,8 +1,9 @@
+import { TabNavBar } from '../../components';
 import './UserSettings.module.scss';
 
 const UserSettings = () => (
   <div>
-    <h1>Welcome to UserSettings!</h1>
+    <TabNavBar />
   </div>
 );
 export default UserSettings;

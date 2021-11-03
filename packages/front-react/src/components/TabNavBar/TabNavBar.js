@@ -1,29 +1,73 @@
+import { NavLink } from 'react-router-dom';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHouseUser } from '@fortawesome/free-solid-svg-icons';
 
 import { useSelector } from 'react-redux';
 import style from './TabNavBar.module.scss';
 
+// Check Navlink et creation des routes sans id.
+
 const TabNavBar = () => {
-  { /* state to be here */ }
+  const test = 'tt';
+  // const isLogged = useSelector((state)=> state...)
   return (
 
-    <div className={style.TabNavBar__container}>
-      <div className={style.TabNavBar__container__tabs}>
-        {/* Tab nav */}
-        <ul className={style.TabNavBar__container__tabs__nav}>
-          <FontAwesomeIcon className={style.TabNavBar__container__tabs__nav__icon} icon={faHouseUser} size="2x" />
-          <li>Mes infos</li>
-          <li>Mes Annonces</li>
-          <li>Mes Annonces sauvegardées</li>
-          <li>Mes recherches</li>
-          <li>Paramétres</li>
-        </ul>
-        <div className={style.TabNavBar__container__content}>
-          {/* content will be shown here */}
-        </div>
-      </div>
-    </div>
+    <nav className={style.TabNavBar__menu}>
+      <NavLink
+        className={style.TabNavBar__menu__icon}
+        exact
+        activeClassName={style.TabNavBar__menu__link__active__icon}
+        to="/account"
+      >
+        <FontAwesomeIcon className={style.TabNavBar__menu__icon} icon={faHouseUser} size="3x" />
+      </NavLink>
+
+      <NavLink
+        className={style.TabNavBar__menu__link}
+        activeClassName={style.TabNavBar__menu__link__active}
+        exact
+        to="/account/infos"
+      >
+        Mes infos
+      </NavLink>
+
+      <NavLink
+        className={style.TabNavBar__menu__link}
+        activeClassName={style.TabNavBar__menu__link__active}
+        exact
+        to="/account/myoffers"
+      >
+        Mes Annonces
+      </NavLink>
+
+      <NavLink
+        className={style.TabNavBar__menu__link}
+        activeClassName={style.TabNavBar__menu__link__active}
+        exact
+        to="/account/favorite"
+      >
+        Mes Annonces sauvegardées
+      </NavLink>
+
+      <NavLink
+        className={style.TabNavBar__menu__link}
+        activeClassName={style.TabNavBar__menu__link__active}
+        exact
+        to="/account/mysearch"
+      >
+        Mes recherches
+      </NavLink>
+      <NavLink
+        className={style.TabNavBar__menu__link}
+        activeClassName={style.TabNavBar__menu__link__active}
+        exact
+        to="/account/settings"
+      >
+        Paramètres
+      </NavLink>
+
+    </nav>
 
   );
 };

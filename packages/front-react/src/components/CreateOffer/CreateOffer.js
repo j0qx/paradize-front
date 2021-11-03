@@ -1,8 +1,9 @@
 import './CreateOffer.module.scss';
+import { TabNavBar } from '..';
 
 const CreateOffer = () => (
   <div>
-    <h1>Welcome to CreateOffer!</h1>
+    <TabNavBar />
   </div>
 );
 

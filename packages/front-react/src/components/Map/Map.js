@@ -64,6 +64,7 @@ const iconPark = divIcon({
 const customShop = renderToStaticMarkup(<FontAwesomeIcon icon={faShoppingCart} size="4x" />);
 const iconShop = divIcon({
   html: customShop,
+
   iconSize: [0, 0],
   iconAnchor: [10, 41],
   popupAnchor: [2, -40],
@@ -140,7 +141,7 @@ const Map = () => {
         data.tomtomSearch.map(({
           id, position, address, poi,
         }) => (
-          <Marker key={id} icon={iconTest} position={position}>
+          <Marker key={id} icon={iconPub} position={position}>
             <Popup>
               <p>{poi.name}</p>
               <p>{address.streetName}</p>

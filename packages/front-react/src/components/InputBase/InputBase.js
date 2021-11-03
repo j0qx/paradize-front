@@ -2,17 +2,19 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { PropTypes } from 'prop-types';
 import { useDispatch } from 'react-redux';
 import style from './InputBase.module.scss';
-import { CHANGE_INPUT_VALUE } from '../../store/actions';
 
 const InputBase = ({
-  icon, placeholder, inputName, classCSS, inputValue,
+  icon, placeholder, inputName, classCSS, inputValue, actionType,
 }) => {
   const dispatch = useDispatch();
   return (
     <div className={`${style[classCSS]} ${style.inputContainer}`}>
+      {icon
+      && (
       <div>
         <FontAwesomeIcon icon={icon} />
       </div>
+      )}
       <input
         type="text"
         className={style.inputContainer__input}
@@ -21,7 +23,7 @@ const InputBase = ({
         value={inputValue}
         onChange={(event) => {
           dispatch({
-            type: CHANGE_INPUT_VALUE,
+            type: actionType,
             inputField: inputName,
             newValue: event.target.value,
           });
@@ -32,7 +34,7 @@ const InputBase = ({
 };
 
 InputBase.propTypes = {
-  icon: PropTypes.shape({}),
+  actionType: PropTypes.string.isRequired,
   placeholder: PropTypes.string.isRequired,
   inputName: PropTypes.string.isRequired,
   inputValue: PropTypes.string.isRequired,

@@ -7,6 +7,7 @@ import {
   CHANGE_INPUT_TIME_VALUE,
   CHANGE_INPUT_MILES_VALUE,
   CHANGE_INPUT_TRANS_VALUE,
+  CHANGE_INPUT_VALUE_SEARCH,
   CHANGE_RADIO_BUTTON,
 } from '../../store/actions';
 
@@ -32,6 +33,7 @@ const SearchZoneSettings = () => {
           placeholder="À partir de l'adresse..."
           inputName="inputValueAddress"
           inputValue={inputValueAddress}
+          actionType={CHANGE_INPUT_VALUE_SEARCH}
         />
         <div className={style.container__selects}>
           <input

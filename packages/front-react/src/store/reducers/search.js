@@ -5,7 +5,7 @@ import {
   CHANGE_INPUT_MILES_VALUE,
   CHANGE_INPUT_TIME_VALUE,
   CHANGE_INPUT_TRANS_VALUE,
-  CHANGE_INPUT_VALUE,
+  CHANGE_INPUT_VALUE_SEARCH,
   CHANGE_RADIO_BUTTON,
   GET_DATAS_FROM_API_SUCCESS,
   // GET_DATAS_FROM_API_ERROR,
@@ -77,7 +77,7 @@ const searchReducer = (state = initialState, action = {}) => {
         apiSettings: newApiSettings,
       };
     }
-    case CHANGE_INPUT_VALUE:
+    case CHANGE_INPUT_VALUE_SEARCH:
       return {
         ...state,
         [action.inputField]: action.newValue,

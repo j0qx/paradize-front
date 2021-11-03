@@ -5,9 +5,9 @@ import { TabNavBar, InputBase } from '../../components';
 import ButtonSubmit from '../../components/ButtonSubmit';
 
 const UserInfo = () => {
-  const inputValueLastName = useSelector((state) => state.account.inputValueLastname);
+  const inputValueLastName = useSelector((state) => state.account.inputValueLastName);
   const inputValueFirstName = useSelector((state) => state.account.inputValueFirstName);
-  const inputValueNickName = useSelector((state) => state.account.inputValueNickname);
+  const inputValueNickName = useSelector((state) => state.account.inputValueNickName);
   const inputValueEmail = useSelector((state) => state.account.inputValueEmail);
   const inputValuePhone = useSelector((state) => state.account.inputValuePhone);
   const inputValueAddress = useSelector((state) => state.account.inputValueAddress);

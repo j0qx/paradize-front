@@ -11,7 +11,8 @@ const InputBase = ({
   return (
     <div className={`${style[classCSS]} ${style.inputContainer}`}>
       <div>
-        <FontAwesomeIcon icon={icon} />
+        { icon
+        && <FontAwesomeIcon icon={icon} />}
       </div>
       <input
         type="text"
@@ -32,7 +33,6 @@ const InputBase = ({
 };
 
 InputBase.propTypes = {
-  icon: PropTypes.shape({}),
   placeholder: PropTypes.string.isRequired,
   inputName: PropTypes.string.isRequired,
   inputValue: PropTypes.string.isRequired,

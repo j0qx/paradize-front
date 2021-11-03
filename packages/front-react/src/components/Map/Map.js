@@ -1,7 +1,8 @@
 import './Map.module.scss';
 import 'leaflet/dist/leaflet.css';
+import { useDispatch } from 'react-redux';
 import {
-  MapContainer, TileLayer, Marker, Popup, LayersControl,
+  MapContainer, TileLayer, Marker, Popup, LayersControl, useMapEvents,
 } from 'react-leaflet';
 import L from 'leaflet';
 import icon from 'leaflet/dist/images/marker-icon.png';
@@ -10,6 +11,8 @@ import {
   useQuery,
   gql,
 } from '@apollo/client';
+
+import { CHANGE_CURRENT_POS } from '../../store/actions';
 
 const DefaultIcon = L.icon({
   iconUrl: icon,
@@ -50,12 +53,44 @@ const Map = () => {
     sattelite: 'http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',
     pretty: 'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw',
   };
+  const dispatch = useDispatch();
+  const Markers = () => {
+    const map = useMapEvents({
+      click(e) {
+        dispatch({
+          type: CHANGE_CURRENT_POS,
+          inputLatPos: e.latlng.lat,
+          inputLngPos: e.latlng.lng,
+        });
+      },
+    });
+
+    return (
+      selectedPosition
+        ? (
+          <Marker
+            key={selectedPosition[0]}
+            position={selectedPosition}
+            interactive={false}
+          />
+        )
+        : null
+    );
+  };
   return (
     <MapContainer
       style={{ height: '100%' }}
       center={initPosition}
       zoom={13}
+      onClick={(e) => {
+        dispatch({
+          type: CHANGE_CURRENT_POS,
+          inputLatPos: e.latlng.lat,
+          inputLngPos: e.latlng.lng,
+        });
+      }}
     >
+      <Markers />
       <LayersControl position="topright">
         <LayersControl.BaseLayer name="Map">
           <TileLayer

@@ -4,9 +4,10 @@ import style from './SearchZoneSettings.module.scss';
 import InputBase from '../InputBase';
 import ButtonSubmit from '../ButtonSubmit';
 import { CHANGE_INPUT_TIME_VALUE,
-  CHANGE_INPUT_MILES_VALUE, 
+  CHANGE_INPUT_MILES_VALUE,
   CHANGE_INPUT_TRANS_VALUE,
-CHANGE_RADIO_BUTTON } from '../../store/actions';
+  CHANGE_RADIO_BUTTON,
+} from '../../store/actions';
 
 const SearchZoneSettings = () => {
   const dispatch = useDispatch();

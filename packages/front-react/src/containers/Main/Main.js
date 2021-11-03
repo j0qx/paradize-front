@@ -54,10 +54,6 @@ const Main = () => {
         <Route>
           <URLError />
         </Route>
-        {/* TEMPORARY /account to view the render , real Route should be  /account/{id}/infos . */}
-        <Route exact path="/account">
-          <UserInfo />
-        </Route>
       </Switch>
     </div>
   );

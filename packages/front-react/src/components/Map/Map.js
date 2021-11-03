@@ -1,9 +1,14 @@
 import './Map.module.scss';
 import 'leaflet/dist/leaflet.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faCocktail, faClinicMedical, faShoppingCart, faTree, faHatCowboy, faSchool,
+} from '@fortawesome/free-solid-svg-icons';
 import {
   MapContainer, TileLayer, Marker, Popup, LayersControl,
 } from 'react-leaflet';
-import L from 'leaflet';
+import { L, divIcon } from 'leaflet';
+import { renderToStaticMarkup } from "react-dom/server";
 import icon from 'leaflet/dist/images/marker-icon.png';
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 import {
@@ -13,10 +18,18 @@ import {
 import Pointer from '../Pointer';
 import { CHANGE_CURRENT_POS } from '../../store/actions';
 
-const DefaultIcon = L.icon({
+/* const DefaultIcon = L.icon({
   iconUrl: icon,
   shadowUrl: iconShadow,
   iconSize: [25, 41],
+  iconAnchor: [10, 41],
+  popupAnchor: [2, -40],
+}); */
+
+const customIcon = renderToStaticMarkup(<FontAwesomeIcon icon={faCocktail} size="4x" />);
+const iconTest = divIcon({
+  html: customIcon,
+  iconSize: [0, 0],
   iconAnchor: [10, 41],
   popupAnchor: [2, -40],
 });
@@ -93,7 +106,7 @@ const Map = () => {
         data.tomtomSearch.map(({
           id, position, address, poi,
         }) => (
-          <Marker key={id} icon={DefaultIcon} position={position}>
+          <Marker key={id} icon={iconTest} position={position}>
             <Popup>
               <p>{poi.name}</p>
               <p>{address.streetName}</p>

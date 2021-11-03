@@ -7,10 +7,7 @@
     justify-content: center;
     width: 100%;
     height: 10%;
-    
-    color: #9dbdb2;;
-    
-    
+    color: #9dbdb2;;  
     &__icon{
       padding: 0.5% 0.5% 0.5% 0.5%;
       text-align: center;
@@ -21,12 +18,12 @@
 
       &:hover:not(&__active__icon) {
         color: rgba(11, 51, 44, 0.74);
+        padding: 2%;
         box-shadow: rgba(11, 51, 44, 0.74) 0px 25px 20px -20px;
       }
 
     }
     &__link {
-      
       height: 5%;
       padding: 1%;
       text-align: center;
@@ -49,7 +46,7 @@
       }
       &__active__icon {
        
-        font-size: 0.5rem;
+    
         
       }
     }

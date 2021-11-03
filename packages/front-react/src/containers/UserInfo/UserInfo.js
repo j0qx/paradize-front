@@ -9,7 +9,7 @@ const UserInfo = () => {
   const inputValueFirstName = useSelector((state) => state.account.inputValueFirstName);
   const inputValueNickName = useSelector((state) => state.account.inputValueNickname);
   const inputValueEmail = useSelector((state) => state.account.inputValueEmail);
-  const inputValuePhone =useSelector((state)=> state.account.inputValuePhone);
+  const inputValuePhone = useSelector((state) => state.account.inputValuePhone);
   const inputValueAddress = useSelector((state) => state.account.inputValueAddress);
   const inputValuePostalCode = useSelector((state) => state.account.inputValuePostalCode);
   const inputValueCity = useSelector((state) => state.account.inputValueCity);
@@ -104,7 +104,7 @@ const UserInfo = () => {
                 inputValue={inputValueCity}
               />
             </div>
-            <div>
+            <div className={style.userinfo__second__right__inputs__button}>
               <ButtonSubmit
                 buttonName="Appliquer les changements..."
                 classCSS=""

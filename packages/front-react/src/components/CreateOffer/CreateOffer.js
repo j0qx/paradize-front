@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 import style from './CreateOffer.module.scss';
-import {  TabNavBar } from '..';
+import {  TabNavBar,ListCardOffer } from '..';
 
 const CreateOffer = () => (
   <div className={style.createOffer__main}>

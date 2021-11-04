@@ -53,7 +53,7 @@ export const initialState = {
    ],
   inputValueAddress: '',
   inputValueTime: '',
-  inputValueMiles: 1000,
+  inputValueMiles: '',
   inputValueTrans: '',
   valueRadio: 1,
 };

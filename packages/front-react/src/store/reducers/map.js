@@ -19,8 +19,7 @@ const mapReducer = (state = initialState, action = {}) => {
         ...state,
         mapEvents: {
           ...state.mapEvents,
-          [action.inputLatPos]: state.mapEvents.currentPos[0],
-          [action.inputLngPos]: state.mapEvents.currentPos[1],
+          currentPos: [action.inputLatPos, action.inputLngPos],
         },
       };
     default:

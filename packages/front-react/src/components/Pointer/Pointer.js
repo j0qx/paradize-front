@@ -2,12 +2,15 @@ import './Pointer.module.scss';
 import { MapConsumer } from 'react-leaflet';
 import L from 'leaflet';
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import icon from '../../assets/image/leaf-green.png';
-import { CHANGE_CURRENT_POS } from '../../store/actions';
+import { CHANGE_CURRENT_POS, GET_DATAS_FROM_API } from '../../store/actions';
+import getAllCheckedCheckboxs from '../../store/selectors/getAllCheckedCheckboxs';
 
 const Pointer = () => {
   const dispatch = useDispatch();
+  // here we have all the checkboxes (checked and not checked)
+  const allCheckboxs = useSelector((state) => state.search.apiSettings);
 
   const targetUserIcon = L.icon({
     iconUrl: icon,
@@ -33,6 +36,17 @@ const Pointer = () => {
             inputLatPos: lat,
             inputLngPos: lng,
           });
+          // here we check if only one box is checked, if yes
+          // we loop on the checked checkboxs array, and for each one
+          // we dispatch GET_DATAS_FROM_API to request the api
+          if (getAllCheckedCheckboxs(allCheckboxs).length > 0) {
+            getAllCheckedCheckboxs(allCheckboxs).forEach((element) => {
+              dispatch({
+                type: GET_DATAS_FROM_API,
+                keyword: element.checkBoxeName,
+              });
+            });
+          }
         });
         return null;
       }}

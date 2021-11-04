@@ -157,7 +157,7 @@ const Map = () => {
         }))
 }
       {
-      getCheckboxs('shops', allCheckboxs) && (
+      getCheckboxs('shops', allCheckboxs).checked && (
         getCheckboxs('shops', allCheckboxs).result.map(({
           id, position, address, poi,
         }) => {

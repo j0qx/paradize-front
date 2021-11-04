@@ -30,23 +30,23 @@ import getCheckboxs from '../../store/selectors/getCheckboxs';
 }); */
 
 const Map = () => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const currentPos = useSelector((state) => state.map.currentPos);
-  // here we have all the checkboxes (checked and not checked)
+  // // here we have all the checkboxes (checked and not checked)
   const allCheckboxs = useSelector((state) => state.search.apiSettings);
-  useEffect(() => {
-    // here we check if only one box is checked, if yes
-    // we loop on the checked checkboxs array, and for each one
-    // we dispatch GET_DATAS_FROM_API to request the api
-    if (getAllCheckedCheckboxs(allCheckboxs).length > 0) {
-      getAllCheckedCheckboxs(allCheckboxs).forEach((element) => {
-        dispatch({
-          type: GET_DATAS_FROM_API,
-          keyword: element.checkBoxeName,
-        });
-      });
-    }
-  }, [currentPos]);
+  // useEffect(() => {
+  //   // here we check if only one box is checked, if yes
+  //   // we loop on the checked checkboxs array, and for each one
+  //   // we dispatch GET_DATAS_FROM_API to request the api
+  //   if (getAllCheckedCheckboxs(allCheckboxs).length > 0) {
+  //     getAllCheckedCheckboxs(allCheckboxs).forEach((element) => {
+  //       dispatch({
+  //         type: GET_DATAS_FROM_API,
+  //         keyword: element.checkBoxeName,
+  //       });
+  //     });
+  //   }
+  // }, [currentPos]);
 
   // Base map tile:
   const maps = {
@@ -58,7 +58,7 @@ const Map = () => {
   return (
     <MapContainer
       style={{ height: '100%' }}
-      center={[currentPos.lat, currentPos.lng]}
+      center={currentPos}
       zoom={13}
     >
       <Pointer />

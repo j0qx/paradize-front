@@ -25,6 +25,8 @@ const getDateApi = (store) => (next) => (action) => {
         ),
       },
     }).then((result) => {
+
+      console.log(result)
       store.dispatch({
         type: GET_DATAS_FROM_API_SUCCESS,
         payload: result,

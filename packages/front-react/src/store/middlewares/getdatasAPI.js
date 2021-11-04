@@ -18,8 +18,8 @@ const getDateApi = (store) => (next) => (action) => {
       data: {
         query: tomtomSearch(
           action.keyword,
-          state.map.mapEvents.currentPos[0],
-          state.map.mapEvents.currentPos[1],
+          state.map.currentPos[0],
+          state.map.currentPos[1],
           state.search.inputValueMiles,
           1000,
         ),
@@ -35,8 +35,6 @@ const getDateApi = (store) => (next) => (action) => {
       store.dispatch({ type: GET_DATAS_FROM_API_ERROR, payload: error });
     });
   }
-  // si l'action n'est pas SUBMIT_LOGIN, je la nexte
-  // elle ira ainsi jusqu'au reducer
   else {
     next(action);
   }

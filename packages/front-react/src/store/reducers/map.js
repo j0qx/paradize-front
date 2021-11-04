@@ -1,26 +1,15 @@
+import { CHANGE_CURRENT_POS } from '../actions';
+
 const initialState = {
-  mapEvents: {
-    currentPos: [48.75397405400506, 2.300341482002506],
-  },
+  currentPos: [48.76353192218749, 2.2984092239079352],
 };
 
 const mapReducer = (state = initialState, action = {}) => {
   switch (action.type) {
-    // case 'CHECKBOX_TOGGLE':
-    //   return {
-    //     ...state,
-    //     apiSettings: {
-    //       ...state.apiSettings,
-    //       [action.checkBoxField]: !state.apiSettings[action.checkBoxField],
-    //     },
-    //   };
-    case 'CHANGE_CURRENT_POS':
+    case CHANGE_CURRENT_POS:
       return {
         ...state,
-        mapEvents: {
-          ...state.mapEvents,
-          currentPos: [action.inputLatPos, action.inputLngPos],
-        },
+        currentPos: [action.inputLatPos, action.inputLngPos],
       };
     default:
       return state;

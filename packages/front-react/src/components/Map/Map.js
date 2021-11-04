@@ -4,10 +4,11 @@ import 'leaflet/dist/leaflet.css';
 import {
   MapContainer, TileLayer, LayersControl,
 } from 'react-leaflet';
-
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { GET_DATAS_FROM_API } from '../../store/actions';
+import getAllCheckedCheckboxs from '../../store/selectors/getAllCheckedCheckboxs';
 import Pointer from '../Pointer';
-import { CHANGE_CURRENT_POS } from '../../store/actions';
 import {
   BarsMarker,
   SchoolMarker,
@@ -27,8 +28,23 @@ import getCheckboxs from '../../store/selectors/getCheckboxs';
 }); */
 
 const Map = () => {
-  const currentPos = useSelector((state) => state.map.mapEvents.currentPos);
+  const dispatch = useDispatch();
+  const currentPos = useSelector((state) => state.map.currentPos);
+  // here we have all the checkboxes (checked and not checked)
   const allCheckboxs = useSelector((state) => state.search.apiSettings);
+  useEffect(() => {
+    // here we check if only one box is checked, if yes
+    // we loop on the checked checkboxs array, and for each one
+    // we dispatch GET_DATAS_FROM_API to request the api
+    if (getAllCheckedCheckboxs(allCheckboxs).length > 0) {
+      getAllCheckedCheckboxs(allCheckboxs).forEach((element) => {
+        dispatch({
+          type: GET_DATAS_FROM_API,
+          keyword: element.checkBoxeName,
+        });
+      });
+    }
+  }, [currentPos]);
 
   // Base map tile:
   const maps = {

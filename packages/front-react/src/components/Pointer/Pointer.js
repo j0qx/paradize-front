@@ -36,10 +36,8 @@ const Pointer = () => {
           circle = L.circle([lat, lng], Number(radius), { opacity: 10, fillOpacity: 0.3, color: 'rgb(157, 189, 178)' }).addTo(map);
           dispatch({
             type: CHANGE_CURRENT_POS,
-            payload: {
-              lat,
-              lng,
-            },
+            inputLatPos: lat,
+            inputLngPos: lng,
           });
         });
         return null;

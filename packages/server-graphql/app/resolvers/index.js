@@ -1,12 +1,12 @@
 import { queryOparadise, mutationOparadise } from './oparadise';
 import { queryTomtom } from './tomtom';
-import { queryGeo } from './geo';
+import { queryGeoRisque } from './geoRisque';
 
 const resolvers = {
   Query: {
     ...queryOparadise,
     ...queryTomtom,
-    ...queryGeo,
+    ...queryGeoRisque,
   },
   Mutation: {
     ...mutationOparadise,

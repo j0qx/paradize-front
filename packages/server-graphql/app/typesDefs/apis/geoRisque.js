@@ -13,19 +13,26 @@ const geoApi = gql`
     risques_detail:[Risques_detail]
   }
 
-  type Data{
-    risques:[Risques]
-  }  
-
   type GeoApi {
     results: Int
     page: Int
     total_pages:Int
+    data: [Risques]
     response_code: Int,
     message: String,
     next: String,
     previous: String
-    data: [Data]
+    
   }
-`
+
+  extend type Query {
+    geoRisqueSearch(
+      lat: Float!,
+      lon: Float!
+      radius: Int!
+      page:Int!
+      pageSize:Int!
+    ):[Risques]
+  }
+`;
 export default geoApi;

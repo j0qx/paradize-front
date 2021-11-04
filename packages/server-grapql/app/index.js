@@ -5,6 +5,7 @@ import { ApolloServer } from 'apollo-server-express';
 import typeDefs from './typesDefs';
 import resolvers from './resolvers';
 import TomtomApi from './datasources/TomtomApi';
+import GeoApi from './datasources/GeoApi';
 
 const PORT = 3333;
 
@@ -27,6 +28,7 @@ const PORT = 3333;
       // datasources is very useful to use lots of external api
       // datasource will be available inside the context from resolver
       tomtomApi: new TomtomApi(),
+      GeoApi: new GeoApi(),
     }),
   });
   // execute launcher from ApolloServers'class

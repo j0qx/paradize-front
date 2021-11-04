@@ -1,6 +1,6 @@
 const initialState = {
   mapEvents: {
-    currentPos: [48.84878189511719, 2.3824814316304916],
+    currentPos: [48.75397405400506, 2.300341482002506],
   },
 };
 

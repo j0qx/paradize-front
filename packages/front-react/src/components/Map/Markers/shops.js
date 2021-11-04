@@ -1,6 +1,4 @@
 import { Marker, Popup } from 'react-leaflet';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { divIcon } from 'leaflet';
 
@@ -9,7 +7,12 @@ import { PropTypes } from 'prop-types';
 const ShopMarker = ({
   address, id, position, poi,
 }) => {
-  const customShop = renderToStaticMarkup(<FontAwesomeIcon icon={faShoppingCart} size="4x" />);
+  const customShop = renderToStaticMarkup(
+    <img
+      src="https://img.icons8.com/plasticine/100/000000/shopping-cart-promotion.png"
+      alt=" shops logo"
+    />,
+  );
   const iconShop = divIcon({
     html: customShop,
     iconSize: [0, 0],

@@ -1,6 +1,4 @@
 import { Marker, Popup } from 'react-leaflet';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCocktail } from '@fortawesome/free-solid-svg-icons';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { divIcon } from 'leaflet';
 
@@ -9,7 +7,12 @@ import { PropTypes } from 'prop-types';
 const BarsMarker = ({
   address, id, position, poi,
 }) => {
-  const customPub = renderToStaticMarkup(<FontAwesomeIcon icon={faCocktail} size="4x" />);
+  const customPub = renderToStaticMarkup(
+    <img
+      src="https://img.icons8.com/external-wanicon-two-tone-wanicon/64/000000/external-alcohol-allergies-wanicon-two-tone-wanicon.png"
+      alt="cocktail marker"
+    />,
+  );
   const iconPub = divIcon({
     html: customPub,
     iconSize: [0, 0],

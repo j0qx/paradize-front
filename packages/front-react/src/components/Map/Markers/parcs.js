@@ -1,6 +1,4 @@
 import { Marker, Popup } from 'react-leaflet';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTree } from '@fortawesome/free-solid-svg-icons';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { divIcon } from 'leaflet';
 
@@ -9,7 +7,12 @@ import { PropTypes } from 'prop-types';
 const ParkMarker = ({
   address, id, position, poi,
 }) => {
-  const customPark = renderToStaticMarkup(<FontAwesomeIcon icon={faTree} size="4x" />);
+  const customPark = renderToStaticMarkup(
+    <img
+      src="https://img.icons8.com/external-flatart-icons-lineal-color-flatarticons/64/000000/external-park-nature-flatart-icons-lineal-color-flatarticons-1.png"
+      alt="park logo"
+    />,
+  );
   const iconPark = divIcon({
     html: customPark,
     iconSize: [0, 0],

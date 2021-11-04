@@ -11,7 +11,11 @@ import {
 const getDateApi = (store) => (next) => (action) => {
   if (action.type === GET_DATAS_FROM_API) {
     const state = store.getState();
-
+    console.log(  action.keyword,
+      state.map.mapEvents.currentPos.lat,
+      state.map.mapEvents.currentPos.lng,
+      state.search.inputValueMiles,
+      1000)
     axios({
       url,
       method: 'post',
@@ -25,8 +29,6 @@ const getDateApi = (store) => (next) => (action) => {
         ),
       },
     }).then((result) => {
-
-      console.log(result)
       store.dispatch({
         type: GET_DATAS_FROM_API_SUCCESS,
         payload: result,

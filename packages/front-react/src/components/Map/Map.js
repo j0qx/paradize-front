@@ -1,11 +1,13 @@
 import './Map.module.scss';
 import 'leaflet/dist/leaflet.css';
+import 'react-leaflet-markercluster/dist/styles.min.css';
 
 import {
   MapContainer, TileLayer, LayersControl,
 } from 'react-leaflet';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
+import MarkerClusterGroup from 'react-leaflet-markercluster';
 import { GET_DATAS_FROM_API } from '../../store/actions';
 import getAllCheckedCheckboxs from '../../store/selectors/getAllCheckedCheckboxs';
 import Pointer from '../Pointer';
@@ -56,7 +58,7 @@ const Map = () => {
   return (
     <MapContainer
       style={{ height: '100%' }}
-      center={currentPos}
+      center={[currentPos.lat, currentPos.lng]}
       zoom={13}
     >
       <Pointer />
@@ -84,7 +86,8 @@ const Map = () => {
       </LayersControl>
       { /* here we check if the checkbox is checked, if yes,
       we print all markers about it */}
-      {
+      <MarkerClusterGroup>
+        {
         getCheckboxs('bars', allCheckboxs).checked && (
           getCheckboxs('bars', allCheckboxs).result.map(({
             id, position, address, poi,
@@ -102,7 +105,7 @@ const Map = () => {
           })
         )
 }
-      {
+        {
         getCheckboxs('ecoles', allCheckboxs).checked && (
           getCheckboxs('ecoles', allCheckboxs).result.map(({
             id, position, address, poi,
@@ -119,7 +122,7 @@ const Map = () => {
             );
           }))
 }
-      {
+        {
         getCheckboxs('police', allCheckboxs).checked && (
           getCheckboxs('police', allCheckboxs).result.map(({
             id, position, address, poi,
@@ -137,7 +140,7 @@ const Map = () => {
           })
         )
 }
-      {
+        {
         getCheckboxs('parcs', allCheckboxs).checked && (
           getCheckboxs('parcs', allCheckboxs).result.map(({
             id, position, address, poi,
@@ -155,7 +158,7 @@ const Map = () => {
           })
         )
 }
-      {
+        {
         getCheckboxs('hopital', allCheckboxs).checked
         && (getCheckboxs('hopital', allCheckboxs).result.map(({
           id, position, address, poi,
@@ -172,7 +175,7 @@ const Map = () => {
           );
         }))
 }
-      {
+        {
       getCheckboxs('shops', allCheckboxs).checked && (
         getCheckboxs('shops', allCheckboxs).result.map(({
           id, position, address, poi,
@@ -189,7 +192,7 @@ const Map = () => {
           );
         }))
 }
-
+      </MarkerClusterGroup>
     </MapContainer>
   );
 };

@@ -42,7 +42,7 @@ const Map = () => {
   return (
     <MapContainer
       style={{ height: '100%' }}
-      center={currentPos}
+      center={[currentPos.lat, currentPos.lng]}
       zoom={13}
     >
       <Pointer />

@@ -28,14 +28,17 @@ const Pointer = () => {
           if (marker !== null) {
             map.removeLayer(marker);
             map.removeLayer(circle);
+            return null;
           }
           const { lat, lng } = e.latlng;
           marker = L.marker([lat, lng], { icon: targetUserIcon }).addTo(map);
           circle = L.circle([lat, lng], Number(radius), { opacity: 10, fillOpacity: 0.3, color: 'rgb(157, 189, 178)' }).addTo(map);
           dispatch({
             type: CHANGE_CURRENT_POS,
-            inputLatPos: lat,
-            inputLngPos: lng,
+            payload: {
+              lat,
+              lng,
+            },
           });
         });
         return null;

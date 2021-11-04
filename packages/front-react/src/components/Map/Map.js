@@ -1,5 +1,7 @@
 import './Map.module.scss';
 import 'leaflet/dist/leaflet.css';
+import 'react-leaflet-markercluster/dist/styles.min.css';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faCocktail, faClinicMedical, faShoppingCart, faTree, faHatCowboy, faSchool,
@@ -8,7 +10,8 @@ import {
   MapContainer, TileLayer, Marker, Popup, LayersControl,
 } from 'react-leaflet';
 import { L, divIcon } from 'leaflet';
-import { renderToStaticMarkup } from "react-dom/server";
+import { renderToStaticMarkup } from 'react-dom/server';
+import MarkerClusterGroup from 'react-leaflet-markercluster';
 import icon from 'leaflet/dist/images/marker-icon.png';
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 import {
@@ -16,7 +19,6 @@ import {
   gql,
 } from '@apollo/client';
 import Pointer from '../Pointer';
-import { CHANGE_CURRENT_POS } from '../../store/actions';
 
 /* const DefaultIcon = L.icon({
   iconUrl: icon,
@@ -106,13 +108,6 @@ const Map = () => {
       style={{ height: '100%' }}
       center={initPosition}
       zoom={13}
-      /* onClick={(e) => {
-        dispatch({
-          type: CHANGE_CURRENT_POS,
-          inputLatPos: e.latlng.lat,
-          inputLngPos: e.latlng.lng,
-        });
-      }} */
     >
       <Pointer />
       <LayersControl position="topright">
@@ -137,7 +132,8 @@ const Map = () => {
           />
         </LayersControl.BaseLayer>
       </LayersControl>
-      {
+      <MarkerClusterGroup>
+        {
         data.tomtomSearch.map(({
           id, position, address, poi,
         }) => (
@@ -151,6 +147,7 @@ const Map = () => {
           </Marker>
         ))
       }
+      </MarkerClusterGroup>
     </MapContainer>
   );
 };

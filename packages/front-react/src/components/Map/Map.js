@@ -1,24 +1,21 @@
 import './Map.module.scss';
 import 'leaflet/dist/leaflet.css';
-import 'react-leaflet-markercluster/dist/styles.min.css';
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faCocktail, faClinicMedical, faShoppingCart, faTree, faHatCowboy, faSchool,
-} from '@fortawesome/free-solid-svg-icons';
-import {
-  MapContainer, TileLayer, Marker, Popup, LayersControl,
+  MapContainer, TileLayer, LayersControl,
 } from 'react-leaflet';
-import { L, divIcon } from 'leaflet';
-import { renderToStaticMarkup } from 'react-dom/server';
-import MarkerClusterGroup from 'react-leaflet-markercluster';
-import icon from 'leaflet/dist/images/marker-icon.png';
-import iconShadow from 'leaflet/dist/images/marker-shadow.png';
-import {
-  useQuery,
-  gql,
-} from '@apollo/client';
+
+import { useSelector } from 'react-redux';
 import Pointer from '../Pointer';
+import { CHANGE_CURRENT_POS } from '../../store/actions';
+import {
+  BarsMarker,
+  SchoolMarker,
+  PoliceMarker,
+  ShopMarker,
+  HospitalMarker,
+  ParkMarker,
+} from './Markers';
+import getCheckboxs from '../../store/selectors/getCheckboxs';
 
 /* const DefaultIcon = L.icon({
   iconUrl: icon,
@@ -28,74 +25,10 @@ import Pointer from '../Pointer';
   popupAnchor: [2, -40],
 }); */
 
-const customPub = renderToStaticMarkup(<FontAwesomeIcon icon={faCocktail} size="4x" />);
-const iconPub = divIcon({
-  html: customPub,
-  iconSize: [0, 0],
-  iconAnchor: [10, 41],
-  popupAnchor: [2, -40],
-});
-const customMedic = renderToStaticMarkup(<FontAwesomeIcon icon={faClinicMedical} size="4x" />);
-const iconMedic = divIcon({
-  html: customMedic,
-  iconSize: [0, 0],
-  iconAnchor: [10, 41],
-  popupAnchor: [2, -40],
-});
-const customSchool = renderToStaticMarkup(<FontAwesomeIcon icon={faSchool} size="4x" />);
-const iconSchool = divIcon({
-  html: customSchool,
-  iconSize: [0, 0],
-  iconAnchor: [10, 41],
-  popupAnchor: [2, -40],
-});
-const customPolice = renderToStaticMarkup(<FontAwesomeIcon icon={faHatCowboy} size="4x" />);
-const iconPolice = divIcon({
-  html: customPolice,
-  iconSize: [0, 0],
-  iconAnchor: [10, 41],
-  popupAnchor: [2, -40],
-});
-const customPark = renderToStaticMarkup(<FontAwesomeIcon icon={faTree} size="4x" />);
-const iconPark = divIcon({
-  html: customPark,
-  iconSize: [0, 0],
-  iconAnchor: [10, 41],
-  popupAnchor: [2, -40],
-});
-const customShop = renderToStaticMarkup(<FontAwesomeIcon icon={faShoppingCart} size="4x" />);
-const iconShop = divIcon({
-  html: customShop,
-
-  iconSize: [0, 0],
-  iconAnchor: [10, 41],
-  popupAnchor: [2, -40],
-});
 const Map = () => {
-  const initPosition = [48.863007, 2.338288];
-  const { loading, error, data } = useQuery(gql`
-  query Query {
-    tomtomSearch(keyword: "hopital", lat: 48.863007, lon: 2.338288, radius: 100000, limit:1000) {
-      position {
-        lat
-        lon
-      }
-      address {
-        streetName
-        postalCode
-        municipality
-      }
-      poi {
-        name
-      }
-      id
-    }
-  }
+  const currentPos = useSelector((state) => state.map.mapEvents.currentPos);
+  const allCheckboxs = useSelector((state) => state.search.apiSettings);
 
-    `);
-
-  if (loading) return 'Loading...';
-  if (error) return `Error! ${error.message}`;
   // Base map tile:
   const maps = {
     base: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
@@ -106,12 +39,12 @@ const Map = () => {
   return (
     <MapContainer
       style={{ height: '100%' }}
-      center={initPosition}
+      center={currentPos}
       zoom={13}
     >
       <Pointer />
       <LayersControl position="topright">
-        <LayersControl.BaseLayer name="Map">
+        <LayersControl.BaseLayer checked name="Map">
           <TileLayer
             attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
             url={maps.base}
@@ -124,7 +57,7 @@ const Map = () => {
             subdomains={['mt0', 'mt1', 'mt2', 'mt3']}
           />
         </LayersControl.BaseLayer>
-        <LayersControl.BaseLayer checked name="Pretty">
+        <LayersControl.BaseLayer name="Pretty">
           <TileLayer
             url={maps.pretty}
             maxZoom={18}
@@ -132,22 +65,103 @@ const Map = () => {
           />
         </LayersControl.BaseLayer>
       </LayersControl>
-      <MarkerClusterGroup>
-        {
-        data.tomtomSearch.map(({
+      {
+        getCheckboxs('bars', allCheckboxs).result.map(({
           id, position, address, poi,
-        }) => (
-          <Marker key={id} icon={iconPub} position={position}>
-            <Popup>
-              <p>{poi.name}</p>
-              <p>{address.streetName}</p>
-              <p>{address.postalCode}</p>
-              <p>{address.municipality}</p>
-            </Popup>
-          </Marker>
-        ))
-      }
-      </MarkerClusterGroup>
+        }) => {
+          const newId = ((Number.isNaN(id) ? id : 1) + Math.random()) * 100;
+          return (
+            <BarsMarker
+              id={newId}
+              key={newId}
+              position={position}
+              address={address}
+              poi={poi}
+            />
+          );
+        })
+}
+      {
+        getCheckboxs('ecoles', allCheckboxs).result.map(({
+          id, position, address, poi,
+        }) => {
+          const newId = ((Number.isNaN(id) ? id : 1) + Math.random()) * 100;
+          return (
+            <SchoolMarker
+              id={newId}
+              key={newId}
+              position={position}
+              address={address}
+              poi={poi}
+            />
+          );
+        })
+}
+      {
+        getCheckboxs('police', allCheckboxs).result.map(({
+          id, position, address, poi,
+        }) => {
+          const newId = ((Number.isNaN(id) ? id : 1) + Math.random()) * 100;
+          return (
+            <PoliceMarker
+              id={newId}
+              key={newId}
+              position={position}
+              address={address}
+              poi={poi}
+            />
+          );
+        })
+}
+      {
+        getCheckboxs('parcs', allCheckboxs).result.map(({
+          id, position, address, poi,
+        }) => {
+          const newId = ((Number.isNaN(id) ? id : 1) + Math.random()) * 100;
+          return (
+            <ParkMarker
+              id={newId}
+              key={newId}
+              position={position}
+              address={address}
+              poi={poi}
+            />
+          );
+        })
+}
+      {
+        getCheckboxs('hopital', allCheckboxs).result.map(({
+          id, position, address, poi,
+        }) => {
+          const newId = ((Number.isNaN(id) ? id : 1) + Math.random()) * 100;
+          return (
+            <HospitalMarker
+              id={newId}
+              key={newId}
+              position={position}
+              address={address}
+              poi={poi}
+            />
+          );
+        })
+}
+      {
+        getCheckboxs('shops', allCheckboxs).result.map(({
+          id, position, address, poi,
+        }) => {
+          const newId = ((Number.isNaN(id) ? id : 1) + Math.random()) * 100;
+          return (
+            <ShopMarker
+              id={newId}
+              key={newId}
+              position={position}
+              address={address}
+              poi={poi}
+            />
+          );
+        })
+}
+
     </MapContainer>
   );
 };

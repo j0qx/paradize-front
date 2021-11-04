@@ -1,4 +1,4 @@
-import { CHANGE_INPUT_VALUE } from '../actions';
+import { CHANGE_INPUT_VALUE_SIGNUP } from '../actions';
 
 const initialState = {
   lastName: '',
@@ -9,7 +9,7 @@ const initialState = {
 
 const signUpReducer = (state = initialState, action = {}) => {
   switch (action.type) {
-    case CHANGE_INPUT_VALUE:
+    case CHANGE_INPUT_VALUE_SIGNUP:
       return {
         ...state,
         [action.inputField]: action.newValue,

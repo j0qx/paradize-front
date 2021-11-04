@@ -20,6 +20,26 @@
 
 }
 .input__search__zone{
-  border: 1px solid black;
-  width: 70%;
+  padding: 2%;
+  border-radius: 8px;
+  margin-bottom: 6%;
+  background-color: white;
+  width: 100%;
  }
+
+ @media(min-width:1100px){
+
+  
+
+
+
+
+  .input__search__zone{
+    padding: 2%;
+    border-radius: 8px;
+    margin-bottom: 6%;
+    background-color: white;
+    width: 200%;
+   }
+ 
+}

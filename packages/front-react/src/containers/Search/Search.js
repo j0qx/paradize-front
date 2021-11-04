@@ -8,4 +8,5 @@ const Search = () => (
     <SearchZoneSettings />
   </div>
 );
+
 export default Search;

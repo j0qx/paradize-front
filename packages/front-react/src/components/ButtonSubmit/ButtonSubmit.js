@@ -6,7 +6,7 @@ const ButtonSubmit = ({ classCSS, handleButtonClick, buttonName }) => (
   // This button is meant for every purpose based on him.
   <button
     type="submit"
-    className={`${classCSS} ${style.button}`}
+    className={`${style[classCSS]} ${style.button}`}
     onClick={handleButtonClick}
   >
     {buttonName}

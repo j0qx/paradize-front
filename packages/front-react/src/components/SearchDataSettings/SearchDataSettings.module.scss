@@ -1,12 +1,70 @@
 @use '../../styles/vars';
+
+
 .container__control {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
-  width: 200px;
-  height: 200px;
+  width: 70%;
+  height: 100%;
+  margin: 8%;
   flex-flow: wrap;
+
+  &__title{
+    display: flex;
+    font-size: 1.0rem;
+    color: black;
+    padding: 3%;
+    padding-bottom: 5%;
+    align-items: center;
+    justify-content: center;
+  }
+}
+.container__switch {
+  display: flex;
+  flex-direction: row;
+  margin: 2%;
+  padding: 2%;
+}
+ .switch {
+    display: flex;
+    flex-direction: row;
+  }
+  
+   .switch input { 
+     position: relative;
+     vertical-align: middle;
+     top: 10px;
+  }
+  .slider__icon {
+    margin-left: 5px;
+  }
+
+  .switch__font {
+    color: vars.$secondaryColor;
+    filter:drop-shadow(1px 1px 1px rgb(209, 206, 0))
+  }
+
+@media(min-width:1100px){
+.container__control {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 30%;
+  
+  flex-flow: wrap;
+
+  &__title{
+    display: flex;
+    font-size: 1.0rem;
+    color: black;
+    padding: 3%;
+    padding-bottom: 5%;
+    align-items: center;
+    justify-content: center;
+    
+  }
 }
 .container__switch {
   display: flex;
@@ -29,4 +87,4 @@
   .switch__font {
     color: vars.$secondaryColor;
     filter:drop-shadow(1px 1px 1px rgb(209, 206, 0))
-  }
+  }}

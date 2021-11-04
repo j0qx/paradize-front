@@ -1,16 +1,130 @@
-.search__zone{
-  width: 450px;
-  height: 200px;
-  justify-content: flex-start;
+.search__zone {
   display: flex;
   flex-direction: column;
-}
-.container__selects{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  &__select{
-margin-right: 10%;
-margin-bottom: 5%;
+  width: 100%;
+  height: 70%;
+  justify-content: center;
+  align-items: center;
+
+  &__title{
+    display: flex;
+    font-size: 1.0rem;
+    color: black;
+    padding: 3%;
+    padding-bottom: 5%;
+    
   }
+}
+
+.search__adress {
+  display: flex;
+  width: 100%;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+}
+
+.search__button {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3%;
+
+}
+
+.container__selects {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  &__content {
+    width: 100%;
+    display: flex;
+
+
+
+    &__select {
+      width: 80%;
+      padding: 2%;
+      border-radius: 8px;
+      margin-right: 8%;
+      margin-bottom: 5%;
+      background-color: white;
+
+      &__transport {
+        margin-left: 8%;
+        width: 80%;
+        padding: 2%;
+        border-radius: 8px;
+        margin-right: 8%;
+        margin-bottom: 5%;
+        background-color: white;
+      }
+    }
+
+  }
+}
+
+
+@media(min-width:1100px) {
+
+  .search__zone {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 50%;
+    justify-content: center;
+    align-items: center;
+    
+
+    &__title{
+      display: flex;
+      justify-content: center;
+      font-size: 1.0rem;
+      color: black;
+      padding: 1% 0 6% 0;
+    }
+  }
+
+  .search__adress {
+    display: flex;
+    width: 100%;
+  }
+
+  .search__button {
+    width: 100%;
+  }
+
+
+  .container__selects {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    &__content {
+      width: 100%;
+      display: flex;
+
+    &__select {
+      padding: 2%;
+      border-radius: 8px;
+      margin-right: 7%;
+      margin-bottom: 5%;
+      background-color: white;
+
+      &__transport {
+        width: 100%;
+        padding: 2%;
+        border-radius: 8px;
+        margin-right: 7%;
+        margin-bottom: 5%;
+        background-color: white;
+      }
+    }
+  }
+}
 }

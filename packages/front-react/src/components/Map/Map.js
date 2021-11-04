@@ -1,13 +1,15 @@
 import './Map.module.scss';
 import 'leaflet/dist/leaflet.css';
+import 'react-leaflet-markercluster/dist/styles.min.css';
 
 import {
   MapContainer, TileLayer, LayersControl,
 } from 'react-leaflet';
 
 import { useSelector } from 'react-redux';
+import MarkerClusterGroup from 'react-leaflet-markercluster';
 import Pointer from '../Pointer';
-import { CHANGE_CURRENT_POS } from '../../store/actions';
+
 import {
   BarsMarker,
   SchoolMarker,
@@ -68,7 +70,8 @@ const Map = () => {
       </LayersControl>
       { /* here we check if the checkbox is checked, if yes,
       we print all markers about it */}
-      {
+      <MarkerClusterGroup>
+        {
         getCheckboxs('bars', allCheckboxs).checked && (
           getCheckboxs('bars', allCheckboxs).result.map(({
             id, position, address, poi,
@@ -86,7 +89,7 @@ const Map = () => {
           })
         )
 }
-      {
+        {
         getCheckboxs('ecoles', allCheckboxs).checked && (
           getCheckboxs('ecoles', allCheckboxs).result.map(({
             id, position, address, poi,
@@ -103,7 +106,7 @@ const Map = () => {
             );
           }))
 }
-      {
+        {
         getCheckboxs('police', allCheckboxs).checked && (
           getCheckboxs('police', allCheckboxs).result.map(({
             id, position, address, poi,
@@ -121,7 +124,7 @@ const Map = () => {
           })
         )
 }
-      {
+        {
         getCheckboxs('parcs', allCheckboxs).checked && (
           getCheckboxs('parcs', allCheckboxs).result.map(({
             id, position, address, poi,
@@ -139,7 +142,7 @@ const Map = () => {
           })
         )
 }
-      {
+        {
         getCheckboxs('hopital', allCheckboxs).checked
         && (getCheckboxs('hopital', allCheckboxs).result.map(({
           id, position, address, poi,
@@ -156,7 +159,7 @@ const Map = () => {
           );
         }))
 }
-      {
+        {
       getCheckboxs('shops', allCheckboxs) && (
         getCheckboxs('shops', allCheckboxs).result.map(({
           id, position, address, poi,
@@ -173,7 +176,7 @@ const Map = () => {
           );
         }))
 }
-
+      </MarkerClusterGroup>
     </MapContainer>
   );
 };

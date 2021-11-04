@@ -42,13 +42,6 @@ const Map = () => {
       style={{ height: '100%' }}
       center={currentPos}
       zoom={13}
-      /* onClick={(e) => {
-        dispatch({
-          type: CHANGE_CURRENT_POS,
-          inputLatPos: e.latlng.lat,
-          inputLngPos: e.latlng.lng,
-        });
-      }} */
     >
       <Pointer />
       <LayersControl position="topright">
@@ -73,72 +66,82 @@ const Map = () => {
           />
         </LayersControl.BaseLayer>
       </LayersControl>
+      { /* here we check if the checkbox is checked, if yes,
+      we print all markers about it */}
       {
-        getCheckboxs('bars', allCheckboxs).result.map(({
-          id, position, address, poi,
-        }) => {
-          const newId = ((Number.isNaN(id) ? id : 1) + Math.random()) * 100;
-          return (
-            <BarsMarker
-              id={newId}
-              key={newId}
-              position={position}
-              address={address}
-              poi={poi}
-            />
-          );
-        })
+        getCheckboxs('bars', allCheckboxs).checked && (
+          getCheckboxs('bars', allCheckboxs).result.map(({
+            id, position, address, poi,
+          }) => {
+            const newId = ((Number.isNaN(id) ? id : 1) + Math.random()) * 100;
+            return (
+              <BarsMarker
+                id={newId}
+                key={newId}
+                position={position}
+                address={address}
+                poi={poi}
+              />
+            );
+          })
+        )
 }
       {
-        getCheckboxs('ecoles', allCheckboxs).result.map(({
-          id, position, address, poi,
-        }) => {
-          const newId = ((Number.isNaN(id) ? id : 1) + Math.random()) * 100;
-          return (
-            <SchoolMarker
-              id={newId}
-              key={newId}
-              position={position}
-              address={address}
-              poi={poi}
-            />
-          );
-        })
+        getCheckboxs('ecoles', allCheckboxs).checked && (
+          getCheckboxs('ecoles', allCheckboxs).result.map(({
+            id, position, address, poi,
+          }) => {
+            const newId = ((Number.isNaN(id) ? id : 1) + Math.random()) * 100;
+            return (
+              <SchoolMarker
+                id={newId}
+                key={newId}
+                position={position}
+                address={address}
+                poi={poi}
+              />
+            );
+          }))
 }
       {
-        getCheckboxs('police', allCheckboxs).result.map(({
-          id, position, address, poi,
-        }) => {
-          const newId = ((Number.isNaN(id) ? id : 1) + Math.random()) * 100;
-          return (
-            <PoliceMarker
-              id={newId}
-              key={newId}
-              position={position}
-              address={address}
-              poi={poi}
-            />
-          );
-        })
+        getCheckboxs('police', allCheckboxs).checked && (
+          getCheckboxs('police', allCheckboxs).result.map(({
+            id, position, address, poi,
+          }) => {
+            const newId = ((Number.isNaN(id) ? id : 1) + Math.random()) * 100;
+            return (
+              <PoliceMarker
+                id={newId}
+                key={newId}
+                position={position}
+                address={address}
+                poi={poi}
+              />
+            );
+          })
+        )
 }
       {
-        getCheckboxs('parcs', allCheckboxs).result.map(({
-          id, position, address, poi,
-        }) => {
-          const newId = ((Number.isNaN(id) ? id : 1) + Math.random()) * 100;
-          return (
-            <ParkMarker
-              id={newId}
-              key={newId}
-              position={position}
-              address={address}
-              poi={poi}
-            />
-          );
-        })
+        getCheckboxs('parcs', allCheckboxs).checked && (
+          getCheckboxs('parcs', allCheckboxs).result.map(({
+            id, position, address, poi,
+          }) => {
+            const newId = ((Number.isNaN(id) ? id : 1) + Math.random()) * 100;
+            return (
+              <ParkMarker
+                id={newId}
+                key={newId}
+                position={position}
+                address={address}
+                poi={poi}
+              />
+            );
+          })
+        )
 }
       {
-        getCheckboxs('hopital', allCheckboxs).result.map(({
+        getCheckboxs('hopital', allCheckboxs).checked
+        && (getCheckboxs('hopital', allCheckboxs).result.map(({
           id, position, address, poi,
         }) => {
           const newId = ((Number.isNaN(id) ? id : 1) + Math.random()) * 100;
@@ -151,9 +154,10 @@ const Map = () => {
               poi={poi}
             />
           );
-        })
+        }))
 }
       {
+      getCheckboxs('shops', allCheckboxs) && (
         getCheckboxs('shops', allCheckboxs).result.map(({
           id, position, address, poi,
         }) => {
@@ -167,7 +171,7 @@ const Map = () => {
               poi={poi}
             />
           );
-        })
+        }))
 }
 
     </MapContainer>

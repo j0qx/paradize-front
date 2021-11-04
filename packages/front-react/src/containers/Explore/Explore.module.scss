@@ -30,6 +30,8 @@ h4 {
 
   }
 
+  
+
   &__boarddatas {
     display: none;
 
@@ -56,12 +58,13 @@ h4 {
       flex-direction: column;
       width: 100%;
       height: 100%;
-
-    &__slide{
-      display: flex;
-      width: 100%;
-      height: 100%;
     }
+
+    &__datas{
+      display: flex;
+      width: fit-content;
+      height: 15%;
+      padding-bottom: 1%;
     }
 
     &__boarddatas {

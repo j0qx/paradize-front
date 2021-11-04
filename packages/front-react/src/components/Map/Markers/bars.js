@@ -29,7 +29,6 @@ const BarsMarker = ({
         <p>{address.municipality}</p>
       </Popup>
     </Marker>
-
   );
 };
 

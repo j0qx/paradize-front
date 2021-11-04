@@ -1,6 +1,4 @@
 import { Marker, Popup } from 'react-leaflet';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSchool } from '@fortawesome/free-solid-svg-icons';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { divIcon } from 'leaflet';
 
@@ -9,7 +7,12 @@ import { PropTypes } from 'prop-types';
 const SchoolMarker = ({
   address, id, position, poi,
 }) => {
-  const customSchool = renderToStaticMarkup(<FontAwesomeIcon icon={faSchool} size="4x" />);
+  const customSchool = renderToStaticMarkup(
+    <img
+      src="https://img.icons8.com/color/48/000000/graduation-cap.png"
+      alt="school"
+    />,
+  );
   const iconSchool = divIcon({
     html: customSchool,
     iconSize: [0, 0],

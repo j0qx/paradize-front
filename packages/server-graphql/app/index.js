@@ -6,6 +6,7 @@ import { ApolloServerPluginInlineTrace } from 'apollo-server-core';
 import typeDefs from './typesDefs';
 import resolvers from './resolvers';
 import TomtomApi from './datasources/TomtomApi';
+import GeoRisqueApi from './datasources/GeoRisqueApi';
 
 const PORT = 3333;
 
@@ -32,6 +33,7 @@ const PORT = 3333;
       // datasources is very useful to use lots of external api
       // datasource will be available inside the context from resolver
       tomtomApi: new TomtomApi(),
+      geoRisqueApi: new GeoRisqueApi(),
     }),
   });
   // execute launcher from ApolloServers'class

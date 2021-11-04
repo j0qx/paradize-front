@@ -31,6 +31,7 @@ const getDateApi = (store) => (next) => (action) => {
         keyword: action.keyword,
       });
     }).catch((error) => {
+      console.log(error);
       store.dispatch({ type: GET_DATAS_FROM_API_ERROR, payload: error });
     });
   }

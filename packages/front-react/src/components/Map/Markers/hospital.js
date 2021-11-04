@@ -1,6 +1,4 @@
 import { Marker, Popup } from 'react-leaflet';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faClinicMedical } from '@fortawesome/free-solid-svg-icons';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { divIcon } from 'leaflet';
 
@@ -9,7 +7,10 @@ import { PropTypes } from 'prop-types';
 const HospitalMarker = ({
   address, id, position, poi,
 }) => {
-  const customHospital = renderToStaticMarkup(<FontAwesomeIcon icon={faClinicMedical} size="4x" />);
+  const customHospital = renderToStaticMarkup(<img
+    src="https://img.icons8.com/fluency/48/000000/hospital-2.png"
+    alt="hospital marker"
+  />);
   const iconHospital = divIcon({
     html: customHospital,
     iconSize: [0, 0],

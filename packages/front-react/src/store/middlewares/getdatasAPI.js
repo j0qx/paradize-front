@@ -11,15 +11,19 @@ import {
 const getDateApi = (store) => (next) => (action) => {
   if (action.type === GET_DATAS_FROM_API) {
     const state = store.getState();
-
+    console.log(  action.keyword,
+      state.map.mapEvents.currentPos.lat,
+      state.map.mapEvents.currentPos.lng,
+      state.search.inputValueMiles,
+      1000)
     axios({
       url,
       method: 'post',
       data: {
         query: tomtomSearch(
           action.keyword,
-          state.map.mapEvents.currentPos[0],
-          state.map.mapEvents.currentPos[1],
+          state.map.mapEvents.currentPos.lat,
+          state.map.mapEvents.currentPos.lng,
           state.search.inputValueMiles,
           1000,
         ),

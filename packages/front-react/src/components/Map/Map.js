@@ -1,13 +1,11 @@
 import './Map.module.scss';
 import 'leaflet/dist/leaflet.css';
-
 import {
   MapContainer, TileLayer, LayersControl,
 } from 'react-leaflet';
-
+import MarkerClusterGroup from 'react-leaflet-markercluster';
 import { useSelector } from 'react-redux';
 import Pointer from '../Pointer';
-import { CHANGE_CURRENT_POS } from '../../store/actions';
 import {
   BarsMarker,
   SchoolMarker,

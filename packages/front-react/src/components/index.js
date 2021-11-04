@@ -15,6 +15,7 @@ import SearchDataSettings from './SearchDataSettings';
 import SearchZoneSettings from './SearchZoneSettings';
 import SlideLeft from './SlideLeft/SlideLeft';
 import SlideRight from './SlideRight/SlideRight';
+import SlideBottom from './SlideBottom/SlideBottom';
 import TabNavBar from './TabNavBar';
 import ToolTip from './ToolTip';
 import InputBase from './InputBase';
@@ -37,6 +38,7 @@ export {
   SearchZoneSettings,
   SlideLeft,
   SlideRight,
+  SlideBottom,
   TabNavBar,
   ToolTip,
   InputBase,

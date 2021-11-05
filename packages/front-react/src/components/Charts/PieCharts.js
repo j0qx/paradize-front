@@ -23,16 +23,6 @@ const PieCharts = () => {
       hoverOffset: 12,
       hoverBorderColor: 'rgb(0, 0, 0)',
     }],
-    options: {
-      plugins: {
-        legend: {
-          display: true,
-          labels: {
-            boxWidth: 3,
-          },
-        },
-      },
-    },
   };
 
   return (

@@ -1,14 +1,12 @@
 import {
-  Doughnut, Pie, Bar, Line,
+  Doughnut,
 } from 'react-chartjs-2';
 import { useSelector } from 'react-redux';
-import style from './GeoCharts.module.scss';
 
 const GeoCharts = () => {
   const dataAPI = useSelector((state) => state.search.apiSettings);
   const labels = dataAPI.map((elem) => elem.checkBoxeName);
   const dataAPiRaw = dataAPI.map((elem) => elem.result.length);
-  console.log(dataAPiRaw);
   const data = {
     labels,
     datasets: [{
@@ -19,7 +17,8 @@ const GeoCharts = () => {
         'rgb(54, 162, 235)',
         'rgb(255, 205, 86)',
       ],
-      hoverOffset: 4,
+      hoverOffset: 12,
+      hoverBorderColor: 'rgb(0, 0, 0)',
     }],
   };
 

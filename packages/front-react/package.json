@@ -63,7 +63,8 @@
     "react-router-dom": "^5.3.0",
     "react-sliding-pane": "^7.1.0",
     "react-vanilla-tilt": "^1.0.0",
-    "redux": "^4.1.2"
+    "redux": "^4.1.2",
+    "use-window-dimensions": "^1.0.2"
   },
   "license": "MIT"
 }

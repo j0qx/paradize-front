@@ -1,5 +1,5 @@
 import {
-  TOGGLE_PRINT_MODAL, SET_MODAL_CONTENT, TOGGLE_OPEN_SLIDE, TOGGLE_OPEN_MAP_SLIDE,
+  TOGGLE_PRINT_MODAL, SET_MODAL_CONTENT, TOGGLE_OPEN_SLIDE, TOGGLE_OPEN_EXPLORE_SLIDE,
 } from '../actions';
 
 const initialState = {
@@ -9,10 +9,12 @@ const initialState = {
   isLeftSlideOpen: true,
   isRightSlideOpen: true,
   isBottomSlideOpen: false,
-  isMapSlideOpen: true,
-  isSearchSlideOpen: false,
-  isOffersSlideOpen: false,
-  isStatisticsSlideOpen: false,
+  slide: {
+    isMapSlideOpen: true,
+    isSearchSlideOpen: false,
+    isOffersSlideOpen: false,
+    isStatisticsSlideOpen: false,
+  },
 };
 
 const domSettingsReducer = (state = initialState, action = {}) => {
@@ -35,11 +37,23 @@ const domSettingsReducer = (state = initialState, action = {}) => {
         ...state,
         [action.slide]: !state[action.slide],
       };
-    case TOGGLE_OPEN_MAP_SLIDE:
+      // Action who will toggle on multiples slide in explore Phone.
+      // Allslide is catching the key of the object slide.
+      // OtherSlide is filtering on all other slide not clicked.
+    case TOGGLE_OPEN_EXPLORE_SLIDE: {
+      const allSlide = Object.keys(state.slide);
+      const otherSlide = allSlide.filter((slide) => action.openslide !== slide);
+      console.log(otherSlide);
       return {
         ...state,
-        [action.openslide]: !state[action.openslide],
-      };
+        slide: {
+          [action.openslide]: true,
+          [otherSlide[0]]: false,
+          [otherSlide[1]]: false,
+          [otherSlide[2]]: false,
+        },
+
+      }; }
 
     default:
       return state;

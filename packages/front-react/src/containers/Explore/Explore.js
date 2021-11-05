@@ -1,4 +1,7 @@
+/* eslint-disable max-len */
 import { useSelector, useDispatch } from 'react-redux';
+import useWindowDimension from 'use-window-dimensions';
+
 // import  Icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkedAlt } from '@fortawesome/free-solid-svg-icons';
@@ -11,50 +14,78 @@ import {
 import BoardDatas from '../BoardDatas';
 // import style
 import style from './Explore.module.scss';
-import { TOGGLE_OPEN_MAP_SLIDE } from '../../store/actions';
+import { TOGGLE_OPEN_EXPLORE_SLIDE } from '../../store/actions';
 
 // Comments
 // Modal to add after div Boardatas
 
 const Explore = () => {
+  const { width } = useWindowDimension();
   const dispatch = useDispatch();
-  const isMapSlideOpen = useSelector((state) => state.domSettings.isMapSlideOpen);
-  const isSearchSlideOpen = useSelector((state) => state.domSettings.isSearchSlideOpen);
-  const isOffersSlideOpen = useSelector((state) => state.domSettings.isOffersSlideOpen);
-  const isStatisticsSlideOpen = useSelector((state) => state.domSettings.isStatisticsSlideOpen);
+  const isMapSlideOpen = useSelector((state) => state.domSettings.slide.isMapSlideOpen);
+  const isSearchSlideOpen = useSelector((state) => state.domSettings.slide.isSearchSlideOpen);
+  const isOffersSlideOpen = useSelector((state) => state.domSettings.slide.isOffersSlideOpen);
+  const isStatisticsSlideOpen = useSelector((state) => state.domSettings.slide.isStatisticsSlideOpen);
 
   return (
     <div className={style.container}>
       <div className={style.container__tabnavbar}>
-        <FontAwesomeIcon icon={faMapMarkedAlt} size="3x" color="#406F8A" />
-        <h3
-          onClick={(event) => {
-            console.log(event.target);
+        <FontAwesomeIcon
+          onClick={() => {
+            console.log(width);
             dispatch({
-              type: TOGGLE_OPEN_MAP_SLIDE,
+              type: TOGGLE_OPEN_EXPLORE_SLIDE,
+              openslide: 'isMapSlideOpen',
+            });
+          }}
+          icon={faMapMarkedAlt}
+          size="3x"
+          color="#406F8A"
+        />
+        <span
+          onClick={() => {
+            dispatch({
+              type: TOGGLE_OPEN_EXPLORE_SLIDE,
               openslide: 'isSearchSlideOpen',
             });
           }}
-          //className={isSearchSlideOpen ? style.container}
         >Recherche
-        </h3>
-        <span>Annonces</span>
-        <span>Statistique</span>
+        </span>
+        <span
+          onClick={() => {
+            dispatch({
+              type: TOGGLE_OPEN_EXPLORE_SLIDE,
+              openslide: 'isOffersSlideOpen',
+            });
+          }}
+        >Annonces
+        </span>
+        <span
+          onClick={() => {
+            console.log(isStatisticsSlideOpen === false && width < 1100);
+            dispatch({
+              type: TOGGLE_OPEN_EXPLORE_SLIDE,
+              openslide: 'isStatisticsSlideOpen',
+            });
+          }}
+        >Statistique
+        </span>
       </div>
 
       <SlideLeft>
         <ListCardOffer />
       </SlideLeft>
-      <div className={style.container__map}>
+      <div className={isMapSlideOpen === false && width < 1100 ? style.container__mapnone : style.container__map}>
         <Map />
         <div className={style.container__datas}>
           <SearchDataSettings />
         </div>
       </div>
-      <SlideRight>
-        <BoardDatas />
-      </SlideRight>
-
+      <div className={isStatisticsSlideOpen === false && width < 1100 ? style.container__boarddatas : style.container__boarddatasnone}>
+        <SlideRight>
+          <BoardDatas />
+        </SlideRight>
+      </div>
     </div>
   );
 };

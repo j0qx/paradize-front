@@ -9,9 +9,11 @@ import Home from '../Home';
 import Contact from '../Contact';
 import UserConnect from '../UserConnect';
 import UserSubscribe from '../UserSubscribe';
-import { Modal } from '../../components';
+import UserInfo from '../UserInfo';
+import { CreateOffer, ListCardFavoriteSearch, Modal } from '../../components';
 
 import style from './Main.module.scss';
+import UserSettings from '../UserSettings';
 
 const Main = () => {
   const isModalHidden = useSelector((state) => state.domSettings.isModalHidden);
@@ -42,6 +44,21 @@ const Main = () => {
         </Route>
         <Route exact path="/account">
           <Account />
+        </Route>
+        <Route exact path="/account/infos">
+          <UserInfo />
+        </Route>
+        <Route exact path="/account/favorite">
+          <Account />
+        </Route>
+        <Route exact path="/account/myoffers">
+          <CreateOffer />
+        </Route>
+        <Route exact path="/account/mysearch">
+          <ListCardFavoriteSearch />
+        </Route>
+        <Route exact path="/account/settings">
+          <UserSettings />
         </Route>
         <Route exact path="/contact">
           <Contact />

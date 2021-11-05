@@ -1,8 +1,21 @@
-import './UserSettings.module.scss';
+import { ButtonSubmit, TabNavBar } from '../../components';
+import style from './UserSettings.module.scss';
 
 const UserSettings = () => (
-  <div>
-    <h1>Welcome to UserSettings!</h1>
+  <div className={style.userSettings__main}>
+    <TabNavBar />
+    <div className={style.userSettings__second}>
+      <div className={style.userSettings__second__buttons}>
+        <ButtonSubmit
+          classCSS="usersettingsbutton"
+          buttonName="Se déconnecter"
+        />
+        <ButtonSubmit
+          classCSS="usersettingsbutton"
+          buttonName=" Désactiver ce compte"
+        />
+      </div>
+    </div>
   </div>
 );
 export default UserSettings;

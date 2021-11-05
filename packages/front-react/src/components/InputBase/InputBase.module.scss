@@ -26,20 +26,19 @@
   background-color: white;
   width: 100%;
  }
+ .input__userinfo{
+   width: 500px;
+   padding-left: 3%;
+   
+ }
 
- @media(min-width:1100px){
+ @media(max-width: 400px){
 
-  
+  .input__userinfo{
+    width: 70%;
+    padding-left: 3%;
+    justify-content: flex-end;
 
-
-
-
-  .input__search__zone{
-    padding: 2%;
-    border-radius: 8px;
-    margin-bottom: 6%;
-    background-color: white;
-    width: 200%;
-   }
- 
-}
+    
+  }
+ }

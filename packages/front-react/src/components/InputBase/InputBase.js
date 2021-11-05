@@ -12,7 +12,8 @@ const InputBase = ({
       {icon
       && (
       <div>
-        <FontAwesomeIcon icon={icon} />
+        { icon
+        && <FontAwesomeIcon icon={icon} />}
       </div>
       )}
       <input
@@ -34,11 +35,11 @@ const InputBase = ({
 };
 
 InputBase.propTypes = {
-  actionType: PropTypes.string.isRequired,
   placeholder: PropTypes.string.isRequired,
   inputName: PropTypes.string.isRequired,
   inputValue: PropTypes.string.isRequired,
   classCSS: PropTypes.string.isRequired,
+  actionType: PropTypes.string.isRequired,
 };
 
 export default InputBase;

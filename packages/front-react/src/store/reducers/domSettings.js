@@ -1,4 +1,6 @@
-import { TOGGLE_PRINT_MODAL, SET_MODAL_CONTENT, TOGGLE_OPEN_SLIDE } from '../actions';
+import {
+  TOGGLE_PRINT_MODAL, SET_MODAL_CONTENT, TOGGLE_OPEN_SLIDE, TOGGLE_OPEN_MAP_SLIDE,
+} from '../actions';
 
 const initialState = {
   isModalHidden: true,
@@ -7,6 +9,10 @@ const initialState = {
   isLeftSlideOpen: true,
   isRightSlideOpen: true,
   isBottomSlideOpen: false,
+  isMapSlideOpen: true,
+  isSearchSlideOpen: false,
+  isOffersSlideOpen: false,
+  isStatisticsSlideOpen: false,
 };
 
 const domSettingsReducer = (state = initialState, action = {}) => {
@@ -28,6 +34,11 @@ const domSettingsReducer = (state = initialState, action = {}) => {
       return {
         ...state,
         [action.slide]: !state[action.slide],
+      };
+    case TOGGLE_OPEN_MAP_SLIDE:
+      return {
+        ...state,
+        [action.openslide]: !state[action.openslide],
       };
 
     default:

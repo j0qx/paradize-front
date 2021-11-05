@@ -27,6 +27,13 @@
   margin: 2%;
   padding: 2%;
 }
+.container__checkboxes{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 80%;
+}
  .switch {
     display: flex;
     flex-direction: row;

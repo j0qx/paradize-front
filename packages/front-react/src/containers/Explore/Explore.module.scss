@@ -1,6 +1,6 @@
 @use '../../styles/vars';
 
-h4 {
+span {
   padding: 0 2% 0 2%;
   color: vars.$secondaryColor;
 }
@@ -19,6 +19,9 @@ h4 {
     padding: 2% 0 2% 0;
   }
 
+  &__datas{
+    display: none;
+  }
   &__listcardoffer {
     display: none;
 

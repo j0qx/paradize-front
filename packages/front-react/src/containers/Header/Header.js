@@ -29,7 +29,7 @@ const Header = () => {
       <ul className={style.navbar__linksContainer}>
         <li className={style.navbar__linksContainer__link}>
           <ButtonSubmit
-            classCSS={style.navbar__button}
+            classCSS={isOpen === false ? '' : 'navbar_button'}
             buttonName="S'inscrire"
             handleButtonClick={() => {
               // If the modal is already we didnt do anything
@@ -47,7 +47,7 @@ const Header = () => {
         </li>
         <li className={style.navbar__linksContainer__link}>
           <ButtonSubmit
-            classCSS={style.navbar__button}
+            classCSS={isOpen ? 'navbar_button' : ''}
             handleButtonClick={() => {
               // If the modal is already we didnt do anything
               if (isModalHidden === false) {
@@ -70,7 +70,7 @@ const Header = () => {
       <ul className={style.navbar__linksContainer}>
         <li className={style.navbar__linksContainer__link}>
           <ButtonSubmit
-            classCSS={style.navbar__button}
+            classCSS={isOpen ? 'navbar_button' : ''}
             buttonName="Se déconnecter"
             handleButtonClick={() => {
               // TODO
@@ -79,7 +79,7 @@ const Header = () => {
         </li>
         <li className={style.navbar__linksContainer__link}>
           <ButtonSubmit
-            classCSS={style.navbar__button}
+            classCSS={isOpen ? 'navbar_button' : ''}
             handleButtonClick={() => {
               // TODO
             }}

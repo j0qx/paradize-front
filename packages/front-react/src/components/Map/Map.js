@@ -1,4 +1,3 @@
-import './Map.module.scss';
 import 'leaflet/dist/leaflet.css';
 import 'react-leaflet-markercluster/dist/styles.min.css';
 
@@ -20,6 +19,7 @@ import {
   ParkMarker,
 } from './Markers';
 import getCheckboxs from '../../store/selectors/getCheckboxs';
+import style from './Map.module.scss';
 
 /* const DefaultIcon = L.icon({
   iconUrl: icon,
@@ -46,39 +46,40 @@ const Map = () => {
   };
 
   return (
-    <MapContainer
-      style={{ height: '100%' }}
-      center={currentPos}
-      zoom={13}
-    >
-      <LayersControl position="topright">
-        <LayersControl.BaseLayer checked name="Map">
-          <TileLayer
-            attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-            url={maps.base}
-          />
-        </LayersControl.BaseLayer>
-        <LayersControl.BaseLayer name="Sattelite">
-          <TileLayer
-            url={maps.sattelite}
-            maxZoom={20}
-            subdomains={['mt0', 'mt1', 'mt2', 'mt3']}
-          />
-        </LayersControl.BaseLayer>
-        <LayersControl.BaseLayer name="Pretty">
-          <TileLayer
-            url={maps.pretty}
-            maxZoom={18}
-            id="mapbox/streets-v11"
-          />
-        </LayersControl.BaseLayer>
-      </LayersControl>
-      { /* here we check if the checkbox is checked, if yes,
-      we print all markers about it */}
-      <MarkerClusterGroup
-        disableClusteringAtZoom={16}
+    <div className={style.mapContainer}>
+      <MapContainer
+        style={{ height: '100%' }}
+        center={currentPos}
+        zoom={13}
       >
-        {
+        <LayersControl position="topright">
+          <LayersControl.BaseLayer checked name="Map">
+            <TileLayer
+              attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+              url={maps.base}
+            />
+          </LayersControl.BaseLayer>
+          <LayersControl.BaseLayer name="Sattelite">
+            <TileLayer
+              url={maps.sattelite}
+              maxZoom={20}
+              subdomains={['mt0', 'mt1', 'mt2', 'mt3']}
+            />
+          </LayersControl.BaseLayer>
+          <LayersControl.BaseLayer name="Pretty">
+            <TileLayer
+              url={maps.pretty}
+              maxZoom={18}
+              id="mapbox/streets-v11"
+            />
+          </LayersControl.BaseLayer>
+        </LayersControl>
+        { /* here we check if the checkbox is checked, if yes,
+      we print all markers about it */}
+        <MarkerClusterGroup
+          disableClusteringAtZoom={16}
+        >
+          {
         getCheckboxs('bars', allCheckboxs).checked && (
           getCheckboxs('bars', allCheckboxs).result.map(({
             id, position, address, poi,
@@ -96,7 +97,7 @@ const Map = () => {
           })
         )
 }
-        {
+          {
         getCheckboxs('ecoles', allCheckboxs).checked && (
           getCheckboxs('ecoles', allCheckboxs).result.map(({
             id, position, address, poi,
@@ -113,7 +114,7 @@ const Map = () => {
             );
           }))
 }
-        {
+          {
         getCheckboxs('police', allCheckboxs).checked && (
           getCheckboxs('police', allCheckboxs).result.map(({
             id, position, address, poi,
@@ -131,7 +132,7 @@ const Map = () => {
           })
         )
 }
-        {
+          {
         getCheckboxs('parcs', allCheckboxs).checked && (
           getCheckboxs('parcs', allCheckboxs).result.map(({
             id, position, address, poi,
@@ -149,7 +150,7 @@ const Map = () => {
           })
         )
 }
-        {
+          {
         getCheckboxs('hopital', allCheckboxs).checked
         && (getCheckboxs('hopital', allCheckboxs).result.map(({
           id, position, address, poi,
@@ -166,7 +167,7 @@ const Map = () => {
           );
         }))
 }
-        {
+          {
       getCheckboxs('supermarcket', allCheckboxs).checked && (
         getCheckboxs('supermarcket', allCheckboxs).result.map(({
           id, position, address, poi,
@@ -183,9 +184,10 @@ const Map = () => {
           );
         }))
 }
-      </MarkerClusterGroup>
-      <LocationMarker />
-    </MapContainer>
+        </MarkerClusterGroup>
+        <LocationMarker />
+      </MapContainer>
+    </div>
   );
 };
 export default Map;

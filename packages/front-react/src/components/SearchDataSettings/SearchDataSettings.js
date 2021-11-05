@@ -12,8 +12,9 @@ const SearchDataSettings = () => {
 
   return (
     // Container where the whole component is sitting.
-    <div className={style.container__control}>
-      <p className={style.search__control__title}>Recherche par critéres</p>
+    <div className={location === '/explore' ? style.container__controlExplore : style.container__control}>
+      {location !== '/explore'
+      && <p className={style.search__control__title}>Recherche par critéres</p>}
       {/* Each label is meant to be a checkbox */}
       <div className={location === '/' ? style.container__checkboxes : style.container__checkboxesOnexplore}>
         {checkBoxes.map((checkboxe) => (

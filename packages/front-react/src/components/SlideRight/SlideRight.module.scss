@@ -2,7 +2,7 @@
 
 
 .slide{
-  display: none;
+  display: block;
 
   &__icon{
     display: none;
@@ -12,7 +12,7 @@
   }
 }
 .slide__left__open {
-  display: none;
+  display: block;
 
   
 }

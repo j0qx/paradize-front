@@ -78,11 +78,6 @@
   width: 50%;
   height: 80%;
 }
-.container__checkboxesOnexplore{
-  display: flex;
-  flex-direction: row;
-  width: fit-content;
-}
 
 .container__switch {
   display: flex;
@@ -104,4 +99,24 @@
   .switch__font {
     color: vars.$secondaryColor;
     filter:drop-shadow(1px 1px 1px rgb(209, 206, 0))
-  }}
+  }
+// EXPLORE PAGE ******************************************************************
+  .container__controlExplore{
+    width: 30%;
+    display: flex;
+
+    .container__checkboxesOnexplore{
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      width: 100%;
+    }
+
+    .container__switch{
+      width: 25%;
+      margin: 1% 2%;
+      padding: 0;
+    }
+
+  }
+}

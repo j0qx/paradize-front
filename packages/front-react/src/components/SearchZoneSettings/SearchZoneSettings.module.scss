@@ -127,4 +127,52 @@
     }
   }
 }
+//  PAGE EXPLORE ******************************************
+    .search__zoneExplore{
+      display: flex;
+      justify-content: space-between;
+      width: 68%;
+      padding: 1rem 1rem;
+      margin: 0;
+
+      .search__adress{
+        width: 55%;
+        margin: 0 2%;
+        padding: 0;
+      }
+
+      .search__zone__title{
+        display: none;
+      }
+
+      form{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+
+      .container__selects{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+
+      .container__selects__content{
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        height: 2rem;
+        width: 33%;
+
+        .container__selects__content__select{
+          width: 100%;
+          padding: 3% 0;
+        }
+      }
+    }
+    .search__button{
+      display: none;
+    }
+  }
+ }
 }

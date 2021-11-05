@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import style from './SearchZoneSettings.module.scss';
 import InputBase from '../InputBase';
 import ButtonSubmit from '../ButtonSubmit';
@@ -13,6 +13,7 @@ import {
 
 const SearchZoneSettings = () => {
   const dispatch = useDispatch();
+  const location = useLocation().pathname;
   const inputValueAddress = useSelector((state) => state.search.inputValueAddress);
   const inputValueTime = useSelector((state) => state.search.inputValueTime);
   const inputValueMiles = useSelector((state) => state.search.inputValueMiles);
@@ -20,7 +21,7 @@ const SearchZoneSettings = () => {
   const valueRadio = useSelector((state) => state.search.valueRadio);
 
   return (
-    <div className={style.search__zone}>
+    <div className={location === '/explore' ? style.search__zoneExplore : style.search__zone}>
       <form
         method="GET"
         onSubmit={(e) => {
@@ -31,7 +32,7 @@ const SearchZoneSettings = () => {
         <div className={style.search__adress}>
           <InputBase
             type="text"
-            classCSS="input__search__zone"
+            classCSS={location === '/explore' ? 'searchZone_inpuExplore' : 'input__search__zone'}
             placeholder="À partir de l'adresse..."
             inputName="inputValueAddress"
             inputValue={inputValueAddress}

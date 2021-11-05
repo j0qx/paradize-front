@@ -1,5 +1,9 @@
 import {
-  TOGGLE_PRINT_MODAL, SET_MODAL_CONTENT, TOGGLE_OPEN_SLIDE, TOGGLE_OPEN_EXPLORE_SLIDE,
+  TOGGLE_PRINT_MODAL,
+  SET_MODAL_CONTENT,
+  TOGGLE_OPEN_SLIDE,
+  TOGGLE_OPEN_EXPLORE_SLIDE,
+  TOGGLE_PRINT_EXPLORE_SEARCH,
 } from '../actions';
 
 const initialState = {
@@ -15,6 +19,7 @@ const initialState = {
     isOffersSlideOpen: false,
     isStatisticsSlideOpen: false,
   },
+  isSearchSettingsOpen: false,
 };
 
 const domSettingsReducer = (state = initialState, action = {}) => {
@@ -43,7 +48,6 @@ const domSettingsReducer = (state = initialState, action = {}) => {
     case TOGGLE_OPEN_EXPLORE_SLIDE: {
       const allSlide = Object.keys(state.slide);
       const otherSlide = allSlide.filter((slide) => action.openslide !== slide);
-      console.log(otherSlide);
       return {
         ...state,
         slide: {
@@ -54,6 +58,12 @@ const domSettingsReducer = (state = initialState, action = {}) => {
         },
 
       }; }
+    case TOGGLE_PRINT_EXPLORE_SEARCH:
+      return {
+        ...state,
+        isSearchSettingsOpen: !state.isSearchSettingsOpen,
+
+      };
 
     default:
       return state;

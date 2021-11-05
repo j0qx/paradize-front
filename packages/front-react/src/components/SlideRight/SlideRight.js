@@ -1,12 +1,10 @@
-import style from './SlideRight.module.scss';
 import { PropTypes } from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons';
+import style from './SlideRight.module.scss';
 import { TOGGLE_OPEN_SLIDE } from '../../store/actions';
-
-
 
 const SlideRight = ({ children }) => {
   const dispatch = useDispatch();
@@ -14,16 +12,15 @@ const SlideRight = ({ children }) => {
 
   return (
     <>
-      <FontAwesomeIcon icon={faAngleDoubleRight}
+      <FontAwesomeIcon
+        icon={faAngleDoubleRight}
         // If the current slide content was ListCardOffer Slide, we set the state to false
-        onClick={(event) => {
-          console.log(event.target)
+        onClick={() => {
           dispatch({
             type: TOGGLE_OPEN_SLIDE,
-            slide: "isRightSlideOpen"
-          })
-        }
-        }
+            slide: 'isRightSlideOpen',
+          });
+        }}
         size="4x"
         color="#406F8A"
         className={isRightSlideOpen ? style.slide__icon_open : style.slide__icon}
@@ -32,8 +29,8 @@ const SlideRight = ({ children }) => {
         {children}
       </div>
     </>
-  )
-}
+  );
+};
 SlideRight.propTypes = {
   children: PropTypes.node.isRequired,
 };

@@ -14,7 +14,10 @@
   },
   "dependencies": {
     "@apollo/client": "^3.4.16",
+    "chart.js": "^3.6.0",
+    "d3": "^7.1.1",
     "graphql": "^15.7.2",
-    "install": "^0.13.0"
+    "install": "^0.13.0",
+    "react-chartjs-2": "^3.3.0"
   }
 }

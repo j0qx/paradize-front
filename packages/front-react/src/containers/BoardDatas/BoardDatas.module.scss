@@ -102,13 +102,11 @@
       width: 100%;
       height: fit-content;
       overflow-y: scroll;
-      
-      
   
-      &__graph {
+      &__pie {
         display: flex;
         flex-direction: column;
-        width: 35%;
+        width: 40%;
         height: fit-content;
         align-items: center;
         margin: 0% 3% 3% 3%;
@@ -116,13 +114,44 @@
         padding: 2%;
         border-radius: 10px;
         box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-  
-        &__picture {
-          width: 100%;
-        }
+      }
+      &__bar {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: fit-content;
+        align-items: center;
+        margin: 0% 3% 3% 3%;
+        background-color: white;
+        padding: 2%;
+        border-radius: 10px;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+      }
+      &__line {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: fit-content;
+        align-items: center;
+        margin: 0% 3% 3% 3%;
+        background-color: white;
+        padding: 2%;
+        border-radius: 10px;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+      }
+      &__dougnut {
+        display: flex;
+        flex-direction: column;
+        width: 40%;
+        height: fit-content;
+        align-items: center;
+        margin: 0% 3% 3% 3%;
+        background-color: white;
+        padding: 2%;
+        border-radius: 10px;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
       }
     }
   }
-
 
 }

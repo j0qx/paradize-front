@@ -8,9 +8,9 @@ import {
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import MarkerClusterGroup from 'react-leaflet-markercluster';
-import { GET_DATAS_FROM_API } from '../../store/actions';
+import { GET_DATAS_FROM_API, CHANGE_CURRENT_POS } from '../../store/actions';
 import getAllCheckedCheckboxs from '../../store/selectors/getAllCheckedCheckboxs';
-import Pointer from '../Pointer';
+import LocationMarker from '../Pointer';
 import {
   BarsMarker,
   SchoolMarker,
@@ -35,16 +35,6 @@ const Map = () => {
   // // here we have all the checkboxes (checked and not checked)
   const allCheckboxs = useSelector((state) => state.search.apiSettings);
   // useEffect(() => {
-  //   // here we check if only one box is checked, if yes
-  //   // we loop on the checked checkboxs array, and for each one
-  //   // we dispatch GET_DATAS_FROM_API to request the api
-  //   if (getAllCheckedCheckboxs(allCheckboxs).length > 0) {
-  //     getAllCheckedCheckboxs(allCheckboxs).forEach((element) => {
-  //       dispatch({
-  //         type: GET_DATAS_FROM_API,
-  //         keyword: element.checkBoxeName,
-  //       });
-  //     });
   //   }
   // }, [currentPos]);
 
@@ -61,7 +51,6 @@ const Map = () => {
       center={currentPos}
       zoom={13}
     >
-      <Pointer />
       <LayersControl position="topright">
         <LayersControl.BaseLayer checked name="Map">
           <TileLayer
@@ -86,7 +75,9 @@ const Map = () => {
       </LayersControl>
       { /* here we check if the checkbox is checked, if yes,
       we print all markers about it */}
-      <MarkerClusterGroup>
+      <MarkerClusterGroup
+        disableClusteringAtZoom={16}
+      >
         {
         getCheckboxs('bars', allCheckboxs).checked && (
           getCheckboxs('bars', allCheckboxs).result.map(({
@@ -176,8 +167,8 @@ const Map = () => {
         }))
 }
         {
-      getCheckboxs('shops', allCheckboxs).checked && (
-        getCheckboxs('shops', allCheckboxs).result.map(({
+      getCheckboxs('supermarcket', allCheckboxs).checked && (
+        getCheckboxs('supermarcket', allCheckboxs).result.map(({
           id, position, address, poi,
         }) => {
           const newId = ((Number.isNaN(id) ? id : 1) + Math.random()) * 100;
@@ -193,6 +184,7 @@ const Map = () => {
         }))
 }
       </MarkerClusterGroup>
+      <LocationMarker />
     </MapContainer>
   );
 };

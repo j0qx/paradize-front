@@ -1,9 +1,9 @@
 import {
-  Doughnut,
+  Pie,
 } from 'react-chartjs-2';
 import { useSelector } from 'react-redux';
 
-const GeoCharts = () => {
+const PieCharts = () => {
   const dataAPI = useSelector((state) => state.search.apiSettings);
   const labels = dataAPI.map((elem) => elem.checkBoxeName);
   const dataAPiRaw = dataAPI.map((elem) => elem.result.length);
@@ -23,10 +23,20 @@ const GeoCharts = () => {
       hoverOffset: 12,
       hoverBorderColor: 'rgb(0, 0, 0)',
     }],
+    options: {
+      plugins: {
+        legend: {
+          display: true,
+          labels: {
+            boxWidth: 3,
+          },
+        },
+      },
+    },
   };
 
   return (
-    <Doughnut
+    <Pie
       onClick={(e) => {
       }}
       data={data}
@@ -34,4 +44,4 @@ const GeoCharts = () => {
   );
 };
 
-export default GeoCharts;
+export default PieCharts;

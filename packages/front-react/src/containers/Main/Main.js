@@ -10,7 +10,7 @@ import Contact from '../Contact';
 import UserConnect from '../UserConnect';
 import UserSubscribe from '../UserSubscribe';
 import UserInfo from '../UserInfo';
-import { CreateOffer, ListCardFavoriteSearch, Modal } from '../../components';
+import { CreateOffer, CardOffer, ListCardFavoriteSearch, Modal } from '../../components';
 
 import style from './Main.module.scss';
 import UserSettings from '../UserSettings';
@@ -44,6 +44,9 @@ const Main = () => {
         </Route>
         <Route exact path="/account">
           <Account />
+        </Route>
+        <Route exact path="/offer">
+          <CardOffer />
         </Route>
         <Route exact path="/account/infos">
           <UserInfo />

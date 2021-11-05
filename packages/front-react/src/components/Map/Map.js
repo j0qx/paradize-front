@@ -75,7 +75,9 @@ const Map = () => {
       </LayersControl>
       { /* here we check if the checkbox is checked, if yes,
       we print all markers about it */}
-      <MarkerClusterGroup>
+      <MarkerClusterGroup
+        disableClusteringAtZoom={16}
+      >
         {
         getCheckboxs('bars', allCheckboxs).checked && (
           getCheckboxs('bars', allCheckboxs).result.map(({
@@ -165,8 +167,8 @@ const Map = () => {
         }))
 }
         {
-      getCheckboxs('shops', allCheckboxs).checked && (
-        getCheckboxs('shops', allCheckboxs).result.map(({
+      getCheckboxs('supermarcket', allCheckboxs).checked && (
+        getCheckboxs('supermarcket', allCheckboxs).result.map(({
           id, position, address, poi,
         }) => {
           const newId = ((Number.isNaN(id) ? id : 1) + Math.random()) * 100;

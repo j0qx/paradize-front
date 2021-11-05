@@ -27,7 +27,7 @@ export const initialState = {
        result: [],
      },
      {
-       checkBoxeName: 'shops',
+       checkBoxeName: 'supermarcket',
        checked: false,
        icon: faShoppingCart,
        result: [],

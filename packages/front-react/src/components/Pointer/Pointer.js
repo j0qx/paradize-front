@@ -24,10 +24,10 @@ function LocationMarker() {
       //   // we loop on the checked checkboxs array, and for each one
       //   // we dispatch GET_DATAS_FROM_API to request the api
       if (getAllCheckedCheckboxs(allCheckboxs).length > 0) {
-        getAllCheckedCheckboxs(allCheckboxs).forEach((element) => {
+        getAllCheckedCheckboxs(allCheckboxs).forEach((checkBoxeName) => {
           dispatch({
             type: GET_DATAS_FROM_API,
-            keyword: element.checkBoxeName,
+            keyword: checkBoxeName,
           });
         });
       }

@@ -2,7 +2,8 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
 import {
-  Map, ListCardOffer, SlideRight, SlideLeft,
+  Map, ListCardOffer, SlideRight, SlideLeft, SearchDataSettings,
+  SearchZoneSettings,
 } from '../../components';
 
 // import container
@@ -31,8 +32,10 @@ const Explore = () => (
     </SlideLeft>
     <div className={style.container__map}>
       <Map />
+      <div className={style.container__datas}>
+        <SearchDataSettings />
+      </div>
     </div>
-
     <SlideRight>
       <BoardDatas />
     </SlideRight>

@@ -4,15 +4,18 @@ import { useDispatch } from 'react-redux';
 import style from './InputBase.module.scss';
 
 const InputBase = ({
-  icon, placeholder, inputName, classCSS, inputValue, actionType
+  icon, placeholder, inputName, classCSS, inputValue, actionType,
 }) => {
   const dispatch = useDispatch();
   return (
     <div className={`${style[classCSS]} ${style.inputContainer}`}>
+      {icon
+      && (
       <div>
         { icon
         && <FontAwesomeIcon icon={icon} />}
       </div>
+      )}
       <input
         type="text"
         className={style.inputContainer__input}

@@ -6,27 +6,24 @@ import {
   ApolloClient,
   InMemoryCache,
   ApolloProvider,
-} from "@apollo/client";
-
-const client = new ApolloClient({
-  uri: 'http://localhost:3333/graphql',
-  cache: new InMemoryCache()
-});
+} from '@apollo/client';
 
 // == Import : local
 // Composants
 import App from './containers/App';
 import store from './store';
 
-
-
+const client = new ApolloClient({
+  uri: 'http://localhost:3333/graphql',
+  cache: new InMemoryCache(),
+});
 
 // == Render
 // 1. Élément React racine (celui qui contient l'ensemble de l'app)
 //    => crée une structure d'objets imbriqués (DOM virtuel)
 const rootReactElement = (
   <Provider store={store}>
-    <ApolloProvider client={client}> 
+    <ApolloProvider client={client}>
       <BrowserRouter>
         <App />
       </BrowserRouter>

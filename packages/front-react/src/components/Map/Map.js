@@ -1,51 +1,53 @@
 import './Map.module.scss';
 import 'leaflet/dist/leaflet.css';
-import {
-  MapContainer, TileLayer, Marker, Popup, LayersControl,
-} from 'react-leaflet';
-import L from 'leaflet';
-import icon from 'leaflet/dist/images/marker-icon.png';
-import iconShadow from 'leaflet/dist/images/marker-shadow.png';
-import {
-  useQuery,
-  gql,
-} from '@apollo/client';
-import Pointer from '../Pointer';
-import { CHANGE_CURRENT_POS } from '../../store/actions';
+import 'react-leaflet-markercluster/dist/styles.min.css';
 
-const DefaultIcon = L.icon({
+import {
+  MapContainer, TileLayer, LayersControl,
+} from 'react-leaflet';
+import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import MarkerClusterGroup from 'react-leaflet-markercluster';
+import { GET_DATAS_FROM_API } from '../../store/actions';
+import getAllCheckedCheckboxs from '../../store/selectors/getAllCheckedCheckboxs';
+import Pointer from '../Pointer';
+import {
+  BarsMarker,
+  SchoolMarker,
+  PoliceMarker,
+  ShopMarker,
+  HospitalMarker,
+  ParkMarker,
+} from './Markers';
+import getCheckboxs from '../../store/selectors/getCheckboxs';
+
+/* const DefaultIcon = L.icon({
   iconUrl: icon,
   shadowUrl: iconShadow,
   iconSize: [25, 41],
   iconAnchor: [10, 41],
   popupAnchor: [2, -40],
-});
+}); */
 
 const Map = () => {
-  const initPosition = [48.863007, 2.338288];
-  const { loading, error, data } = useQuery(gql`
-  query Query {
-    tomtomSearch(keyword: "hopital", lat: 48.863007, lon: 2.338288, radius: 100000, limit:1000) {
-      position {
-        lat
-        lon
-      }
-      address {
-        streetName
-        postalCode
-        municipality
-      }
-      poi {
-        name
-      }
-      id
-    }
-  }
+  // const dispatch = useDispatch();
+  const currentPos = useSelector((state) => state.map.currentPos);
+  // // here we have all the checkboxes (checked and not checked)
+  const allCheckboxs = useSelector((state) => state.search.apiSettings);
+  // useEffect(() => {
+  //   // here we check if only one box is checked, if yes
+  //   // we loop on the checked checkboxs array, and for each one
+  //   // we dispatch GET_DATAS_FROM_API to request the api
+  //   if (getAllCheckedCheckboxs(allCheckboxs).length > 0) {
+  //     getAllCheckedCheckboxs(allCheckboxs).forEach((element) => {
+  //       dispatch({
+  //         type: GET_DATAS_FROM_API,
+  //         keyword: element.checkBoxeName,
+  //       });
+  //     });
+  //   }
+  // }, [currentPos]);
 
-    `);
-
-  if (loading) return 'Loading...';
-  if (error) return `Error! ${error.message}`;
   // Base map tile:
   const maps = {
     base: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
@@ -56,19 +58,12 @@ const Map = () => {
   return (
     <MapContainer
       style={{ height: '100%' }}
-      center={initPosition}
+      center={currentPos}
       zoom={13}
-      /* onClick={(e) => {
-        dispatch({
-          type: CHANGE_CURRENT_POS,
-          inputLatPos: e.latlng.lat,
-          inputLngPos: e.latlng.lng,
-        });
-      }} */
     >
       <Pointer />
       <LayersControl position="topright">
-        <LayersControl.BaseLayer name="Map">
+        <LayersControl.BaseLayer checked name="Map">
           <TileLayer
             attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
             url={maps.base}
@@ -81,7 +76,7 @@ const Map = () => {
             subdomains={['mt0', 'mt1', 'mt2', 'mt3']}
           />
         </LayersControl.BaseLayer>
-        <LayersControl.BaseLayer checked name="Pretty">
+        <LayersControl.BaseLayer name="Pretty">
           <TileLayer
             url={maps.pretty}
             maxZoom={18}
@@ -89,20 +84,115 @@ const Map = () => {
           />
         </LayersControl.BaseLayer>
       </LayersControl>
-      {
-        data.tomtomSearch.map(({
+      { /* here we check if the checkbox is checked, if yes,
+      we print all markers about it */}
+      <MarkerClusterGroup>
+        {
+        getCheckboxs('bars', allCheckboxs).checked && (
+          getCheckboxs('bars', allCheckboxs).result.map(({
+            id, position, address, poi,
+          }) => {
+            const newId = ((Number.isNaN(id) ? id : 1) + Math.random()) * 100;
+            return (
+              <BarsMarker
+                id={newId}
+                key={newId}
+                position={position}
+                address={address}
+                poi={poi}
+              />
+            );
+          })
+        )
+}
+        {
+        getCheckboxs('ecoles', allCheckboxs).checked && (
+          getCheckboxs('ecoles', allCheckboxs).result.map(({
+            id, position, address, poi,
+          }) => {
+            const newId = ((Number.isNaN(id) ? id : 1) + Math.random()) * 100;
+            return (
+              <SchoolMarker
+                id={newId}
+                key={newId}
+                position={position}
+                address={address}
+                poi={poi}
+              />
+            );
+          }))
+}
+        {
+        getCheckboxs('police', allCheckboxs).checked && (
+          getCheckboxs('police', allCheckboxs).result.map(({
+            id, position, address, poi,
+          }) => {
+            const newId = ((Number.isNaN(id) ? id : 1) + Math.random()) * 100;
+            return (
+              <PoliceMarker
+                id={newId}
+                key={newId}
+                position={position}
+                address={address}
+                poi={poi}
+              />
+            );
+          })
+        )
+}
+        {
+        getCheckboxs('parcs', allCheckboxs).checked && (
+          getCheckboxs('parcs', allCheckboxs).result.map(({
+            id, position, address, poi,
+          }) => {
+            const newId = ((Number.isNaN(id) ? id : 1) + Math.random()) * 100;
+            return (
+              <ParkMarker
+                id={newId}
+                key={newId}
+                position={position}
+                address={address}
+                poi={poi}
+              />
+            );
+          })
+        )
+}
+        {
+        getCheckboxs('hopital', allCheckboxs).checked
+        && (getCheckboxs('hopital', allCheckboxs).result.map(({
           id, position, address, poi,
-        }) => (
-          <Marker key={id} icon={DefaultIcon} position={position}>
-            <Popup>
-              <p>{poi.name}</p>
-              <p>{address.streetName}</p>
-              <p>{address.postalCode}</p>
-              <p>{address.municipality}</p>
-            </Popup>
-          </Marker>
-        ))
-      }
+        }) => {
+          const newId = ((Number.isNaN(id) ? id : 1) + Math.random()) * 100;
+          return (
+            <HospitalMarker
+              id={newId}
+              key={newId}
+              position={position}
+              address={address}
+              poi={poi}
+            />
+          );
+        }))
+}
+        {
+      getCheckboxs('shops', allCheckboxs).checked && (
+        getCheckboxs('shops', allCheckboxs).result.map(({
+          id, position, address, poi,
+        }) => {
+          const newId = ((Number.isNaN(id) ? id : 1) + Math.random()) * 100;
+          return (
+            <ShopMarker
+              id={newId}
+              key={newId}
+              position={position}
+              address={address}
+              poi={poi}
+            />
+          );
+        }))
+}
+      </MarkerClusterGroup>
     </MapContainer>
   );
 };

@@ -2,12 +2,14 @@ import './Pointer.module.scss';
 import { MapConsumer } from 'react-leaflet';
 import L from 'leaflet';
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import icon from '../../assets/image/leaf-green.png';
 import { CHANGE_CURRENT_POS } from '../../store/actions';
 
 const Pointer = () => {
   const dispatch = useDispatch();
+  // here we have all the checkboxes (checked and not checked)
+  const radius = useSelector((state) => state.search.inputValueMiles);
 
   const targetUserIcon = L.icon({
     iconUrl: icon,
@@ -19,15 +21,19 @@ const Pointer = () => {
     popupAnchor: [-3, -76], // point from which the popup should open relative to the iconAnchor
   });
   let marker = null;
+  let circle = null;
   return (
     <MapConsumer>
       {(map) => {
         map.on('click', (e) => {
           if (marker !== null) {
             map.removeLayer(marker);
+            map.removeLayer(circle);
+            return null;
           }
           const { lat, lng } = e.latlng;
           marker = L.marker([lat, lng], { icon: targetUserIcon }).addTo(map);
+          circle = L.circle([lat, lng], Number(radius), { opacity: 10, fillOpacity: 0.3, color: 'rgb(157, 189, 178)' }).addTo(map);
           dispatch({
             type: CHANGE_CURRENT_POS,
             inputLatPos: lat,

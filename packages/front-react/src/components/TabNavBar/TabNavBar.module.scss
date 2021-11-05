@@ -1,0 +1,56 @@
+
+
+@media (min-width: 1100px) {
+
+  .TabNavBar__menu {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 10%;
+    color: #9dbdb2;;  
+    &__icon{
+      padding: 0.5% 0.5% 0.5% 0.5%;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.7s;
+      border-bottom-left-radius: 2rem;
+      border-bottom-right-radius: 2rem;
+
+      &:hover:not(&__active__icon) {
+        color: rgba(11, 51, 44, 0.74);
+        padding: 2%;
+        box-shadow: rgba(11, 51, 44, 0.74) 0px 25px 20px -20px;
+      }
+
+    }
+    &__link {
+      height: 5%;
+      padding: 1%;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.7s;
+      border-bottom-left-radius: 2rem;
+      border-bottom-right-radius: 2rem;
+
+
+      &:hover:not(&__active) {
+        color: rgba(11, 51, 44, 0.74);
+        box-shadow: rgba(11, 51, 44, 0.74) 0px 25px 20px -20px;
+      }
+
+      &__active {
+        color: rgba(11, 51, 44, 0.74);
+        font-size: 1.2rem;
+        background-color:#9dbdb280  ;
+        box-shadow: rgba(11, 51, 44, 0.74) 0px 25px 20px -20px;
+      }
+      &__active__icon {
+       
+    
+        
+      }
+    }
+
+  }
+
+}

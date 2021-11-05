@@ -27,7 +27,7 @@ export const initialState = {
        result: [],
      },
      {
-       checkBoxeName: 'shops',
+       checkBoxeName: 'supermarcket',
        checked: false,
        icon: faShoppingCart,
        result: [],
@@ -53,7 +53,7 @@ export const initialState = {
    ],
   inputValueAddress: '',
   inputValueTime: '',
-  inputValueMiles: 10,
+  inputValueMiles: 1000,
   inputValueTrans: '',
   valueRadio: 1,
 };

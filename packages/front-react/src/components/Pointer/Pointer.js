@@ -20,6 +20,7 @@ function LocationMarker() {
         inputLatPos: lat,
         inputLngPos: lng,
       });
+      map.flyTo(e.latlng, map.getZoom());
       //   // here we check if only one box is checked, if yes
       //   // we loop on the checked checkboxs array, and for each one
       //   // we dispatch GET_DATAS_FROM_API to request the api

@@ -4,11 +4,8 @@ import 'react-leaflet-markercluster/dist/styles.min.css';
 import {
   MapContainer, TileLayer, LayersControl,
 } from 'react-leaflet';
-import { useSelector, useDispatch } from 'react-redux';
-import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import MarkerClusterGroup from 'react-leaflet-markercluster';
-import { GET_DATAS_FROM_API, CHANGE_CURRENT_POS } from '../../store/actions';
-import getAllCheckedCheckboxs from '../../store/selectors/getAllCheckedCheckboxs';
 import LocationMarker from '../Pointer';
 import {
   BarsMarker,
@@ -53,7 +50,7 @@ const Map = () => {
         zoom={13}
       >
         <LayersControl position="topright">
-          <LayersControl.BaseLayer checked name="Map">
+          <LayersControl.BaseLayer name="Map">
             <TileLayer
               attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
               url={maps.base}
@@ -66,7 +63,7 @@ const Map = () => {
               subdomains={['mt0', 'mt1', 'mt2', 'mt3']}
             />
           </LayersControl.BaseLayer>
-          <LayersControl.BaseLayer name="Pretty">
+          <LayersControl.BaseLayer checked name="Pretty">
             <TileLayer
               url={maps.pretty}
               maxZoom={18}

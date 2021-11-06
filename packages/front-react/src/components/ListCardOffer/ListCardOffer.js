@@ -1,3 +1,4 @@
+import { useSelector } from 'react-redux';
 import style from './ListCardOffer.module.scss';
 import CardOffer from '../CardOffer';
 
@@ -5,14 +6,13 @@ import CardOffer from '../CardOffer';
 import house from '../../assets/image/house.jpg';
 
 const ListCardOffer = () => {
-  const tata = 'toto';
+  const isLeftSlideOpen = useSelector((state) => state.domSettings.isLeftSlideOpen);
 
   // need mapping on data to dysplay real offers.
 
   return (
 
-    <div className={style.list__container}>
-
+    <div className={isLeftSlideOpen ? style.list__container : style.list__container_close}>
       <div className={style.list__container__main}>
         <div className={style.list__container__main__offer}>
           <img className={style.list__container__main__offer__picture} src={house} alt="annonce" />

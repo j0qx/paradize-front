@@ -25,23 +25,21 @@
   width: 50%;
   height: 100%;
   transition: all ease-out 250ms;
+  padding: 0.5rem;
+  background-color: rgb(236, 236, 236);
   
   &__icon{
     display: block;
-    transition: all ease-out 250ms;
-    transform: rotate(0deg);
-    margin:0 0.5% 0 0.5%;
+    height: 100%;
+    padding:0 0.5% 0 0.5%;
+    background-color: rgb(236, 236, 236);
   }  
-  &__icon_open {
-    display: block;
-    transform: rotate(180deg);
-    margin: 0 1% 0 1%;
-  }
 }
 
 .slide__left__open {
   transition: all ease-out 250ms;
   transform: translateX(50%);
+  background-color: rgb(236, 236, 236);
   width: 0%;
 
   

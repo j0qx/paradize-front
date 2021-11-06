@@ -1,6 +1,5 @@
 @use '../../styles/vars';
 
-.list__container{
 .list__container {
   display: flex;
   flex-direction: column;
@@ -22,7 +21,7 @@
     &__offer {
       width: 100%;
       display: flex;
-      border-radius: 10px;
+      border-radius: 4px;
       margin: 2% 2% 2% 2%;
       padding: 1%;
       background-color: vars.$primaryColor;
@@ -30,7 +29,7 @@
       &__picture {
         width: 40%;
         margin: 2%;
-        border-radius: 8px;
+        border-radius: 4px;
       }
 
       &__title {
@@ -43,7 +42,6 @@
       }
     }
   }
-}
 
 
 
@@ -51,6 +49,10 @@
 
 
 @media (min-width: 800px) {
+
+  .list__container_close{
+    display: none;
+  }
 
   .list__container {
     display: flex;
@@ -63,7 +65,6 @@
       display: flex;
       flex-direction: row;
       width: 100%;
-      height: 100%;
       justify-content: center;
       overflow-y: auto;
       direction: rtl;
@@ -73,7 +74,7 @@
           width: 80%;
           height: 20%;
           display: flex;
-          border-radius: 5px;
+          border-radius: 4px;
           padding: 1%;
           background-color: rgb(157, 189, 178);
           box-shadow: rgba(0, 0, 0, 0.16) 0px 8px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;

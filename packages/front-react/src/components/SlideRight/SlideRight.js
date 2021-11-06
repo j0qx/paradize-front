@@ -2,7 +2,7 @@ import { PropTypes } from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons';
+import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import style from './SlideRight.module.scss';
 import { TOGGLE_OPEN_SLIDE } from '../../store/actions';
 
@@ -13,7 +13,7 @@ const SlideRight = ({ children }) => {
   return (
     <>
       <FontAwesomeIcon
-        icon={faAngleDoubleRight}
+        icon={isRightSlideOpen ? faChevronLeft : faChevronRight}
         // If the current slide content was ListCardOffer Slide, we set the state to false
         onClick={() => {
           dispatch({
@@ -23,7 +23,7 @@ const SlideRight = ({ children }) => {
         }}
         size="4x"
         color="#406F8A"
-        className={isRightSlideOpen ? style.slide__icon_open : style.slide__icon}
+        className={style.slide__icon}
       />
       <div className={isRightSlideOpen ? style.slide__left__open : style.slide}>
         {children}

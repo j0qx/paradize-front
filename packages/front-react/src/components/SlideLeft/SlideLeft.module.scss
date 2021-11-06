@@ -23,27 +23,36 @@
   display: flex;
   width: 50%;
   height: 100%;
+  transform: translateX(0);
   transition: all ease-out 250ms;
+  border-bottom: 1px solid rgb(241, 241, 241);
+  border-top: 1px solid rgb(241, 241, 241);
+  box-shadow: 0px 3px 8px 1px rgba(197, 197, 197, 0.1);
+  background-color: rgb(236, 236, 236);
+  overflow-y: auto;
+  direction: rtl;
+  padding: 0.5rem;
   
   &__icon{
     display: block;
-    transition: all ease-out 250ms;
-    transform: rotate(0deg);
-    margin:0 0.5% 0 0.5%;
+    padding:0 0.5% 0 0.5%;
+    height: 100%;
+    border-bottom: 1px solid rgb(241, 241, 241);
+    border-top: 1px solid rgb(241, 241, 241);
+    box-shadow: 0px 3px 8px 1px rgba(197, 197, 197, 0.1);
+    background-color: rgb(236, 236, 236);
+    cursor: pointer;
   }  
-  &__icon_open {
-    display: block;
-    transform: rotate(180deg);
-    margin: 0 1% 0 1%;
-  }
 }
 
 .slide__left__open {
-  transition: all ease-out 250ms;
+  display: flex;
+  width:0;
+  height: 100%;
   transform: translateX(-50%);
-  width: 0%;
+  transition: all ease-out 250ms;
+  background-color: rgb(236, 236, 236);
 
-  
 }
 
 }

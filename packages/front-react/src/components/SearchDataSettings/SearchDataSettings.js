@@ -14,7 +14,7 @@ const SearchDataSettings = () => {
     // Container where the whole component is sitting.
     <div className={location === '/explore' ? style.container__controlExplore : style.container__control}>
       {location !== '/explore'
-      && <p className={style.search__control__title}>Recherche par critéres</p>}
+      && <p className={style.container__control__title}>Recherche par critéres</p>}
       {/* Each label is meant to be a checkbox */}
       <div className={location === '/' ? style.container__checkboxes : style.container__checkboxesOnexplore}>
         {checkBoxes.map((checkboxe) => (
@@ -44,7 +44,6 @@ const SearchDataSettings = () => {
                 type="checkbox"
                 checked={checkboxe.checked}
               />
-              <span className={`${style.slider} ${style.round}`} />
               <div className={style.slider__icon}><FontAwesomeIcon className={style.switch__font} icon={checkboxe.icon} size="2x" /></div>
             </label>
           </div>

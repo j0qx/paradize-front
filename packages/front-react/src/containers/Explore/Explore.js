@@ -4,7 +4,7 @@ import useWindowDimension from 'use-window-dimensions';
 
 // import  Icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMapMarkedAlt, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faChevronUp, faMapMarkedAlt } from '@fortawesome/free-solid-svg-icons';
 // import components
 import {
   Map, ListCardOffer, SlideRight, SlideLeft, SearchDataSettings,
@@ -78,24 +78,29 @@ const Explore = () => {
       )}
       <div className={isMapSlideOpen === false && width < 1100 ? style.container__mapnone : style.container__map}>
         <Map />
-        <div className={style.faplus_icon}>
-          <FontAwesomeIcon
-            icon={faPlus}
-            size="2x"
-            onClick={() => {
-              dispatch({ type: TOGGLE_PRINT_EXPLORE_SEARCH });
-            }}
-          />
-        </div>
-        {(isSearchSlideOpen || width > 1000)
+        <div className={style.searchContainer__and__icon}>
+          {width > 1100
+          && (
+          <div className={isSearchSettingsOpen ? style.faDown_icon : style.faUp_icon}>
+            <FontAwesomeIcon
+              icon={faChevronUp}
+              size="2x"
+              onClick={() => {
+                dispatch({ type: TOGGLE_PRINT_EXPLORE_SEARCH });
+              }}
+            />
+          </div>
+          )}
+          {(isSearchSlideOpen || width > 1100)
           && (
           <div className={isSearchSettingsOpen ? style.searchContainer_open : style.searchContainer}>
             <SearchDataSettings />
             <SearchZoneSettings />
           </div>
           )}
+        </div>
       </div>
-      {(isStatisticsSlideOpen || width > 1000)
+      {(isStatisticsSlideOpen || width > 1100)
         && (
         <SlideRight>
           <BoardDatas />

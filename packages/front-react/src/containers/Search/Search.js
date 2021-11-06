@@ -4,8 +4,7 @@ import SearchZoneSettings from '../../components/SearchZoneSettings/SearchZoneSe
 
 const Search = () => (
   <div className={style.container__search}>
-    <SearchDataSettings />
-    <SearchZoneSettings />
+
   </div>
 );
 

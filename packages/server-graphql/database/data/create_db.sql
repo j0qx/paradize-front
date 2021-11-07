@@ -1,7 +1,0 @@
-DROP DATABASE IF EXISTS oparadise;
-DROP ROLE IF EXISTS oparadise;
-
-CREATE ROLE oparadise WITH LOGIN PASSWORD 'Oparadise0clocks';
-
-CREATE DATABASE oparadise OWNER oparadise;
---sCREATE SCHEMA 

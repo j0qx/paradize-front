@@ -23,15 +23,11 @@
   display: flex;
   width: 50%;
   height: 100%;
-  transform: translateX(0);
   transition: all ease-out 250ms;
-  border-bottom: 1px solid rgb(241, 241, 241);
-  border-top: 1px solid rgb(241, 241, 241);
-  box-shadow: 0px 3px 8px 1px rgba(197, 197, 197, 0.1);
+  padding: 0.5rem;
   background-color: rgb(248, 248, 248);
   overflow-y: auto;
   direction: rtl;
-  padding: 0.5rem;
   
   &__icon{
     display: block;
@@ -45,12 +41,10 @@
 }
 
 .slide__left__open {
-  display: flex;
-  width:0;
-  height: 100%;
-  transform: translateX(-50%);
   transition: all ease-out 250ms;
+  transform: translateX(50%);
   background-color: rgb(236, 236, 236);
+  width: 0%;
 
 }
 

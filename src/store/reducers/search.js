@@ -8,6 +8,7 @@ import {
   CHANGE_INPUT_VALUE_SEARCH,
   CHANGE_RADIO_BUTTON,
   GET_DATAS_FROM_API_SUCCESS,
+  GET_ISOCHRONE_SUCCESS,
   // GET_DATAS_FROM_API_ERROR,
 } from '../actions';
 
@@ -56,7 +57,7 @@ export const initialState = {
   inputValueMiles: 1000,
   inputValueTrans: '',
   valueRadio: 1,
-  isochroneResults: [],
+  isochroneResults: null,
 };
 
 const searchReducer = (state = initialState, action = {}) => {
@@ -118,6 +119,16 @@ const searchReducer = (state = initialState, action = {}) => {
         apiSettings: newApiSettings,
       };
     }
+    case GET_ISOCHRONE_SUCCESS:
+      return {
+        ...state,
+        isochroneResults: action.data,
+      };
+    case 'RESET_ISOCHRONE':
+      return {
+        ...state,
+        isochroneResults: null,
+      };
     default:
       return state;
   }

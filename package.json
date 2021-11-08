@@ -53,6 +53,8 @@
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
     "@fortawesome/react-fontawesome": "^0.1.16",
     "axios": "^0.24.0",
+    "chart.js": "^3.6.0",
+    "graphql": "^16.0.1",
     "hamburger-react": "^2.4.1",
     "leaflet": "^1.7.1",
     "prop-types": "^15.7.2",

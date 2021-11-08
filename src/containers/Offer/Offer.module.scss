@@ -1,0 +1,212 @@
+/* Desktop */
+@use "../../styles/vars";
+h2 {
+  font-size: 2rem;
+  margin: 1%;
+}
+
+h3 {
+  font-size: 1.5rem;
+  margin: 2%;
+}
+
+.Offer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+
+  &__containerLeft {
+    background-color: white;
+    width: 90%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 2%;
+    
+    &__content {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 100%;
+      margin: 2%;
+      align-items: center;
+
+      &__mainPicture {
+        display: flex;
+        order: -1;
+        height: 50%;
+        width: 100%;
+
+        &__picture {
+          width: 100%;
+          height: 100%;
+          border-radius: 1%;
+          margin-bottom: 2%;
+        }
+      }
+
+      &__description {
+        width: 100%;
+        height: auto;
+        padding: 2%;
+      }&__containerRight {
+        display: none;
+        
+      }
+    }
+
+    .Offer__sub {
+      width: 100%;
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      margin-left: 2%;
+      
+      
+
+      &__content {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+
+        &__picture {
+          display: flex;
+          width: 100%;
+          margin-top: 0%;
+          margin-bottom: 1%;
+          border-radius: 1%;
+        }
+      }
+
+      &__all__pictures {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+      }
+
+      &__all__picture {
+        width: 23%;
+        height: auto;
+        margin: 1%;
+        border-radius: 1%;
+      }
+    }
+  }
+
+  &__container__right {
+    display: flex;
+    
+  }
+}
+
+
+@media (min-width: 1100px) {
+
+  h2 {
+    font-size: 2rem;
+    margin: 1%;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    margin: 2%;
+  }
+
+  .Offer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+
+    &__containerLeft {
+      background-color: white;
+      width: 70%;
+      height: 100%;
+      display: flex;
+      flex-direction: row;
+      
+
+      &__content {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        margin: 2%;
+        align-items: center;
+
+        &__mainPicture {
+          display: flex;
+          height: 50%;
+          width: 100%;
+          object-fit: cover;
+
+          &__picture {
+            object-fit: cover;
+          }
+        }
+
+        &__description {
+          width: 100%;
+          height: auto;
+          padding: 2%;
+        }
+      }
+
+      .Offer__sub {
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 2%;
+        margin-right: 8%;
+
+        &__content {
+          display: flex;
+          width: 100%;
+          justify-content: center;
+          align-items: center;
+
+          &__picture {
+            display: flex;
+            width: 100%;
+            margin-top: 0%;
+            margin-bottom: 1%;
+            border-radius: 1%;
+          }
+        }
+
+        &__all__pictures {
+          display: flex;
+          flex-wrap: wrap;
+          width: 100%;
+          height: 100%;
+          justify-content: center;
+          align-items: center;
+        }
+
+        &__all__picture {
+          width: 23%;
+          height: auto;
+          margin: 1%;
+          border-radius: 1%;
+        }
+      }
+    }
+
+    &__container__right {
+      display: block;
+      width: 50%;
+      height: auto;
+      padding-top: 1%;
+      box-shadow:-6px 0px 8px -5px rgba(0,0,0,0.30);
+    }
+  }
+}

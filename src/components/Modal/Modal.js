@@ -8,6 +8,7 @@ const Modal = ({ children }) => {
   const dispatch = useDispatch();
   const isLoginModal = useSelector((state) => state.domSettings.isLoginModal);
   const isSubscribeModal = useSelector((state) => state.domSettings.isSubscribeModal);
+  const isOffersModal = useSelector((state) => state.domSettings.isOffersModal);
   return (
     <>
       <div className={style.overlay} />
@@ -32,6 +33,15 @@ const Modal = ({ children }) => {
                 {
                   type: SET_MODAL_CONTENT,
                   modalContent: 'isSubscribeModal',
+                },
+              );
+            }
+            // If the current modal content was offersModal, we set this state to false
+            else if (isOffersModal) {
+              dispatch(
+                {
+                  type: SET_MODAL_CONTENT,
+                  modalContent: 'isOffersModal',
                 },
               );
             }

@@ -4,6 +4,8 @@ const initialState = {
   isLogged: false,
   accessToken: '',
   userName: '',
+  mail: '',
+
 };
 
 const userReducer = (state = initialState, action = {}) => {
@@ -12,6 +14,8 @@ const userReducer = (state = initialState, action = {}) => {
       return {
         ...state,
         isLogged: true,
+        userName: action.userName,
+        mail: action.mail,
         accessToken: action.accessToken,
 
       };

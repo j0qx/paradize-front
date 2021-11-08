@@ -29,14 +29,18 @@ const authMiddleware = (store) => (next) => (action) => {
       // si réussite
       .then((result) => {
         if (result.data.data.login.message === 'authorized') {
+          const { token } = result.data.data.login;
+          const user = jwt(token);
+          const { email, userName } = user;
+          localStorage.setItem('mail', email);
+          localStorage.setItem('userName', userName);
+          localStorage.setItem('token', token);
           store.dispatch({
             type: GET_USER_TOKEN_SUCCESS,
             accessToken: result.data.data.login.token,
+            mail: email,
+            userName: userName,
           });
-          const { token } = result.data.data.login;
-          const user = jwt(token);
-          localStorage.setItem('mail', user.email);
-          localStorage.setItem('token', token);
           // If the current modal content was UserConnect, we set the state to false
           store.dispatch({ type: TOGGLE_PRINT_MODAL });
           if (state.domSettings.isLoginModal) {
@@ -61,16 +65,12 @@ const authMiddleware = (store) => (next) => (action) => {
           store.dispatch({ type: GET_USER_TOKEN_ERROR });
         }
       })
-      // si erreur
+
       .catch((error) => {
-        // oups une erreur... bon on va le dire qd meme au reducer
-        // une autre action pour signaler l'echec
         console.log(error);
         store.dispatch({ type: GET_USER_TOKEN_ERROR });
       });
   }
-  // si l'action n'est pas SUBMIT_LOGIN, je la nexte
-  // elle ira ainsi jusqu'au reducer
   else {
     next(action);
   }

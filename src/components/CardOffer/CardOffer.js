@@ -1,7 +1,8 @@
+import { Link } from 'react-router-dom';
 import style from './CardOffer.module.scss';
 
 const CardOffer = ({
-  title, description, picture, subTitle, price,
+  title, description, picture, subTitle, price, id,
 }) => (
   <div className={style.offer}>
     <img className={style.offer__picture} src={picture} alt={title} />
@@ -12,6 +13,7 @@ const CardOffer = ({
       </div>
       <div className={style.offer__content__description}>
         <p>{description}</p>
+        <Link className={style.offer__content__moreinfo} to={`/offer/${id}`}> En savoir plus...</Link>
       </div>
       <div className={style.offer__content__price}>
         <h3>{price}</h3>

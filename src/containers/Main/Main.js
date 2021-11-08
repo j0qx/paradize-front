@@ -12,6 +12,7 @@ import UserSubscribe from '../UserSubscribe';
 import UserInfo from '../UserInfo';
 import UserSettings from '../UserSettings';
 import MyOffer from '../MyOffer';
+import Offer from '../Offer';
 import ListCardFavoriteSearch from '../ListCardFavoriteSearch';
 import ListCardFavoriteOffer from '../ListCardFavoriteOffers';
 import CreateOfferModal from '../CreateOfferModal';
@@ -51,6 +52,9 @@ const Main = () => {
         </Route>
         <Route exact path="/explore">
           <Explore />
+        </Route>
+        <Route exact path="/offer/:id">
+          <Offer />
         </Route>
         <Route exact path="/account/infos">
           <Account>

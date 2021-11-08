@@ -6,9 +6,7 @@ import { ButtonSubmit, InputBase } from '../../components';
 import { GET_USER_TOKEN_SUCCESS, CHANGE_INPUT_VALUE_OFFERS, TOGGLE_ONLINE_OFFER } from '../../store/actions';
 import style from './CreateOfferModal.module.scss';
 
-const CreateOfferModal = () =>
-//
-{
+const CreateOfferModal = ({classCSS}) => {
   const title = useSelector((state) => state.offers.inputValueTitle);
   const picture = useSelector((state) => state.offers.inputValuePicture);
   const description = useSelector((state) => state.offers.inputValueDescription);
@@ -21,61 +19,67 @@ const CreateOfferModal = () =>
     dispatch({ type: GET_USER_TOKEN_SUCCESS });
   };
 
-  const handleChangeToggle = (event) => {
-    event.preventDefault();
+  const handleChangeToggle = () => {
     dispatch({ type: TOGGLE_ONLINE_OFFER });
   };
   return (
     <div className={style.CreateOfferModal}>
-      <h1 className={style.CreateOfferModal__intro}> Création d'une Annonces</h1>
+      <h2 className={style.CreateOfferModal__intro}> Création d'une Annonce</h2>
       <form
         className={style.CreateOfferModal__form}
         onSubmit={handleSubmitForm}
       >
-        <div className={style.CreateOfferModal__form__toggle}>
-          <span> Mise en ligne de l'annonce</span>
-          <Switch
-            onChange={handleChangeToggle}
-            checked={status}
-            onColor="#ea0707"
-            onHandleColor="#406F8A"
-            handleDiameter={30}
-            uncheckedIcon={false}
-            checkedIcon={false}
-            boxShadow="0px 1px 5px rgba(0, 0, 0, 0.6)"
-            activeBoxShadow="0px 0px 1px 10px rgba(0, 0, 0, 0.2)"
-            height={20}
-            width={48}
-          />
-          <p> L'annonce est <span>{status ? 'en ligne' : 'hors-ligne'}</span></p>
+        <div className={style.CreateOfferModal__form__toggleLine}>
+          <h3> Status de l'annonce</h3>
+          <div className={style.CreateOfferModal__form__toggle__toggle}>
+            <Switch
+              onChange={handleChangeToggle}
+              checked={status}
+              offColor="#ea0707"
+              onColor="#9DBDB2"
+              offHandleColor="#ea6262"
+              onHandleColor="#406F8A"
+              handleDiameter={30}
+              uncheckedIcon={false}
+              checkedIcon={false}
+              boxShadow="0px 1px 5px rgba(0, 0, 0, 0.6)"
+              activeBoxShadow="0px 0px 1px 10px rgba(0, 0, 0, 0.2)"
+              className="switch"
+              height={20}
+              width={48}
+            />
+          </div>
+          <p> L'annonce est <h4>{status ? 'en ligne' : 'hors-ligne'}</h4></p>
         </div>
-        <InputBase
-          inputName="title"
-          placeholder=" Titre de l'annonce.."
-          classCss=""
-          inputValue={title}
-          action={CHANGE_INPUT_VALUE_OFFERS}
-        />
-        <InputBase
-          inputName="description"
-          placeholder=" Description de l'annonce.."
-          classCss=""
-          inputValue={description}
-          action={CHANGE_INPUT_VALUE_OFFERS}
-        />
-        <InputBase
-          inputName="coordinateLat"
-          placeholder=" Latitude de l'annonce.."
-          classCss=""
-          inputValue={coordinateLat}
-          action={CHANGE_INPUT_VALUE_OFFERS}
-        />
-        <InputBase
-          inputName="coordinateLong"
-          placeholder=" Longitude de l'annonce.."
-          classCss=""
-          inputValue={coordinateLong}
-        />
+        <div className={style.CreateOfferModal__inputs}>
+          <InputBase
+            inputName="title"
+            placeholder=" Titre de l'annonce.."
+            classCSS="input__createOffer__modal"
+            inputValue={title}
+            action={CHANGE_INPUT_VALUE_OFFERS}
+          />
+          <InputBase
+            inputName="description"
+            placeholder=" Description de l'annonce.."
+            classCSS="input__createOffer__modal"
+            inputValue={description}
+            action={CHANGE_INPUT_VALUE_OFFERS}
+          />
+          <InputBase
+            inputName="coordinateLat"
+            placeholder=" Latitude de l'annonce.."
+            classCSS="input__createOffer__modal"
+            inputValue={coordinateLat}
+            action={CHANGE_INPUT_VALUE_OFFERS}
+          />
+          <InputBase
+            inputName="coordinateLong"
+            placeholder=" Longitude de l'annonce.."
+            classCSS="input__createOffer__modal"
+            inputValue={coordinateLong}
+          />
+        </div>
         <ButtonSubmit
           buttonName="Créer l'annonce"
           classCSS={style.CreateOfferModal__form__button}

@@ -1,5 +1,7 @@
 import './Pointer.module.scss';
-import { useMapEvents, Marker, Popup } from 'react-leaflet';
+import {
+  useMapEvents, Marker, Popup, Circle, Tooltip,
+} from 'react-leaflet';
 import markerIconPng from 'leaflet/dist/images/marker-icon.png';
 import { Icon } from 'leaflet';
 
@@ -10,6 +12,7 @@ import getAllCheckedCheckboxs from '../../store/selectors/getAllCheckedCheckboxs
 function LocationMarker() {
   const currentPos = useSelector((state) => state.map.currentPos);
   const allCheckboxs = useSelector((state) => state.search.apiSettings);
+  const radius = useSelector((state) => state.search.inputValueMiles);
   const dispatch = useDispatch();
 
   const map = useMapEvents({
@@ -46,7 +49,11 @@ function LocationMarker() {
             iconAnchor: [12, 41],
           })}
         >
-          <Popup>You are here</Popup>
+          <Circle center={currentPos} radius={radius}>
+            <Popup direction="bottom" offset={[0, 0]} opacity={1}>
+              Votre recherche s'étend sur : {radius} mètres.
+            </Popup>
+          </Circle>
         </Marker>
       )
 

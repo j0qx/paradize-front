@@ -1,9 +1,8 @@
-import { TabNavBar } from '..';
 import './ListCardFavoriteSearch.module.scss';
 
 const ListCardFavoriteSearch = () => (
   <div>
-    <TabNavBar />
+    ListCardFavoriteSearch
   </div>
 );
 

@@ -10,6 +10,7 @@ const initialState = {
   isModalHidden: true,
   isLoginModal: false,
   isSubscribeModal: false,
+  isOffersModal: false,
   isLeftSlideOpen: true,
   isRightSlideOpen: true,
   isBottomSlideOpen: false,
@@ -30,7 +31,7 @@ const domSettingsReducer = (state = initialState, action = {}) => {
         ...state,
         isModalHidden: !state.isModalHidden,
       };
-      // Action who will set the content of the modal (login or subscribe)
+      // Action who will set the content of the modal (login or subscribe offersmodal)
     case SET_MODAL_CONTENT:
       return {
         ...state,

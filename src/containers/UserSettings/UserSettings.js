@@ -1,9 +1,9 @@
-import { ButtonSubmit, TabNavBar } from '../../components';
+import { ButtonSubmit } from '../../components';
 import style from './UserSettings.module.scss';
 
 const UserSettings = () => (
   <div className={style.userSettings__main}>
-    <TabNavBar />
+
     <div className={style.userSettings__second}>
       <div className={style.userSettings__second__buttons}>
         <ButtonSubmit

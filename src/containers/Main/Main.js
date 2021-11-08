@@ -10,15 +10,21 @@ import Contact from '../Contact';
 import UserConnect from '../UserConnect';
 import UserSubscribe from '../UserSubscribe';
 import UserInfo from '../UserInfo';
-import { CreateOffer, ListCardFavoriteSearch, Modal } from '../../components';
+import UserSettings from '../UserSettings';
+import MyOffer from '../MyOffer';
+import Offer from '../Offer';
+import ListCardFavoriteSearch from '../ListCardFavoriteSearch';
+import ListCardFavoriteOffer from '../ListCardFavoriteOffers';
+import CreateOfferModal from '../CreateOfferModal';
+import { Modal } from '../../components';
 
 import style from './Main.module.scss';
-import UserSettings from '../UserSettings';
 
 const Main = () => {
   const isModalHidden = useSelector((state) => state.domSettings.isModalHidden);
   const isLoginModal = useSelector((state) => state.domSettings.isLoginModal);
   const isSubscribeModal = useSelector((state) => state.domSettings.isSubscribeModal);
+  const isOffersModal = useSelector((state) => state.domSettings.isOffersModal);
   return (
     <div className={style.main}>
       {/* If the modal is openned and the state isLoginModal is true ( so the click was
@@ -35,6 +41,11 @@ const Main = () => {
           <UserSubscribe />
         </Modal>
       )}
+      {(isModalHidden === false) && isOffersModal && (
+        <Modal>
+          <CreateOfferModal />
+        </Modal>
+      )}
       <Switch>
         <Route exact path="/">
           <Home />
@@ -42,23 +53,33 @@ const Main = () => {
         <Route exact path="/explore">
           <Explore />
         </Route>
-        <Route exact path="/account">
-          <Account />
+        <Route exact path="/offer/:id">
+          <Offer />
         </Route>
         <Route exact path="/account/infos">
-          <UserInfo />
+          <Account>
+            <UserInfo />
+          </Account>
         </Route>
-        <Route exact path="/account/favorite">
-          <Account />
+        <Route exact path="/account/favorites">
+          <Account>
+            <ListCardFavoriteOffer />
+          </Account>
         </Route>
         <Route exact path="/account/myoffers">
-          <CreateOffer />
+          <Account>
+            <MyOffer />
+          </Account>
         </Route>
         <Route exact path="/account/mysearch">
-          <ListCardFavoriteSearch />
+          <Account>
+            <ListCardFavoriteSearch />
+          </Account>
         </Route>
         <Route exact path="/account/settings">
-          <UserSettings />
+          <Account>
+            <UserSettings />
+          </Account>
         </Route>
         <Route exact path="/contact">
           <Contact />

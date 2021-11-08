@@ -53,6 +53,26 @@ const SearchZoneSettings = () => {
                 });
               }}
             />
+            <div className={location === '/explore' ? style.slider__input : style.container__selects__none}>
+              <span className={style.slider__input__display}>{inputValueTime}</span>
+              <input
+                disabled={Number(valueRadio) === 2}
+                defaultValue={30}
+                step={5}
+                valueLabelDisplay="on"
+                type="range"
+                min="15"
+                max="120"
+                value={inputValueTime}
+                onChange={(e) => {
+                  dispatch({
+                    type: CHANGE_INPUT_TIME_VALUE,
+                    inputField: 'inputValueTime',
+                    newValue: e.target.value,
+                  });
+                }}
+              />
+            </div>
             <select
               disabled={Number(valueRadio) === 2}
               name="isochrone"
@@ -75,26 +95,6 @@ const SearchZoneSettings = () => {
               <option value="90">1 heure, 30 minutes</option>
               <option value="120">2 heures</option>
             </select>
-            <div className={location === '/explore' ? style.slider__input : style.container__selects__none}>
-              <span className={style.slider__input__display}>{inputValueTime}</span>
-              <input
-                disabled={Number(valueRadio) === 2}
-                defaultValue={30}
-                step={5}
-                valueLabelDisplay="on"
-                type="range"
-                min="15"
-                max="120"
-                value={inputValueTime}
-                onChange={(e) => {
-                  dispatch({
-                    type: CHANGE_INPUT_TIME_VALUE,
-                    inputField: 'inputValueTime',
-                    newValue: e.target.value,
-                  });
-                }}
-              />
-            </div>
           </div>
           <div className={style.container__selects__content}>
             <input

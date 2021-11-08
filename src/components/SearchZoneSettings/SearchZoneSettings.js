@@ -56,7 +56,7 @@ const SearchZoneSettings = () => {
             <select
               disabled={Number(valueRadio) === 2}
               name="isochrone"
-              className={style.container__selects__content__select}
+              className={location === '/explore' ? style.container__selects__none : style.container__selects__content__select}
               value={inputValueTime}
               onChange={(e) => {
                 dispatch({
@@ -75,6 +75,26 @@ const SearchZoneSettings = () => {
               <option value="90">1 heure, 30 minutes</option>
               <option value="120">2 heures</option>
             </select>
+            <div className={location === '/explore' ? style.slider__input : style.container__selects__none}>
+              <span className={style.slider__input__display}>{inputValueTime}</span>
+              <input
+                disabled={Number(valueRadio) === 2}
+                defaultValue={30}
+                step={5}
+                valueLabelDisplay="on"
+                type="range"
+                min="15"
+                max="120"
+                value={inputValueTime}
+                onChange={(e) => {
+                  dispatch({
+                    type: CHANGE_INPUT_TIME_VALUE,
+                    inputField: 'inputValueTime',
+                    newValue: e.target.value,
+                  });
+                }}
+              />
+            </div>
           </div>
           <div className={style.container__selects__content}>
             <input
@@ -92,7 +112,7 @@ const SearchZoneSettings = () => {
             <select
               disabled={Number(valueRadio) !== 2}
               name="radius"
-              className={style.container__selects__content__select}
+              className={location === '/explore' ? style.container__selects__none : style.container__selects__content__select}
               value={inputValueMiles}
               onChange={(e) => {
                 dispatch({
@@ -103,20 +123,38 @@ const SearchZoneSettings = () => {
               }}
             >
               <option value="">Sur une distance de...</option>
-              <option value="5">5 km</option>
-              <option value="10">10 km</option>
-              <option value="15">15 km</option>
-              <option value="20">20 km</option>
-              <option value="25">25 km</option>
-              <option value="30">30 km</option>
-              <option value="35">35 km</option>
-              <option value="40">40 km</option>
-              <option value="45">45 km</option>
-              <option value="50">50 km</option>
-              <option value="75">75 km</option>
-              <option value="100">100 km</option>
-              <option value="150">150 km</option>
+              <option value="1000">1 km</option>
+              <option value="2000">2 km</option>
+              <option value="3000">3 km</option>
+              <option value="5000">5 km</option>
+              <option value="10000">10 km</option>
+              <option value="15000">15 km</option>
+              <option value="20000">20 km</option>
+              <option value="25000">25 km</option>
+              <option value="30000">30 km</option>
+              <option value="40000">40 km</option>
+              <option value="50000">50 km</option>
             </select>
+            <div className={location === '/explore' ? style.slider__input : style.container__selects__none}>
+              <span className={style.slider__input__display}>{inputValueMiles}</span>
+              <input
+                disabled={Number(valueRadio) !== 2}
+                defaultValue={1000}
+                step={1000}
+                valueLabelDisplay="on"
+                type="range"
+                min="1000"
+                max="50000"
+                value={inputValueMiles}
+                onChange={(e) => {
+                  dispatch({
+                    type: CHANGE_INPUT_MILES_VALUE,
+                    inputField: 'inputValueMiles',
+                    newValue: e.target.value,
+                  });
+                }}
+              />
+            </div>
           </div>
           <div className={style.container__selects__content}>
             <select

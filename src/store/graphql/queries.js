@@ -1,6 +1,6 @@
 /* eslint-disable import/prefer-default-export */
 
-const tomtomSearch = (keyword, lat, lon, radius, limit) => `
+export const tomtomSearch = (keyword, lat, lon, radius, limit) => `
     query hopital{
         tomtomSearch(keyword: "${keyword}", lat: ${lat}, lon: ${lon}, radius: ${radius}, limit:${limit}) {
             position {
@@ -20,6 +20,9 @@ const tomtomSearch = (keyword, lat, lon, radius, limit) => `
     }
 `;
 
-export {
-  tomtomSearch,
-};
+export const loginUser = (email, password) => `query Query {
+    login(email: "${email}", password: "${password}"){
+        message
+        token
+    }
+  }`;

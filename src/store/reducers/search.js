@@ -56,6 +56,7 @@ export const initialState = {
   inputValueMiles: 1000,
   inputValueTrans: '',
   valueRadio: 1,
+  isochroneResults: [],
 };
 
 const searchReducer = (state = initialState, action = {}) => {

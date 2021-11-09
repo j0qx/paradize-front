@@ -1,7 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useLocation } from 'react-router-dom';
 import style from './SearchZoneSettings.module.scss';
-import InputBase from '../InputBase';
 import ButtonSubmit from '../ButtonSubmit';
 import {
   CHANGE_INPUT_TIME_VALUE,
@@ -11,6 +10,8 @@ import {
   CHANGE_RADIO_BUTTON,
   GET_ISOCHRONE,
 } from '../../store/actions';
+import AutoComplete from '../Autocomplete/Autocomplete';
+import style from './SearchZoneSettings.module.scss';
 
 const SearchZoneSettings = () => {
   const dispatch = useDispatch();
@@ -38,14 +39,7 @@ const SearchZoneSettings = () => {
       >
         <h4 className={style.search__zone__title}>Recherche par distance</h4>
         <div className={style.search__adress}>
-          <InputBase
-            type="text"
-            classCSS={location === '/explore' ? 'searchZone_inpuExplore' : 'input__search__zone'}
-            placeholder="À partir de l'adresse..."
-            inputName="inputValueAddress"
-            inputValue={inputValueAddress}
-            actionType={CHANGE_INPUT_VALUE_SEARCH}
-          />
+          <AutoComplete />
         </div>
         <div className={style.container__selects}>
           <div className={style.container__selects__content}>
@@ -105,7 +99,7 @@ const SearchZoneSettings = () => {
             </select>
           </div>
           <div className={style.container__selects__content}>
-            <select
+          <select
               disabled={Number(valueRadio) === 2}
               name="means"
               className={style.container__selects__content__select__transport}
@@ -172,7 +166,6 @@ const SearchZoneSettings = () => {
                 disabled={Number(valueRadio) !== 2}
                 defaultValue={1000}
                 step={1000}
-                valueLabelDisplay="on"
                 type="range"
                 min="1000"
                 max="50000"
@@ -189,10 +182,12 @@ const SearchZoneSettings = () => {
           </div>
         </div>
         <div className={style.search__button}>
-          <ButtonSubmit
-            buttonName="C'est parti !"
-            classCSS=""
-          />
+          <Link to="/explore">
+            <ButtonSubmit
+              buttonName="C'est parti !"
+              classCSS=""
+            />
+          </Link>
         </div>
       </form>
     </div>

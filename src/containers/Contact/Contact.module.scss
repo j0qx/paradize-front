@@ -21,11 +21,16 @@
             font-weight: bold;
             font-size: xx-large;
         }
-
-        &__role{
-            color: aqua;
+        h3{
+            font-size: medium;
+            font-weight: bold;
         }
-
+        &__role{
+            font-size: medium;
+        }
+        a{
+            font-size: small;
+        }
         &__img {
             
             width: 80%;

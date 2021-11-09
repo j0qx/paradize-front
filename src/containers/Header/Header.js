@@ -23,7 +23,7 @@ const Header = () => {
           <img alt={logo} src={logo} className={style.navbar__logoContainer__logo} />
         </Link>
       </div>
-      <p className={style.navbar__message}> Welcome Mister </p>
+      <p className={style.navbar__message}> </p>
       {/* IF User isn't connected, we show signin and sugnUp Button  */}
       {isLogged === false && (
       <ul className={style.navbar__linksContainer}>
@@ -69,22 +69,27 @@ const Header = () => {
       {isLogged && (
       <ul className={style.navbar__linksContainer}>
         <li className={style.navbar__linksContainer__link}>
-          <ButtonSubmit
-            classCSS={isOpen ? 'navbar_button' : ''}
-            buttonName="Se déconnecter"
-            handleButtonClick={() => {
-              // TODO
-            }}
-          />
+          <Link to="/">
+            <ButtonSubmit
+              classCSS={isOpen ? 'navbar_button' : ''}
+              buttonName="Se déconnecter"
+              handleButtonClick={() => {
+                dispatch({ type: 'LOGOUT' });
+                localStorage.clear();
+              }}
+            />
+          </Link>
         </li>
         <li className={style.navbar__linksContainer__link}>
-          <ButtonSubmit
-            classCSS={isOpen ? 'navbar_button' : ''}
-            handleButtonClick={() => {
+          <Link to="/account/infos">
+            <ButtonSubmit
+              classCSS={isOpen ? 'navbar_button' : ''}
+              handleButtonClick={() => {
               // TODO
-            }}
-            buttonName="Mon compte"
-          />
+              }}
+              buttonName="Mon compte"
+            />
+          </Link>
         </li>
       </ul>
       )}

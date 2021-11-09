@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useLocation } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import style from './SearchZoneSettings.module.scss';
 import InputBase from '../InputBase';
 import ButtonSubmit from '../ButtonSubmit';
@@ -11,7 +11,6 @@ import {
   CHANGE_RADIO_BUTTON,
   GET_ISOCHRONE,
 } from '../../store/actions';
-import axios from 'axios';
 
 const SearchZoneSettings = () => {
   const dispatch = useDispatch();
@@ -21,6 +20,9 @@ const SearchZoneSettings = () => {
   const inputValueMiles = useSelector((state) => state.search.inputValueMiles);
   const inputValueTrans = useSelector((state) => state.search.inputValueTrans);
   const valueRadio = useSelector((state) => state.search.valueRadio);
+  const milesConverted = Math.round(Number(inputValueMiles) / 1000);
+  const timeConverted = Math.round(Number(inputValueTime) / 60);
+  const history = useHistory();
 
   return (
     <div className={location === '/explore' ? style.search__zoneExplore : style.search__zone}>
@@ -28,6 +30,10 @@ const SearchZoneSettings = () => {
         method="GET"
         onSubmit={(e) => {
           e.preventDefault();
+          history.push('/explore');
+          if (Number(valueRadio) === 1) {
+            dispatch({ type: GET_ISOCHRONE });
+          }
         }}
       >
         <h4 className={style.search__zone__title}>Recherche par distance</h4>
@@ -46,6 +52,7 @@ const SearchZoneSettings = () => {
             <input
               type="radio"
               name="choice"
+              defaultChecked={valueRadio == 1}
               value="1"
               onChange={(e) => {
                 dispatch({
@@ -54,9 +61,9 @@ const SearchZoneSettings = () => {
                   newValue: e.target.value,
                 });
               }}
-              />
+            />
             <div className={location === '/explore' ? style.slider__input : style.container__selects__none}>
-              <span className={style.slider__input__display}>{inputValueTime}</span>
+              <span className={style.slider__input__display}>{timeConverted} min</span>
               <input
                 disabled={Number(valueRadio) === 2}
                 defaultValue={900}
@@ -75,7 +82,7 @@ const SearchZoneSettings = () => {
                     newValue: e.target.value,
                   });
                 }}
-                />
+              />
             </div>
             <select
               disabled={Number(valueRadio) === 2}
@@ -98,8 +105,31 @@ const SearchZoneSettings = () => {
             </select>
           </div>
           <div className={style.container__selects__content}>
+            <select
+              disabled={Number(valueRadio) === 2}
+              name="means"
+              className={style.container__selects__content__select__transport}
+              value={inputValueTrans}
+              onChange={(e) => {
+                dispatch({
+                  type: CHANGE_INPUT_TRANS_VALUE,
+                  inputField: 'inputValueTrans',
+                  newValue: e.target.value,
+                });
+              }}
+            >
+              <option value="">Moyen de transport...</option>
+              <option value="voiture">Voiture</option>
+              <option value="piéton">Piéton</option>
+              <option value="vélo">Vélo</option>
+              <option value="bus">Bus</option>
+              <option value="train">Train </option>
+            </select>
+          </div>
+          <div className={style.container__selects__content}>
             <input
               type="radio"
+              defaultChecked={valueRadio == 2}
               name="choice"
               value="2"
               onChange={(e) => {
@@ -137,7 +167,7 @@ const SearchZoneSettings = () => {
               <option value="50000">50 km</option>
             </select>
             <div className={location === '/explore' ? style.slider__input : style.container__selects__none}>
-              <span className={style.slider__input__display}>{inputValueMiles}</span>
+              <span className={style.slider__input__display}>{milesConverted} km</span>
               <input
                 disabled={Number(valueRadio) !== 2}
                 defaultValue={1000}
@@ -157,36 +187,12 @@ const SearchZoneSettings = () => {
               />
             </div>
           </div>
-          <div className={style.container__selects__content}>
-            <select
-              disabled={Number(valueRadio) === 2}
-              name="means"
-              className={style.container__selects__content__select__transport}
-              value={inputValueTrans}
-              onChange={(e) => {
-                dispatch({
-                  type: CHANGE_INPUT_TRANS_VALUE,
-                  inputField: 'inputValueTrans',
-                  newValue: e.target.value,
-                });
-              }}
-            >
-              <option value="">Moyen de transport...</option>
-              <option value="voiture">Voiture</option>
-              <option value="piéton">Piéton</option>
-              <option value="vélo">Vélo</option>
-              <option value="bus">Bus</option>
-              <option value="train">Train </option>
-            </select>
-          </div>
         </div>
         <div className={style.search__button}>
-          <Link to="/explore">
-            <ButtonSubmit
-              buttonName="C'est parti !"
-              classCSS=""
-            />
-          </Link>
+          <ButtonSubmit
+            buttonName="C'est parti !"
+            classCSS=""
+          />
         </div>
       </form>
     </div>

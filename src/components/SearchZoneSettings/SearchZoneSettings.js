@@ -11,7 +11,6 @@ import {
   GET_ISOCHRONE,
 } from '../../store/actions';
 import AutoComplete from '../Autocomplete/Autocomplete';
-import style from './SearchZoneSettings.module.scss';
 
 const SearchZoneSettings = () => {
   const dispatch = useDispatch();
@@ -99,7 +98,7 @@ const SearchZoneSettings = () => {
             </select>
           </div>
           <div className={style.container__selects__content}>
-          <select
+            <select
               disabled={Number(valueRadio) === 2}
               name="means"
               className={style.container__selects__content__select__transport}
@@ -182,12 +181,10 @@ const SearchZoneSettings = () => {
           </div>
         </div>
         <div className={style.search__button}>
-          <Link to="/explore">
-            <ButtonSubmit
-              buttonName="C'est parti !"
-              classCSS=""
-            />
-          </Link>
+          <ButtonSubmit
+            buttonName="C'est parti !"
+            classCSS=""
+          />
         </div>
       </form>
     </div>

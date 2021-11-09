@@ -11,10 +11,8 @@
         align-items: center;
         margin: 3%;
         padding: 2%;
-
         backdrop-filter: blur(16px) saturate(180%);
         -webkit-backdrop-filter: blur(16px) saturate(180%);
-        background-color: rgb(35, 133, 245);
         border-radius: 12px;
         border: 1px solid rgba(209, 213, 219, 0.3);
 
@@ -53,19 +51,21 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            width: 20%;
-
-            background-color: rgb(35, 133, 245);
+            width: 13%;
             border-radius: 12px;
             border: 1px solid rgba(209, 213, 219, 0.3);
             &__name{
                 color: rgb(0, 0, 0);
                 font-weight: bold;
-                font-size: x-large;
+                font-size: small;
+            }
+            h3{
+                font-size: medium;
+                font-weight: bold;
             }
             &__role{
+                font-size: small;
                 color: black;
-                font-size: larger;
             }
             &__img {
                 margin:2%;
@@ -74,7 +74,9 @@
                 border-radius: 12px;
                 border: 1px solid rgba(209, 213, 219, 0.3);
             }
-    
+            a{
+                font-size: small;
+            }
         }
     
         }

@@ -11,7 +11,7 @@ const Contact = () => (
       />
       <h1 className={style.container__contact__card__name}>Erwin Bottius</h1>
       <h2 className={style.container__contact__card__role}>Rôle</h2>
-      <h3>Lead Développeur front-end</h3>
+      <h3>Lead front-end</h3>
 
       <a target="_blank" href="https://github.com/Erwin-Bottius" rel="noreferrer">Profil Github</a>
       <a target="_blank" href="https://github.com/Erwin-Bottius" rel="noreferrer">Profil LinkedIn</a>
@@ -52,7 +52,7 @@ const Contact = () => (
       />
       <h1 className={style.container__contact__card__name}>Pierre jöel MBABO</h1>
       <h2 className={style.container__contact__card__role}>Rôle</h2>
-      <h3>Lead Développeur Back-end</h3>
+      <h3>Lead Back-end</h3>
       <a target="_blank" href="https://github.com/Pierre-joel96" rel="noreferrer">Profil Github</a>
       <a target="_blank" href="https://www.linkedin.com/in/romainleclerc/" rel="noreferrer">Profil LinkedIn</a>
     </div>

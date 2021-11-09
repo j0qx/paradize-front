@@ -1,8 +1,17 @@
+@use '../../styles/vars.scss';
+
 .input_autocomplete{
-  border: 1px solid #999;
+  border: 1px solid vars.$primaryColor;
   padding: 0.5rem;
-  width: 300px;
+  width: 100%;
+  border-radius: 4px;
 }
 .autocomplete_container{
   position: relative;
+}
+
+@media screen and (min-width: 1100px){
+  .input_autocomplete{
+    width: 17.5rem;
+  }
 }

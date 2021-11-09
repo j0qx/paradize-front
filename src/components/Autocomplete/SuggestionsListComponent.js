@@ -15,8 +15,8 @@ const SuggestionsListComponent = ({ onClick }) => {
           className = 'suggestion_active';
         }
         return (
-          <li className={style[className]} key={suggestion} onClick={onClick}>
-            {suggestion}
+          <li className={style[className]} key={suggestion.geometry.coordinates[0]} onClick={onClick}>
+            {suggestion.properties.label}
           </li>
         );
       })}

@@ -6,7 +6,6 @@ import {
   CHANGE_INPUT_TIME_VALUE,
   CHANGE_INPUT_MILES_VALUE,
   CHANGE_INPUT_TRANS_VALUE,
-  CHANGE_INPUT_VALUE_SEARCH,
   CHANGE_RADIO_BUTTON,
   GET_ISOCHRONE,
 } from '../../store/actions';
@@ -15,7 +14,6 @@ import AutoComplete from '../Autocomplete/Autocomplete';
 const SearchZoneSettings = () => {
   const dispatch = useDispatch();
   const location = useLocation().pathname;
-  const inputValueAddress = useSelector((state) => state.search.inputValueAddress);
   const inputValueTime = useSelector((state) => state.search.inputValueTime);
   const inputValueMiles = useSelector((state) => state.search.inputValueMiles);
   const inputValueTrans = useSelector((state) => state.search.inputValueTrans);
@@ -45,7 +43,7 @@ const SearchZoneSettings = () => {
             <input
               type="radio"
               name="choice"
-              defaultChecked={valueRadio == 1}
+              defaultChecked={Number(valueRadio) === 1}
               value="1"
               onChange={(e) => {
                 dispatch({
@@ -122,7 +120,7 @@ const SearchZoneSettings = () => {
           <div className={style.container__selects__content}>
             <input
               type="radio"
-              defaultChecked={valueRadio == 2}
+              defaultChecked={Number(valueRadio) === 2}
               name="choice"
               value="2"
               onChange={(e) => {

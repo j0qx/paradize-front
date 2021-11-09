@@ -88,11 +88,6 @@ const searchReducer = (state = initialState, action = {}) => {
         apiSettings: newApiSettings,
       };
     }
-    case CHANGE_INPUT_VALUE_SEARCH:
-      return {
-        ...state,
-        [action.inputField]: action.newValue,
-      };
     case CHANGE_INPUT_TIME_VALUE:
       return {
         ...state,
@@ -138,11 +133,20 @@ const searchReducer = (state = initialState, action = {}) => {
         ...state,
         isochroneResults: null,
       };
+    case CHANGE_INPUT_VALUE_SEARCH:
+      return {
+        ...state,
+        autoComplete: {
+          ...state.autoComplete,
+          inputValue: action.newValue,
+
+        },
+      };
     case PRINT_SUGGESTIONS_ADRESS:
       return {
         ...state,
         autoComplete: {
-          inputValue: action.inputValue,
+          ...state.autoComplete,
           filteredSuggestions: action.filteredSuggestions,
           activeSuggestionIndex: 0,
           showSuggestions: true,

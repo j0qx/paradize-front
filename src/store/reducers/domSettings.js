@@ -4,6 +4,7 @@ import {
   TOGGLE_OPEN_SLIDE,
   TOGGLE_OPEN_EXPLORE_SLIDE,
   TOGGLE_PRINT_EXPLORE_SEARCH,
+  TOGGLE_OPEN_BURGER_ACCOUNT,
 } from '../actions';
 
 const initialState = {
@@ -21,6 +22,7 @@ const initialState = {
     isStatisticsSlideOpen: false,
   },
   isSearchSettingsOpen: false,
+  isAccountListOpen: false,
 };
 
 const domSettingsReducer = (state = initialState, action = {}) => {
@@ -65,6 +67,13 @@ const domSettingsReducer = (state = initialState, action = {}) => {
         isSearchSettingsOpen: !state.isSearchSettingsOpen,
 
       };
+
+    case TOGGLE_OPEN_BURGER_ACCOUNT: {
+      return {
+        ...state,
+        isAccountListOpen: !state.isAccountListOpen,
+      };
+    }
 
     default:
       return state;

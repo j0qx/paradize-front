@@ -1,10 +1,13 @@
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import style from './UserInfo.module.scss';
-import photo from '../../assets/image/ile.png';
+import photo from '../../assets/image/house.jpg';
 import { InputBase } from '../../components';
 import ButtonSubmit from '../../components/ButtonSubmit';
+import { TOGGLE_INPUT_ACCOUNT } from '../../store/actions';
 
 const UserInfo = () => {
+  const dispatch = useDispatch();
+  const isInputHidden = useSelector((state) => state.account.isInputHidden);
   const inputValueLastName = useSelector((state) => state.account.inputValueLastName);
   const inputValueFirstName = useSelector((state) => state.account.inputValueFirstName);
   const inputValueNickName = useSelector((state) => state.account.inputValueNickName);
@@ -14,17 +17,80 @@ const UserInfo = () => {
   const inputValuePostalCode = useSelector((state) => state.account.inputValuePostalCode);
   const inputValueCity = useSelector((state) => state.account.inputValueCity);
 
+  const handleSubmitForm = (event) => {
+    event.preventDefault();
+  };
   return (
 
     <div className={style.userinfo__main}>
       <div className={style.userinfo__second}>
         <div className={style.userinfo__second__left}>
           <img className={style.userinfo__second__left__avatar} src={photo} alt="" />
+          <div className={style.userinfo__second__right__inputs__button}>
+            <ButtonSubmit
+              buttonName="Télecharger votre Avatar"
+              classCSS=""
+            />
+          </div>
         </div>
-        <div className={style.userinfo__second__right__inputs}>
-          <form>
+
+        {(isInputHidden === true) && (
+
+          <div className={style.userinfo__second__right__inputs}>
             <div className={style.userinfo__second__right__inputs__input}>
-              <h4>Nom :</h4>
+              <h4 className={style.text__text}>Nom  <span>{inputValueLastName}</span></h4>
+            </div>
+            <div className={style.userinfo__second__right__inputs__input}>
+              <h4 className={style.text__text}>Prénom <span>{inputValueFirstName}</span></h4>
+
+            </div>
+            <div className={style.userinfo__second__right__inputs__input}>
+              <h4 className={style.text__text}>Pseudo <span>{inputValueNickName}</span></h4>
+            </div>
+            <div className={style.userinfo__second__right__inputs__input}>
+              <h4 className={style.text__text}>Email <span>{inputValueEmail}</span></h4>
+            </div>
+            <div className={style.userinfo__second__right__inputs__input}>
+              <h4 className={style.text__text}>Téléphone <span>{inputValuePhone}</span></h4>
+            </div>
+            <div className={style.userinfo__second__right__inputs__input}>
+              <h4 className={style.text__text}>Adresse   <span>{inputValueAddress}</span></h4>
+            </div>
+            <div className={style.userinfo__second__right__inputs__input}>
+              <h4 className={style.text__text}>Code postal <span>{inputValuePostalCode}</span></h4>
+            </div>
+            <div className={style.userinfo__second__right__inputs__input}>
+              <h4 className={style.text__text}>Ville <span>{inputValueCity} </span></h4>
+            </div>
+            <form
+              onSubmit={handleSubmitForm}
+            >
+              <div className={style.userinfo__second__right__inputs__button}>
+                <ButtonSubmit
+                  buttonName="Modifier vos Informations..."
+                  classCSS=""
+                  handleButtonClick={() => {
+                    if (isInputHidden === false) {
+                      return;
+                    }
+                    dispatch({ type: TOGGLE_INPUT_ACCOUNT });
+                  }}
+                />
+              </div>
+            </form>
+          </div>
+
+        )}
+
+        {(isInputHidden === false) && (
+
+        <form
+          onSubmit={handleSubmitForm}
+          className={style.form}
+        >
+          <div className={style.userinfo__second__right__inputs}>
+            <div className={style.userinfo__second__right__inputs__input}>
+              <h4 className={style.text__input}>Nom</h4>
               <InputBase
                 type="text"
                 inputName="inputValueLastName"
@@ -35,7 +101,7 @@ const UserInfo = () => {
               />
             </div>
             <div className={style.userinfo__second__right__inputs__input}>
-              <h4>Prénom:</h4>
+              <h4 className={style.text__input}>Prénom</h4>
               <InputBase
                 type="text"
                 inputName="inputValueFirstName"
@@ -46,7 +112,7 @@ const UserInfo = () => {
               />
             </div>
             <div className={style.userinfo__second__right__inputs__input}>
-              <h4>Pseudo:</h4>
+              <h4 className={style.text__input}>Pseudo</h4>
               <InputBase
                 type="text"
                 inputName="inputValueNickName"
@@ -57,7 +123,7 @@ const UserInfo = () => {
               />
             </div>
             <div className={style.userinfo__second__right__inputs__input}>
-              <h4>Email:</h4>
+              <h4 className={style.text__input}>Email</h4>
               <InputBase
                 type="text"
                 inputName="inputValueEmail"
@@ -68,7 +134,7 @@ const UserInfo = () => {
               />
             </div>
             <div className={style.userinfo__second__right__inputs__input}>
-              <h4>Téléphone:</h4>
+              <h4 className={style.text__input}>Téléphone</h4>
               <InputBase
                 type="text"
                 inputName="inputValuePhone"
@@ -79,7 +145,7 @@ const UserInfo = () => {
               />
             </div>
             <div className={style.userinfo__second__right__inputs__input}>
-              <h4>Adresse :</h4>
+              <h4 className={style.text__input}>Adresse </h4>
               <InputBase
                 type="text"
                 inputName="inputValueAddress"
@@ -90,7 +156,7 @@ const UserInfo = () => {
               />
             </div>
             <div className={style.userinfo__second__right__inputs__input}>
-              <h4>Code postal:</h4>
+              <h4 className={style.text__input}>Code postal</h4>
               <InputBase
                 type="text"
                 inputName="inputValuePostalCode"
@@ -101,7 +167,7 @@ const UserInfo = () => {
               />
             </div>
             <div className={style.userinfo__second__right__inputs__input}>
-              <h4>Ville:</h4>
+              <h4 className={style.text__input}>Ville</h4>
               <InputBase
                 type="text"
                 inputName="inputValueCity"
@@ -115,10 +181,17 @@ const UserInfo = () => {
               <ButtonSubmit
                 buttonName="Appliquer les changements..."
                 classCSS=""
+                handleButtonClick={() => {
+                  if (isInputHidden === true) {
+                    return;
+                  }
+                  dispatch({ type: TOGGLE_INPUT_ACCOUNT });
+                }}
               />
             </div>
-          </form>
-        </div>
+          </div>
+        </form>
+        )}
       </div>
     </div>
   );

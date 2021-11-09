@@ -7,6 +7,7 @@ const initialState = {
   inputValueAddress: '',
   inputValuePostalCode: '',
   inputValueCity: '',
+  isInputHidden: true,
 };
 
 const accountReducer = (state = initialState, action = {}) => {
@@ -16,7 +17,11 @@ const accountReducer = (state = initialState, action = {}) => {
         ...state,
         [action.inputField]: action.newValue,
       };
-
+    case 'TOGGLE_INPUT_ACCOUNT':
+      return {
+        ...state,
+        isInputHidden: !state.isInputHidden,
+      };
     default:
       return state;
   }

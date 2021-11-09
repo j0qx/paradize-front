@@ -3,7 +3,6 @@ import ButtonSubmit from './ButtonSubmit';
 import CardFavoriteSearch from './CardFavoriteSearch';
 import CardOffer from './CardOffer';
 import CreateOffer from './CreateOffer';
-import ListCardFavoriteSearch from './ListCardFavoriteSearch';
 import ListCardOffer from './ListCardOffer';
 import Map from './Map';
 import MapSettings from './MapSettings';
@@ -26,7 +25,6 @@ export {
   CardFavoriteSearch,
   CardOffer,
   CreateOffer,
-  ListCardFavoriteSearch,
   ListCardOffer,
   Map,
   MapSettings,

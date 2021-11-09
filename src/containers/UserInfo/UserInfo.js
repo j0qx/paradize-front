@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 import style from './UserInfo.module.scss';
 import photo from '../../assets/image/ile.png';
-import { TabNavBar, InputBase } from '../../components';
+import { InputBase } from '../../components';
 import ButtonSubmit from '../../components/ButtonSubmit';
 
 const UserInfo = () => {
@@ -17,7 +17,6 @@ const UserInfo = () => {
   return (
 
     <div className={style.userinfo__main}>
-      <TabNavBar />
       <div className={style.userinfo__second}>
         <div className={style.userinfo__second__left}>
           <img className={style.userinfo__second__left__avatar} src={photo} alt="" />

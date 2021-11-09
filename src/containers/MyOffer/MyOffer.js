@@ -1,10 +1,10 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 import { useDispatch, useSelector } from 'react-redux';
-import style from './CreateOffer.module.scss';
+import style from './MyOffer.module.scss';
 import { TOGGLE_PRINT_MODAL, SET_MODAL_CONTENT } from '../../store/actions';
 
-const CreateOffer = () => {
+const MyOffer = () => {
   const dispatch = useDispatch();
   const isModalHidden = useSelector((state) => state.domSettings.isModalHidden);
 
@@ -15,6 +15,7 @@ const CreateOffer = () => {
           <FontAwesomeIcon
             icon={faPlusCircle}
             size="5x"
+            color="#406F8A"
             onClick={() => {
               if (isModalHidden === false) {
                 return;
@@ -35,4 +36,4 @@ const CreateOffer = () => {
   );
 };
 
-export default CreateOffer;
+export default MyOffer;

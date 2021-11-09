@@ -38,6 +38,12 @@
   width: 100%;
  }
 
+ .input__createOffer__modal{
+   display: flex;
+   width: 90%;
+   margin: 1%;
+ }
+
  @media(max-width: 400px){
 
   .input__userinfo{

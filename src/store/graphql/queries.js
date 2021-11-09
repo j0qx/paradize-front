@@ -26,3 +26,9 @@ export const loginUser = (email, password) => `query Query {
         token
     }
   }`;
+
+export const createUser = (username, lastname, firstname, email, password) => ` mutation {
+    createUser(username: "${username}", email: "${email}", password: "${password}", last_name: "${lastname}", first_name: "${firstname}") {
+      id
+    }
+}`;

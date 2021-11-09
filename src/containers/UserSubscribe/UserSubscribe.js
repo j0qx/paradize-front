@@ -1,7 +1,7 @@
 import { faUser, faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { ButtonSubmit, InputBase } from '../../components';
-import { CHANGE_INPUT_VALUE_SIGNUP } from '../../store/actions';
+import { CHANGE_INPUT_VALUE_SIGNUP, CREATE_USER } from '../../store/actions';
 import style from './UserSubscribe.module.scss';
 
 const UserSubscribe = () => {
@@ -9,10 +9,18 @@ const UserSubscribe = () => {
   const firstName = useSelector((state) => state.signUp.firstName);
   const mail = useSelector((state) => state.signUp.mail);
   const password = useSelector((state) => state.signUp.password);
+  const pseudo = useSelector((state) => state.signUp.username);
+  const dispatch = useDispatch();
   return (
     <div className={style.userSubscribe}>
       <h1 className={style.userSubscribe__title}> Créer un compte</h1>
-      <form className={style.userSubscribe__form}>
+      <form
+        className={style.userSubscribe__form}
+        onSubmit={(e) => {
+          e.preventDefault();
+          dispatch({ type: CREATE_USER });
+        }}
+      >
         <InputBase
           icon={faUser}
           inputName="lastName"
@@ -30,6 +38,14 @@ const UserSubscribe = () => {
           actionType={CHANGE_INPUT_VALUE_SIGNUP}
         />
         <InputBase
+          icon={faUser}
+          inputName="username"
+          placeholder="Pseudo"
+          classCSS=""
+          inputValue={pseudo}
+          actionType={CHANGE_INPUT_VALUE_SIGNUP}
+        />
+        <InputBase
           icon={faEnvelope}
           inputName="mail"
           placeholder="Mail"
@@ -42,6 +58,7 @@ const UserSubscribe = () => {
           inputName="password"
           placeholder="Mot de passe"
           classCSS=""
+          inputType="password"
           inputValue={password}
           actionType={CHANGE_INPUT_VALUE_SIGNUP}
         />

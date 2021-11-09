@@ -30,6 +30,7 @@ const UserConnect = () => {
         <InputBase
           icon={faLock}
           inputName="password"
+          inputType="password"
           placeholder="Mot de passe"
           classCSS=""
           inputValue={password}

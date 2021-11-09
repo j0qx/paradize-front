@@ -9,6 +9,8 @@ import {
   CHANGE_RADIO_BUTTON,
   GET_DATAS_FROM_API_SUCCESS,
   GET_ISOCHRONE_SUCCESS,
+  PRINT_SUGGESTIONS_ADRESS,
+  SET_SUGGESTION_VALUE,
   // GET_DATAS_FROM_API_ERROR,
 } from '../actions';
 
@@ -58,6 +60,13 @@ export const initialState = {
   inputValueTrans: '',
   valueRadio: 1,
   isochroneResults: null,
+  autoComplete: {
+    filteredSuggestions: [],
+    activeSuggestionIndex: 0,
+    showSuggestions: false,
+    inputValue: '',
+
+  },
 };
 
 const searchReducer = (state = initialState, action = {}) => {
@@ -128,6 +137,26 @@ const searchReducer = (state = initialState, action = {}) => {
       return {
         ...state,
         isochroneResults: null,
+      };
+    case PRINT_SUGGESTIONS_ADRESS:
+      return {
+        ...state,
+        autoComplete: {
+          inputValue: action.inputValue,
+          filteredSuggestions: action.filteredSuggestions,
+          activeSuggestionIndex: 0,
+          showSuggestions: true,
+        },
+      };
+    case SET_SUGGESTION_VALUE:
+      return {
+        ...state,
+        autoComplete: {
+          filteredSuggestions: [],
+          inputValue: action.inputValue,
+          activeSuggestionIndex: 0,
+          showSuggestions: false,
+        },
       };
     default:
       return state;

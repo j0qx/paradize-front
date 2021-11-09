@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import style from './CardOffer.module.scss';
 
 const CardOffer = ({
@@ -21,5 +22,14 @@ const CardOffer = ({
     </div>
   </div>
 );
+
+CardOffer.propTypes = {
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  picture: PropTypes.string.isRequired,
+  subTitle: PropTypes.string.isRequired,
+  price: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
+};
 
 export default CardOffer;

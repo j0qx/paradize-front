@@ -6,6 +6,9 @@ import {
   GET_DATAS_FROM_API,
   GET_DATAS_FROM_API_SUCCESS,
   GET_DATAS_FROM_API_ERROR,
+  GET_ISOCHRONE,
+  GET_ISOCHRONE_SUCCESS,
+  GET_ISOCHRONE_ERROR,
 } from '../actions';
 
 const getDateApi = (store) => (next) => (action) => {
@@ -34,6 +37,40 @@ const getDateApi = (store) => (next) => (action) => {
       console.log(error);
       store.dispatch({ type: GET_DATAS_FROM_API_ERROR, payload: error });
     });
+  }
+
+  else if (action.type === GET_ISOCHRONE) {
+    const state = store.getState();
+    store.dispatch({ type: 'RESET_ISOCHRONE'})
+    const data = JSON.stringify({
+      locations: [state.map.currentPosOrs],
+      range: [
+        state.search.inputValueTime,
+      ],
+      area_units: 'm',
+      units: 'm',
+    });
+
+    const config = {
+      method: 'post',
+      url: 'https://api.openrouteservice.org/v2/isochrones/driving-car?profile=driving-car',
+      headers: {
+        Authorization: '5b3ce3597851110001cf62485f363f8354464494b0854dbe8271c39e',
+        'Content-Type': 'application/json',
+      },
+      data: data,
+    };
+
+    axios(config)
+      .then((response) => {
+        store.dispatch({
+          type: GET_ISOCHRONE_SUCCESS,
+          data: response.data,
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
   else {
     next(action);

@@ -15,6 +15,7 @@ const MyOffer = () => {
           <FontAwesomeIcon
             icon={faPlusCircle}
             size="5x"
+            color="#406F8A"
             onClick={() => {
               if (isModalHidden === false) {
                 return;

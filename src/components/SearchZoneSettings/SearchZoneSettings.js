@@ -9,7 +9,9 @@ import {
   CHANGE_INPUT_TRANS_VALUE,
   CHANGE_INPUT_VALUE_SEARCH,
   CHANGE_RADIO_BUTTON,
+  GET_ISOCHRONE,
 } from '../../store/actions';
+import axios from 'axios';
 
 const SearchZoneSettings = () => {
   const dispatch = useDispatch();
@@ -52,17 +54,19 @@ const SearchZoneSettings = () => {
                   newValue: e.target.value,
                 });
               }}
-            />
+              />
             <div className={location === '/explore' ? style.slider__input : style.container__selects__none}>
               <span className={style.slider__input__display}>{inputValueTime}</span>
               <input
                 disabled={Number(valueRadio) === 2}
-                defaultValue={30}
-                step={5}
-                valueLabelDisplay="on"
+                defaultValue={900}
+                step={100}
                 type="range"
-                min="15"
-                max="120"
+                min="900"
+                onMouseUp={() => {
+                  dispatch({ type: GET_ISOCHRONE });
+                }}
+                max="3600"
                 value={inputValueTime}
                 onChange={(e) => {
                   dispatch({
@@ -71,7 +75,7 @@ const SearchZoneSettings = () => {
                     newValue: e.target.value,
                   });
                 }}
-              />
+                />
             </div>
             <select
               disabled={Number(valueRadio) === 2}
@@ -87,13 +91,10 @@ const SearchZoneSettings = () => {
               }}
             >
               <option value="">À moins de...</option>
-              <option value="15">15 Minutes</option>
-              <option value="30">30 Minutes</option>
-              <option value="45">45 Minutes</option>
-              <option value="60">1 heure</option>
-              <option value="75">1 heure, 15 minutes</option>
-              <option value="90">1 heure, 30 minutes</option>
-              <option value="120">2 heures</option>
+              <option value="900">15 Minutes</option>
+              <option value="1800">30 Minutes</option>
+              <option value="2700">45 Minutes</option>
+              <option value="3600">1 heure</option>
             </select>
           </div>
           <div className={style.container__selects__content}>

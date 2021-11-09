@@ -31,15 +31,15 @@ const authMiddleware = (store) => (next) => (action) => {
         if (result.data.data.login.message === 'authorized') {
           const { token } = result.data.data.login;
           const user = jwt(token);
-          const { email, userName } = user;
+          const { email, username } = user;
           localStorage.setItem('mail', email);
-          localStorage.setItem('userName', userName);
+          localStorage.setItem('username', username);
           localStorage.setItem('token', token);
           store.dispatch({
             type: GET_USER_TOKEN_SUCCESS,
             accessToken: result.data.data.login.token,
             mail: email,
-            userName: userName,
+            username: username,
           });
           // If the current modal content was UserConnect, we set the state to false
           store.dispatch({ type: TOGGLE_PRINT_MODAL });

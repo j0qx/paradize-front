@@ -1,6 +1,6 @@
 import './Pointer.module.scss';
 import {
-  useMapEvents, Marker, Popup, Circle,
+  useMapEvents, Marker, Popup, Circle, GeoJSON,
 } from 'react-leaflet';
 import markerIconPng from 'leaflet/dist/images/marker-icon.png';
 import { Icon } from 'leaflet';
@@ -13,6 +13,7 @@ function LocationMarker() {
   const currentPos = useSelector((state) => state.map.currentPos);
   const allCheckboxs = useSelector((state) => state.search.apiSettings);
   const radius = useSelector((state) => state.search.inputValueMiles);
+  const isochroneResults = useSelector((state) => state.search.isochroneResults);
   const dispatch = useDispatch();
 
   const map = useMapEvents({
@@ -37,7 +38,6 @@ function LocationMarker() {
       }
     },
   });
-
   return (
     currentPos[0] !== 0
       ? (
@@ -54,6 +54,9 @@ function LocationMarker() {
               Votre recherche s'étend sur : {radius} mètres.
             </Popup>
           </Circle>
+          {isochroneResults && (
+          <GeoJSON data={isochroneResults} />
+          )}
         </Marker>
       )
 

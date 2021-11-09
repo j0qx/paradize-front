@@ -14,7 +14,7 @@ const userReducer = (state = initialState, action = {}) => {
       return {
         ...state,
         isLogged: true,
-        userName: action.userName,
+        username: action.username,
         mail: action.mail,
         accessToken: action.accessToken,
 

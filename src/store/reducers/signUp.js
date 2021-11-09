@@ -3,6 +3,7 @@ import { CHANGE_INPUT_VALUE_SIGNUP } from '../actions';
 const initialState = {
   lastName: '',
   firstName: '',
+  username: '',
   mail: '',
   password: '',
 };

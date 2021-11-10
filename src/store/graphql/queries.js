@@ -47,7 +47,7 @@ export const getUserDatas = (email) => `query Query {
     phone
   }
 }`;
-
+// TODO need to fix this mutation
 export const updateUserDatas = (id, inputValueNickName, inputValueFirstName, inputValueLastName, inputValueEmail, inputValueAddress, inputValuePostalCode, inputValueCity, inputValuePhone) => `
   mutation Mutation {
     updateUser(id: 21, toUpdate: {

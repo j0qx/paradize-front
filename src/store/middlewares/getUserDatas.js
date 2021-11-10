@@ -37,7 +37,7 @@ const getUserMiddleware = (store) => (next) => (action) => {
         // store.dispatch({ type: GET_USER_TOKEN_ERROR });
       });
   }
-
+//TODO Need to be fix 
   else if (action.type === MODIFY_USER_DATAS) {
     const state = store.getState();
     // on prépare la requete

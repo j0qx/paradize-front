@@ -2,7 +2,7 @@ import 'leaflet/dist/leaflet.css';
 import 'react-leaflet-markercluster/dist/styles.min.css';
 
 import {
-  MapContainer, TileLayer, LayersControl,
+  MapContainer, TileLayer, LayersControl, MapConsumer,
 } from 'react-leaflet';
 import { useSelector } from 'react-redux';
 import MarkerClusterGroup from 'react-leaflet-markercluster';
@@ -49,6 +49,12 @@ const Map = () => {
         center={currentPos}
         zoom={13}
       >
+        <MapConsumer>
+          {(map) => {
+            map.flyTo(currentPos, map.getZoom());
+            return null;
+          }}
+        </MapConsumer>
         <LayersControl position="topright">
           <LayersControl.BaseLayer name="Map">
             <TileLayer

@@ -4,7 +4,7 @@ import 'react-leaflet-markercluster/dist/styles.min.css';
 import {
   MapContainer, TileLayer, LayersControl,
 } from 'react-leaflet';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import MarkerClusterGroup from 'react-leaflet-markercluster';
 import LocationMarker from '../Pointer';
 import {
@@ -27,7 +27,6 @@ import style from './Map.module.scss';
 }); */
 
 const Map = () => {
-  // const dispatch = useDispatch();
   const currentPos = useSelector((state) => state.map.currentPos);
   // // here we have all the checkboxes (checked and not checked)
   const allCheckboxs = useSelector((state) => state.search.apiSettings);
@@ -41,13 +40,16 @@ const Map = () => {
     sattelite: 'http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',
     pretty: 'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw',
   };
-
   return (
     <div className={style.mapContainer}>
       <MapContainer
         style={{ height: '100%' }}
         center={currentPos}
         zoom={13}
+        // whenCreated={() => dispatch({
+        //   type: STORE_MAP_REF,
+        //   map,
+        // })}
       >
         <LayersControl position="topright">
           <LayersControl.BaseLayer name="Map">

@@ -17,12 +17,11 @@
   width: 100%;
   position: absolute;
   z-index: 3;
-  // &::-webkit-scrollbar {
-  //   background-color: #d6dee1;
-  //   border-radius: 20px;
-  //   border: 6px solid white;
-  //   background-clip: content-box;
-  // }
+}
+
+.suggestions__explore {
+  height: 6.5rem;
+  overflow-y: auto;
 }
 .suggestions li {
   padding: 0.5rem;

@@ -2,6 +2,7 @@ import './Pointer.module.scss';
 import {
   useMapEvents, Marker, Popup, Circle, GeoJSON,
 } from 'react-leaflet';
+import { useRef } from 'react';
 import markerIconPng from 'leaflet/dist/images/marker-icon.png';
 import { Icon } from 'leaflet';
 
@@ -16,6 +17,9 @@ function LocationMarker() {
   const isochroneResults = useSelector((state) => state.search.isochroneResults);
   const valueZoneRadio = useSelector((state) => state.search.valueRadio);
   const dispatch = useDispatch();
+
+  const jsonRef = useRef();
+  const markerRef = useRef();
 
   const map = useMapEvents({
     click(e) {
@@ -44,6 +48,7 @@ function LocationMarker() {
     currentPos[0] !== 0
       ? (
         <Marker
+          ref={markerRef}
           position={currentPos}
           icon={new Icon({
             iconUrl: markerIconPng,
@@ -60,7 +65,7 @@ function LocationMarker() {
           </Circle>
           )}
           {(isochroneResults && Number(valueZoneRadio) === 1) && (
-            <GeoJSON data={isochroneResults} />
+            <GeoJSON ref={jsonRef} data={isochroneResults} />
           )}
         </Marker>
       )

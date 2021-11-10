@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import { useLocation } from 'react-router-dom';
@@ -58,11 +59,11 @@ const AutoComplete = () => {
         type="text"
         className={style.input_autocomplete}
         onChange={onChange}
-        /* onKeyDown={onKeyDown} */
         value={inputValue}
         placeholder="A l'adresse suivante..."
       />
-      {showSuggestions && inputValue && <SuggestionsListComponent onClick={onClick} />}
+      {showSuggestions && inputValue
+      && <SuggestionsListComponent onClick={onClick} />}
     </div>
   );
 };

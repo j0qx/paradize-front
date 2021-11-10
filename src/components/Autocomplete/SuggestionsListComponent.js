@@ -1,13 +1,15 @@
 /* eslint-disable max-len */
 import { useSelector } from 'react-redux';
+import { useLocation } from 'react-router-dom';
 import { PropTypes } from 'prop-types';
 import style from './suggestionsListComponent.module.scss';
 
 const SuggestionsListComponent = ({ onClick }) => {
   const activeSuggestionIndex = useSelector((state) => state.search.autoComplete.activeSuggestionIndex);
   const filteredSuggestions = useSelector((state) => state.search.autoComplete.filteredSuggestions);
+  const location = useLocation().pathname;
   return filteredSuggestions.length ? (
-    <ul className={style.suggestions}>
+    <ul className={location === '/explore' ? `${style.suggestions} ${style.suggestions__explore}` : style.suggestions}>
       {filteredSuggestions.map((suggestion, index) => {
         let className;
         // Flag the active suggestion with a class

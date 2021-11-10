@@ -1,4 +1,4 @@
-import { GET_USER_TOKEN_SUCCESS } from '../actions';
+import { GET_USER_TOKEN_SUCCESS, UPDATE_USER_DATAS, MODIFY_USER_DATAS } from '../actions';
 
 const initialState = {
   isLogged: false,
@@ -19,6 +19,13 @@ const userReducer = (state = initialState, action = {}) => {
         accessToken: action.accessToken,
 
       };
+    case UPDATE_USER_DATAS:
+      return {
+        ...state,
+        ...action.payload,
+
+      };
+
     default:
       return state;
   }

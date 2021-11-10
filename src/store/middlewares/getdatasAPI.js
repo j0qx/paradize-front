@@ -79,17 +79,19 @@ const getDateApi = (store) => (next) => (action) => {
       });
   }
   else if (action.type === GET_DATA_AIR_POLLUTION) {
+    const state = store.getState();
+    const lat = state.map.currentPos[0];
+    const lng = state.map.currentPos[1];
     axios({
-      url: 'https://api.openweathermap.org/data/2.5/air_pollution?lat=48.79000111056284&lon=2.258023334337732&appid=20f05e618a16e58b7a3297b0a5b68b66',
+      url: `https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lng}&appid=20f05e618a16e58b7a3297b0a5b68b66`,
     })
       .then((result) => {
         if (result.data.list[0].components){
           const airComponentsValues = Object.values(result.data.list[0].components);
-          console.log(result.data.list[0]);
           store.dispatch({
             type: GET_DATA_AIR_POLLUTION_SUCCESS,
             values: airComponentsValues,
-            airQualityNote: 5,
+            airQualityNote: result.data.list[0].main.aqi,
           });
         }
       })

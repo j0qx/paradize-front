@@ -4,14 +4,15 @@ import {
 import { useSelector } from 'react-redux';
 
 const BarCharts = () => {
-  const dataAPI = useSelector((state) => state.search.apiSettings);
-  const labels = dataAPI.map((elem) => elem.checkBoxeName);
-  const dataAPiRaw = dataAPI.map((elem) => elem.result.length);
+  const dataName = useSelector((state) => state.search.airComponentsNames);
+  const dataValues = useSelector((state) => state.search.airComponentsValues);
+  const airQualityNote = useSelector((state) => state.search.airQualityNote);
+
   const data = {
-    labels,
+    labels: dataName,
     datasets: [{
-      label: 'My First Dataset',
-      data: dataAPiRaw,
+      label: "Qualité de l'air de votre position",
+      data: dataValues,
       backgroundColor: [
         'rgba(255, 99, 132, 0.2)',
         'rgba(255, 159, 64, 0.2)',
@@ -38,8 +39,6 @@ const BarCharts = () => {
 
   return (
     <Bar
-      onClick={(e) => {
-      }}
       data={data}
     />
   );

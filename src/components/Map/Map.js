@@ -4,7 +4,7 @@ import 'react-leaflet-markercluster/dist/styles.min.css';
 import {
   MapContainer, TileLayer, LayersControl, MapConsumer,
 } from 'react-leaflet';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import MarkerClusterGroup from 'react-leaflet-markercluster';
 import LocationMarker from '../Pointer';
 import {
@@ -15,6 +15,7 @@ import {
   HospitalMarker,
   ParkMarker,
 } from './Markers';
+import { GET_DATA_AIR_POLLUTION } from '../../store/actions';
 import getCheckboxs from '../../store/selectors/getCheckboxs';
 import style from './Map.module.scss';
 
@@ -27,13 +28,10 @@ import style from './Map.module.scss';
 }); */
 
 const Map = () => {
+  const dispatch = useDispatch();
   const currentPos = useSelector((state) => state.map.currentPos);
   // // here we have all the checkboxes (checked and not checked)
   const allCheckboxs = useSelector((state) => state.search.apiSettings);
-  // useEffect(() => {
-  //   }
-  // }, [currentPos]);
-
   // Base map tile:
   const maps = {
     base: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
@@ -46,14 +44,11 @@ const Map = () => {
         style={{ height: '100%' }}
         center={currentPos}
         zoom={13}
-        // whenCreated={() => dispatch({
-        //   type: STORE_MAP_REF,
-        //   map,
-        // })}
       >
         <MapConsumer>
           {(map) => {
             map.flyTo(currentPos, map.getZoom());
+            dispatch({ type: GET_DATA_AIR_POLLUTION });
             return null;
           }}
         </MapConsumer>

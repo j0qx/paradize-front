@@ -11,6 +11,7 @@ import {
   GET_ISOCHRONE_SUCCESS,
   PRINT_SUGGESTIONS_ADRESS,
   SET_SUGGESTION_VALUE,
+  GET_DATA_AIR_POLLUTION_SUCCESS,
   // GET_DATAS_FROM_API_ERROR,
 } from '../actions';
 
@@ -65,8 +66,10 @@ export const initialState = {
     activeSuggestionIndex: 0,
     showSuggestions: false,
     inputValue: '',
-
   },
+  airComponentsNames: ['co x10', 'no', 'no2', 'o3', 'so2', 'pm2_5', 'pm10', 'nh3'],
+  airComponentsValues: [226.75, 153.78, 81.57, 0.16, 25.75, 157.07, 178.05, 5.64],
+  airQualityNote: 5,
 };
 
 const searchReducer = (state = initialState, action = {}) => {
@@ -162,6 +165,11 @@ const searchReducer = (state = initialState, action = {}) => {
           showSuggestions: false,
         },
       };
+    case GET_DATA_AIR_POLLUTION_SUCCESS:
+      return{
+        ...state,
+        
+      }
     default:
       return state;
   }

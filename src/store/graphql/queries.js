@@ -48,16 +48,16 @@ export const getUserDatas = (email) => `query Query {
   }
 }`;
 // TODO need to fix this mutation
-export const updateUserDatas = (id, inputValueNickName, inputValueFirstName, inputValueLastName, inputValueEmail, inputValueAddress, inputValuePostalCode, inputValueCity, inputValuePhone) => `
+export const updateUserDatas = (id, inputValueNickName, inputValueFirstName, inputValueLastName,inputValueAddress, inputValueEmail, inputValuePhone, inputValuePostalCode, inputValueCity) => `
   mutation Mutation {
     updateUser(id: 21, toUpdate: {
       username: "${inputValueNickName}"
       first_name: "${inputValueFirstName}"
       last_name: "${inputValueLastName}"
       address: "${inputValueAddress}"
-      email:"pam@pam.com"
-      phone:"${inputValuePhone}"
-      city_code: 75000
+      email: "${inputValueEmail}"
+      phone: "${inputValuePhone}"
+      city_code: ${inputValuePostalCode}
       city: "${inputValueCity}"
       
     }) {

@@ -3,6 +3,8 @@ import {
   GET_USER_DATAS,
   UPDATE_USER_DATAS,
   MODIFY_USER_DATAS,
+  TEST_USER_DATAS,
+  TOGGLE_INPUT_ACCOUNT,
 } from '../actions';
 
 import url from '../graphql/endpoint';
@@ -37,9 +39,10 @@ const getUserMiddleware = (store) => (next) => (action) => {
         // store.dispatch({ type: GET_USER_TOKEN_ERROR });
       });
   }
-//TODO Need to be fix 
+  // TODO Need to be fix
   else if (action.type === MODIFY_USER_DATAS) {
     const state = store.getState();
+    console.log(' id la personnne', state.user.id);
     // on prépare la requete
     const config = {
       method: 'post',
@@ -62,12 +65,14 @@ const getUserMiddleware = (store) => (next) => (action) => {
     axios(config)
     // si réussite
       .then(({ data }) => {
-        console.log(data);
+        console.log('les datas', data);
         store.dispatch({
-          type: UPDATE_USER_DATAS,
-          payload: data.data.user,
+          type: TEST_USER_DATAS,
+          // payload: data.updateUser,
+          ...data.data.updateUser,
         });
-        console.log(data.data.user);
+        store.dispatch({ type: 'TOGGLE_INPUT_ACCOUNT' });
+        console.log('la data du user', data.data);
       })
       .catch((error) => {
         console.log(error);

@@ -166,10 +166,11 @@ const searchReducer = (state = initialState, action = {}) => {
         },
       };
     case GET_DATA_AIR_POLLUTION_SUCCESS:
-      return{
+      return {
         ...state,
-        
-      }
+        airComponentsValues: [action.values[0] / 10, ...action.values.slice(1)],
+        airQualityNote: action.airQualityNote,
+      };
     default:
       return state;
   }

@@ -19,37 +19,37 @@ export const initialState = {
   apiSettings:
    [
      {
-       checkBoxeName: 'bars',
+       checkBoxeName: 'Bar',
        checked: false,
        icon: faCocktail,
        result: [],
      },
      {
-       checkBoxeName: 'hopital',
+       checkBoxeName: 'Hopital',
        checked: false,
        icon: faClinicMedical,
        result: [],
      },
      {
-       checkBoxeName: 'supermarcket',
+       checkBoxeName: 'Supermarché',
        checked: false,
        icon: faShoppingCart,
        result: [],
      },
      {
-       checkBoxeName: 'ecoles',
+       checkBoxeName: 'École',
        checked: false,
        icon: faSchool,
        result: [],
      },
      {
-       checkBoxeName: 'parcs',
+       checkBoxeName: 'Parc',
        checked: false,
        icon: faTree,
        result: [],
      },
      {
-       checkBoxeName: 'police',
+       checkBoxeName: 'Police',
        checked: false,
        icon: faHatCowboy,
        result: [],

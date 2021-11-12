@@ -36,6 +36,8 @@ const SearchZoneSettings = () => {
       >
         <h4 className={style.search__zone__title}>Recherche par distance</h4>
         <div className={style.search__adress}>
+          <span className={location === '/explore' ? style.search__legend__address : style.container__selects__none}>Recherche par adresse...</span>
+
           <AutoComplete />
         </div>
         <div className={style.container__selects}>
@@ -54,6 +56,7 @@ const SearchZoneSettings = () => {
               }}
             />
             <div className={location === '/explore' ? style.slider__input : style.container__selects__none}>
+              <span className={location === '/explore' ? style.search__legend : style.container__selects__none}>Recherche par temps de trajet...</span>
               <span className={style.slider__input__display}>{timeConverted} min</span>
               <input
                 disabled={Number(valueRadio) === 2}
@@ -158,6 +161,7 @@ const SearchZoneSettings = () => {
               <option value="50000">50 km</option>
             </select>
             <div className={location === '/explore' ? style.slider__input : style.container__selects__none}>
+              <span className={location === '/explore' ? style.search__legend : style.container__selects__none}>Recherche par distance...</span>
               <span className={style.slider__input__display}>{milesConverted} km</span>
               <input
                 disabled={Number(valueRadio) !== 2}

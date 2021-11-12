@@ -45,6 +45,7 @@ const SearchDataSettings = () => {
                 checked={checkboxe.checked}
               />
               <div className={style.slider__icon}><FontAwesomeIcon className={style.switch__font} icon={checkboxe.icon} size="2x" /></div>
+              <span className={location === '/explore' ? style.labels__display : style.labels__none}>{checkboxe.checkBoxeName}</span>
             </label>
           </div>
 

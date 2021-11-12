@@ -1,5 +1,12 @@
 @use '../../styles/vars';
 
+.labels__display{
+  display: none;
+}
+.labels__none{
+  display: none;
+}
+
 @media screen and (max-width:1100px){
 
 .container__control {
@@ -144,10 +151,16 @@
     filter:drop-shadow(1px 1px 1px rgb(209, 206, 0))
   }
 // EXPLORE PAGE ******************************************************************
+.labels__display{
+  display: block;
+}
   .container__controlExplore{
-    width: 32%;
+    width: 55%;
     display: flex;
-    align-items: center;
+    align-items:center;
+    // Added some css to display labels on data searched
+    position: relative;
+    right: 3rem;
 
     .container__checkboxesOnexplore{
       display: flex;
@@ -161,7 +174,7 @@
     .container__switch{
       display: flex;
       align-items: center;
-      width: 26%;
+      width: 32%;
 
       .switch {
         display: flex;

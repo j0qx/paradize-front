@@ -80,8 +80,8 @@ const Map = () => {
           disableClusteringAtZoom={16}
         >
           {
-        getCheckboxs('bars', allCheckboxs).checked && (
-          getCheckboxs('bars', allCheckboxs).result.map(({
+        getCheckboxs('Bar', allCheckboxs).checked && (
+          getCheckboxs('Bar', allCheckboxs).result.map(({
             id, position, address, poi,
           }) => {
             const newId = ((Number.isNaN(id) ? id : 1) + Math.random()) * 100;
@@ -98,8 +98,8 @@ const Map = () => {
         )
 }
           {
-        getCheckboxs('ecoles', allCheckboxs).checked && (
-          getCheckboxs('ecoles', allCheckboxs).result.map(({
+        getCheckboxs('École', allCheckboxs).checked && (
+          getCheckboxs('École', allCheckboxs).result.map(({
             id, position, address, poi,
           }) => {
             const newId = ((Number.isNaN(id) ? id : 1) + Math.random()) * 100;
@@ -115,8 +115,8 @@ const Map = () => {
           }))
 }
           {
-        getCheckboxs('police', allCheckboxs).checked && (
-          getCheckboxs('police', allCheckboxs).result.map(({
+        getCheckboxs('Police', allCheckboxs).checked && (
+          getCheckboxs('Police', allCheckboxs).result.map(({
             id, position, address, poi,
           }) => {
             const newId = ((Number.isNaN(id) ? id : 1) + Math.random()) * 100;
@@ -133,8 +133,8 @@ const Map = () => {
         )
 }
           {
-        getCheckboxs('parcs', allCheckboxs).checked && (
-          getCheckboxs('parcs', allCheckboxs).result.map(({
+        getCheckboxs('Parc', allCheckboxs).checked && (
+          getCheckboxs('Parc', allCheckboxs).result.map(({
             id, position, address, poi,
           }) => {
             const newId = ((Number.isNaN(id) ? id : 1) + Math.random()) * 100;
@@ -151,8 +151,8 @@ const Map = () => {
         )
 }
           {
-        getCheckboxs('hopital', allCheckboxs).checked
-        && (getCheckboxs('hopital', allCheckboxs).result.map(({
+        getCheckboxs('Hopital', allCheckboxs).checked
+        && (getCheckboxs('Hopital', allCheckboxs).result.map(({
           id, position, address, poi,
         }) => {
           const newId = ((Number.isNaN(id) ? id : 1) + Math.random()) * 100;
@@ -168,8 +168,8 @@ const Map = () => {
         }))
 }
           {
-      getCheckboxs('supermarcket', allCheckboxs).checked && (
-        getCheckboxs('supermarcket', allCheckboxs).result.map(({
+      getCheckboxs('Supermarché', allCheckboxs).checked && (
+        getCheckboxs('Supermarché', allCheckboxs).result.map(({
           id, position, address, poi,
         }) => {
           const newId = ((Number.isNaN(id) ? id : 1) + Math.random()) * 100;

@@ -40,6 +40,19 @@ const BarCharts = () => {
   return (
     <Bar
       data={data}
+      options={
+        {
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              labels: {
+                boxWidth: 40,
+                padding: 5,
+              },
+            },
+          },
+        }
+      }
     />
   );
 };

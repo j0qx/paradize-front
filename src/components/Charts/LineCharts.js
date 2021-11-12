@@ -34,6 +34,19 @@ const LineCharts = () => {
       onClick={(e) => {
       }}
       data={data}
+      options={
+        {
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              labels: {
+                boxWidth: 20,
+                padding: 5,
+              },
+            },
+          },
+        }
+      }
     />
   );
 };

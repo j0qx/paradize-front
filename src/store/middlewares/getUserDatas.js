@@ -48,31 +48,37 @@ const getUserMiddleware = (store) => (next) => (action) => {
       method: 'post',
       url,
       data: {
-        query: updateUserDatas(
-          Number(state.user.id),
-          state.account.inputValueNickName,
-          state.account.inputValueFirstName,
-          state.account.inputValueLastName,
-          state.account.inputValueAddress,
-          state.account.inputValueEmail,
-          state.account.inputValuePhone,
-          state.account.inputValuePostalCode,
-          state.account.inputValueCity,
-        ),
+        query: updateUserDatas({
+          id: Number(state.user.id),
+          toUpdate: { ...state.account.toUpdate },
+          response: [
+            'first_name',
+            'username',
+            'last_name',
+            'civility',
+            'email',
+            'password',
+            'address',
+            'city_code',
+            'city',
+            'phone',
+            'id',
+          ],
+        }),
       },
     };
+    console.log('state.account.toUpdate', state.account.toUpdate);
+    console.log('middleWare GraphQl Query:', config.data.query);
     // on joue la requête avec axios
     axios(config)
     // si réussite
       .then(({ data }) => {
-        console.log('les datas', data);
         store.dispatch({
           type: TEST_USER_DATAS,
           // payload: data.updateUser,
           ...data.data.updateUser,
         });
         store.dispatch({ type: 'TOGGLE_INPUT_ACCOUNT' });
-        console.log('la data du user', data.data);
       })
       .catch((error) => {
         console.log(error);

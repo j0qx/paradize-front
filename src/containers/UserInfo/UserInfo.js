@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import { useSelector, useDispatch } from 'react-redux';
 import style from './UserInfo.module.scss';
 import photo from '../../assets/image/house.jpg';
@@ -7,7 +8,8 @@ import { TOGGLE_INPUT_ACCOUNT, MODIFY_USER_DATAS } from '../../store/actions';
 
 const UserInfo = () => {
   const dispatch = useDispatch();
-  const isInputHidden = useSelector((state) => state.account.isInputHidden);
+  const isInputHidden = useSelector((state) => state.account.display.isInputHidden);
+  console.log('isInputHidden:', isInputHidden);
   const {
     inputValueLastName,
     inputValueFirstName,
@@ -15,8 +17,9 @@ const UserInfo = () => {
     inputValueEmail,
     inputValuePhone,
     inputValueAddress,
-    inputValuePostalCode, inputValueCity,
-  } = useSelector((state) => state.account);
+    inputValuePostalCode,
+    inputValueCity,
+  } = useSelector((state) => state.account.toUpdate);
 
   const {
     username,

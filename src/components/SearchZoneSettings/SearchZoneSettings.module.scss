@@ -1,12 +1,23 @@
+@use '../../styles/vars.scss';
+
 .slider__input{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   color: rgb(157, 189, 178);
+  position: relative;
+  top: -2.25rem;
   &__display{
     display: block;
+
   }
+}
+@media(max-width:1100px){
+  .search__legend__address{
+     display: none;
+   }
+
 }
 .container__selects__none{
   display: none;
@@ -36,6 +47,8 @@
   height: auto;
   justify-content: center;
   align-items: center;
+  position: relative;
+  left: 1rem;
 }
 
 .search__button {
@@ -44,6 +57,8 @@
   justify-content: center;
   align-items: center;
   margin-top: 3%;
+  position: relative;
+  left: 2.5rem;
 
 }
 
@@ -53,12 +68,9 @@
   flex-direction: column;
   justify-content: center;
   margin-top: 1.5rem;
-
   &__content {
     width: 100%;
     display: flex;
-
-
 
     &__select {
       width: 80%;
@@ -68,17 +80,17 @@
       margin-bottom: 5%;
       background-color: white;
       z-index : 1;
-
-
       &__transport {
         margin-left: 8%;
-        width: 80%;
-        padding: 2%;
-        border-radius: 8px;
         margin-right: 8%;
         margin-bottom: 5%;
         background-color: white;
         z-index: 1;
+
+        border: 1px solid vars.$primaryColor;
+        padding: 0.5rem;
+        width: 75%;
+        border-radius: 4px;
       }
     }
 
@@ -90,8 +102,10 @@
   flex-direction: column;
   justify-content: space-between;
   width: 100%;
-  padding: 1rem 1rem;
-  margin-top: 8%;
+  margin-top: 5%;
+  position: relative;
+  right: 3.5rem;
+  //added css to improve display on explore bottom
 
   .search__adress{
     width: 55%;
@@ -103,13 +117,12 @@
   .search__zone__title{
     display: none;
   }
-
   form{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    width: 100%;
+    width: 110%;
 
   .container__selects{
     display: flex;
@@ -117,12 +130,13 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-
+    position: relative;
+    right:-2.5rem;
   .container__selects__content{
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    margin-bottom: 5%;
+    margin-bottom: 10%;
     height: 2rem;
     width: 65%;
 
@@ -199,12 +213,21 @@
   }
 }
 //  PAGE EXPLORE ******************************************
+.search__legend{
+  display: flex;
+  font-size: 0.8rem;
+  padding-bottom: 0.8rem;
+}
+.search__legend__address{
+  display: flex;
+  font-size: 0.8rem;
+  padding-bottom: 0.8rem;
+}
     .search__zoneExplore{
       display: flex;
       flex-direction: row;
       justify-content: space-between;
       width: 64%;
-      padding: 1rem 1rem;
       margin: 0;
 
       .search__adress{
@@ -241,7 +264,7 @@
         justify-content: space-between;
         align-items: flex-start;
         height: 2rem;
-        width: 33%;
+        width: 43%;
         margin-bottom: 0rem;
 
         .container__selects__content__select{

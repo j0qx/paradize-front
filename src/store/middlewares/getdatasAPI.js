@@ -1,3 +1,6 @@
+/* eslint-disable guard-for-in */
+/* eslint-disable space-before-blocks */
+/* eslint-disable no-restricted-syntax */
 import axios from 'axios';
 import { tomtomSearch } from '../graphql/queries';
 import url from '../graphql/endpoint';
@@ -9,6 +12,9 @@ import {
   GET_ISOCHRONE,
   GET_ISOCHRONE_SUCCESS,
   GET_ISOCHRONE_ERROR,
+  GET_DATA_AIR_POLLUTION,
+  GET_DATA_AIR_POLLUTION_SUCCESS,
+  GET_DATA_AIR_POLLUTION_ERROR,
 } from '../actions';
 
 const getDateApi = (store) => (next) => (action) => {
@@ -41,7 +47,7 @@ const getDateApi = (store) => (next) => (action) => {
 
   else if (action.type === GET_ISOCHRONE) {
     const state = store.getState();
-    store.dispatch({ type: 'RESET_ISOCHRONE'})
+    store.dispatch({ type: 'RESET_ISOCHRONE' });
     const data = JSON.stringify({
       locations: [state.map.currentPosOrs],
       range: [
@@ -67,6 +73,27 @@ const getDateApi = (store) => (next) => (action) => {
           type: GET_ISOCHRONE_SUCCESS,
           data: response.data,
         });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+  else if (action.type === GET_DATA_AIR_POLLUTION) {
+    const state = store.getState();
+    const lat = state.map.currentPos[0];
+    const lng = state.map.currentPos[1];
+    axios({
+      url: `https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lng}&appid=20f05e618a16e58b7a3297b0a5b68b66`,
+    })
+      .then((result) => {
+        if (result.data.list[0].components){
+          const airComponentsValues = Object.values(result.data.list[0].components);
+          store.dispatch({
+            type: GET_DATA_AIR_POLLUTION_SUCCESS,
+            values: airComponentsValues,
+            airQualityNote: result.data.list[0].main.aqi,
+          });
+        }
       })
       .catch((error) => {
         console.log(error);

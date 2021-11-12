@@ -18,12 +18,15 @@ const BoardDatas = () => (
       <div className={style.boarddatas_container__list__pie}>
         <Pie />
       </div>
+
       <div className={style.boarddatas_container__list__bar}>
         <Bar />
       </div>
+
       <div className={style.boarddatas_container__list__line}>
         <Line />
       </div>
+
     </div>
   </div>
 );

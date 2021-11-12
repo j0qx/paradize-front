@@ -11,6 +11,7 @@ import {
   GET_ISOCHRONE_SUCCESS,
   PRINT_SUGGESTIONS_ADRESS,
   SET_SUGGESTION_VALUE,
+  GET_DATA_AIR_POLLUTION_SUCCESS,
   // GET_DATAS_FROM_API_ERROR,
 } from '../actions';
 
@@ -18,37 +19,37 @@ export const initialState = {
   apiSettings:
    [
      {
-       checkBoxeName: 'bars',
+       checkBoxeName: 'Bar',
        checked: false,
        icon: faCocktail,
        result: [],
      },
      {
-       checkBoxeName: 'hopital',
+       checkBoxeName: 'Hopital',
        checked: false,
        icon: faClinicMedical,
        result: [],
      },
      {
-       checkBoxeName: 'supermarcket',
+       checkBoxeName: 'Supermarché',
        checked: false,
        icon: faShoppingCart,
        result: [],
      },
      {
-       checkBoxeName: 'ecoles',
+       checkBoxeName: 'École',
        checked: false,
        icon: faSchool,
        result: [],
      },
      {
-       checkBoxeName: 'parcs',
+       checkBoxeName: 'Parc',
        checked: false,
        icon: faTree,
        result: [],
      },
      {
-       checkBoxeName: 'police',
+       checkBoxeName: 'Police',
        checked: false,
        icon: faHatCowboy,
        result: [],
@@ -65,8 +66,10 @@ export const initialState = {
     activeSuggestionIndex: 0,
     showSuggestions: false,
     inputValue: '',
-
   },
+  airComponentsNames: ['co x10', 'no', 'no2', 'o3', 'so2', 'pm2_5', 'pm10', 'nh3'],
+  airComponentsValues: [226.75, 153.78, 81.57, 0.16, 25.75, 157.07, 178.05, 5.64],
+  airQualityNote: 5,
 };
 
 const searchReducer = (state = initialState, action = {}) => {
@@ -161,6 +164,12 @@ const searchReducer = (state = initialState, action = {}) => {
           activeSuggestionIndex: 0,
           showSuggestions: false,
         },
+      };
+    case GET_DATA_AIR_POLLUTION_SUCCESS:
+      return {
+        ...state,
+        airComponentsValues: [action.values[0] / 10, ...action.values.slice(1)],
+        airQualityNote: action.airQualityNote,
       };
     default:
       return state;

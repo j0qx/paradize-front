@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import style from './InputBase.module.scss';
 
 const InputBase = ({
-  icon, placeholder, inputName, classCSS, inputValue, actionType, inputType,
+  icon, placeholder, inputName, classCSS, inputValue, actionType, inputType, otherOnChange
 }) => {
   const dispatch = useDispatch();
   return (
@@ -28,6 +28,7 @@ const InputBase = ({
             inputField: inputName,
             newValue: event.target.value,
           });
+          if (otherOnChange)otherOnChange(event.target.value);
         }}
       />
     </div>
@@ -41,6 +42,7 @@ InputBase.propTypes = {
   classCSS: PropTypes.string.isRequired,
   actionType: PropTypes.string.isRequired,
   inputType: PropTypes.string,
+  otherOnChange: PropTypes.func
 };
 
 export default InputBase;

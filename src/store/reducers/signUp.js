@@ -1,4 +1,4 @@
-import { CHANGE_INPUT_VALUE_SIGNUP } from '../actions';
+import { CHANGE_INPUT_VALUE_SIGNUP, SET_ERROR_PASSWORD, SET_SUCCESS_PASSWORD } from '../actions';
 
 const initialState = {
   lastName: '',
@@ -6,6 +6,7 @@ const initialState = {
   username: '',
   mail: '',
   password: '',
+  passwordError: false,
 };
 
 const signUpReducer = (state = initialState, action = {}) => {
@@ -14,6 +15,16 @@ const signUpReducer = (state = initialState, action = {}) => {
       return {
         ...state,
         [action.inputField]: action.newValue,
+      };
+    case SET_ERROR_PASSWORD:
+      return {
+        ...state,
+        passwordError: true,
+      };
+    case SET_SUCCESS_PASSWORD:
+      return {
+        ...state,
+        passwordError: false,
       };
     default:
       return state;

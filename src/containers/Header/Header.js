@@ -5,16 +5,18 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ButtonSubmit } from '../../components';
 import logo from '../../assets/image/logo.svg';
-import { SET_MODAL_CONTENT, TOGGLE_PRINT_MODAL } from '../../store/actions';
+import { SET_MODAL_CONTENT, TOGGLE_PRINT_MODAL, TOGGLE_OPEN_BURGER_ACCOUNT } from '../../store/actions';
 import style from './Header.module.scss';
 
 const Header = () => {
   const dispatch = useDispatch();
   const isModalHidden = useSelector((state) => state.domSettings.isModalHidden);
+  const isAccountListOpen = useSelector((state) => state.domSettings.isAccountListOpen);
   const isLogged = useSelector((state) => state.user.isLogged);
   // state about NavBar opening ( here we use usestate because the npm modul
   // that we using for is using this way and not redux state)
   const [isOpen, setOpen] = useState(false);
+  const isMobile = window.screen.width < 500;
 
   return (
     <nav className={isOpen ? `${style.navbar} ${style.navbarOpened}` : style.navbar}>
@@ -85,6 +87,7 @@ const Header = () => {
             <ButtonSubmit
               classCSS={isOpen ? 'navbar_button' : ''}
               handleButtonClick={() => {
+                dispatch({ type: TOGGLE_OPEN_BURGER_ACCOUNT });
               // TODO
                 setOpen(false);
               }}
@@ -93,6 +96,94 @@ const Header = () => {
           </Link>
         </li>
       </ul>
+      )}
+      {isLogged && isAccountListOpen === true && isMobile && (
+        <ul className={style.navbar__linksContainer}>
+          <li className={style.navbar__linksContainer__link}>
+            <Link to="/">
+              <ButtonSubmit
+                classCSS={isOpen ? 'navbar_button' : ''}
+                buttonName="Se déconnecter"
+                handleButtonClick={() => {
+                  dispatch({ type: 'LOGOUT' });
+                  localStorage.clear();
+                }}
+              />
+            </Link>
+          </li>
+          <li className={style.navbar__linksContainer__link}>
+            <Link to="/account/infos">
+              <ButtonSubmit
+                classCSS={isOpen ? 'navbar_button' : ''}
+                handleButtonClick={() => {
+                  dispatch({ type: TOGGLE_OPEN_BURGER_ACCOUNT });
+                  // TODO
+                }}
+                buttonName="Mon compte"
+              />
+            </Link>
+          </li>
+          <li className={style.navbar__linksContainer__link__sublink}>
+            <Link to="/account/infos">
+              <ButtonSubmit
+                classCSS={isOpen ? 'navbar_account_button' : ''}
+                handleButtonClick={() => {
+                  setOpen(false);
+                  // TODO
+                }}
+                buttonName="Mes Infos"
+              />
+            </Link>
+          </li>
+          <li className={style.navbar__linksContainer__link__sublink}>
+            <Link to="/account/myoffers">
+              <ButtonSubmit
+                classCSS={isOpen ? 'navbar_account_button' : ''}
+                handleButtonClick={() => {
+                  setOpen(false);
+                // TODO
+                }}
+                buttonName="Mes annonces"
+              />
+            </Link>
+          </li>
+          <li className={style.navbar__linksContainer__link__sublink}>
+            <Link to="/account/favorites">
+              <ButtonSubmit
+                classCSS={isOpen ? 'navbar_account_button' : ''}
+                handleButtonClick={() => {
+                  setOpen(false);
+                // TODO
+                }}
+                buttonName="Mes annonces sauvegardées"
+              />
+            </Link>
+          </li>
+          <li className={style.navbar__linksContainer__link__sublink}>
+            <Link to="/account/mysearch">
+              <ButtonSubmit
+                classCSS={isOpen ? 'navbar_account_button' : ''}
+                handleButtonClick={() => {
+                  setOpen(false);
+                // TODO
+                }}
+                buttonName="Mes recherches"
+              />
+            </Link>
+          </li>
+          <li className={style.navbar__linksContainer__link__sublink}>
+            <Link to="/account/settings">
+              <ButtonSubmit
+                classCSS={isOpen ? 'navbar_account_button' : ''}
+                handleButtonClick={() => {
+                  setOpen(false);
+                // TODO
+                }}
+                buttonName="Paramétres"
+              />
+            </Link>
+          </li>
+        </ul>
       )}
       <div className={style.navbar__burger}>
         <Hamburger

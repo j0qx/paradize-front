@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 /* eslint-disable import/prefer-default-export */
 
 export const tomtomSearch = (keyword, lat, lon, radius, limit) => `
@@ -36,5 +37,24 @@ export const createUser = (username, lastname, firstname, email, password) => ` 
 export const deleteUser = (email) => `mutation DeleteUser {
     deleteUser(email: "${email}") {
       message
-    }
+    }`;
+
+export const getUserDatas = (email) => `query Query {
+  user(email: "${email}") {
+    id
+    username
+    first_name
+    last_name
+    email
+    address
+    city_code
+    city
+    phone
+  }
+}`;
+// TODO need to fix this mutation
+export const updateUserDatas = ({ id, toUpdate, response }) => `
+  mutation Mutation {
+    updateUser(id: ${id}, toUpdate:${{ ...toUpdate }}) 
+      {${[...response]}}
   }`;

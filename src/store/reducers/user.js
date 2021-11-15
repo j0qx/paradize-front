@@ -1,13 +1,21 @@
 import {
   GET_USER_TOKEN_SUCCESS,
   DELETE_USER_SUCCESS,
+  UPDATE_USER_DATAS, MODIFY_USER_DATAS, TEST_USER_DATAS,
 } from '../actions';
 
 const initialState = {
   isLogged: false,
   accessToken: '',
-  userName: '',
+  username: '',
   mail: '',
+  first_name: '',
+  last_name: '',
+  civility: '',
+  address: '',
+  city_code: null,
+  city: '',
+  phone: '',
 
 };
 
@@ -30,6 +38,26 @@ const userReducer = (state = initialState, action = {}) => {
         mail: '',
         accessToken: '',
       };
+    case UPDATE_USER_DATAS:
+      return {
+        ...state,
+        ...action.payload,
+
+      };
+    case TEST_USER_DATAS:
+      return {
+        ...state,
+        username: action.username,
+        mail: action.mail,
+        first_name: action.first_name,
+        last_name: action.last_name,
+        civility: action.civility,
+        address: action.address,
+        city_code: action.city_code,
+        city: action.city,
+        phone: action.phone,
+      };
+
     default:
       return state;
   }

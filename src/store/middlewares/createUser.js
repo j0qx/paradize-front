@@ -21,13 +21,12 @@ const createUserMiddleware = (store) => (next) => (action) => {
         query: createUser(
           state.signUp.username,
           state.signUp.lastName,
-          state.signUp.fistName,
+          state.signUp.firstName,
           state.signUp.mail,
           state.signUp.password,
         ),
       },
     };
-
     // on joue la requête avec axios
     axios(config)
       // si réussite
@@ -48,7 +47,6 @@ const createUserMiddleware = (store) => (next) => (action) => {
         );
         console.log(result);
       })
-
       .catch((error) => {
         console.log(error);
         // store.dispatch({ type: GET_USER_TOKEN_ERROR });

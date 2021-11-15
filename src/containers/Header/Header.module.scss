@@ -77,6 +77,8 @@
   }
   .navbarOpened{
     overflow-x: visible;
+    position: fixed;
+    right: 0;
   }
   .navbarOpened .navbar__linksContainer{
       right: 0;

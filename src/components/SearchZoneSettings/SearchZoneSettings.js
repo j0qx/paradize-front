@@ -8,7 +8,9 @@ import {
   CHANGE_INPUT_TRANS_VALUE,
   CHANGE_RADIO_BUTTON,
   GET_ISOCHRONE,
+  GET_DATAS_FROM_API,
 } from '../../store/actions';
+import getAllCheckedCheckboxs from '../../store/selectors/getAllCheckedCheckboxs';
 import AutoComplete from '../Autocomplete/Autocomplete';
 
 const SearchZoneSettings = () => {
@@ -20,6 +22,7 @@ const SearchZoneSettings = () => {
   const valueRadio = useSelector((state) => state.search.valueRadio);
   const milesConverted = Math.round(Number(inputValueMiles) / 1000);
   const timeConverted = Math.round(Number(inputValueTime) / 60);
+  const allCheckboxs = useSelector((state) => state.search.apiSettings);
   const history = useHistory();
 
   return (
@@ -66,6 +69,17 @@ const SearchZoneSettings = () => {
                 min="900"
                 onMouseUp={() => {
                   dispatch({ type: GET_ISOCHRONE });
+                  //   // here we check if only one box is checked, if yes
+                  //   // we loop on the checked checkboxs array, and for each one
+                  //   // we dispatch GET_DATAS_FROM_API to request the api
+                  if (getAllCheckedCheckboxs(allCheckboxs).length > 0) {
+                    getAllCheckedCheckboxs(allCheckboxs).forEach((checkBoxeName) => {
+                      dispatch({
+                        type: GET_DATAS_FROM_API,
+                        keyword: checkBoxeName,
+                      });
+                    });
+                  }
                 }}
                 max="3600"
                 value={inputValueTime}
@@ -177,6 +191,20 @@ const SearchZoneSettings = () => {
                     inputField: 'inputValueMiles',
                     newValue: e.target.value,
                   });
+                }}
+                onMouseUp={() => {
+                  //   // here we check if only one box is checked, if yes
+                  //   // we loop on the checked checkboxs array, and for each one
+                  //   // we dispatch GET_DATAS_FROM_API to request the api
+                  console.log(getAllCheckedCheckboxs(allCheckboxs));
+                  if (getAllCheckedCheckboxs(allCheckboxs).length > 0) {
+                    getAllCheckedCheckboxs(allCheckboxs).forEach((checkBoxeName) => {
+                      dispatch({
+                        type: GET_DATAS_FROM_API,
+                        keyword: checkBoxeName,
+                      });
+                    });
+                  }
                 }}
               />
             </div>

@@ -7,6 +7,7 @@ import style from './UserConnect.module.scss';
 const UserConnect = () => {
   const mail = useSelector((state) => state.signIn.mail);
   const password = useSelector((state) => state.signIn.password);
+  const error = useSelector((state) => state.signIn.error);
   const dispatch = useDispatch();
   const handleSubmitForm = (event) => {
     event.preventDefault();
@@ -36,6 +37,12 @@ const UserConnect = () => {
           inputValue={password}
           actionType={CHANGE_INPUT_VALUE_SIGNIN}
         />
+        { error && password && mail
+        && (
+        <p className={style.userConnect__passwordError}>
+          Erreur, Mot de passe ou email incorrect
+        </p>
+        )}
         <ButtonSubmit
           buttonName="Se Connecter"
           classCSS={style.userConnect__form__button}

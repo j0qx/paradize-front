@@ -1,12 +1,17 @@
 const initialState = {
-  inputValueFirstName: '',
-  inputValueLastName: '',
-  inputValueNickName: '',
-  inputValueEmail: '',
-  inputValuePhone: '',
-  inputValueAddress: '',
-  inputValuePostalCode: '',
-  inputValueCity: '',
+  toUpdate: {
+    inputValueFirstName: '',
+    inputValueLastName: '',
+    inputValueNickName: '',
+    inputValueEmail: '',
+    inputValuePhone: '',
+    inputValueAddress: '',
+    inputValuePostalCode: '',
+    inputValueCity: '',
+  },
+  display: {
+    isInputHidden: true,
+  },
 };
 
 const accountReducer = (state = initialState, action = {}) => {
@@ -14,9 +19,19 @@ const accountReducer = (state = initialState, action = {}) => {
     case 'CHANGE_INPUT_VALUE_ACCOUNT':
       return {
         ...state,
-        [action.inputField]: action.newValue,
+        toUpdate: {
+          ...state.toUpdate,
+          [action.inputField]: action.newValue,
+        },
       };
-
+    case 'TOGGLE_INPUT_ACCOUNT':
+      return {
+        ...state,
+        display: {
+          ...state.display,
+          isInputHidden: !state.display.isInputHidden,
+        },
+      };
     default:
       return state;
   }

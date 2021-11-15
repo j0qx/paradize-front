@@ -1,2 +1,2 @@
-const url = 'http://localhost:3333/graphql';
+const url = 'https://oparadise-back.herokuapp.com/graphql';
 export default url;

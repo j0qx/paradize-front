@@ -1,3 +1,6 @@
+@use '../../styles/vars';
+
+
 .button{
   padding: 0.5rem 1rem;
   background-color: rgb(157, 189, 178);
@@ -16,4 +19,17 @@
   background-color: inherit;
   color: black;
 }
+
+.navbar_account_button{
+  width: 100%;
+  background-color: inherit;
+  color: vars.$secondaryColor;
+
+
+}
+.navbar_account_button :active{
+  color: vars.$secondaryColor;;
+}
+
+
 

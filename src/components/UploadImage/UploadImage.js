@@ -7,7 +7,6 @@ const SINGLE_UPLOAD = gql`
       filename
       mimetype
       encoding
-      
     }
   }
 `;

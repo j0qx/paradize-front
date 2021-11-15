@@ -15,10 +15,10 @@ import App from './containers/App';
 import store from './store';
 
 const client = new ApolloClient({
-  uri: 'http://localhost:3333/graphql',
+  uri: 'https://oparadise-back.herokuapp.com/graphql',
   cache: new InMemoryCache(),
   link: createUploadLink({
-    uri: 'http://localhost:3333/graphql',
+    uri: 'https://oparadise-back.herokuapp.com/graphql',
   }),
 });
 

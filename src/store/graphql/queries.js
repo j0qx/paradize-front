@@ -32,3 +32,9 @@ export const createUser = (username, lastname, firstname, email, password) => ` 
       id
     }
 }`;
+
+export const deleteUser = (email) => `mutation DeleteUser {
+    deleteUser(email: "${email}") {
+      message
+    }
+  }`;

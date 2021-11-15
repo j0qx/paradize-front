@@ -9,7 +9,7 @@ const URLError = () => (
     <div className={style.urlError__inner}>
       <div className={style.urlError__text}>
         <div className={style.ui}>
-          <h1>404<br />NOT FOUND</h1>
+          <h1 className={style.title}>404<br />NOT FOUND</h1>
         </div>
       </div>
       <h3 className={style.urlError__title}>

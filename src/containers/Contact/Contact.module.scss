@@ -2,13 +2,14 @@
 
 
 .background{
-  background-position: center;
+  display:none;
   opacity: 0.7;
   position: absolute;
   z-index: -1;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   object-fit: cover;
+  
 }
 
 .container__contact{
@@ -66,6 +67,7 @@
 @media (min-width: 800px) {
 
 .background{
+  display: block;
       background-position: 25% 75%;
       opacity: 0.7;
       position: fixed;
@@ -101,6 +103,7 @@
                 color: rgb(0, 0, 0);
                 font-weight: bold;
                 font-size: medium;
+            
             }
             h3{
                 font-size: medium;

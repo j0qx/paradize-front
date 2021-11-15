@@ -8,8 +8,10 @@ import {
   CHANGE_INPUT_TRANS_VALUE,
   CHANGE_RADIO_BUTTON,
   GET_ISOCHRONE,
+  GET_DATAS_FROM_API,
 } from '../../store/actions';
 import AutoComplete from '../Autocomplete/Autocomplete';
+import getAllCheckedCheckboxs from '../../store/selectors/getAllCheckedCheckboxs';
 
 const SearchZoneSettings = () => {
   const dispatch = useDispatch();
@@ -21,6 +23,7 @@ const SearchZoneSettings = () => {
   const milesConverted = Math.round(Number(inputValueMiles) / 1000);
   const timeConverted = Math.round(Number(inputValueTime) / 60);
   const history = useHistory();
+  const allCheckboxs = useSelector((state) => state.search.apiSettings);
 
   return (
     <div className={location === '/explore' ? style.search__zoneExplore : style.search__zone}>
@@ -66,6 +69,7 @@ const SearchZoneSettings = () => {
                 min="900"
                 onMouseUp={() => {
                   dispatch({ type: GET_ISOCHRONE });
+                  dispatch({ type: GET_DATAS_FROM_API });
                 }}
                 max="3600"
                 value={inputValueTime}
@@ -139,6 +143,16 @@ const SearchZoneSettings = () => {
               name="radius"
               className={location === '/explore' ? style.container__selects__none : style.container__selects__content__select}
               value={inputValueMiles}
+              onMouseUp={() => {
+                if (getAllCheckedCheckboxs(allCheckboxs).length > 0) {
+                  getAllCheckedCheckboxs(allCheckboxs).forEach((checkBoxeName) => {
+                    dispatch({
+                      type: GET_DATAS_FROM_API,
+                      keyword: checkBoxeName,
+                    });
+                  });
+                }
+              }}
               onChange={(e) => {
                 dispatch({
                   type: CHANGE_INPUT_MILES_VALUE,

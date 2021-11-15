@@ -19,6 +19,7 @@
 
 .urlError__inner{
   display: flex;
+  position: absolute;
   width: 100%;
   height: 100%;
   flex-direction: column;
@@ -35,8 +36,12 @@
 }
 
 .urlError__text{
-  
-  bottom: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  bottom: 0;
+  right: 1;
 
 }
 

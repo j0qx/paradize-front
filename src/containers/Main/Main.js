@@ -16,6 +16,7 @@ import Offer from '../Offer';
 import ListCardFavoriteSearch from '../ListCardFavoriteSearch';
 import ListCardFavoriteOffer from '../ListCardFavoriteOffers';
 import CreateOfferModal from '../CreateOfferModal';
+import Mentions from '../Mentions/Mentions';
 import { Modal } from '../../components';
 
 import style from './Main.module.scss';
@@ -52,6 +53,9 @@ const Main = () => {
         </Route>
         <Route exact path="/explore">
           <Explore />
+        </Route>
+        <Route exact path="/legal-notice">
+          <Mentions />
         </Route>
         <Route exact path="/offer/:id">
           <Offer />

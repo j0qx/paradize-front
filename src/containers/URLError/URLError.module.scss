@@ -25,7 +25,7 @@
   width: 100%;
   height: 100%;
   flex-direction: column;
-  justify-content: center;
+  padding-top: 10%;
   text-align: center;
 }
 
@@ -48,7 +48,6 @@
   text-align: center;
   justify-content: center;
   align-items: center;
-  box-shadow: rgba(212, 212, 212, 0.438) 0px 7px 29px 0px;
 
 
 
@@ -57,8 +56,8 @@
 .urlError__title {
 
   color: rgb(255, 255, 255);
-  bottom: 1;
-  padding-bottom: 3%;
+  
+  padding-bottom: 10%;
 }
 
 div {
@@ -74,7 +73,7 @@ $fontSize:3rem;
   &__text {
     position: absolute;
 
-    top: 0;
+    top: 1;
     font-size: $fontSize;
     color: #fff;
     line-height: $fontSize;
@@ -123,8 +122,7 @@ $fontSize:3rem;
     width: 500px;
     height: auto;
     object-fit: cover;
-    position: absolute;
-
+    position: relative;
   }
 
   .urlError__inner {
@@ -132,9 +130,11 @@ $fontSize:3rem;
     width: 40%;
     height: 100%;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     text-align: center;
     border-radius: 100px;
+    padding-top: 0%;
+    
 
   }
 
@@ -144,18 +144,19 @@ $fontSize:3rem;
     display: flex;
     width: 50%;
     height: 50%;
+    
   }
 
   .urlError__text {
     display: flex;
-    height: 20%;
+    height: 80%;
     width: 100%;
     overflow: visible;
     perspective: 600px;
     flex-direction: column;
-    text-align: center;
+    vertical-align: bottom;
     position: absolute;
-    bottom: 1;
+    bottom:0;
     box-shadow: none;
 
 
@@ -166,7 +167,8 @@ $fontSize:3rem;
 
     color: rgb(255, 255, 255);
     bottom: 0;
-    padding: 1%;
+    padding: 2%;
+    margin-bottom: 6% ;
     border-radius: 25px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
   }
@@ -179,8 +181,11 @@ $fontSize:3rem;
 
   .ui {
     position: absolute;
-    
     transform-style: preserve-3d;
+    animation-name: atstart;
+    animation-delay: 2s;
+    transition: all .2s ease-out;
+
 
     &__text {
       
@@ -218,5 +223,7 @@ $fontSize:3rem;
       color: vars.$secondaryColor;
     }
   }
+
+  
 
 }

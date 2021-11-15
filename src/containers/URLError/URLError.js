@@ -11,9 +11,6 @@ const URLError = () => {
     <div className={style.urlError}>
       <div className={style.urlError__inner}>
         <img className={style.urlError__cloudpic} src={island} alt="" />
-        <h3 className={style.urlError__title}>
-          Le bonheur n'est jamais loin, juste pas ici !
-        </h3>
         <div className={style.urlError__text}>
           <div className={style.ui}>
             {
@@ -21,6 +18,9 @@ const URLError = () => {
 }
           </div>
         </div>
+        <h3 className={style.urlError__title}>
+          Le bonheur n'est jamais loin, juste pas ici !
+        </h3>
       </div>
     </div>
   );

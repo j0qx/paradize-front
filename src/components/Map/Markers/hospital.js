@@ -41,7 +41,7 @@ HospitalMarker.propTypes = {
     name: PropTypes.string.isRequired,
   }).isRequired,
   id: PropTypes.number.isRequired,
-  position: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+  position: PropTypes.object.isRequired,
 };
 
 export default HospitalMarker;

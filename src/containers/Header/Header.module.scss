@@ -35,8 +35,7 @@
   .navbar{
     width: 100%;
     padding: 1.5rem;
-    position:relative;
-    overflow-x: hidden;
+    overflow-x:hidden;
 
     &__message{
     display: none;
@@ -51,7 +50,7 @@
 
       flex-direction: column;
       justify-content: flex-start;
-      height: 100vh;
+      height: fit-content;
       width: 75vw;
       align-items: center;
       position: absolute;

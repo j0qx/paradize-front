@@ -7,6 +7,7 @@ import {
   InMemoryCache,
   ApolloProvider,
 } from '@apollo/client';
+import { createUploadLink } from 'apollo-upload-client';
 
 // == Import : local
 // Composants
@@ -16,6 +17,9 @@ import store from './store';
 const client = new ApolloClient({
   uri: 'http://localhost:3333/graphql',
   cache: new InMemoryCache(),
+  link: createUploadLink({
+    uri: 'http://localhost:3333/graphql',
+  }),
 });
 
 // == Render

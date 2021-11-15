@@ -3,6 +3,7 @@ import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 import { useDispatch, useSelector } from 'react-redux';
 import style from './MyOffer.module.scss';
 import { TOGGLE_PRINT_MODAL, SET_MODAL_CONTENT } from '../../store/actions';
+import UploadImage from '../../components/UploadImage';
 
 const MyOffer = () => {
   const dispatch = useDispatch();
@@ -12,6 +13,7 @@ const MyOffer = () => {
     <div className={style.createOffer__main}>
       <div className={style.createOffer__second}>
         <div className={style.createOffer__second__left}>
+          <UploadImage />
           <FontAwesomeIcon
             icon={faPlusCircle}
             size="5x"

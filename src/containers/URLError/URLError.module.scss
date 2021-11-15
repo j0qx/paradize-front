@@ -1,23 +1,19 @@
 @use '../../styles/vars';
 
+@import url('https://fonts.googleapis.com/css2?family=Frijole&display=swap');
+
+
 .urlError {
   display: flex;
   width: 100%;
-  height: 79vh;
-  background-color: #0C3F71;
-
+  height: 100%;
   align-items: center;
   justify-content: center;
 
 
 }
 
-.style.urlError__cloudpic {
-  display: flex;
-  width: 0px;
-  height: 0px;
-  object-fit: cover;
-}
+
 
 .urlError__inner {
   display: flex;
@@ -25,8 +21,9 @@
   width: 100%;
   height: 100%;
   flex-direction: column;
-  padding-top: 10%;
+  padding-top: 0%;
   text-align: center;
+  align-items: center;
 }
 
 
@@ -35,195 +32,203 @@
   position: absolute;
   object-fit: cover;
   width: 100%;
-  height: 100%;
+  height: 79%;
 }
 
 .urlError__text {
   display: flex;
-  height: 100%;
-  width: 100vw;
-  overflow: hidden;
-  perspective: 600px;
+  height: 30%;
+  width: 40%;
+  perspective: 200px;
   flex-direction: column;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
-
-
-
+  vertical-align: bottom;
+  position: absolute;
+  top: 25%;
+  right: 30%;
+  box-shadow: none;
+  
 }
 
 .urlError__title {
-
   color: rgb(255, 255, 255);
-  
-  padding-bottom: 10%;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    padding: 2%;
+    margin-bottom: 30%;
+    border-radius: 3px;
+    border: solid 2px white;
+    backdrop-filter: blur(21px) saturate(29%);
+    -webkit-backdrop-filter: blur(21px) saturate(29%);
 }
-
-div {
-  will-change: transform;
-}
-
-$fontSize:3rem;
 
 .ui {
-
-  transform-style: preserve-3d;
-
-  &__text {
-    position: absolute;
-
-    top: 1;
-    font-size: $fontSize;
-    color: #fff;
-    line-height: $fontSize;
-    font-family: 'Anton', sans-serif;
-    padding: 20px 50px;
-    mix-blend-mode: screen;
-    transform-style: preserve-3d;
-
-    @for $i from 1 through 17 {
-      $key: $i - 1;
-      $param: 5;
-
-      &:nth-child(#{$i}) {
-        clip-path: polygon(-30% + ($key * $param) 0,
-            -20% + ($key * $param) 0,
-            20% + ($key * $param) 100%,
-            0% + ($key * $param) 100%);
-        animation: wave 2000ms $key * 200 - 10000ms ease-in-out infinite alternate;
-      }
-    }
-  }
+  font-family: 'Frijole', cursive;
+  text-align: center;
+  color: #FFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+  letter-spacing: 1px;
 }
 
-@keyframes wave {
-  0% {
-    transform: translate(-50%, -50%) scale(0.9) rotateX(20deg) rotateY(20deg) rotateZ(0deg);
-    color: vars.$primaryColor;
-  }
-
-  100% {
-    transform: translate(-50%, -50%) scale(1.1) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
-    color: vars.$secondaryColor;
-  }
+h1 {
+  background-image: url(https://media.giphy.com/media/26BROrSHlmyzzHf3i/giphy.gif);
+  background-size: cover;
+  color: transparent;
+  -moz-background-clip: text;
+  -webkit-background-clip: text;
+  text-transform: uppercase;
+  font-size: 70px;
+  line-height: 1;
+  margin: 10px 0;
 }
+/* styling my button */
+
+.white-mode {
+  text-decoration: none;
+  padding: 7px 10px;
+  background-color: #122;
+  border-radius: 3px;
+  color: #FFF;
+  transition: .35s ease-in-out;
+  position: absolute;
+  left: 15px;
+  bottom: 15px;
+  font-family: 'Frijole', cursive;
+}
+
+.white-mode:hover {
+  background-color: #FFF;
+  color: #122;
+}
+
+
+
+
 
 @media(min-width: 1100px) {
   .urlError {
     display: flex;
     width: 100%;
-    height: 82vh;
-    background-color: #0C3F71;
-  }
-
-  .style.urlError__cloudpic {
-
-    width: 500px;
-    height: auto;
-    object-fit: cover;
-    position: relative;
+    height: 80vh;
   }
 
   .urlError__inner {
     display: flex;
     width: 40%;
-    height: 100%;
+    height: 80%;
     flex-direction: column;
-    justify-content: space-around;
-    text-align: center;
+    justify-content: center;
+    align-items: center;
+
+    .urlError__text {
+      display: flex;
+      height: 45%;
+      width: 40%;
+      background: transparent;
+      overflow: visible;
+      perspective: 600px;
+      flex-direction: column;
+      vertical-align: bottom;
+      position: absolute;
+      top: 25%;
+      right: 35%;
+      box-shadow: none;
+      border-radius: 150px;
+    }  text-align: center;
     border-radius: 100px;
     padding-top: 0%;
-    
+
 
   }
 
 
 
   .urlError__image {
-    display: flex;
-    width: 50%;
-    height: 50%;
-    
+    position: absolute;
+    object-fit: cover;
+    width: 100%;
+    height: 80%;
   }
 
   .urlError__text {
     display: flex;
-    height: 80%;
-    width: 100%;
+    height: 45%;
+    width: 40%;
+    background: transparent;
     overflow: visible;
     perspective: 600px;
     flex-direction: column;
     vertical-align: bottom;
     position: absolute;
-    bottom:0;
+    top: 25%;
+    right: 35%;
     box-shadow: none;
-
-
-
+    border-radius: 150px;
   }
 
   .urlError__title {
 
     color: rgb(255, 255, 255);
+    justify-content: center;
+    align-items: center;
     bottom: 0;
     padding: 2%;
-    margin-bottom: 6% ;
+    margin-bottom: 6%;
     border-radius: 25px;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
-  }
-
-  div {
-    will-change: transform;
-  }
-
-  $fontSize:5rem;
-
-  .ui {
-    position: absolute;
-    transform-style: preserve-3d;
-    animation-name: atstart;
-    animation-delay: 2s;
-    transition: all .2s ease-out;
-
-
-    &__text {
-      
-      font-size: $fontSize;
-      color: #fff;
-      line-height: $fontSize;
-      font-family: 'Anton', sans-serif;
-      padding: 20px 80px;
-      mix-blend-mode: screen;
-      transform-style: preserve-3d;
-
-      @for $i from 1 through 17 {
-        $key: $i - 1;
-        $param: 5;
-
-        &:nth-child(#{$i}) {
-          clip-path: polygon(-30% + ($key * $param) 0,
-              -20% + ($key * $param) 0,
-              20% + ($key * $param) 100%,
-              0% + ($key * $param) 100%);
-          animation: wave 2000ms $key * 200 - 10000ms ease-in-out infinite alternate;
-        }
-      }
-    }
-  }
-
-  @keyframes wave {
-    0% {
-      transform: translate(-50%, -50%) scale(0.9) rotateX(20deg) rotateY(20deg) rotateZ(0deg);
-      color: vars.$primaryColor;
-    }
-
-    100% {
-      transform: translate(-50%, -50%) scale(1.1) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
-      color: vars.$secondaryColor;
-    }
+    border-radius: 3px;
+    border: solid 2px white;
   }
 
   
+
+  .ui {
+    font-family: 'Frijole', cursive;
+    text-align: center;
+    color: #FFF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    letter-spacing: 1px;
+  }
+  
+  h1 {
+    background-image: url(https://media.giphy.com/media/26BROrSHlmyzzHf3i/giphy.gif);
+    background-size: cover;
+    color: transparent;
+    -moz-background-clip: text;
+    -webkit-background-clip: text;
+    text-transform: uppercase;
+    font-size: 120px;
+    line-height: 1;
+    margin: 10px 0;
+  }
+  /* styling my button */
+  
+  .white-mode {
+    text-decoration: none;
+    padding: 7px 10px;
+    background-color: #122;
+    border-radius: 3px;
+    color: #FFF;
+    transition: .35s ease-in-out;
+    position: absolute;
+    left: 15px;
+    bottom: 15px;
+    font-family: 'Frijole', cursive;
+  }
+  
+  .white-mode:hover {
+    background-color: #FFF;
+    color: #122;
+  }
+
+
 
 }

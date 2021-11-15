@@ -1,54 +1,222 @@
-@media screen {
+@use '../../styles/vars';
 
-  .urlError{
-   display: flex;
-    width: 100%;
-    height: 79vh;
-    background-color: #0C3F71;
-    align-items: center;
-    justify-content: center;  
-  }
+.urlError {
+  display: flex;
+  width: 100%;
+  height: 79vh;
+  background-color: #0C3F71;
 
-.style.urlError__cloudpic{
+  align-items: center;
+  justify-content: center;
+
+
+}
+
+.style.urlError__cloudpic {
   display: flex;
   width: 0px;
   height: 0px;
   object-fit: cover;
 }
 
-
-.urlError__inner{
+.urlError__inner {
   display: flex;
   position: absolute;
   width: 100%;
   height: 100%;
   flex-direction: column;
   justify-content: center;
+  text-align: center;
 }
 
 
 
-.urlError__image{
-  
+.urlError__image {
+  position: absolute;
   object-fit: cover;
   width: 100%;
   height: 100%;
 }
 
-.urlError__text{
+.urlError__text {
   display: flex;
+  height: 100%;
+  width: 100vw;
+  overflow: hidden;
+  perspective: 600px;
+  flex-direction: column;
+  text-align: center;
   justify-content: center;
   align-items: center;
-  position: relative;
-  bottom: 0;
-  right: 1;
+  box-shadow: rgba(212, 212, 212, 0.438) 0px 7px 29px 0px;
+
+
 
 }
 
-.urlError__title{
-  
-  color: cornflowerblue;
+.urlError__title {
+
+  color: rgb(255, 255, 255);
   bottom: 1;
+  padding-bottom: 3%;
 }
+
+div {
+  will-change: transform;
+}
+
+$fontSize:3rem;
+
+.ui {
+
+  transform-style: preserve-3d;
+
+  &__text {
+    position: absolute;
+
+    top: 0;
+    font-size: $fontSize;
+    color: #fff;
+    line-height: $fontSize;
+    font-family: 'Anton', sans-serif;
+    padding: 20px 50px;
+    mix-blend-mode: screen;
+    transform-style: preserve-3d;
+
+    @for $i from 1 through 17 {
+      $key: $i - 1;
+      $param: 5;
+
+      &:nth-child(#{$i}) {
+        clip-path: polygon(-30% + ($key * $param) 0,
+            -20% + ($key * $param) 0,
+            20% + ($key * $param) 100%,
+            0% + ($key * $param) 100%);
+        animation: wave 2000ms $key * 200 - 10000ms ease-in-out infinite alternate;
+      }
+    }
+  }
+}
+
+@keyframes wave {
+  0% {
+    transform: translate(-50%, -50%) scale(0.9) rotateX(20deg) rotateY(20deg) rotateZ(0deg);
+    color: vars.$primaryColor;
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(1.1) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    color: vars.$secondaryColor;
+  }
+}
+
+@media(min-width: 1100px) {
+  .urlError {
+    display: flex;
+    width: 100%;
+    height: 82vh;
+    background-color: #0C3F71;
+  }
+
+  .style.urlError__cloudpic {
+
+    width: 500px;
+    height: auto;
+    object-fit: cover;
+    position: absolute;
+
+  }
+
+  .urlError__inner {
+    display: flex;
+    width: 40%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    border-radius: 100px;
+
+  }
+
+
+
+  .urlError__image {
+    display: flex;
+    width: 50%;
+    height: 50%;
+  }
+
+  .urlError__text {
+    display: flex;
+    height: 20%;
+    width: 100%;
+    overflow: visible;
+    perspective: 600px;
+    flex-direction: column;
+    text-align: center;
+    position: absolute;
+    bottom: 1;
+    box-shadow: none;
+
+
+
+  }
+
+  .urlError__title {
+
+    color: rgb(255, 255, 255);
+    bottom: 0;
+    padding: 1%;
+    border-radius: 25px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  }
+
+  div {
+    will-change: transform;
+  }
+
+  $fontSize:5rem;
+
+  .ui {
+    position: absolute;
+    
+    transform-style: preserve-3d;
+
+    &__text {
+      
+      font-size: $fontSize;
+      color: #fff;
+      line-height: $fontSize;
+      font-family: 'Anton', sans-serif;
+      padding: 20px 80px;
+      mix-blend-mode: screen;
+      transform-style: preserve-3d;
+
+      @for $i from 1 through 17 {
+        $key: $i - 1;
+        $param: 5;
+
+        &:nth-child(#{$i}) {
+          clip-path: polygon(-30% + ($key * $param) 0,
+              -20% + ($key * $param) 0,
+              20% + ($key * $param) 100%,
+              0% + ($key * $param) 100%);
+          animation: wave 2000ms $key * 200 - 10000ms ease-in-out infinite alternate;
+        }
+      }
+    }
+  }
+
+  @keyframes wave {
+    0% {
+      transform: translate(-50%, -50%) scale(0.9) rotateX(20deg) rotateY(20deg) rotateZ(0deg);
+      color: vars.$primaryColor;
+    }
+
+    100% {
+      transform: translate(-50%, -50%) scale(1.1) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+      color: vars.$secondaryColor;
+    }
+  }
 
 }

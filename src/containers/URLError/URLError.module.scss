@@ -1,63 +1,49 @@
 @media screen {
 
+  .urlError{
+   display: flex;
+    width: 100%;
+    height: 79vh;
+    background-color: #0C3F71;
+    align-items: center;
+    justify-content: center;  
+  }
 
 .style.urlError__cloudpic{
-  width: 500px;
-  height: 500px;
+  display: flex;
+  width: 0px;
+  height: 0px;
+  object-fit: cover;
 }
 
-.style.urlError__tree{
-  width: 500px;
-  height: 500px;
-  background-color: transparent;
-}
-/* display to chage to show the error*/
-.urlError{
- display: none;
- justify-content: center;
- align-items: center;
-  background-color: transparent;
-  width: 100%;
-  height: 100%;
-  perspective: 1000px;
-}
 
 .urlError__inner{
-  position: relative;
-  width: 50%;
-  height: 50%;
-  text-align: center;
-  transition: transform 1.5s;
-  transform-style: preserve-3d;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-}
-
-.urlError:hover .urlError__inner {
-  transform: rotateY(180deg);
-}
-
-.urlError__boxFront, .urlError__boxBack{
-  position: absolute;
+  display: flex;
   width: 100%;
   height: 100%;
-  -webkit-backface-visibility: hidden; /* Safari */
-  backface-visibility: hidden;
-}
-
-.urlError__boxFront{
-  width: 60%;
-  height: 60%;
-}
-
-.urlError__boxBack{
-  display: block;
   flex-direction: column;
-  transform: rotateY(180deg);
+  justify-content: center;
+}
+
+
+
+.urlError__image{
+  
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.urlError__text{
+  
+  bottom: 1;
+
 }
 
 .urlError__title{
-  font-size: 5em;
+  
   color: cornflowerblue;
+  bottom: 1;
 }
 
 }

@@ -86,9 +86,7 @@ const Main = () => {
         </Route>
         {/* Cette route n'a pas de path, elle sera donc tout le temps appelé si
       aucune a été appelé avant */}
-        <Route>
-          <URLError />
-        </Route>
+        <Route component={URLError} />
       </Switch>
     </div>
   );

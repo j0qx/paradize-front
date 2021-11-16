@@ -1,12 +1,16 @@
+/* eslint-disable max-len */
 import { useSelector, useDispatch } from 'react-redux';
 // import REACT COMPONENT
 import Switch from 'react-switch';
 // Import COMPONENT
 import { ButtonSubmit, InputBase } from '../../components';
-import { GET_USER_TOKEN_SUCCESS, CHANGE_INPUT_VALUE_OFFERS, TOGGLE_ONLINE_OFFER } from '../../store/actions';
+import {
+  GET_USER_TOKEN_SUCCESS, CHANGE_INPUT_VALUE_OFFERS, TOGGLE_ONLINE_OFFER,
+} from '../../store/actions';
 import style from './CreateOfferModal.module.scss';
+import AutoComplete from '../../components/Autocomplete/Autocomplete';
 
-const CreateOfferModal = ({classCSS}) => {
+const CreateOfferModal = ({ classCSS }) => {
   const title = useSelector((state) => state.offers.inputValueTitle);
   const picture = useSelector((state) => state.offers.inputValuePicture);
   const description = useSelector((state) => state.offers.inputValueDescription);
@@ -14,6 +18,8 @@ const CreateOfferModal = ({classCSS}) => {
   const coordinateLat = useSelector((state) => state.offers.inputValueLatCoordinate);
   const coordinateLong = useSelector((state) => state.offers.inputValueLongCoordinate);
   const dispatch = useDispatch();
+  const filteredSuggestions = useSelector((state) => state.search.autoComplete.filteredSuggestions);
+
   const handleSubmitForm = (event) => {
     event.preventDefault();
     dispatch({ type: GET_USER_TOKEN_SUCCESS });
@@ -66,7 +72,8 @@ const CreateOfferModal = ({classCSS}) => {
             inputValue={description}
             actionType={CHANGE_INPUT_VALUE_OFFERS}
           />
-          <InputBase
+          <AutoComplete />
+          {/* <InputBase
             inputName="coordinateLat"
             placeholder=" Latitude de l'annonce.."
             classCSS="input__createOffer__modal"
@@ -80,6 +87,7 @@ const CreateOfferModal = ({classCSS}) => {
             inputValue={coordinateLong}
             actionType={CHANGE_INPUT_VALUE_OFFERS}
           />
+          /> */}
         </div>
         <ButtonSubmit
           buttonName="Créer l'annonce"

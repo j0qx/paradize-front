@@ -11,7 +11,7 @@ const BarCharts = () => {
   const data = {
     labels: dataName,
     datasets: [{
-      label: "Qualité de l'air de votre position",
+      label: '1 Très bonne qualité - 5 Très mauvaise qualité',
       data: dataValues,
       backgroundColor: [
         'rgba(255, 99, 132, 0.2)',
@@ -44,9 +44,13 @@ const BarCharts = () => {
         {
           maintainAspectRatio: false,
           plugins: {
+            subtitle: {
+              display: true,
+              text: `Note globale de la qualité de l'air:  ${airQualityNote} / 5`,
+            },
             legend: {
               labels: {
-                boxWidth: 40,
+                boxWidth: 0,
                 padding: 5,
               },
             },

@@ -60,7 +60,6 @@ const SearchZoneSettings = () => {
               <span className={style.slider__input__display}>{timeConverted} min</span>
               <input
                 disabled={Number(valueRadio) === 2}
-                defaultValue={900}
                 step={100}
                 type="range"
                 min="900"
@@ -165,7 +164,6 @@ const SearchZoneSettings = () => {
               <span className={style.slider__input__display}>{milesConverted} km</span>
               <input
                 disabled={Number(valueRadio) !== 2}
-                defaultValue={1000}
                 step={1000}
                 type="range"
                 min="1000"

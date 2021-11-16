@@ -1,4 +1,4 @@
-import { GET_USER_TOKEN_SUCCESS } from '../actions';
+import { GET_USER_TOKEN_SUCCESS, DELETE_USER_SUCCESS } from '../actions';
 
 const initialState = {
   isLogged: false,
@@ -18,6 +18,14 @@ const userReducer = (state = initialState, action = {}) => {
         mail: action.mail,
         accessToken: action.accessToken,
 
+      };
+    case DELETE_USER_SUCCESS:
+      return {
+        ...state,
+        isLogged: false,
+        username: '',
+        mail: '',
+        accessToken: '',
       };
     default:
       return state;

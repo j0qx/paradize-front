@@ -85,7 +85,7 @@ const Header = () => {
             <ButtonSubmit
               classCSS={isOpen ? 'navbar_button' : ''}
               handleButtonClick={() => {
-              // TODO
+                setOpen(false);
               }}
               buttonName="Mon compte"
             />

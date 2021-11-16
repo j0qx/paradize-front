@@ -1,3 +1,5 @@
+import { CHANGE_CURRENT_POS_OFFER } from '../actions';
+
 const initialState = {
 
   inputValueTitle: '',
@@ -21,6 +23,12 @@ const offersReducer = (state = initialState, action = {}) => {
       return {
         ...state,
         isOfferOnline: !state.isOfferOnline,
+      };
+    case CHANGE_CURRENT_POS_OFFER:
+      return {
+        ...state,
+        inputValueLatCoordinate: action.inputLatPos,
+        inputValueLongCoordinate: action.inputLngPos,
       };
     default:
       return state;

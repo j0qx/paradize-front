@@ -14,11 +14,13 @@ import { createUploadLink } from 'apollo-upload-client';
 import App from './containers/App';
 import store from './store';
 
+const { URL_BACKEND } = process.env;
+
 const client = new ApolloClient({
-  uri: 'http://localhost:3333/graphql',
+  uri: `${URL_BACKEND}/graphql`,
   cache: new InMemoryCache(),
   link: createUploadLink({
-    uri: 'http://localhost:3333/graphql',
+    uri: `${URL_BACKEND}/graphql`,
   }),
 });
 

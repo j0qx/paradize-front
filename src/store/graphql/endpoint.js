@@ -1,2 +1,2 @@
-const url = 'http://localhost:3333/graphql';
+const url = `${process.env.URL_BACKEND}/graphql`;
 export default url;

@@ -60,8 +60,12 @@ export const updateUserDatas = ({ id, toUpdate, response }) => `
       {${[...response]}}
   }`;
 
-export const createOffer = (title, description, onlineStatus, userId, coordinates) => `mutation CreateOffer {
-    createOffer(title: "${title}", description: "${description}", status: "${onlineStatus}", user_account_id: ${userId}, coordinate: "${coordinates}") {
+export const createOffer = (title, description, onlineStatus, userId, latitude, longitude) => `mutation CreateOffer {
+    createOffer(title: "${title}", description: "${description}", status: "${onlineStatus}", user_account_id: ${userId}, 
+    coordinate: {
+      latitude: ${latitude},
+      longitude: ${longitude}
+    }) {
       message
       newElement {
         offer {

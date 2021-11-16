@@ -20,7 +20,9 @@ const createOfferMiddleware = (store) => (next) => (action) => {
           state.offers.inputValueDescription,
           state.offers.isOfferOnline,
           state.user.id,
-          state.offers.password,
+          state.offers.inputValueLatCoordinate,
+          state.offers.inputValueLongCoordinate,
+
         ),
       },
     };

@@ -9,7 +9,7 @@ import 'react-image-gallery/styles/scss/image-gallery.scss';
 import 'react-image-gallery/styles/css/image-gallery.css';
 
 const Offer = ({
-  title, subTitle, description, price,
+  title, status, description, price,
 }) => {
   const images = [
     {
@@ -45,7 +45,7 @@ const Offer = ({
           </div>
           <div className={style.Offer__containerLeft__content__description}>
             <h2>{title}</h2>
-            <h3>{subTitle}</h3>
+            <h3>{status}</h3>
             <p> {description}</p>
             <h3>{price}</h3>
           </div>

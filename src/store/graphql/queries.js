@@ -45,6 +45,7 @@ export const getUserDatas = (email) => `query Query {
     city_code
     city
     phone
+    avatar
   }
 }`;
 // TODO need to fix this mutation

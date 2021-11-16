@@ -14,6 +14,7 @@ const initialState = {
   city_code: null,
   city: '',
   phone: '',
+  avatar: '',
 
 };
 
@@ -46,6 +47,7 @@ const userReducer = (state = initialState, action = {}) => {
         city_code: action.city_code,
         city: action.city,
         phone: action.phone,
+        avatar: action.avatar,
       };
 
     default:

@@ -14,11 +14,13 @@ import { createUploadLink } from 'apollo-upload-client';
 import App from './containers/App';
 import store from './store';
 
+const { URL_BACKEND } = process.env;
+
 const client = new ApolloClient({
-  uri: 'https://oparadise-back.herokuapp.com/graphql',
+  uri: `${URL_BACKEND}/graphql`,
   cache: new InMemoryCache(),
   link: createUploadLink({
-    uri: 'https://oparadise-back.herokuapp.com/graphql',
+    uri: `${URL_BACKEND}/graphql`,
   }),
 });
 

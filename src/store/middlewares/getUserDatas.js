@@ -28,6 +28,7 @@ const getUserMiddleware = (store) => (next) => (action) => {
     axios(config)
       // si réussite
       .then(({ data }) => {
+        console.log('data_user:', data);
         store.dispatch({
           type: UPDATE_USER_DATAS,
           payload: data.data.user,

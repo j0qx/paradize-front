@@ -1,6 +1,5 @@
 .inputfile {
     /* visibility: hidden etc. wont work */
-    
     width: 0.1px;
     height: 0.1px;
     opacity: 0;
@@ -14,7 +13,7 @@
   .inputfile + label * {
     pointer-events: none;
   }
-
+  
   .labelButton{
     display: block;
     background-color: #9dbdb2;

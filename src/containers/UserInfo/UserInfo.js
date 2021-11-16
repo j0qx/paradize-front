@@ -31,6 +31,7 @@ const UserInfo = () => {
     city_code,
     city,
     phone,
+    avatar,
   } = useSelector((state) => state.user);
 
   const handleSubmitForm = (event) => {
@@ -42,7 +43,7 @@ const UserInfo = () => {
     <div className={style.userinfo__main}>
       <div className={style.userinfo__second}>
         <div className={style.userinfo__second__left}>
-          <img className={style.userinfo__second__left__avatar} src={photo} alt="" />
+          <img className={style.userinfo__second__left__avatar} src={avatar} alt="" />
           <div className={style.userinfo__second__right__inputs__button}>
             <ButtonSubmit
               buttonName="Télecharger votre Avatar"
@@ -198,7 +199,9 @@ const UserInfo = () => {
               <ButtonSubmit
                 buttonName="Appliquer les changements..."
                 classCSS=""
-
+                handleButtonClick={() => {
+                  dispatch({ type: MODIFY_USER_DATAS });
+                }}
               />
             </div>
           </div>

@@ -1,2 +1,2 @@
-const url = 'https://oparadise-back.herokuapp.com/graphql';
+const url = `${process.env.URL_BACKEND}/graphql`;
 export default url;

@@ -1,5 +1,4 @@
-import { READ_OFFERS_DATAS } from '../actions';
-import { CHANGE_CURRENT_POS_OFFER } from '../actions';
+import { READ_OFFERS_DATAS, CHANGE_CURRENT_POS_OFFER } from '../actions';
 
 const initialState = {
 

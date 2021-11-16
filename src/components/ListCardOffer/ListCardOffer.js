@@ -4,9 +4,9 @@ import CardOffer from '../CardOffer';
 
 const ListCardOffer = () => {
   const isLeftSlideOpen = useSelector((state) => state.domSettings.isLeftSlideOpen);
-  const CardOffers = useSelector((state)=> state.offers.cardOffers);
+  const CardOffers = useSelector((state) => state.offers.cardOffers);
   console.log(CardOffers);
-  // need mapping on data to dysplay real offers;
+  // need mapping on data to dysplay real offers.
 
   return (
 
@@ -23,6 +23,7 @@ const ListCardOffer = () => {
               picture={picture}
               price={price}
               key={id}
+              id={id}
             />
           ))
         }

@@ -28,7 +28,6 @@ CardOffer.propTypes = {
   description: PropTypes.string.isRequired,
   picture: PropTypes.string.isRequired,
   status: PropTypes.string.isRequired,
-  price: PropTypes.string.isRequired,
   id: PropTypes.number.isRequired,
 };
 

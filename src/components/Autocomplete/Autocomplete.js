@@ -8,13 +8,14 @@ import {
   CHANGE_INPUT_VALUE_SEARCH,
   CHANGE_CURRENT_POS,
   GET_ISOCHRONE,
+  CHANGE_CURRENT_POS_OFFER,
 } from '../../store/actions';
 import SuggestionsListComponent from './SuggestionsListComponent';
 import style from './autocomplete.module.scss';
 
 const AutoComplete = () => {
   const dispatch = useDispatch();
-  const location = useLocation();
+  const location = useLocation().pathname;
   const filteredSuggestions = useSelector((state) => state.search.autoComplete.filteredSuggestions);
   const showSuggestions = useSelector((state) => state.search.autoComplete.showSuggestions);
   const inputValue = useSelector((state) => state.search.autoComplete.inputValue);
@@ -49,6 +50,13 @@ const AutoComplete = () => {
       activeSuggestionIndex: 0,
       showSuggestions: false,
     });
+    if (location === '/account/myoffers') {
+      dispatch({
+        type: CHANGE_CURRENT_POS_OFFER,
+        inputLatPos: adressObject.geometry.coordinates[1],
+        inputLngPos: adressObject.geometry.coordinates[0],
+      });
+    }
     if (location.pathname !== '/' && Number(valueRadio) === 1) {
       dispatch({ type: GET_ISOCHRONE });
     }

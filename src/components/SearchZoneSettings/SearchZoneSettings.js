@@ -9,9 +9,10 @@ import {
   CHANGE_RADIO_BUTTON,
   GET_ISOCHRONE,
   GET_DATAS_FROM_API,
+  TOGGLE_OPEN_EXPLORE_SLIDE,
 } from '../../store/actions';
-import AutoComplete from '../Autocomplete/Autocomplete';
 import getAllCheckedCheckboxs from '../../store/selectors/getAllCheckedCheckboxs';
+import AutoComplete from '../Autocomplete/Autocomplete';
 
 const SearchZoneSettings = () => {
   const dispatch = useDispatch();
@@ -22,8 +23,8 @@ const SearchZoneSettings = () => {
   const valueRadio = useSelector((state) => state.search.valueRadio);
   const milesConverted = Math.round(Number(inputValueMiles) / 1000);
   const timeConverted = Math.round(Number(inputValueTime) / 60);
-  const history = useHistory();
   const allCheckboxs = useSelector((state) => state.search.apiSettings);
+  const history = useHistory();
 
   return (
     <div className={location === '/explore' ? style.search__zoneExplore : style.search__zone}>
@@ -63,13 +64,22 @@ const SearchZoneSettings = () => {
               <span className={style.slider__input__display}>{timeConverted} min</span>
               <input
                 disabled={Number(valueRadio) === 2}
-                defaultValue={900}
                 step={100}
                 type="range"
                 min="900"
                 onMouseUp={() => {
                   dispatch({ type: GET_ISOCHRONE });
-                  dispatch({ type: GET_DATAS_FROM_API });
+                  //   // here we check if only one box is checked, if yes
+                  //   // we loop on the checked checkboxs array, and for each one
+                  //   // we dispatch GET_DATAS_FROM_API to request the api
+                  if (getAllCheckedCheckboxs(allCheckboxs).length > 0) {
+                    getAllCheckedCheckboxs(allCheckboxs).forEach((checkBoxeName) => {
+                      dispatch({
+                        type: GET_DATAS_FROM_API,
+                        keyword: checkBoxeName,
+                      });
+                    });
+                  }
                 }}
                 max="3600"
                 value={inputValueTime}
@@ -179,7 +189,6 @@ const SearchZoneSettings = () => {
               <span className={style.slider__input__display}>{milesConverted} km</span>
               <input
                 disabled={Number(valueRadio) !== 2}
-                defaultValue={1000}
                 step={1000}
                 type="range"
                 min="1000"
@@ -192,6 +201,20 @@ const SearchZoneSettings = () => {
                     newValue: e.target.value,
                   });
                 }}
+                onMouseUp={() => {
+                  //   // here we check if only one box is checked, if yes
+                  //   // we loop on the checked checkboxs array, and for each one
+                  //   // we dispatch GET_DATAS_FROM_API to request the api
+                  console.log(getAllCheckedCheckboxs(allCheckboxs));
+                  if (getAllCheckedCheckboxs(allCheckboxs).length > 0) {
+                    getAllCheckedCheckboxs(allCheckboxs).forEach((checkBoxeName) => {
+                      dispatch({
+                        type: GET_DATAS_FROM_API,
+                        keyword: checkBoxeName,
+                      });
+                    });
+                  }
+                }}
               />
             </div>
           </div>
@@ -200,6 +223,12 @@ const SearchZoneSettings = () => {
           <ButtonSubmit
             buttonName="C'est parti !"
             classCSS=""
+            handleButtonClick={() => {
+              dispatch({
+                type: TOGGLE_OPEN_EXPLORE_SLIDE,
+                openslide: 'isMapSlideOpen',
+              });
+            }}
           />
         </div>
       </form>

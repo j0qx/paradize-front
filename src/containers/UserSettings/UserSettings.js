@@ -1,21 +1,27 @@
+import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { ButtonSubmit } from '../../components';
 import style from './UserSettings.module.scss';
 
-const UserSettings = () => (
-  <div className={style.userSettings__main}>
+const UserSettings = () => {
+  const dispatch = useDispatch();
+  return (
+    <div className={style.userSettings__main}>
 
-    <div className={style.userSettings__second}>
-      <div className={style.userSettings__second__buttons}>
-        <ButtonSubmit
-          classCSS="usersettingsbutton"
-          buttonName="Se déconnecter"
-        />
-        <ButtonSubmit
-          classCSS="usersettingsbutton"
-          buttonName=" Désactiver ce compte"
-        />
+      <div className={style.userSettings__second}>
+        <div className={style.userSettings__second__buttons}>
+          <Link to="/">
+            <ButtonSubmit
+              classCSS="usersettingsbutton"
+              buttonName=" Désactiver ce compte"
+              onClick={() => {
+
+              }}
+            />
+          </Link>
+        </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
 export default UserSettings;

@@ -34,6 +34,11 @@ export const createUser = (username, lastname, firstname, email, password) => ` 
     }
 }`;
 
+export const deleteUser = (email) => `mutation DeleteUser {
+    deleteUser(email: "${email}") {
+      message
+    }
+  }`;
 export const getUserDatas = (email) => `query Query {
   user(email: "${email}") {
     id

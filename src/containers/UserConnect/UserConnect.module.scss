@@ -1,7 +1,7 @@
 @use '../../styles/vars';
 
 .userConnect{
-
+  
   width: 100%;
 
   &__title{
@@ -24,6 +24,9 @@
       margin-top: 2rem;
     }
 
+    
   }
- 
+  &__passwordError{
+    color: red;
+    }
 }

@@ -1,5 +1,6 @@
 import {
-  GET_USER_TOKEN_SUCCESS, UPDATE_USER_DATAS, MODIFY_USER_DATAS, TEST_USER_DATAS,
+  GET_USER_TOKEN_SUCCESS, UPDATE_USER_DATAS, MODIFY_USER_DATAS, 
+  TEST_USER_DATAS, DELETE_USER_SUCCESS,
 } from '../actions';
 
 const initialState = {
@@ -28,6 +29,14 @@ const userReducer = (state = initialState, action = {}) => {
         mail: action.mail,
         accessToken: action.accessToken,
 
+      };
+    case DELETE_USER_SUCCESS:
+      return {
+        ...state,
+        isLogged: false,
+        username: '',
+        mail: '',
+        accessToken: '',
       };
     case UPDATE_USER_DATAS:
       return {

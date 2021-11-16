@@ -1,4 +1,5 @@
 import { READ_OFFERS_DATAS } from '../actions';
+import { CHANGE_CURRENT_POS_OFFER } from '../actions';
 
 const initialState = {
 
@@ -33,6 +34,12 @@ const offersReducer = (state = initialState, action = {}) => {
 
       };
 
+    case CHANGE_CURRENT_POS_OFFER:
+      return {
+        ...state,
+        inputValueLatCoordinate: action.inputLatPos,
+        inputValueLongCoordinate: action.inputLngPos,
+      };
     default:
       return state;
   }

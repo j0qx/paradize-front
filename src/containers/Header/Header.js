@@ -87,6 +87,7 @@ const Header = () => {
             <ButtonSubmit
               classCSS={isOpen ? 'navbar_button' : ''}
               handleButtonClick={() => {
+                setOpen(false);
                 dispatch({ type: TOGGLE_OPEN_BURGER_ACCOUNT });
               // TODO
               }}

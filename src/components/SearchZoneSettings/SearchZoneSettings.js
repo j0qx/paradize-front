@@ -9,6 +9,7 @@ import {
   CHANGE_RADIO_BUTTON,
   GET_ISOCHRONE,
   GET_DATAS_FROM_API,
+  TOGGLE_OPEN_EXPLORE_SLIDE,
 } from '../../store/actions';
 import AutoComplete from '../Autocomplete/Autocomplete';
 import getAllCheckedCheckboxs from '../../store/selectors/getAllCheckedCheckboxs';
@@ -198,6 +199,12 @@ const SearchZoneSettings = () => {
           <ButtonSubmit
             buttonName="C'est parti !"
             classCSS=""
+            handleButtonClick={() => {
+              dispatch({
+                type: TOGGLE_OPEN_EXPLORE_SLIDE,
+                openslide: 'isMapSlideOpen',
+              });
+            }}
           />
         </div>
       </form>

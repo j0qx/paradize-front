@@ -1,3 +1,4 @@
+import { READ_OFFERS_DATAS } from '../actions';
 import { CHANGE_CURRENT_POS_OFFER } from '../actions';
 
 const initialState = {
@@ -8,6 +9,7 @@ const initialState = {
   isOfferOnline: false,
   inputValueLatCoordinate: '',
   inputValueLongCoordinate: '',
+  cardOffers: [],
 };
 
 const offersReducer = (state = initialState, action = {}) => {
@@ -24,6 +26,14 @@ const offersReducer = (state = initialState, action = {}) => {
         ...state,
         isOfferOnline: !state.isOfferOnline,
       };
+
+    case READ_OFFERS_DATAS:
+      return {
+        ...state,
+        cardOffers: action.cardOffers,
+
+      };
+
     case CHANGE_CURRENT_POS_OFFER:
       return {
         ...state,

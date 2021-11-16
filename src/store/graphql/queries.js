@@ -73,3 +73,15 @@ export const createOffer = (title, description, onlineStatus, userId, coordinate
       }
     }
   }`;
+export const getOffersDatas = () => `query Query {
+  offers {
+    id
+    title
+    description
+    status
+    coordinate {
+      latitude
+      longitude
+    }
+  }
+}`;

@@ -54,3 +54,16 @@ export const updateUserDatas = ({ id, toUpdate, response }) => `
     updateUser(id: ${id}, toUpdate:${{ ...toUpdate }}) 
       {${[...response]}}
   }`;
+
+export const getOffersDatas = () => `query Query {
+  offers {
+    id
+    title
+    description
+    status
+    coordinate {
+      latitude
+      longitude
+    }
+  }
+}`;

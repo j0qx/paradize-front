@@ -1,3 +1,5 @@
+import { READ_OFFERS_DATAS } from '../actions';
+
 const initialState = {
 
   inputValueTitle: '',
@@ -6,6 +8,7 @@ const initialState = {
   isOfferOnline: false,
   inputValueLatCoordinate: '',
   inputValueLongCoordinate: '',
+  cardOffers: [],
 };
 
 const offersReducer = (state = initialState, action = {}) => {
@@ -22,6 +25,14 @@ const offersReducer = (state = initialState, action = {}) => {
         ...state,
         isOfferOnline: !state.isOfferOnline,
       };
+
+    case READ_OFFERS_DATAS:
+      return {
+        ...state,
+        cardOffers: action.cardOffers,
+
+      };
+
     default:
       return state;
   }

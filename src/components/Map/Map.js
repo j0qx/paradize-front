@@ -15,7 +15,7 @@ import {
   HospitalMarker,
   ParkMarker,
 } from './Markers';
-import { GET_DATA_AIR_POLLUTION } from '../../store/actions';
+import { GET_DATA_AIR_POLLUTION, GET_OFFERS_DATAS } from '../../store/actions';
 import getCheckboxs from '../../store/selectors/getCheckboxs';
 import style from './Map.module.scss';
 
@@ -49,6 +49,7 @@ const Map = () => {
           {(map) => {
             map.flyTo(currentPos, map.getZoom());
             dispatch({ type: GET_DATA_AIR_POLLUTION });
+            dispatch({ type: GET_OFFERS_DATAS });
             return null;
           }}
         </MapConsumer>

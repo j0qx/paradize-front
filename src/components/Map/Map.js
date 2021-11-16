@@ -17,6 +17,7 @@ import {
 } from './Markers';
 import { GET_DATA_AIR_POLLUTION } from '../../store/actions';
 import getCheckboxs from '../../store/selectors/getCheckboxs';
+import './style.scss';
 import style from './Map.module.scss';
 
 /* const DefaultIcon = L.icon({
@@ -52,7 +53,12 @@ const Map = () => {
             return null;
           }}
         </MapConsumer>
-        <LayersControl position="topright">
+        <LayersControl
+          position="topright"
+          options={{
+            togglerClassName: 'hello',
+          }}
+        >
           <LayersControl.BaseLayer name="Map">
             <TileLayer
               attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'

@@ -13,7 +13,7 @@ const offersReducer = (state = initialState, action = {}) => {
     case 'CHANGE_INPUT_VALUE_OFFERS':
       return {
         ...state,
-        [action.inputFieldOffers]: action.newValue,
+        [action.inputField]: action.newValue,
       };
 
       // here , we are creating a toggle on the online/offline position of the Offer Created.

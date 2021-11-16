@@ -53,31 +53,32 @@ const CreateOfferModal = ({classCSS}) => {
         </div>
         <div className={style.CreateOfferModal__inputs}>
           <InputBase
-            inputName="title"
+            inputName="inputValueTitle"
             placeholder=" Titre de l'annonce.."
             classCSS="input__createOffer__modal"
             inputValue={title}
-            action={CHANGE_INPUT_VALUE_OFFERS}
+            actionType={CHANGE_INPUT_VALUE_OFFERS}
           />
           <InputBase
-            inputName="description"
+            inputName="inputValueDescription"
             placeholder=" Description de l'annonce.."
             classCSS="input__createOffer__modal"
             inputValue={description}
-            action={CHANGE_INPUT_VALUE_OFFERS}
+            actionType={CHANGE_INPUT_VALUE_OFFERS}
           />
           <InputBase
             inputName="coordinateLat"
             placeholder=" Latitude de l'annonce.."
             classCSS="input__createOffer__modal"
             inputValue={coordinateLat}
-            action={CHANGE_INPUT_VALUE_OFFERS}
+            actionType={CHANGE_INPUT_VALUE_OFFERS}
           />
           <InputBase
             inputName="coordinateLong"
             placeholder=" Longitude de l'annonce.."
             classCSS="input__createOffer__modal"
             inputValue={coordinateLong}
+            actionType={CHANGE_INPUT_VALUE_OFFERS}
           />
         </div>
         <ButtonSubmit

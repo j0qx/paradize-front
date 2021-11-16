@@ -5,7 +5,10 @@ import Switch from 'react-switch';
 // Import COMPONENT
 import { ButtonSubmit, InputBase } from '../../components';
 import {
-  GET_USER_TOKEN_SUCCESS, CHANGE_INPUT_VALUE_OFFERS, TOGGLE_ONLINE_OFFER,
+  GET_USER_TOKEN_SUCCESS,
+  CHANGE_INPUT_VALUE_OFFERS,
+  TOGGLE_ONLINE_OFFER,
+  CREATE_OFFER,
 } from '../../store/actions';
 import style from './CreateOfferModal.module.scss';
 import AutoComplete from '../../components/Autocomplete/Autocomplete';
@@ -22,7 +25,7 @@ const CreateOfferModal = ({ classCSS }) => {
 
   const handleSubmitForm = (event) => {
     event.preventDefault();
-    dispatch({ type: GET_USER_TOKEN_SUCCESS });
+    dispatch({ type: CREATE_OFFER });
   };
 
   const handleChangeToggle = () => {

@@ -8,7 +8,7 @@ import {
 import url from '../graphql/endpoint';
 import { createOffer } from '../graphql/queries';
 
-const createUserMiddleware = (store) => (next) => (action) => {
+const createOfferMiddleware = (store) => (next) => (action) => {
   if (action.type === CREATE_OFFER) {
     const state = store.getState();
     const config = {
@@ -19,15 +19,22 @@ const createUserMiddleware = (store) => (next) => (action) => {
           state.offers.inputValueTitle,
           state.offers.inputValueDescription,
           state.offers.isOfferOnline,
-          state.offers.id,
+          state.user.id,
           state.offers.password,
         ),
       },
     };
+    axios(config)
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
   else {
     next(action);
   }
 };
 
-export default createUserMiddleware;
+export default createOfferMiddleware;

@@ -1,8 +1,9 @@
 import style from './Contact.module.scss';
+import mountains from '../../assets/image/map.jpg';
 
 const Contact = () => (
   <div className={style.container__contact}>
-
+    <img className={style.background} src={mountains} alt="" />
     <div className={style.container__contact__card}>
       <img
         className={style.container__contact__card__img}
@@ -47,14 +48,14 @@ const Contact = () => (
     <div className={style.container__contact__card}>
       <img
         className={style.container__contact__card__img}
-        src="https://avatars.githubusercontent.com/u/25654492?v=4.png"
+        src="https://avatars.githubusercontent.com/u/85259867?v=4"
         alt="Avatar"
       />
       <h1 className={style.container__contact__card__name}>Pierre jöel MBABO</h1>
       <h2 className={style.container__contact__card__role}>Rôle</h2>
       <h3>Lead Back-end</h3>
       <a target="_blank" href="https://github.com/Pierre-joel96" rel="noreferrer">Profil Github</a>
-      <a target="_blank" href="https://www.linkedin.com/in/romainleclerc/" rel="noreferrer">Profil LinkedIn</a>
+      <a target="_blank" href="https://www.linkedin.com/in/pierre-joel-mbabo-b45ba621a" rel="noreferrer">Profil LinkedIn</a>
     </div>
 
     <div className={style.container__contact__card}>

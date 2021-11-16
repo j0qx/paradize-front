@@ -18,6 +18,8 @@ import SlideBottom from './SlideBottom/SlideBottom';
 import TabNavBar from './TabNavBar';
 import ToolTip from './ToolTip';
 import InputBase from './InputBase';
+import UploadImage from './UploadImage';
+
 
 export {
   ButtonClose,
@@ -40,4 +42,5 @@ export {
   TabNavBar,
   ToolTip,
   InputBase,
+  UploadImage,
 };

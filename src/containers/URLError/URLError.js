@@ -1,19 +1,20 @@
 import style from './URLError.module.scss';
-import treePicture from '../../assets/image/ile.png';
-import cloud from '../../assets/image/entete.png';
+
+import city from '../../assets/image/city.jpg';
 // import sea from '../../assets/image/decor.png';
 
 const URLError = () => (
   <div className={style.urlError}>
-    Hello
+    <img className={style.urlError__image} src={city} alt="" />
     <div className={style.urlError__inner}>
-      <div className={style.urlError__boxFront}>
-        <img className={style.urlError__cloudpic} src={cloud} alt="" />
+      <div className={style.urlError__text}>
+        <div className={style.ui}>
+          <h1 className={style.title}>404<br />NOT FOUND</h1>
+        </div>
       </div>
-      <div className={style.urlError__boxBack}>
-        <img className={style.urlError__tree} src={treePicture} alt="" />
-        <h2 className={style.urlError__title}> 404 !</h2>
-      </div>
+      <h3 className={style.urlError__title}>
+        Le bonheur n'est jamais loin, juste pas ici !
+      </h3>
     </div>
   </div>
 );

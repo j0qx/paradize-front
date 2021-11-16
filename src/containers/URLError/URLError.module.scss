@@ -1,63 +1,235 @@
 @media (min-width:1100px) {
+@use '../../styles/vars';
+
+@import url('https://fonts.googleapis.com/css2?family=Frijole&display=swap');
 
 
-.style.urlError__cloudpic{
-  width: 500px;
-  height: 500px;
-}
-
-.style.urlError__tree{
-  width: 500px;
-  height: 500px;
-  background-color: transparent;
-}
-/* display to chage to show the error*/
-.urlError{
- display: none;
- justify-content: center;
- align-items: center;
-  background-color: transparent;
+.urlError {
+  display: flex;
   width: 100%;
   height: 100%;
-  perspective: 1000px;
+  align-items: center;
+  justify-content: center;
+
+
 }
 
-.urlError__inner{
-  position: relative;
-  width: 50%;
-  height: 50%;
-  text-align: center;
-  transition: transform 1.5s;
-  transform-style: preserve-3d;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-}
 
-.urlError:hover .urlError__inner {
-  transform: rotateY(180deg);
-}
 
-.urlError__boxFront, .urlError__boxBack{
+.urlError__inner {
+  display: flex;
   position: absolute;
   width: 100%;
   height: 100%;
-  -webkit-backface-visibility: hidden; /* Safari */
-  backface-visibility: hidden;
-}
-
-.urlError__boxFront{
-  width: 60%;
-  height: 60%;
-}
-
-.urlError__boxBack{
-  display: block;
   flex-direction: column;
-  transform: rotateY(180deg);
+  padding-top: 0%;
+  text-align: center;
+  align-items: center;
 }
 
-.urlError__title{
-  font-size: 5em;
-  color: cornflowerblue;
+
+
+.urlError__image {
+  position: absolute;
+  object-fit: cover;
+  width: 100%;
+  height: 79%;
 }
+
+.urlError__text {
+  display: flex;
+  height: 30%;
+  width: 40%;
+  perspective: 200px;
+  flex-direction: column;
+  vertical-align: bottom;
+  position: absolute;
+  top: 25%;
+  right: 30%;
+  box-shadow: none;
+  
+}
+
+.urlError__title {
+  color: rgb(255, 255, 255);
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    padding: 2%;
+    margin-bottom: 30%;
+    border-radius: 3px;
+    border: solid 2px white;
+    backdrop-filter: blur(21px) saturate(29%);
+    -webkit-backdrop-filter: blur(21px) saturate(29%);
+}
+
+.ui {
+  font-family: 'Frijole', cursive;
+  text-align: center;
+  color: #FFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+  letter-spacing: 1px;
+}
+
+.title {
+  background-image: url(https://media.giphy.com/media/26BROrSHlmyzzHf3i/giphy.gif);
+  background-size: cover;
+  color: transparent;
+  -moz-background-clip: text;
+  -webkit-background-clip: text;
+  text-transform: uppercase;
+  font-size: 70px;
+  line-height: 1;
+  margin: 10px 0;
+}
+/* styling my button */
+
+.white-mode {
+  text-decoration: none;
+  padding: 7px 10px;
+  background-color: #122;
+  border-radius: 3px;
+  color: #FFF;
+  transition: .35s ease-in-out;
+  position: absolute;
+  left: 15px;
+  bottom: 15px;
+  font-family: 'Frijole', cursive;
+}
+
+.white-mode:hover {
+  background-color: #FFF;
+  color: #122;
+}
+
+
+
+
+
+@media(min-width: 1100px) {
+  .urlError {
+    display: flex;
+    width: 100%;
+    height: 80vh;
+  }
+
+  .urlError__inner {
+    display: flex;
+    width: 40%;
+    height: 80%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .urlError__text {
+      display: flex;
+      height: 45%;
+      width: 40%;
+      background: transparent;
+      overflow: visible;
+      perspective: 600px;
+      flex-direction: column;
+      vertical-align: bottom;
+      position: absolute;
+      top: 25%;
+      right: 35%;
+      box-shadow: none;
+      border-radius: 150px;
+    }  text-align: center;
+    border-radius: 100px;
+    padding-top: 0%;
+
+
+  }
+
+
+
+  .urlError__image {
+    position: absolute;
+    object-fit: cover;
+    width: 100%;
+    height: 80%;
+  }
+
+  .urlError__text {
+    display: flex;
+    height: 45%;
+    width: 40%;
+    background: transparent;
+    overflow: visible;
+    perspective: 600px;
+    flex-direction: column;
+    vertical-align: bottom;
+    position: absolute;
+    top: 25%;
+    right: 35%;
+    box-shadow: none;
+    border-radius: 150px;
+  }
+
+  .urlError__title {
+
+    color: rgb(255, 255, 255);
+    justify-content: center;
+    align-items: center;
+    bottom: 0;
+    padding: 2%;
+    margin-bottom: 6%;
+    border-radius: 25px;
+    border-radius: 3px;
+    border: solid 2px white;
+  }
+
+  
+
+  .ui {
+    font-family: 'Frijole', cursive;
+    text-align: center;
+    color: #FFF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 40vh;
+    letter-spacing: 1px;
+  }
+  
+  .title {
+    background-image: url(https://media.giphy.com/media/26BROrSHlmyzzHf3i/giphy.gif);
+    background-size: cover;
+    color: transparent;
+    -moz-background-clip: text;
+    -webkit-background-clip: text;
+    text-transform: uppercase;
+    font-size: 120px;
+    line-height: 1;
+    margin: 10px 0;
+  }
+  /* styling my button */
+  
+  .white-mode {
+    text-decoration: none;
+    padding: 7px 10px;
+    background-color: #122;
+    border-radius: 3px;
+    color: #FFF;
+    transition: .35s ease-in-out;
+    position: absolute;
+    left: 15px;
+    bottom: 15px;
+    font-family: 'Frijole', cursive;
+  }
+  
+  .white-mode:hover {
+    background-color: #FFF;
+    color: #122;
+  }
+
+
 
 }

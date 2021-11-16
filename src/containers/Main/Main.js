@@ -16,6 +16,7 @@ import Offer from '../Offer';
 import ListCardFavoriteSearch from '../ListCardFavoriteSearch';
 import ListCardFavoriteOffer from '../ListCardFavoriteOffers';
 import CreateOfferModal from '../CreateOfferModal';
+import Mentions from '../Mentions/Mentions';
 import { Modal } from '../../components';
 
 import style from './Main.module.scss';
@@ -53,6 +54,9 @@ const Main = () => {
         <Route exact path="/explore">
           <Explore />
         </Route>
+        <Route exact path="/legal-notice">
+          <Mentions />
+        </Route>
         <Route exact path="/offer/:id">
           <Offer />
         </Route>
@@ -86,9 +90,7 @@ const Main = () => {
         </Route>
         {/* Cette route n'a pas de path, elle sera donc tout le temps appelé si
       aucune a été appelé avant */}
-        <Route>
-          <URLError />
-        </Route>
+        <Route component={URLError} />
       </Switch>
     </div>
   );

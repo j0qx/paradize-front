@@ -36,7 +36,7 @@
     width: 100%;
     padding: 1.5rem;
     position:relative;
-    overflow-x: hidden;
+    overflow: hidden;
 
     &__message{
     display: none;
@@ -77,7 +77,7 @@
     }
   }
   .navbarOpened{
-    overflow-x: visible;
+    overflow: visible;
   }
   .navbarOpened .navbar__linksContainer{
       right: 0;

@@ -5,7 +5,10 @@ import Switch from 'react-switch';
 // Import COMPONENT
 import { ButtonSubmit, InputBase } from '../../components';
 import {
-  GET_USER_TOKEN_SUCCESS, CHANGE_INPUT_VALUE_OFFERS, TOGGLE_ONLINE_OFFER,
+  GET_USER_TOKEN_SUCCESS,
+  CHANGE_INPUT_VALUE_OFFERS,
+  TOGGLE_ONLINE_OFFER,
+  CREATE_OFFER,
 } from '../../store/actions';
 import style from './CreateOfferModal.module.scss';
 import AutoComplete from '../../components/Autocomplete/Autocomplete';
@@ -22,7 +25,7 @@ const CreateOfferModal = ({ classCSS }) => {
 
   const handleSubmitForm = (event) => {
     event.preventDefault();
-    dispatch({ type: GET_USER_TOKEN_SUCCESS });
+    dispatch({ type: CREATE_OFFER });
   };
 
   const handleChangeToggle = () => {
@@ -59,18 +62,18 @@ const CreateOfferModal = ({ classCSS }) => {
         </div>
         <div className={style.CreateOfferModal__inputs}>
           <InputBase
-            inputName="title"
+            inputName="inputValueTitle"
             placeholder=" Titre de l'annonce.."
             classCSS="input__createOffer__modal"
             inputValue={title}
-            action={CHANGE_INPUT_VALUE_OFFERS}
+            actionType={CHANGE_INPUT_VALUE_OFFERS}
           />
           <InputBase
-            inputName="description"
+            inputName="inputValueDescription"
             placeholder=" Description de l'annonce.."
             classCSS="input__createOffer__modal"
             inputValue={description}
-            action={CHANGE_INPUT_VALUE_OFFERS}
+            actionType={CHANGE_INPUT_VALUE_OFFERS}
           />
           <AutoComplete />
           {/* <InputBase
@@ -78,13 +81,15 @@ const CreateOfferModal = ({ classCSS }) => {
             placeholder=" Latitude de l'annonce.."
             classCSS="input__createOffer__modal"
             inputValue={coordinateLat}
-            action={CHANGE_INPUT_VALUE_OFFERS}
+            actionType={CHANGE_INPUT_VALUE_OFFERS}
           />
           <InputBase
             inputName="coordinateLong"
             placeholder=" Longitude de l'annonce.."
             classCSS="input__createOffer__modal"
             inputValue={coordinateLong}
+            actionType={CHANGE_INPUT_VALUE_OFFERS}
+          />
           /> */}
         </div>
         <ButtonSubmit

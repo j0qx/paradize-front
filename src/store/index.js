@@ -2,6 +2,7 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import authMiddleware from './middlewares/userToken';
 import getdatasAPI from './middlewares/getdatasAPI';
 import createUserMiddleware from './middlewares/createUser';
+import createOfferMiddleware from './middlewares/createOffer';
 import getUserDatas from './middlewares/getUserDatas';
 import getOffersMiddleware from './middlewares/getOffersDatas';
 // import loggedMiddleware from './middlewares/loggedMiddleware';
@@ -19,7 +20,7 @@ const enhancers = composeEnhancers(
     getOffersMiddleware,
     createUserMiddleware,
     getUserDatas,
-    
+    createOfferMiddleware,
   ),
 );
 

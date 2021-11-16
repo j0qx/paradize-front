@@ -70,5 +70,6 @@ export const getOffersDatas = () => `query Query {
       latitude
       longitude
     }
+    picture
   }
 }`;

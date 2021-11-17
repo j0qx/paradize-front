@@ -43,6 +43,7 @@
 
 .search__adress {
   display: flex;
+  flex-direction: column-reverse;
   width: 100%;
   height: auto;
   justify-content: center;
@@ -102,7 +103,7 @@
 .search__zoneExplore{
   display: flex;
   height: fit-content;
-  flex-direction: column;
+  flex-direction: column-reverse;
   justify-content: space-between;
   width: 100%;
   margin-top: 5%;
@@ -121,11 +122,14 @@
   }
   .search__adress{
     width: 55%;
+    display: flex;
+    flex-direction: column;
     margin: 0 2%;
     padding: 0;
     margin-bottom: 5%;
     position: relative;
     left: 12.5%;
+
 
   }
 
@@ -187,11 +191,12 @@
 
   .search__adress {
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     justify-content: center;
     position: relative;
     left: 0;
     right: 0;
+
   }
 
   .search__button {
@@ -251,6 +256,8 @@
       margin: 0;
 
       .search__adress{
+        display: flex;
+        flex-direction: column;
         width: 55%;
         margin: 0 2%;
         padding: 0;

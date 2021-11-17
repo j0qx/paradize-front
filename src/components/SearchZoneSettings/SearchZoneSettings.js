@@ -41,7 +41,7 @@ const SearchZoneSettings = () => {
           }
         }}
       >
-        <h4 className={style.search__zone__title}>Recherche par distance</h4>
+        {/* <h4 className={style.search__zone__title}>Recherche par distance</h4> */}
         <div className={style.search__adress}>
           {/* <span className={location === '/explore' ? style.search__legend__address : style.container__selects__none}>Recherche par adresse...</span> */}
 

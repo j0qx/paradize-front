@@ -59,3 +59,22 @@ export const updateUserDatas = ({ id, toUpdate, response }) => `
     updateUser(id: ${id}, toUpdate:${{ ...toUpdate }}) 
       {${[...response]}}
   }`;
+
+// Query who get all the offer create by an User
+export const getOffersUser = (id) => `query Offers($userAccountId: Int) {
+  offers(user_account_id: ${id}) {
+    title
+    picture
+    id
+    description
+    status
+    coordinate {
+      latitude
+      longitude
+    }
+    price
+    owner {
+      id
+    }
+  }
+}`;

@@ -26,7 +26,6 @@ const Main = () => {
   const isLoginModal = useSelector((state) => state.domSettings.isLoginModal);
   const isSubscribeModal = useSelector((state) => state.domSettings.isSubscribeModal);
   const isOffersModal = useSelector((state) => state.domSettings.isOffersModal);
-  
 
   return (
     <div className={style.main}>

@@ -4,6 +4,7 @@ import PoliceMarker from './police';
 import ParkMarker from './parcs';
 import HospitalMarker from './hospital';
 import ShopMarker from './shops';
+import Offers from './offers';
 
 export {
   BarsMarker,
@@ -12,5 +13,5 @@ export {
   ParkMarker,
   HospitalMarker,
   ShopMarker,
-
+  Offers,
 };

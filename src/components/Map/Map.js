@@ -14,6 +14,7 @@ import {
   ShopMarker,
   HospitalMarker,
   ParkMarker,
+  Offers,
 } from './Markers';
 import { GET_DATA_AIR_POLLUTION, GET_OFFERS_DATAS } from '../../store/actions';
 import getCheckboxs from '../../store/selectors/getCheckboxs';
@@ -30,6 +31,7 @@ import style from './Map.module.scss';
 
 const Map = () => {
   const dispatch = useDispatch();
+  const cardOffers = useSelector((state) => state.offers.cardOffers);
   const currentPos = useSelector((state) => state.map.currentPos);
   // // here we have all the checkboxes (checked and not checked)
   const allCheckboxs = useSelector((state) => state.search.apiSettings);
@@ -86,6 +88,18 @@ const Map = () => {
         <MarkerClusterGroup
           disableClusteringAtZoom={16}
         >
+          {
+          cardOffers.map(({
+            coordinate, title, id, picture,
+          }) => (
+            <Offers
+              id={id}
+              position={coordinate}
+              url={picture}
+              title={title}
+            />
+          ))
+        }
           {
         getCheckboxs('Bar', allCheckboxs).checked && (
           getCheckboxs('Bar', allCheckboxs).result.map(({

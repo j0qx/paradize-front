@@ -1,8 +1,8 @@
 import axios from 'axios';
 import {
   CREATE_OFFER,
-  CREATE_USER_SUCCESS,
-  CREATE_USER_ERROR,
+  TOGGLE_PRINT_MODAL,
+  SET_MODAL_CONTENT,
 } from '../actions';
 
 import url from '../graphql/endpoint';
@@ -20,13 +20,21 @@ const createOfferMiddleware = (store) => (next) => (action) => {
           state.offers.inputValueDescription,
           state.offers.isOfferOnline,
           state.user.id,
-          state.offers.password,
+          state.offers.inputValueLatCoordinate,
+          state.offers.inputValueLongCoordinate,
+
         ),
       },
     };
     axios(config)
-      .then((data) => {
-        console.log(data);
+      .then(() => {
+        store.dispatch({ type: TOGGLE_PRINT_MODAL });
+        store.dispatch(
+          {
+            type: SET_MODAL_CONTENT,
+            modalContent: 'isOffersModal',
+          },
+        );
       })
       .catch((error) => {
         console.log(error);

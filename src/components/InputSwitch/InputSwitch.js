@@ -4,6 +4,7 @@ import { PropTypes } from 'prop-types';
 import { useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { faScroll } from '@fortawesome/free-solid-svg-icons';
+import ReactTooltip from 'react-tooltip';
 import style from './InputSwitch.module.scss';
 import { SWITCH_OFFERS } from '../../store/actions';
 
@@ -13,7 +14,9 @@ const InputSwitch = () => {
   const inputSwitch = useSelector((state) => state.search.inputSwitch);
   return (
     <div className={style.container}>
-      <FontAwesomeIcon icon={faScroll} size="2x" color="#406F8A" />
+      {location === '/'
+              && <ReactTooltip id="Annonces" place="top" effect="solid" /> }
+      <FontAwesomeIcon data-tip="Annonces" data-for="Annonces" icon={faScroll} size="2x" color="#406F8A" />
       <span className={location === '/explore' ? style.text : style.display__none}>Annonces</span>
 
       <input

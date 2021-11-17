@@ -9,8 +9,12 @@ import {
   CHANGE_CURRENT_POS,
   GET_ISOCHRONE,
   CHANGE_CURRENT_POS_OFFER,
+  GET_DATA_AIR_POLLUTION,
+  GET_OFFERS_DATAS,
+  GET_DATAS_FROM_API,
 } from '../../store/actions';
 import SuggestionsListComponent from './SuggestionsListComponent';
+import getAllCheckedCheckboxs from '../../store/selectors/getAllCheckedCheckboxs';
 import style from './autocomplete.module.scss';
 
 const AutoComplete = () => {
@@ -20,6 +24,7 @@ const AutoComplete = () => {
   const showSuggestions = useSelector((state) => state.search.autoComplete.showSuggestions);
   const inputValue = useSelector((state) => state.search.autoComplete.inputValue);
   const valueRadio = useSelector((state) => state.search.valueRadio);
+  const allCheckboxs = useSelector((state) => state.search.apiSettings);
 
   const onChange = (e) => {
     const userInput = e.target.value;
@@ -57,6 +62,16 @@ const AutoComplete = () => {
         inputLngPos: adressObject.geometry.coordinates[0],
       });
     }
+    if (getAllCheckedCheckboxs(allCheckboxs).length > 0) {
+      getAllCheckedCheckboxs(allCheckboxs).forEach((checkBoxeName) => {
+        dispatch({
+          type: GET_DATAS_FROM_API,
+          keyword: checkBoxeName,
+        });
+      });
+    }
+    dispatch({ type: GET_DATA_AIR_POLLUTION });
+    dispatch({ type: GET_OFFERS_DATAS });
     if (location.pathname !== '/' && Number(valueRadio) === 1) {
       dispatch({ type: GET_ISOCHRONE });
     }

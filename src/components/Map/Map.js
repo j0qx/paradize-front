@@ -50,16 +50,6 @@ const Map = () => {
         <MapConsumer>
           {(map) => {
             map.flyTo(currentPos, map.getZoom());
-            if (getAllCheckedCheckboxs(allCheckboxs).length > 0) {
-              getAllCheckedCheckboxs(allCheckboxs).forEach((checkBoxeName) => {
-                dispatch({
-                  type: GET_DATAS_FROM_API,
-                  keyword: checkBoxeName,
-                });
-              });
-            }
-            dispatch({ type: GET_DATA_AIR_POLLUTION });
-            dispatch({ type: GET_OFFERS_DATAS });
             return null;
           }}
         </MapConsumer>

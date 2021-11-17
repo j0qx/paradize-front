@@ -7,7 +7,12 @@ import markerIconPng from 'leaflet/dist/images/marker-icon.png';
 import { Icon } from 'leaflet';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { CHANGE_CURRENT_POS, GET_DATAS_FROM_API, GET_ISOCHRONE } from '../../store/actions';
+import {
+  CHANGE_CURRENT_POS,
+  GET_DATAS_FROM_API, GET_ISOCHRONE,
+  GET_OFFERS_DATAS,
+  GET_DATA_AIR_POLLUTION,
+} from '../../store/actions';
 import getAllCheckedCheckboxs from '../../store/selectors/getAllCheckedCheckboxs';
 
 function LocationMarker() {
@@ -31,6 +36,16 @@ function LocationMarker() {
       });
       dispatch({ type: GET_ISOCHRONE });
       map.flyTo(e.latlng, map.getZoom());
+      if (getAllCheckedCheckboxs(allCheckboxs).length > 0) {
+        getAllCheckedCheckboxs(allCheckboxs).forEach((checkBoxeName) => {
+          dispatch({
+            type: GET_DATAS_FROM_API,
+            keyword: checkBoxeName,
+          });
+        });
+      }
+      dispatch({ type: GET_DATA_AIR_POLLUTION });
+      dispatch({ type: GET_OFFERS_DATAS });
     },
   });
   return (

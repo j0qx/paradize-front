@@ -2,6 +2,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import style from './UserInfo.module.scss';
 import photo from '../../assets/image/house.jpg';
+import UploadImage from '../../components/UploadImage';
 import { InputBase } from '../../components';
 import ButtonSubmit from '../../components/ButtonSubmit';
 import { TOGGLE_INPUT_ACCOUNT, MODIFY_USER_DATAS } from '../../store/actions';
@@ -45,8 +46,8 @@ const UserInfo = () => {
         <div className={style.userinfo__second__left}>
           <img className={style.userinfo__second__left__avatar} src={avatar} alt="" />
           <div className={style.userinfo__second__right__inputs__button}>
-            <ButtonSubmit
-              buttonName="Télecharger votre Avatar"
+            <UploadImage
+              labelButton="Télecharger votre Avatar"
               classCSS=""
             />
           </div>

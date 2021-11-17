@@ -31,17 +31,6 @@ function LocationMarker() {
       });
       dispatch({ type: GET_ISOCHRONE });
       map.flyTo(e.latlng, map.getZoom());
-      //   // here we check if only one box is checked, if yes
-      //   // we loop on the checked checkboxs array, and for each one
-      //   // we dispatch GET_DATAS_FROM_API to request the api
-      if (getAllCheckedCheckboxs(allCheckboxs).length > 0) {
-        getAllCheckedCheckboxs(allCheckboxs).forEach((checkBoxeName) => {
-          dispatch({
-            type: GET_DATAS_FROM_API,
-            keyword: checkBoxeName,
-          });
-        });
-      }
     },
   });
   return (

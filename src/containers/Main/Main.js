@@ -1,5 +1,5 @@
 // import NPM
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, useParams } from 'react-router-dom';
 // import component
 import { useSelector } from 'react-redux';
 import Account from '../Account';
@@ -26,6 +26,8 @@ const Main = () => {
   const isLoginModal = useSelector((state) => state.domSettings.isLoginModal);
   const isSubscribeModal = useSelector((state) => state.domSettings.isSubscribeModal);
   const isOffersModal = useSelector((state) => state.domSettings.isOffersModal);
+  
+
   return (
     <div className={style.main}>
       {/* If the modal is openned and the state isLoginModal is true ( so the click was

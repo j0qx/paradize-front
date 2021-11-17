@@ -1,4 +1,4 @@
-import { CHANGE_CURRENT_POS_OFFER } from '../actions';
+import { READ_OFFERS_DATAS, CHANGE_CURRENT_POS_OFFER } from '../actions';
 
 const initialState = {
 
@@ -8,6 +8,7 @@ const initialState = {
   isOfferOnline: false,
   inputValueLatCoordinate: '',
   inputValueLongCoordinate: '',
+  cardOffers: [],
 };
 
 const offersReducer = (state = initialState, action = {}) => {
@@ -15,7 +16,7 @@ const offersReducer = (state = initialState, action = {}) => {
     case 'CHANGE_INPUT_VALUE_OFFERS':
       return {
         ...state,
-        [action.inputFieldOffers]: action.newValue,
+        [action.inputField]: action.newValue,
       };
 
       // here , we are creating a toggle on the online/offline position of the Offer Created.
@@ -24,6 +25,14 @@ const offersReducer = (state = initialState, action = {}) => {
         ...state,
         isOfferOnline: !state.isOfferOnline,
       };
+
+    case READ_OFFERS_DATAS:
+      return {
+        ...state,
+        cardOffers: action.cardOffers,
+
+      };
+
     case CHANGE_CURRENT_POS_OFFER:
       return {
         ...state,

@@ -1,21 +1,32 @@
 /* eslint-disable react/prop-types */
 import { Marker, Popup } from 'react-leaflet';
 import { divIcon } from 'leaflet';
-import markerIconPng from 'leaflet/dist/images/marker-icon.png';
 import { Link } from 'react-router-dom';
+import { renderToStaticMarkup } from 'react-dom/server';
 
 const Offers = ({
   id, position, url, title,
 }) => {
-  const icon = divIcon({
-    icon: markerIconPng,
+  // const icon = divIcon({
+  //   icon: markerIconPng,
+  //   iconSize: [0, 0],
+  //   iconAnchor: [10, 41],
+  //   popupAnchor: [2, -40],
+  // });
+  const customHouse = renderToStaticMarkup(
+    <img
+      src="https://img.icons8.com/color/48/000000/cottage.png"
+      alt="cocktail marker"
+    />,
+  );
+  const iconHouse = divIcon({
+    html: customHouse,
     iconSize: [0, 0],
     iconAnchor: [10, 41],
     popupAnchor: [2, -40],
   });
-  const newId = ((Number.isNaN(id) ? id : 1) + Math.random()) * 100;
   return (
-    <Marker key={newId} icon={icon} position={[position.latitude, position.longitude]}>
+    <Marker key={id} icon={iconHouse} position={[position.latitude, position.longitude]}>
       <Popup>
         <img
           src={url}

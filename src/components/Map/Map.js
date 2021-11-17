@@ -92,6 +92,7 @@ const Map = () => {
             coordinate, title, id, picture,
           }) => (
             <Offers
+              key={id}
               id={id}
               position={coordinate}
               url={picture}

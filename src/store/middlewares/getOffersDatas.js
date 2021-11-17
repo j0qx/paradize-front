@@ -19,7 +19,6 @@ const getOffersMiddleware = (store) => (next) => (action) => {
       url,
       data: {
         query: getOffersDatas(
-
         ),
       },
     };

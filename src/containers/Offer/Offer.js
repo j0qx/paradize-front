@@ -34,17 +34,12 @@ const Offer = () => {
     },
   ];
   const { id } = useParams();
-  console.log("id d'une offre", id);
-
   // recuperation du state
   const CardOffers = useSelector((state) => state.offers.cardOffers);
 
   // find pour recuperer l'id du user
   const offer = CardOffers.find((element) => element.id === id);
-
-  console.log('toutes les offres', CardOffers);
   console.log('une offre', offer);
-  console.log('use params', useParams());
 
   return (
     <div className={style.Offer}>
@@ -55,9 +50,7 @@ const Offer = () => {
           </div>
           <div className={style.Offer__containerLeft__content__description}>
             <h2>{offer.title}</h2>
-            <h3>{offer.status}</h3>
             <p> {offer.description}</p>
-            <h3>{offer.price}</h3>
           </div>
         </div>
         <div className={style.Offer__sub}>

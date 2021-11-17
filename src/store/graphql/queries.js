@@ -90,4 +90,3 @@ export const getOffersDatas = `query Query {
     picture
   }
 }`;
-

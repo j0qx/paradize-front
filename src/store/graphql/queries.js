@@ -91,7 +91,7 @@ export const createOffer = (title,
   }`;
   return query;
 };
-export const getOffersDatas = () => `query Query {
+export const getOffersDatas = `query Query {
   offers {
     id
     title

@@ -10,6 +10,7 @@ import style from './Header.module.scss';
 
 const Header = () => {
   const dispatch = useDispatch();
+  const isAvatarlogged = useSelector((state) => state.user.avatar);
   const isModalHidden = useSelector((state) => state.domSettings.isModalHidden);
   const isAccountListOpen = useSelector((state) => state.domSettings.isAccountListOpen);
   const isLogged = useSelector((state) => state.user.isLogged);
@@ -95,6 +96,9 @@ const Header = () => {
             />
           </Link>
         </li>
+        <div className={style.navbar__linksContainer__link__avatar}>
+          <img src={isAvatarlogged} alt="avatar" />
+        </div>
       </ul>
       )}
       {isLogged && isAccountListOpen === true && isMobile && (
@@ -186,6 +190,11 @@ const Header = () => {
         </ul>
       )}
       <div className={style.navbar__burger}>
+        {isLogged && isMobile && (
+        <div className={style.navbar__avatar}>
+          <img src={isAvatarlogged} alt="avatar" />
+        </div>
+        )}
         <Hamburger
           toggled={isOpen}
           toggle={setOpen}

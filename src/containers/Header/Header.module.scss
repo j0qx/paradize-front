@@ -6,7 +6,8 @@
   justify-content:  space-between;
   width: 100%;
   min-height: 75px;
-  padding: 1rem 5rem;
+  padding: 1rem 1rem;
+  padding-left: 3rem;
   background-color: white;
 
   &__logoContainer{
@@ -16,10 +17,24 @@
 
   &__linksContainer{
     display: flex;
+    width: 40%;
+    justify-content: flex-end;
+    align-items: center;
 
     &__link{
       padding: 0 0.3rem;
       
+      &__avatar{
+        display: block;
+        object-fit: cover;
+        width: 40px;
+        height: 40px;
+        border-radius: 25px;
+        margin-left: 2%;
+        background-color: blue;
+        
+      }
+
       &__sublink{
         width: 100%;
         display: flex;
@@ -80,11 +95,36 @@
         display: block;
         padding: 0.3rem 1.5rem;
         text-align: right;
+
+        &__avatar{
+          display: none;
+          object-fit: cover;
+          width: 40px;
+          height: 40px;
+          border-radius: 25px;
+          margin-right: 8%;
+          background-color: transparent;
+        }
       }
     } 
     &__burger{
-      display: block;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-end;
+      display: flex;
+      width: 25%;
       z-index: 3;
+
+    }
+    &__avatar{
+      display: block;
+      object-fit: cover;
+      width: 40px;
+      height: 40px;
+      border-radius: 25px;
+      margin-right: 12%;
+      background-color: blue;
+      
     }
   }
   .navbarOpened{

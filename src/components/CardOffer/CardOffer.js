@@ -4,9 +4,21 @@ import style from './CardOffer.module.scss';
 
 const CardOffer = ({
   title, description, picture, id,
-}) => (
+}) => {
+  if(picture) {
+    const image = `http://localhost:3333/${picture[0]}`;
+    console.log(image);
+  }
+  return(
   <div className={style.offer}>
-    <img className={style.offer__picture} src={picture} alt={title} />
+    { picture
+    && (
+    <img
+      className={style.offer__picture}
+      src={`http://localhost:3333/${picture[0]}`}
+      alt={title}
+    />
+    )}
     <div className={style.offer__content}>
       <div className={style.offer__content__title}>
         <h2>{title}</h2>
@@ -18,8 +30,7 @@ const CardOffer = ({
       <div className={style.offer__content__price} />
     </div>
   </div>
-);
-
+);}
 CardOffer.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,

@@ -14,8 +14,6 @@ const MyOffer = () => {
     <div className={style.createOffer__main}>
       <div className={style.createOffer__second}>
         <div className={style.createOffer__second__left}>
-          <UploadImage labelButton="envoyer une image" />
-          <UploadImages labelButton="envoyer plusieurs images" />
           <FontAwesomeIcon
             icon={faPlusCircle}
             size="5x"

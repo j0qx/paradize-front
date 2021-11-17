@@ -44,7 +44,7 @@ const Map = () => {
 
   useEffect(() => {
     dispatch({ type: GET_OFFERS_DATAS });
-  });
+  }, []);
   return (
     <div className={style.mapContainer}>
       <MapContainer

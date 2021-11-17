@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import './uploadImage.scss';
 import { useMutation, gql } from '@apollo/client';
+import { useDispatch } from 'react-redux';
 
 const SINGLE_UPLOAD = gql`
   mutation Mutation($file: Upload!, $bucketName: String!) {
@@ -11,19 +12,29 @@ const SINGLE_UPLOAD = gql`
   }
 `;
 
-const UploadImage = ({ labelButton }) => {
+const UploadImage = ({ labelButton, dispatchToRedux }) => {
+  const { type, keyName } = dispatchToRedux;
   const [mutate, { data, loading, error }] = useMutation(SINGLE_UPLOAD);
   const onChange = ({
     target: {
       validity,
       files: [file],
     },
-  }) => validity.valid && mutate({ variables: { file, bucketName: 'paradize' } });
+  }) => validity.valid && mutate({ variables: { file, bucketName: 'oparadize' } });
 
   if (loading) return <div>Loading...</div>;
-  if (error) return <div>{JSON.stringify(error, null, 2)}</div>;
+  if (error) {
+    console.log(error);
+  }
   if (data) {
-    console.log(data);
+    console.log('keyName:', keyName);
+    // eslint-disable-next-line react/prop-types
+    useDispatch()({
+      type,
+      payload: {
+        [keyName]: `images/${data.uploadObject.key}`,
+      },
+    });
   }
   return (
     <div>
@@ -37,6 +48,10 @@ const UploadImage = ({ labelButton }) => {
 
 UploadImage.propTypes = {
   labelButton: PropTypes.string.isRequired,
+  dispatchToRedux: PropTypes.shape({
+    type: PropTypes.string.isRequired,
+    keyName: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default UploadImage;

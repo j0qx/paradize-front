@@ -22,7 +22,7 @@ const createOfferMiddleware = (store) => (next) => (action) => {
           state.user.id,
           state.offers.inputValueLatCoordinate,
           state.offers.inputValueLongCoordinate,
-
+          state.offers.pictures,
         ),
       },
     };

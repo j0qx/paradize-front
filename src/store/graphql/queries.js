@@ -60,12 +60,24 @@ export const updateUserDatas = ({ id, toUpdate, response }) => `
       {${[...response]}}
   }`;
 
-export const createOffer = (title, description, onlineStatus, userId, latitude, longitude) => `mutation CreateOffer {
-    createOffer(title: "${title}", description: "${description}", status: "${onlineStatus}", user_account_id: ${userId}, 
-    coordinate: {
-      latitude: "${latitude}",
-      longitude: "${longitude}"
-    }) {
+export const createOffer = (title,
+  description,
+  onlineStatus,
+  userId,
+  latitude,
+  longitude,
+  pictures) => {
+  const query = `mutation CreateOffer {
+    createOffer(title: "${title}",
+     description: "${description}",
+      status: "${onlineStatus}",
+      user_account_id: ${userId}, 
+      coordinate: {
+        latitude: "${latitude}",
+        longitude: "${longitude}"
+        },
+      picture: ${JSON.stringify(pictures)}
+         ) {
       message
       newElement {
         offer {
@@ -77,6 +89,8 @@ export const createOffer = (title, description, onlineStatus, userId, latitude, 
       }
     }
   }`;
+  return query;
+};
 export const getOffersDatas = () => `query Query {
   offers {
     id

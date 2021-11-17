@@ -18,8 +18,7 @@ const getOffersMiddleware = (store) => (next) => (action) => {
       method: 'post',
       url,
       data: {
-        query: getOffersDatas(
-        ),
+        query: getOffersDatas,
       },
     };
     // we play axios request

@@ -32,11 +32,14 @@ const BoardDatas = () => {
         <Line />
       </div> */}
 
+        {
+        getAllCheckedCheckboxs(allCheckboxs).length > 0
+        && (
         <div className={style.boarddatas_container__list__bar}>
-          {
-        getAllCheckedCheckboxs(allCheckboxs).length > 0 && <Bar />
-      }
+          <Bar />
         </div>
+        )
+      }
 
       </div>
     </div>
@@ -44,4 +47,3 @@ const BoardDatas = () => {
 };
 
 export default BoardDatas;
-

@@ -15,8 +15,9 @@ import {
   HospitalMarker,
   ParkMarker,
 } from './Markers';
-import { GET_DATA_AIR_POLLUTION, GET_OFFERS_DATAS } from '../../store/actions';
+import { GET_DATA_AIR_POLLUTION, GET_OFFERS_DATAS, GET_DATAS_FROM_API } from '../../store/actions';
 import getCheckboxs from '../../store/selectors/getCheckboxs';
+import getAllCheckedCheckboxs from '../../store/selectors/getAllCheckedCheckboxs';
 import './style.scss';
 import style from './Map.module.scss';
 
@@ -49,6 +50,14 @@ const Map = () => {
         <MapConsumer>
           {(map) => {
             map.flyTo(currentPos, map.getZoom());
+            if (getAllCheckedCheckboxs(allCheckboxs).length > 0) {
+              getAllCheckedCheckboxs(allCheckboxs).forEach((checkBoxeName) => {
+                dispatch({
+                  type: GET_DATAS_FROM_API,
+                  keyword: checkBoxeName,
+                });
+              });
+            }
             dispatch({ type: GET_DATA_AIR_POLLUTION });
             dispatch({ type: GET_OFFERS_DATAS });
             return null;

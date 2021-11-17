@@ -57,6 +57,7 @@ export const STORE_MAP_REF = 'STORE_MAP_REF';
 // Get USER
 export const GET_USER_DATAS = 'GET_USER_DATAS';
 export const UPDATE_USER_DATAS = 'UPDATE_USER_DATAS';
+export const GET_USER_OFFERS = 'GET_USER_OFFERS';
 // Update USER
 export const MODIFY_USER_DATAS = 'MODIFY_USER_DATAS';
 export const TEST_USER_DATAS = 'TEST_USER_DATAS';

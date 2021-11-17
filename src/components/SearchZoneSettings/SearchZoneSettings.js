@@ -1,3 +1,5 @@
+/* eslint-disable max-len */
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useLocation } from 'react-router-dom';
 import style from './SearchZoneSettings.module.scss';
@@ -13,6 +15,7 @@ import {
 } from '../../store/actions';
 import getAllCheckedCheckboxs from '../../store/selectors/getAllCheckedCheckboxs';
 import AutoComplete from '../Autocomplete/Autocomplete';
+import InputSwitch from '../InputSwitch';
 
 const SearchZoneSettings = () => {
   const dispatch = useDispatch();
@@ -38,12 +41,14 @@ const SearchZoneSettings = () => {
           }
         }}
       >
-        <h4 className={style.search__zone__title}>Recherche par distance</h4>
+        {/* <h4 className={style.search__zone__title}>Recherche par distance</h4> */}
         <div className={style.search__adress}>
-          <span className={location === '/explore' ? style.search__legend__address : style.container__selects__none}>Recherche par adresse...</span>
+          {/* <span className={location === '/explore' ? style.search__legend__address : style.container__selects__none}>Recherche par adresse...</span> */}
 
           <AutoComplete />
+          <InputSwitch />
         </div>
+
         <div className={style.container__selects}>
           <div className={style.container__selects__content}>
             <input

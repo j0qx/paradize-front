@@ -5,6 +5,7 @@ import style from './MyOffer.module.scss';
 import { TOGGLE_PRINT_MODAL, SET_MODAL_CONTENT } from '../../store/actions';
 import UploadImage from '../../components/UploadImage';
 import UploadImages from '../../components/UploadImages';
+import MyOffers from '../../components/MyOffers/MyOffers';
 
 const MyOffer = () => {
   const dispatch = useDispatch();
@@ -31,7 +32,7 @@ const MyOffer = () => {
           <h3>N'hésitez pas, créer votre propre annonce..</h3>
         </div>
         <div className={style.createOffer__second__right}>
-          <h3>composant affichant les offres créer</h3>
+          <MyOffers />
         </div>
       </div>
     </div>

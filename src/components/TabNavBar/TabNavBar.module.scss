@@ -11,12 +11,13 @@
     height: 10%;
     color: #9dbdb2;;  
     &__icon{
-      padding: 0.5% 0.5% 0.5% 0.5%;
-      text-align: center;
+      padding: 0% 2% 0.5% 0.5%;
+      text-align: top;
       cursor: pointer;
       transition: all 0.7s;
       border-bottom-left-radius: 2rem;
       border-bottom-right-radius: 2rem;
+      margin-right: 2%;
 
       &:hover:not(&__active__icon) {
         color: rgba(11, 51, 44, 0.74);
@@ -33,7 +34,7 @@
       transition: all 0.7s;
       border-bottom-left-radius: 2rem;
       border-bottom-right-radius: 2rem;
-
+      
 
       &:hover:not(&__active) {
         color: rgba(11, 51, 44, 0.74);

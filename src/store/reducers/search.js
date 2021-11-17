@@ -12,6 +12,7 @@ import {
   PRINT_SUGGESTIONS_ADRESS,
   SET_SUGGESTION_VALUE,
   GET_DATA_AIR_POLLUTION_SUCCESS,
+  SWITCH_OFFERS,
   // GET_DATAS_FROM_API_ERROR,
 } from '../actions';
 
@@ -58,9 +59,10 @@ export const initialState = {
   inputValueAddress: '',
   inputValueTime: '900',
   inputValueMiles: 1000,
-  inputValueTrans: '',
+  inputValueTrans: 'voiture',
   valueRadio: 1,
   isochroneResults: null,
+  inputSwitch: false,
   autoComplete: {
     filteredSuggestions: [],
     activeSuggestionIndex: 0,
@@ -170,6 +172,11 @@ const searchReducer = (state = initialState, action = {}) => {
         ...state,
         airComponentsValues: [action.values[0] / 10, ...action.values.slice(1)],
         airQualityNote: action.airQualityNote,
+      };
+    case SWITCH_OFFERS:
+      return {
+        ...state,
+        [action.inputField]: !state.inputSwitch,
       };
     default:
       return state;

@@ -60,6 +60,36 @@ export const updateUserDatas = ({ id, toUpdate, response }) => `
       {${[...response]}}
   }`;
 
+export const createOffer = (title, description, onlineStatus, userId, latitude, longitude) => `mutation CreateOffer {
+  createOffer(title: "${title}", description: "${description}", status: "${onlineStatus}", user_account_id: ${userId}, 
+  coordinate: {
+    latitude: "${latitude}",
+    longitude: "${longitude}"
+  }) {
+    message
+    newElement {
+      offer {
+        id
+        title
+        description
+        status
+      }
+    }
+  }
+}`;
+export const getOffersDatas = () => `query Query {
+  offers {
+    id
+    title
+    description
+    status
+    coordinate {
+      latitude
+      longitude
+    }
+    picture
+  }
+};`;
 // Query who get all the offer create by an User
 export const getOffersUser = (id) => `query Offers($userAccountId: Int) {
   offers(user_account_id: ${id}) {

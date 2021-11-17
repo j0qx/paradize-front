@@ -2,6 +2,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useLocation } from 'react-router';
+import ReactTooltip from 'react-tooltip';
 import style from './SearchDataSettings.module.scss';
 import { CHECKBOX_TOGGLE, GET_DATAS_FROM_API } from '../../store/actions';
 
@@ -44,7 +45,9 @@ const SearchDataSettings = () => {
                 type="checkbox"
                 checked={checkboxe.checked}
               />
-              <div className={style.slider__icon}><FontAwesomeIcon className={style.switch__font} icon={checkboxe.icon} size="2x" /></div>
+              {location === '/'
+              && <ReactTooltip id={checkboxe.checkBoxeName} place="top" effect="solid" /> }
+              <div data-tip={checkboxe.checkBoxeName} data-for={checkboxe.checkBoxeName} className={style.slider__icon}><FontAwesomeIcon className={style.switch__font} icon={checkboxe.icon} size="2x" /></div>
               <span className={location === '/explore' ? style.labels__display : style.labels__none}>{checkboxe.checkBoxeName}</span>
             </label>
           </div>

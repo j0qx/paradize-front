@@ -50,7 +50,6 @@ const Offer = () => {
           </div>
           <div className={style.Offer__containerLeft__content__description}>
             <h2>{offer.title}</h2>
-            <h4>{offer.status}</h4>
             <p> {offer.description}</p>
           </div>
         </div>

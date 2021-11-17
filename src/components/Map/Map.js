@@ -32,6 +32,7 @@ import style from './Map.module.scss';
 
 const Map = () => {
   const dispatch = useDispatch();
+  const inputSwitch = useSelector((state) => state.search.inputSwitch);
   const cardOffers = useSelector((state) => state.offers.cardOffers);
   const currentPos = useSelector((state) => state.map.currentPos);
   // // here we have all the checkboxes (checked and not checked)
@@ -88,17 +89,19 @@ const Map = () => {
           disableClusteringAtZoom={16}
         >
           {
-          cardOffers.map(({
-            coordinate, title, id, picture,
-          }) => (
-            <Offers
-              key={id}
-              id={id}
-              position={coordinate}
-              url={picture}
-              title={title}
-            />
-          ))
+          inputSwitch && (
+            cardOffers.map(({
+              coordinate, title, id, picture,
+            }) => (
+              <Offers
+                key={id}
+                id={id}
+                position={coordinate}
+                url={picture}
+                title={title}
+              />
+            ))
+          )
         }
           {
         getCheckboxs('Bar', allCheckboxs).checked && (

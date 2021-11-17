@@ -8,32 +8,29 @@ import { SWITCH_OFFERS } from '../../store/actions';
 
 const InputSwitch = () => {
   const dispatch = useDispatch();
-  // const switchValue = useSelector((state) => state.);
+  const inputSwitch = useSelector((state) => state.search.inputSwitch);
   return (
     <div className={style.container}>
       <FontAwesomeIcon icon={faScroll} size="2x" color="#406F8A" />
       <span className={style.text}>Annonces</span>
 
       <input
-        className={style.react__switch__checkbox}
         type="checkbox"
-        // value={switchValue}
-        //   checked={switchValue}
-        //   onChange={(e) => {
-        //       console.log(e.target.value);
-        //       if (e.target.value === true) {
-        //           dispatch({
-        //               type: SWITCH_OFFERS,
-        //               switchValue: ,
-        //             });
-        //           }
-
-        //         }}
+        checked={inputSwitch}
+        value={inputSwitch}
+        className={style.react__switch__checkbox}
         id={style.react__switch__new}
       />
       <label
+        style={{ background: inputSwitch && '#9DBDB2' }}
         className={style.react__switch__label}
         htmlFor={style.react__switch__new}
+        onClick={() => {
+          dispatch({
+            type: SWITCH_OFFERS,
+            inputField: 'inputSwitch',
+          });
+        }}
       >
         <span className={style.react__switch__button} />
       </label>

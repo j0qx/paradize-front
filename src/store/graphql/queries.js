@@ -77,7 +77,7 @@ export const createOffer = (title, description, onlineStatus, userId, latitude, 
       }
     }
   }`;
-export const getOffersDatas = () => `query Query {
+export const getOffersDatas = `query Query {
   offers {
     id
     title
@@ -90,3 +90,4 @@ export const getOffersDatas = () => `query Query {
     picture
   }
 }`;
+

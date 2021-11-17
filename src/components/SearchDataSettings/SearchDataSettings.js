@@ -46,7 +46,14 @@ const SearchDataSettings = () => {
                 checked={checkboxe.checked}
               />
               {location === '/'
-              && <ReactTooltip id={checkboxe.checkBoxeName} place="top" effect="solid" /> }
+              && (
+              <ReactTooltip
+                id={checkboxe.checkBoxeName}
+                place="top"
+                effect="solid"
+                data-background-color="#9dbdb2"
+              />
+              ) }
               <div data-tip={checkboxe.checkBoxeName} data-for={checkboxe.checkBoxeName} className={style.slider__icon}><FontAwesomeIcon className={style.switch__font} icon={checkboxe.icon} size="2x" /></div>
               <span className={location === '/explore' ? style.labels__display : style.labels__none}>{checkboxe.checkBoxeName}</span>
             </label>

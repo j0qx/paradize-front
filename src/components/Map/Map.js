@@ -5,6 +5,7 @@ import {
   MapContainer, TileLayer, LayersControl, MapConsumer,
 } from 'react-leaflet';
 import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 import MarkerClusterGroup from 'react-leaflet-markercluster';
 import LocationMarker from '../Pointer';
 import {
@@ -15,11 +16,11 @@ import {
   HospitalMarker,
   ParkMarker,
 } from './Markers';
-import { GET_DATA_AIR_POLLUTION, GET_OFFERS_DATAS, GET_DATAS_FROM_API } from '../../store/actions';
+
 import getCheckboxs from '../../store/selectors/getCheckboxs';
-import getAllCheckedCheckboxs from '../../store/selectors/getAllCheckedCheckboxs';
 import './style.scss';
 import style from './Map.module.scss';
+import { GET_OFFERS_DATAS } from '../../store/actions';
 
 /* const DefaultIcon = L.icon({
   iconUrl: icon,
@@ -40,6 +41,10 @@ const Map = () => {
     sattelite: 'http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',
     pretty: 'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw',
   };
+
+  useEffect(() => {
+    dispatch({ type: GET_OFFERS_DATAS });
+  });
   return (
     <div className={style.mapContainer}>
       <MapContainer

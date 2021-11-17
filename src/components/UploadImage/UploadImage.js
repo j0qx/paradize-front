@@ -18,7 +18,7 @@ const UploadImage = ({ labelButton }) => {
       validity,
       files: [file],
     },
-  }) => validity.valid && mutate({ variables: { file, bucketName: 'oparadize' } });
+  }) => validity.valid && mutate({ variables: { file, bucketName: 'paradize' } });
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>{JSON.stringify(error, null, 2)}</div>;

@@ -50,8 +50,11 @@ const SearchDataSettings = () => {
               <ReactTooltip
                 id={checkboxe.checkBoxeName}
                 place="top"
-                effect="solid"
-                data-background-color="#9dbdb2"
+                effect="float"
+                // many possibilities with options: some examples here...
+                // backgroundColor="#476b5e"
+                // textColor="black"
+                // borderColor="black"
               />
               ) }
               <div data-tip={checkboxe.checkBoxeName} data-for={checkboxe.checkBoxeName} className={style.slider__icon}><FontAwesomeIcon className={style.switch__font} icon={checkboxe.icon} size="2x" /></div>

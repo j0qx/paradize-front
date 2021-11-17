@@ -15,7 +15,7 @@ const InputSwitch = () => {
   return (
     <div className={style.container}>
       {location === '/'
-              && <ReactTooltip id="Annonces" place="top" effect="solid" /> }
+              && <ReactTooltip id="Annonces" place="top" effect="float" /> }
       <FontAwesomeIcon data-tip="Annonces" data-for="Annonces" icon={faScroll} size="2x" color="#406F8A" />
       <span className={location === '/explore' ? style.text : style.display__none}>Annonces</span>
 

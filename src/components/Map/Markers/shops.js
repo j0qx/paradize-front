@@ -9,7 +9,7 @@ const ShopMarker = ({
 }) => {
   const customShop = renderToStaticMarkup(
     <img
-      src="https://img.icons8.com/plasticine/100/000000/shopping-cart-promotion.png"
+      src="https://img.icons8.com/fluency/48/000000/shopping-cart-promotion.png"
       alt=" shops logo"
     />,
   );

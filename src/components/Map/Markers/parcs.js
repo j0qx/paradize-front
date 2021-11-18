@@ -9,7 +9,7 @@ const ParkMarker = ({
 }) => {
   const customPark = renderToStaticMarkup(
     <img
-      src="https://img.icons8.com/external-flatart-icons-lineal-color-flatarticons/64/000000/external-park-nature-flatart-icons-lineal-color-flatarticons-1.png"
+      src="https://img.icons8.com/fluency/64/000000/park-with-street-light.png"
       alt="park logo"
     />,
   );

@@ -11,7 +11,7 @@ import { TOGGLE_OPEN_SLIDE } from '../../store/actions';
 const SlideLeft = ({ children }) => {
   const dispatch = useDispatch();
   const isLeftSlideOpen = useSelector((state) => state.domSettings.isLeftSlideOpen);
-  const offersTooltip = "Içi, vous pouvez cliquer afin d'afficher le panneau des annonces!";
+  const offersTooltip = 'Içi, vous pouvez afficher le panneau des annonces!';
 
   return (
     <>

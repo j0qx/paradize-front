@@ -27,7 +27,7 @@ const Explore = () => {
   const isOffersSlideOpen = useSelector((state) => state.domSettings.slide.isOffersSlideOpen);
   const isStatisticsSlideOpen = useSelector((state) => state.domSettings.slide.isStatisticsSlideOpen);
   const isSearchSettingsOpen = useSelector((state) => state.domSettings.isSearchSettingsOpen);
-  const searchTooltip = "Içi, vous pouvez cliquer afin d'afficher le panneau de recherche!";
+  const searchTooltip = 'Içi, vous pouvez afficher le panneau de recherche!';
 
   return (
     <div className={style.container}>

@@ -10,7 +10,7 @@ import { TOGGLE_OPEN_SLIDE } from '../../store/actions';
 const SlideRight = ({ children }) => {
   const dispatch = useDispatch();
   const isRightSlideOpen = useSelector((state) => state.domSettings.isRightSlideOpen);
-  const graphTooltip = "Içi, vous pouvez cliquer afin d'afficher le panneau de statistiques!";
+  const graphTooltip = 'Içi, vous pouvez afficher le panneau de statistiques!';
 
   return (
     <>

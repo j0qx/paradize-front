@@ -23,6 +23,7 @@ const createOfferMiddleware = (store) => (next) => (action) => {
           state.offers.inputValueLatCoordinate,
           state.offers.inputValueLongCoordinate,
           state.offers.pictures,
+          state.offers.inputValuePrice,
         ),
       },
     };

@@ -66,11 +66,13 @@ export const createOffer = (title,
   userId,
   latitude,
   longitude,
-  pictures) => {
+  pictures,
+  price) => {
   const query = `mutation CreateOffer {
     createOffer(title: "${title}",
      description: "${description}",
       status: "${onlineStatus}",
+      price: "${price}"
       user_account_id: ${userId}, 
       coordinate: {
         latitude: "${latitude}",

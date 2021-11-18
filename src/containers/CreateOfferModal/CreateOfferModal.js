@@ -46,7 +46,7 @@ const CreateOfferModal = () => {
   const importedPictures = pictures.length > 0 ? pictures.map((image) => ({
     original: `https://oparadise-back.herokuapp.com/${image}`,
     thumbnail: `https://oparadise-back.herokuapp.com/${image}`,
-    originalHeight: 20,
+    originalHeight: 250,
   })) : undefined;
 
   return (
@@ -56,9 +56,9 @@ const CreateOfferModal = () => {
         <div className={style.container}>
           <ImageGallery
             items={importedPictures || defaulPicture}
-            originalWidth="100"
+            originalWidth="250"
             slideInterval="5000"
-            thumbnailHeight="100"
+            thumbnailHeight="250"
             showBullets="true"
             autoPlay="true"
           />
@@ -104,14 +104,18 @@ const CreateOfferModal = () => {
               actionType={CHANGE_INPUT_VALUE_OFFERS}
             />
             <textarea
-              inputName="inputValueDescription"
               placeholder=" Description de l'annonce.."
-              classCSS="input__createOffer__modal"
-              inputValue={description}
-              actionType={CHANGE_INPUT_VALUE_OFFERS}
+              value={description}
+              onChange={(event) => {
+                dispatch({
+                  type: CHANGE_INPUT_VALUE_OFFERS,
+                  inputField: 'inputValueDescription',
+                  newValue: event.target.value,
+                });
+              }}
             />
             <InputBase
-              inputName="inputValueprice"
+              inputName="inputValuePrice"
               placeholder="Prix du bien"
               classCSS="input__createOffer__modal"
               inputValue={price}

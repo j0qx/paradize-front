@@ -15,7 +15,7 @@ const Contact = () => (
       <h3>Lead front-end</h3>
 
       <a target="_blank" href="https://github.com/Erwin-Bottius" rel="noreferrer">Profil Github</a>
-      <a target="_blank" href="https://github.com/Erwin-Bottius" rel="noreferrer">Profil LinkedIn</a>
+      <a target="_blank" href="https://www.linkedin.com/in/erwin-bottius-880766226/" rel="noreferrer">Profil LinkedIn</a>
     </div>
 
     <div className={style.container__contact__card}>

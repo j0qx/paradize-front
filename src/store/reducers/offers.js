@@ -10,7 +10,7 @@ const initialState = {
   pictures: [],
   index: 1,
   inputValueDescription: '',
-  inputValueprice: '',
+  inputValuePrice: '',
   isOfferOnline: false,
   inputValueLatCoordinate: '',
   inputValueLongCoordinate: '',

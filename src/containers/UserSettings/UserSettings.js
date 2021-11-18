@@ -25,6 +25,9 @@ const UserSettings = () => {
               }}
             />
           </Link>
+        </div>
+        <div className={style.userSettings__second__buttons}>
+
           <Link to="/">
             <ButtonSubmit
               classCSS="usersettingsbutton"

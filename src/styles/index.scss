@@ -16,3 +16,27 @@ body {
     font-family: 'Roboto', sans-serif;
   }
 */
+
+
+// CSS of All ScrollBar----
+::-webkit-scrollbar {
+  width: 11px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+  
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #406f8abd;
+  border-radius: 15px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #406f8a77;
+  opacity: 0.5;
+}

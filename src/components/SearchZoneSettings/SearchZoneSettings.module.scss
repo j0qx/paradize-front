@@ -12,105 +12,23 @@
     display: block;
 
   }
+
 }
+
+
+// mobile
 @media(max-width:1100px){
-  .search__legend__address{
-     display: none;
-   }
-
-}
-.container__selects__none{
-  display: none;
-}
-.search__zone {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 70%;
-  justify-content: center;
-  align-items: center;
-
-  &__title{
-    text-align: center;
-    font-size: 1.0rem;
-    color: black;
-    padding: 3%;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
+  
+  .container__selects__none{
+    display: none;
+  }
+  .subtitles{
+    margin-top:1em;
+    margin-bottom:1em;
+  }
+  .search__adress {
     
   }
-}
-
-.search__adress {
-  display: flex;
-  flex-direction: column-reverse;
-  width: 100%;
-  height: auto;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  left: 1rem;
-}
-
-.search__button {
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  align-items: center;
-  margin-top: 3%;
-  position: relative;
-  left: auto;
-
-}
-
-.container__selects {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-top: 1.5rem;
-  &__content {
-    width: 100%;
-    display: flex;
-
-    &__select {
-      width: 80%;
-      padding: 2%;
-      border-radius: 8px;
-      margin-right: 8%;
-      margin-bottom: 5%;
-      background-color: white;
-      z-index : 1;
-      &__transport {
-        margin-left: 8%;
-        margin-right: 8%;
-        margin-bottom: 5%;
-        background-color: white;
-        z-index: 1;
-        position: relative;
-        left: 3.5%;
-
-        border: 1px solid vars.$primaryColor;
-        padding: 0.5rem;
-        width: 75%;
-        border-radius: 4px;
-      }
-    }
-
-  }
-}
-//  PAGE EXPLORE ******************************************
-.search__zoneExplore{
-  display: flex;
-  height: fit-content;
-  flex-direction: column-reverse;
-  justify-content: space-between;
-  width: 100%;
-  margin-top: 5%;
-  position: relative;
-  right: 3.5rem;
-  //added css to improve display on explore bottom
-
   .search__button {
     display: flex;
     width: 100%;
@@ -118,59 +36,190 @@
     align-items: center;
     margin-top: 3%;
     position: relative;
-    left: 3.5rem;
-  }
-  .search__adress{
-    width: 55%;
-    display: flex;
-    flex-direction: column;
-    margin: 0 2%;
-    padding: 0;
-    margin-bottom: 5%;
-    position: relative;
-    left: 12.5%;
+    left: auto;
 
   }
-
-  .search__zone__title{
-    display: none;
-  }
-  form{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
+  .container__selects {
+    margin-top:2em;
     width: 100%;
-
-  .container__selects{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    width: 100%;
-    position: relative;
-    right:-2.5rem;
-  .container__selects__content{
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    margin-bottom: 10%;
-    height: 2rem;
-    width: 65%;
-
-    .container__selects__content__select{
-      width: 100%;
-      padding: 3% 0;
-      margin-bottom: 5%;
+    &__content {
+      width: 20rem;
+      display: flex;
+  
+      &__select {
+        width: 100%;
+        padding: 2%;
+        border-radius: 8px;
+        margin-right: 8%;
+        margin-bottom: 5%;
+        background-color: white;
+        opacity: 1;
+        z-index : 1;
+        &__transport {
+          width: 100%;
+          padding: 2%;
+          border-radius: 8px;
+          margin-left: 6.5%;
+          margin-right: 7%;
+          margin-bottom: 5%;
+          background-color: white;
+          opacity: 1;
+          z-index: 1;
+          position: relative;
+          left: 0;
+          right: 0;
+          border: 1px solid vars.$primaryColor;
+        }
+      }
     }
   }
-}
-}
-}
+  .search__legend__address{
+     display: none;
+    }
+  }
 
 
+// desktop
 @media(min-width:1100px) {
+  .subtitles{
+    margin:1em;
+  }
+  .container__selects__none{
+    display: none;
+  }
+  
+  .search__adress {
+    display: flex;
+    flex-direction: column-reverse;
+    width: 100%;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    left: 0;
+    right: 0;
+  }
+  
+  .search__button {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3%;
+    position: relative;
+    left: auto;
+  
+  }
+  
+  .container__selects {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    &__content {
+      width: 20rem;
+      display: flex;
+  
+      &__select {
+        width: 100%;
+        padding: 2%;
+        border-radius: 8px;
+        margin-right: 8%;
+        margin-bottom: 5%;
+        background-color: white;
+        opacity: 1;
+        z-index : 1;
+        &__transport {
+          width: 100%;
+          padding: 2%;
+          border-radius: 8px;
+          margin-left: 6.5%;
+          margin-right: 7%;
+          margin-bottom: 5%;
+          background-color: white;
+          opacity: 1;
+          z-index: 1;
+          position: relative;
+          left: 0;
+          right: 0;
+          border: 1px solid vars.$primaryColor;
+        }
+      }
+  
+    }
+  }
 
+  //  PAGE EXPLORE ******************************************
+  .search__zoneExplore{
+    display: flex;
+    height: fit-content;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 5%;
+    position: relative;
+    right: 3.5rem;
+    //added css to improve display on explore bottom
+  
+    .search__button {
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+      margin-top: 3%;
+      position: relative;
+      left: 3.5rem;
+    }
+    .search__adress{
+      width: 55%;
+      display: flex;
+      flex-direction: column;
+      margin: 0 2%;
+      padding: 0;
+      margin-bottom: 5%;
+      position: relative;
+      left: 12.5%;
+  
+    }
+  
+    .search__zone__title{
+      display: none;
+    }
+    form{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+  
+    .container__selects{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      position: relative;
+      right:-2.5rem;
+    .container__selects__content{
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      margin-bottom: 10%;
+      height: 2rem;
+      width: 65%;
+  
+      .container__selects__content__select{
+        width: 100%;
+        padding: 3% 0;
+        margin-bottom: 5%;
+      }
+    }
+  }
+  }
+  }
   .search__zone {
     display: flex;
     flex-direction: column;
@@ -178,7 +227,6 @@
     height: 50%;
     justify-content: center;
     align-items: center;
-    
 
     &__title{
       display: flex;
@@ -188,54 +236,7 @@
     }
   }
 
-  .search__adress {
-    display: flex;
-    flex-direction: column-reverse;
-    justify-content: center;
-    position: relative;
-    left: 0;
-    right: 0;
 
-  }
-
-  .search__button {
-    width: 100%;
-  }
-
-
-  .container__selects {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    &__content {
-      width: 20rem;
-      display: flex;
-
-    &__select {
-      width: 20rem;
-      padding: 2%;
-      border-radius: 8px;
-      margin-right: 7%;
-      margin-bottom: 5%;
-      background-color: white;
-
-      &__transport {
-        width: 100%;
-        padding: 2%;
-        border-radius: 8px;
-        margin-right: 7%;
-        margin-bottom: 5%;
-        background-color: white;
-        z-index: 1;
-        position: relative;
-        left: 0;
-        right: 0;
-      }
-    }
-  }
-}
 //  PAGE EXPLORE ******************************************
 .search__legend{
   display: flex;
@@ -326,7 +327,6 @@ input[type=range]::-webkit-slider-runnable-track {
   width: 100%;
   height: 8px;
   cursor: pointer;
-  animate: 0.2s;
   box-shadow: 1px 1px 1px #50555C;
   background: #50555C;
   border-radius: 14px;
@@ -350,7 +350,6 @@ input[type=range]::-moz-range-track {
   width: 100%;
   height: 8px;
   cursor: pointer;
-  animate: 0.2s;
   box-shadow: 1px 1px 1px #50555C;
   background: #50555C;
   border-radius: 14px;
@@ -369,7 +368,6 @@ input[type=range]::-ms-track {
   width: 100%;
   height: 8px;
   cursor: pointer;
-  animate: 0.2s;
   background: transparent;
   border-color: transparent;
   color: transparent;

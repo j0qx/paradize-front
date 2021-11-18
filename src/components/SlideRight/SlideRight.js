@@ -1,5 +1,6 @@
 import { PropTypes } from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
+import ReactTooltip from 'react-tooltip';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
@@ -9,10 +10,18 @@ import { TOGGLE_OPEN_SLIDE } from '../../store/actions';
 const SlideRight = ({ children }) => {
   const dispatch = useDispatch();
   const isRightSlideOpen = useSelector((state) => state.domSettings.isRightSlideOpen);
+  const graphTooltip = 'Içi, vous pouvez afficher le panneau de statistiques!';
 
   return (
     <>
+      <ReactTooltip
+        id={graphTooltip}
+        place="top"
+        effect="float"
+      />
       <FontAwesomeIcon
+        data-tip={graphTooltip}
+        data-for={graphTooltip}
         icon={isRightSlideOpen ? faChevronLeft : faChevronRight}
         // If the current slide content was ListCardOffer Slide, we set the state to false
         onClick={() => {

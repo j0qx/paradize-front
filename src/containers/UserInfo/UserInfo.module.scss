@@ -102,6 +102,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+    left: -15%;
 
 
   }
@@ -142,13 +144,10 @@
       flex-direction: column;
       width: 80%;
       height: 100%;
-      align-items: flex-end;
+      align-items: center;
       padding: 2% 2% 2% 2%;
 
-      &__button {
-
-        align-items: center;
-        justify-content: center;
+      &__button {  
         padding-top: 2%;
       }
 

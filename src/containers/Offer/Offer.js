@@ -55,6 +55,7 @@ const Offer = () => {
             )}
       <div className={style.Offer__containerLeft}>
         <div className={style.Offer__containerLeft__content}>
+          <p className={style.Offer__sub__content}>{offer.price} €</p>
           <div className={style.Offer__containerLeft__content__description}>
             <p className={style.Offer__containerLeft__content__title}>{offer.title}</p>
             <p className={style.Offer__containerLeft__content__description__description}> {offer.description}</p>
@@ -87,13 +88,13 @@ const Offer = () => {
         <div className={style.Offer__sub}>
           <ImageGallery
             items={offer.pictures}
-            originalWidth="200"
+            originalWidth="350"
             slideInterval="5000"
-            thumbnailHeight="200"
+            thumbnailHeight="100"
             showBullets="true"
             autoPlay="true"
           />
-          <p className={style.Offer__sub__content}>652000€</p>
+
         </div>
       </div>
       <div className={style.Offer__container__right}>

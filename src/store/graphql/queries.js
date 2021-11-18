@@ -102,5 +102,6 @@ export const getOffersDatas = `query Query {
       longitude
     }
     picture
+    price
   }
 }`;

@@ -7,7 +7,6 @@ const CardOffer = ({
 }) => {
   if (picture) {
     const image = `https://oparadise-back.herokuapp.com/${picture[0]}`;
-    console.log(image);
   }
   return (
     <div className={style.offer}>
@@ -21,14 +20,13 @@ const CardOffer = ({
     )}
       <div className={style.offer__content}>
         <div className={style.offer__content__title}>
-          <h3>{price}€</h3>
+          <h3 className={style.price}>{price} €</h3>
           <h4>{title}</h4>
         </div>
         <div className={style.offer__content__description}>
           <p className={style.offer__content__description__paragraph}>{description}</p>
         </div>
         <Link className={style.offer__content__moreinfo} to={`/offer/${id}`}> En savoir plus...</Link>
-        <div className={style.offer__content__price} />
       </div>
     </div>
   );

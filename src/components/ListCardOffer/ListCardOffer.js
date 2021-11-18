@@ -13,12 +13,13 @@ const ListCardOffer = () => {
       <div className={style.list__container__main}>
         {
           CardOffers.map(({
-            title, description, picture, id,
+            title, description, picture, id, price,
           }) => (
             <CardOffer
               title={title}
               description={description}
               picture={picture}
+              price={price}
               key={id}
               id={id}
             />

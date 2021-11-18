@@ -1,8 +1,7 @@
 /* eslint-disable camelcase */
 import { useSelector, useDispatch } from 'react-redux';
+import Avatar from 'avataaars';
 import style from './UserInfo.module.scss';
-import photo from '../../assets/image/house.jpg';
-import UploadImage from '../../components/UploadImage';
 import { InputBase } from '../../components';
 import ButtonSubmit from '../../components/ButtonSubmit';
 import { TOGGLE_INPUT_ACCOUNT, MODIFY_USER_DATAS } from '../../store/actions';
@@ -10,7 +9,8 @@ import { TOGGLE_INPUT_ACCOUNT, MODIFY_USER_DATAS } from '../../store/actions';
 const UserInfo = () => {
   const dispatch = useDispatch();
   const isInputHidden = useSelector((state) => state.account.display.isInputHidden);
-  console.log('isInputHidden:', isInputHidden);
+  const isMobile = window.screen.width < 500;
+  const isDesktop = window.screen.width > 500;
   const {
     inputValueLastName,
     inputValueFirstName,
@@ -44,13 +44,39 @@ const UserInfo = () => {
     <div className={style.userinfo__main}>
       <div className={style.userinfo__second}>
         <div className={style.userinfo__second__left}>
-          <img className={style.userinfo__second__left__avatar} src={avatar} alt="" />
-          {/* <div className={style.userinfo__second__right__inputs__button}>
-            <UploadImage
-              labelButton="Télecharger votre Avatar"
-              classCSS=""
-            />
-          </div> */}
+          {isMobile && (
+          <Avatar
+            style={{ width: '250px', height: '250px' }}
+            avatarStyle="Circle"
+            topType="LongHairDreads"
+            accessoriesType="Sunglasses"
+            hairColor="BrownDark"
+            facialHairType="BeardLight"
+            facialHairColor="BrownDark"
+            clotheType="BlazerShirt"
+            eyeType="Happy"
+            eyebrowType="Default"
+            mouthType="Smile"
+            skinColor="Light"
+          />
+          )}
+          {isDesktop && (
+          <Avatar
+            style={{ width: '250px', height: '250px' }}
+            avatarStyle="Circle"
+            topType="LongHairDreads"
+            accessoriesType="Sunglasses"
+            hairColor="BrownDark"
+            facialHairType="BeardLight"
+            facialHairColor="BrownDark"
+            clotheType="BlazerShirt"
+            eyeType="Happy"
+            eyebrowType="Default"
+            mouthType="Smile"
+            skinColor="Light"
+          />
+          )}
+          <div className={style.userinfo__second__right__inputs__button} />
         </div>
 
         {(isInputHidden === true) && (

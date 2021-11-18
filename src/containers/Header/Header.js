@@ -114,7 +114,7 @@ const Header = () => {
               />
             </Link>
           </li>
-          <li>
+          <li className={style.navbar__linksContainer__link}>
             <Link to="/account/infos">
               <ButtonSubmit
                 classCSS={isOpen ? 'navbar_button' : ''}
@@ -176,30 +176,6 @@ const Header = () => {
                 // TODO
                 }}
                 buttonName="Mes annonces"
-              />
-            </Link>
-          </li>
-          <li className={style.navbar__linksContainer__link__sublink}>
-            <Link to="/account/favorites">
-              <ButtonSubmit
-                classCSS={isOpen ? 'navbar_account_button' : ''}
-                handleButtonClick={() => {
-                  setOpen(false);
-                // TODO
-                }}
-                buttonName="Mes annonces sauvegardées"
-              />
-            </Link>
-          </li>
-          <li className={style.navbar__linksContainer__link__sublink}>
-            <Link to="/account/mysearch">
-              <ButtonSubmit
-                classCSS={isOpen ? 'navbar_account_button' : ''}
-                handleButtonClick={() => {
-                  setOpen(false);
-                // TODO
-                }}
-                buttonName="Mes recherches"
               />
             </Link>
           </li>

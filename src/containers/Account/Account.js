@@ -18,24 +18,12 @@ const Account = ({ children }) => {
     <div>
       <TabNavBar navPages={[
         {
-          linkTo: '/explore',
-          title: 'La carte',
-        },
-        {
           linkTo: '/account/infos',
           title: 'Mon compte',
         },
         {
           linkTo: '/account/myoffers',
           title: 'Mes annonces',
-        },
-        {
-          linkTo: '/account/favorites',
-          title: 'Mes annonces sauvegardées',
-        },
-        {
-          linkTo: '/account/mysearch',
-          title: 'Mes recherches',
         },
         {
           linkTo: '/account/settings',

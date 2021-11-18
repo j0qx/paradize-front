@@ -1,7 +1,6 @@
 /* eslint-disable max-len */
-import { useParams } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-
+import { useParams, Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import ImageGallery from 'react-image-gallery';
 import style from './Offer.module.scss';
 // import files
@@ -10,13 +9,17 @@ import style from './Offer.module.scss';
 import BoardDatas from '../BoardDatas';
 import 'react-image-gallery/styles/scss/image-gallery.scss';
 import 'react-image-gallery/styles/css/image-gallery.css';
+import BackButton from '../../components/BackButton';
+import { TOGGLE_OPEN_SLIDE } from '../../store/actions';
 
 const Offer = () => {
+  const dispatch = useDispatch();
   const isMobile = window.screen.width < 500;
   const { id } = useParams();
   // recuperation du state
   const CardOffers = useSelector((state) => state.offers.cardOffers);
-
+  const isRightSlideOpen = useSelector((state) => state.domSettings.isRightSlideOpen);
+  const isLeftSlideOpen = useSelector((state) => state.domSettings.isLeftSlideOpen);
   // find pour recuperer l'id du user
   const offer = CardOffers.find((element) => element.id === id);
   offer.pictures = offer.picture.map((image) => ({
@@ -24,7 +27,6 @@ const Offer = () => {
     thumbnail: `https://oparadise-back.herokuapp.com/${image}`,
     originalHeight: 350,
   }));
-  console.log('une offre', offer);
 
   return (
     <div className={style.Offer}>
@@ -33,6 +35,26 @@ const Offer = () => {
           <div className={style.Offer__containerLeft__content__description}>
             <p className={style.Offer__containerLeft__content__title}>{offer.title}</p>
             <p className={style.Offer__containerLeft__content__description__description}> {offer.description}</p>
+            <Link to="/explore">
+              <BackButton
+                value="retour à la carte"
+                classCss="back__map__button"
+                handleButtonClick={() => {
+                  if (isRightSlideOpen === false) {
+                    dispatch({
+                      type: TOGGLE_OPEN_SLIDE,
+                      slide: 'isRightSlideOpen',
+                    });
+                  }
+                  else if (isLeftSlideOpen === false) {
+                    dispatch({
+                      type: TOGGLE_OPEN_SLIDE,
+                      slide: 'isLeftSlideOpen',
+                    });
+                  }
+                }}
+              />
+            </Link>
           </div>
         </div>
 

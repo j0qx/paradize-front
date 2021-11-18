@@ -54,12 +54,14 @@
       width: 100%;
       align-items: center;
       justify-content: flex-end;
+      position: relative;
+      left: 15%;
     }
 
     &__navbar {
       display: flex;
-      justify-content: center;
-      align-items: center;
+      position: relative;
+      left: -55%;
     }
   }
 }

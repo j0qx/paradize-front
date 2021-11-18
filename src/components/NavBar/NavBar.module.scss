@@ -1,6 +1,6 @@
 /* Mobile + */
 
-@media (max-width: 600px) {
+@media (max-width: 800px) {
 
   .navBar_Container{
 
@@ -31,7 +31,8 @@
     justify-content: flex-end;
     align-items: center;
     margin-right: 2%;
-
+    position: relative;
+    left: 3.5%;
 
     &_Title{
       color: #293845;

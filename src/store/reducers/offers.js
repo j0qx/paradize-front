@@ -1,9 +1,13 @@
-import { READ_OFFERS_DATAS, CHANGE_CURRENT_POS_OFFER } from '../actions';
+import {
+  READ_OFFERS_DATAS,
+  CHANGE_CURRENT_POS_OFFER,
+  SET_PICTURES,
+} from '../actions';
 
 const initialState = {
 
   inputValueTitle: '',
-  inputValuePicture: '',
+  pictures: [],
   inputValueDescription: '',
   isOfferOnline: false,
   inputValueLatCoordinate: '',
@@ -38,6 +42,11 @@ const offersReducer = (state = initialState, action = {}) => {
         ...state,
         inputValueLatCoordinate: action.inputLatPos,
         inputValueLongCoordinate: action.inputLngPos,
+      };
+    case SET_PICTURES:
+      return {
+        ...state,
+        ...action.payload,
       };
     default:
       return state;

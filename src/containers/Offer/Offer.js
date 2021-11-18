@@ -22,6 +22,7 @@ const Offer = () => {
   offer.pictures = offer.picture.map((image) => ({
     original: `http://localhost:3333/${image}`,
     thumbnail: `http://localhost:3333/${image}`,
+    originalHeight: 350,
   }));
   console.log('une offre', offer);
 
@@ -38,8 +39,8 @@ const Offer = () => {
         <div className={style.Offer__sub}>
           <ImageGallery
             items={offer.pictures}
-            originalHeight="200"
-            slideInterval="4000"
+            originalWidth="200"
+            slideInterval="5000"
             thumbnailHeight="200"
             showBullets="true"
             autoPlay="true"

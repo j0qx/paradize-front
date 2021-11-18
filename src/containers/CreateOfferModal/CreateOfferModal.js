@@ -5,13 +5,14 @@ import Switch from 'react-switch';
 // Import COMPONENT
 import { ButtonSubmit, InputBase } from '../../components';
 import {
-  GET_USER_TOKEN_SUCCESS,
   CHANGE_INPUT_VALUE_OFFERS,
   TOGGLE_ONLINE_OFFER,
   CREATE_OFFER,
+  SET_PICTURES,
 } from '../../store/actions';
 import style from './CreateOfferModal.module.scss';
 import AutoComplete from '../../components/Autocomplete/Autocomplete';
+import UploadImages from '../../components/UploadImages/UploadImages';
 
 const CreateOfferModal = ({ classCSS }) => {
   const title = useSelector((state) => state.offers.inputValueTitle);
@@ -22,18 +23,20 @@ const CreateOfferModal = ({ classCSS }) => {
   const coordinateLong = useSelector((state) => state.offers.inputValueLongCoordinate);
   const dispatch = useDispatch();
   const filteredSuggestions = useSelector((state) => state.search.autoComplete.filteredSuggestions);
-
   const handleSubmitForm = (event) => {
     event.preventDefault();
     dispatch({ type: CREATE_OFFER });
   };
-
   const handleChangeToggle = () => {
     dispatch({ type: TOGGLE_ONLINE_OFFER });
   };
   return (
     <div className={style.CreateOfferModal}>
       <h2 className={style.CreateOfferModal__intro}> Création d'une Annonce</h2>
+      <UploadImages
+        labelButton="importer vos images"
+        dispatchToRedux={{ type: SET_PICTURES, keyName: 'pictures' }}
+      />
       <form
         className={style.CreateOfferModal__form}
         onSubmit={handleSubmitForm}
@@ -76,21 +79,6 @@ const CreateOfferModal = ({ classCSS }) => {
             actionType={CHANGE_INPUT_VALUE_OFFERS}
           />
           <AutoComplete />
-          {/* <InputBase
-            inputName="coordinateLat"
-            placeholder=" Latitude de l'annonce.."
-            classCSS="input__createOffer__modal"
-            inputValue={coordinateLat}
-            actionType={CHANGE_INPUT_VALUE_OFFERS}
-          />
-          <InputBase
-            inputName="coordinateLong"
-            placeholder=" Longitude de l'annonce.."
-            classCSS="input__createOffer__modal"
-            inputValue={coordinateLong}
-            actionType={CHANGE_INPUT_VALUE_OFFERS}
-          />
-          /> */}
         </div>
         <ButtonSubmit
           buttonName="Créer l'annonce"

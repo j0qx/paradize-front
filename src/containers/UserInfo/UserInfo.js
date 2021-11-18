@@ -45,12 +45,12 @@ const UserInfo = () => {
       <div className={style.userinfo__second}>
         <div className={style.userinfo__second__left}>
           <img className={style.userinfo__second__left__avatar} src={avatar} alt="" />
-          <div className={style.userinfo__second__right__inputs__button}>
+          {/* <div className={style.userinfo__second__right__inputs__button}>
             <UploadImage
               labelButton="Télecharger votre Avatar"
               classCSS=""
             />
-          </div>
+          </div> */}
         </div>
 
         {(isInputHidden === true) && (

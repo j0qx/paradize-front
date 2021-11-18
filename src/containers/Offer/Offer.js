@@ -27,7 +27,6 @@ const Offer = () => {
     thumbnail: `https://oparadise-back.herokuapp.com/${image}`,
     originalHeight: 350,
   }));
-  console.log('une offre', offer);
 
   return (
     <div className={style.Offer}>

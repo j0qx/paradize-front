@@ -114,7 +114,7 @@ const Header = () => {
               />
             </Link>
           </li>
-          <li>
+          <li className={style.navbar__linksContainer__link}>
             <Link to="/account/infos">
               <ButtonSubmit
                 classCSS={isOpen ? 'navbar_button' : ''}

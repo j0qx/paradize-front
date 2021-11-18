@@ -1,6 +1,6 @@
 import './UploadImages.scss';
 import PropTypes from 'prop-types';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useMutation, gql } from '@apollo/client';
 import Resizer from 'react-image-file-resizer';
 
@@ -14,8 +14,9 @@ const MULTI_UPLOAD = gql`
 `;
 
 const UploadImages = ({ labelButton, dispatchToRedux }) => {
-  const { type, keyName } = dispatchToRedux;
   const dispatch = useDispatch();
+  const index = useSelector((state) => state.offers.index);
+  const { type, keyName } = dispatchToRedux;
   const [mutate, { data, loading, error }] = useMutation(MULTI_UPLOAD);
 
   const resizeFile = (
@@ -96,13 +97,8 @@ const UploadImages = ({ labelButton, dispatchToRedux }) => {
   if (error) {
     console.log(error);
   }
-  if (data) {
-    console.log({
-      type: type,
-      payload: {
-        [keyName]: data.uploadObjects.map((image) => `images/${image.key}`),
-      },
-    });
+  if (data && index === 1) {
+    dispatch({ type: 'INCREMENT_i' });
     dispatch({
       type: type,
       payload: {

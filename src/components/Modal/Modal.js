@@ -12,7 +12,7 @@ const Modal = ({ children }) => {
   return (
     <>
       <div className={style.overlay} />
-      <div className={style.modal}>
+      <div className={!isOffersModal ? style.modal : style.modalOffer}>
         {children}
         <ButtonClose
           classCSS={style.modal__closeButton}
@@ -38,6 +38,7 @@ const Modal = ({ children }) => {
             }
             // If the current modal content was offersModal, we set this state to false
             else if (isOffersModal) {
+              dispatch({ type: 'RESET_INDEX' });
               dispatch(
                 {
                   type: SET_MODAL_CONTENT,

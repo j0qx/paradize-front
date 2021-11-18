@@ -26,14 +26,6 @@ const Account = ({ children }) => {
           title: 'Mes annonces',
         },
         {
-          linkTo: '/account/favorites',
-          title: 'Mes annonces sauvegardées',
-        },
-        {
-          linkTo: '/account/mysearch',
-          title: 'Mes recherches',
-        },
-        {
           linkTo: '/account/settings',
           title: 'Paramétres',
         },

@@ -1,46 +1,7 @@
 @use '../../styles/vars';
 
 
-
-
-
-.home__main {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 100%;
-  justify-content: center;
-  align-items: center;
-  z-index: 1;
-
-  &__background {
-    background-position: center;
-    position: absolute;
-    z-index: -1;
-    width: 100%;
-    height: 83vh;
-    object-fit: cover;
-
-  }
-
-
-  &__content {
-    width: 70%;
-    height: 80%;
-    padding: 3% 0  3% 0 ;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: rgba(255, 255, 255, 0.8);
-    border-radius: 7px;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 5px 10px, rgba(0, 0, 0, 0.22) 0px 5px 5px;
-  }
-}
-
-
-
-@media screen and (min-width: 1100px) {
+@media(max-width:1100px){
   .home__main {
     display: flex;
     flex-direction: column;
@@ -62,8 +23,45 @@
 
 
     &__content {
-      width: 30%;
+      width: 93%;
       height: 100%;
+      padding: 1em;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(255, 255, 255, 0.7);
+      border-radius: 7px;
+      box-shadow: rgba(0, 0, 0, 0.25) 0px 5px 10px, rgba(0, 0, 0, 0.22) 0px 5px 5px;
+    }
+  }
+
+}
+
+
+@media (min-width: 1100px) {
+  .home__main {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+
+    &__background {
+      background-position: center;
+      position: absolute;
+      z-index: -1;
+      width: 100%;
+      height: 83vh;
+      object-fit: cover;
+    }
+
+    &__content {
+      width: 25%;
+      height: auto;
+      padding: 1em;
       display: flex;
       flex-direction: column;
       align-items: center;

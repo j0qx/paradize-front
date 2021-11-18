@@ -7,7 +7,6 @@ const Home = () => (
   <div className={style.home__main}>
     <img className={style.home__main__background} src={mappix} alt="" />
     <div className={style.home__main__content}>
-      <SearchDataSettings />
       <SearchZoneSettings />
     </div>
   </div>

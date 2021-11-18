@@ -8,7 +8,9 @@ const initialState = {
 
   inputValueTitle: '',
   pictures: [],
+  index: 1,
   inputValueDescription: '',
+  inputValueprice: '',
   isOfferOnline: false,
   inputValueLatCoordinate: '',
   inputValueLongCoordinate: '',
@@ -47,6 +49,17 @@ const offersReducer = (state = initialState, action = {}) => {
       return {
         ...state,
         ...action.payload,
+      };
+    case 'INCREMENT_i':
+      return {
+        ...state,
+        index: state.index + 1,
+      };
+    case 'RESET_INDEX':
+      return {
+        ...state,
+        pictures: [],
+        index: 1,
       };
     default:
       return state;

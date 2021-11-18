@@ -1,15 +1,23 @@
 import './UploadImages.scss';
 import PropTypes from 'prop-types';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { useMutation, gql } from '@apollo/client';
 import Resizer from 'react-image-file-resizer';
-import axios from 'axios';
-import gql from 'graphql-tag';
-import url from '../../store/graphql/endpoint';
-import { uploadPictures } from '../../store/graphql/queries';
+
+const MULTI_UPLOAD = gql`
+  mutation UploadObjectsMutation($files: [Upload!]!, $bucketName: String!) {
+    uploadObjects(files: $files, bucketName: $bucketName) {
+      url
+      key
+    }
+  }
+`;
 
 const UploadImages = ({ labelButton, dispatchToRedux }) => {
-  const { type, keyName } = dispatchToRedux;
   const dispatch = useDispatch();
+  const index = useSelector((state) => state.offers.index);
+  const { type, keyName } = dispatchToRedux;
+  const [mutate, { data, loading, error }] = useMutation(MULTI_UPLOAD);
 
   const resizeFile = (
     file,
@@ -40,7 +48,7 @@ const UploadImages = ({ labelButton, dispatchToRedux }) => {
 
   function FileListItems(files) {
     const b = new ClipboardEvent('').clipboardData || new DataTransfer();
-    for (let i = 0, len = files.length; i < len; i += 1) b.items.add(files[i]);
+    for (let i = 0, len = files.length; i < len; i++) b.items.add(files[i]);
     return b.files;
   }
 
@@ -81,40 +89,23 @@ const UploadImages = ({ labelButton, dispatchToRedux }) => {
       const filesResized = await resizeImageFn(files);
       // eslint-disable-next-line no-param-reassign
       files = new FileListItems(filesResized);
-      files = JSON.stringify(files);
-
-      axios.post(url, {
-        query: `
-        mutation UploadObjects($files: [Upload!]!, $bucketName: String!) {
-          uploadObjects(files: $files, bucketName: $bucketName) {
-            url
-            key
-          }
-        }
-        `,
-        variables: {
-          files,
-          bucketName: 'paradize',
-        },
-      }, {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      }).then((data) => {
-        console.log('data:', data);
-        dispatch({
-          type: type,
-          payload: {
-            [keyName]: data.uploadObjects.map((image) => `images/${image.key}`),
-          },
-        });
-      })
-        .catch((error) => {
-          console.log(error);
-          console.log('files_error:', files);
-        });
+      mutate({ variables: { files, bucketName: 'paradize' } });
     }
   };
+
+  if (loading) return <div>Loading...</div>;
+  if (error) {
+    console.log(error);
+  }
+  if (data && index === 1) {
+    dispatch({ type: 'INCREMENT_i' });
+    dispatch({
+      type: type,
+      payload: {
+        [keyName]: data.uploadObjects.map((image) => `images/${image.key}`),
+      },
+    });
+  }
   return (
     <div>
       <label className="labelButton" htmlFor="files">

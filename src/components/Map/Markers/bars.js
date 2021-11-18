@@ -9,7 +9,7 @@ const BarsMarker = ({
 }) => {
   const customPub = renderToStaticMarkup(
     <img
-      src="https://img.icons8.com/external-wanicon-two-tone-wanicon/64/000000/external-alcohol-allergies-wanicon-two-tone-wanicon.png"
+      src="https://img.icons8.com/external-icongeek26-linear-colour-icongeek26/64/000000/external-martini-cafe-icongeek26-linear-colour-icongeek26.png"
       alt="cocktail marker"
     />,
   );

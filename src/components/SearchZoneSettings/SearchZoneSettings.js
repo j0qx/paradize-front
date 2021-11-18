@@ -15,7 +15,6 @@ import {
 } from '../../store/actions';
 import getAllCheckedCheckboxs from '../../store/selectors/getAllCheckedCheckboxs';
 import AutoComplete from '../Autocomplete/Autocomplete';
-import InputSwitch from '../InputSwitch';
 
 const SearchZoneSettings = () => {
   const dispatch = useDispatch();
@@ -41,16 +40,102 @@ const SearchZoneSettings = () => {
           }
         }}
       >
-        {/* <h4 className={style.search__zone__title}>Recherche par distance</h4> */}
+        <div className={style.subtitles}>Choisi le point de départ de ta recherche ...</div>
         <div className={style.search__adress}>
           {/* <span className={location === '/explore' ? style.search__legend__address : style.container__selects__none}>Recherche par adresse...</span> */}
-
           <AutoComplete />
-          <InputSwitch />
         </div>
 
         <div className={style.container__selects}>
+          <div className={style.subtitles}>Recherche par distance ...</div>
           <div className={style.container__selects__content}>
+            <input
+              type="radio"
+              defaultChecked={Number(valueRadio) === 2}
+              name="choice"
+              value="2"
+              onChange={(e) => {
+                dispatch({
+                  type: CHANGE_RADIO_BUTTON,
+                  inputRadio: 'valueRadio',
+                  newValue: e.target.value,
+                });
+              }}
+            />
+            <select
+              disabled={Number(valueRadio) !== 2}
+              name="radius"
+              className={location === '/explore' ? style.container__selects__none : style.container__selects__content__select}
+              value={inputValueMiles}
+              onMouseUp={() => {
+                if (getAllCheckedCheckboxs(allCheckboxs).length > 0) {
+                  getAllCheckedCheckboxs(allCheckboxs).forEach((checkBoxeName) => {
+                    dispatch({
+                      type: GET_DATAS_FROM_API,
+                      keyword: checkBoxeName,
+                    });
+                  });
+                }
+              }}
+              onChange={(e) => {
+                dispatch({
+                  type: CHANGE_INPUT_MILES_VALUE,
+                  inputField: 'inputValueMiles',
+                  newValue: e.target.value,
+                });
+              }}
+            >
+              <option value="">Sur une distance de...</option>
+              <option value="1000">1 km</option>
+              <option value="2000">2 km</option>
+              <option value="3000">3 km</option>
+              <option value="5000">5 km</option>
+              <option value="10000">10 km</option>
+              <option value="15000">15 km</option>
+              <option value="20000">20 km</option>
+              <option value="25000">25 km</option>
+              <option value="30000">30 km</option>
+              <option value="40000">40 km</option>
+              <option value="50000">50 km</option>
+            </select>
+            <div className={location === '/explore' ? style.slider__input : style.container__selects__none}>
+              <span className={location === '/explore' ? style.search__legend : style.container__selects__none}>Recherche par distance...</span>
+              <span className={style.slider__input__display}>{milesConverted} km</span>
+              <input
+                disabled={Number(valueRadio) !== 2}
+                step={1000}
+                type="range"
+                min="1000"
+                max="50000"
+                value={inputValueMiles}
+                onChange={(e) => {
+                  dispatch({
+                    type: CHANGE_INPUT_MILES_VALUE,
+                    inputField: 'inputValueMiles',
+                    newValue: e.target.value,
+                  });
+                }}
+                onMouseUp={() => {
+                //   // here we check if only one box is checked, if yes
+                //   // we loop on the checked checkboxs array, and for each one
+                //   // we dispatch GET_DATAS_FROM_API to request the api
+                  if (getAllCheckedCheckboxs(allCheckboxs).length > 0) {
+                    getAllCheckedCheckboxs(allCheckboxs).forEach((checkBoxeName) => {
+                      dispatch({
+                        type: GET_DATAS_FROM_API,
+                        keyword: checkBoxeName,
+                      });
+                    });
+                  }
+                }}
+              />
+            </div>
+          </div>
+
+          <div className={style.subtitles}>Recherche par temps de trajet ...</div>
+
+          <div className={style.container__selects__content}>
+
             <input
               type="radio"
               name="choice"
@@ -138,90 +223,6 @@ const SearchZoneSettings = () => {
               <option value="bus">Bus</option>
               <option value="train">Train </option>
             </select>
-          </div>
-          <div className={style.container__selects__content}>
-            <input
-              type="radio"
-              defaultChecked={Number(valueRadio) === 2}
-              name="choice"
-              value="2"
-              onChange={(e) => {
-                dispatch({
-                  type: CHANGE_RADIO_BUTTON,
-                  inputRadio: 'valueRadio',
-                  newValue: e.target.value,
-                });
-              }}
-            />
-            <select
-              disabled={Number(valueRadio) !== 2}
-              name="radius"
-              className={location === '/explore' ? style.container__selects__none : style.container__selects__content__select}
-              value={inputValueMiles}
-              onMouseUp={() => {
-                if (getAllCheckedCheckboxs(allCheckboxs).length > 0) {
-                  getAllCheckedCheckboxs(allCheckboxs).forEach((checkBoxeName) => {
-                    dispatch({
-                      type: GET_DATAS_FROM_API,
-                      keyword: checkBoxeName,
-                    });
-                  });
-                }
-              }}
-              onChange={(e) => {
-                dispatch({
-                  type: CHANGE_INPUT_MILES_VALUE,
-                  inputField: 'inputValueMiles',
-                  newValue: e.target.value,
-                });
-              }}
-            >
-              <option value="">Sur une distance de...</option>
-              <option value="1000">1 km</option>
-              <option value="2000">2 km</option>
-              <option value="3000">3 km</option>
-              <option value="5000">5 km</option>
-              <option value="10000">10 km</option>
-              <option value="15000">15 km</option>
-              <option value="20000">20 km</option>
-              <option value="25000">25 km</option>
-              <option value="30000">30 km</option>
-              <option value="40000">40 km</option>
-              <option value="50000">50 km</option>
-            </select>
-            <div className={location === '/explore' ? style.slider__input : style.container__selects__none}>
-              <span className={location === '/explore' ? style.search__legend : style.container__selects__none}>Recherche par distance...</span>
-              <span className={style.slider__input__display}>{milesConverted} km</span>
-              <input
-                disabled={Number(valueRadio) !== 2}
-                step={1000}
-                type="range"
-                min="1000"
-                max="50000"
-                value={inputValueMiles}
-                onChange={(e) => {
-                  dispatch({
-                    type: CHANGE_INPUT_MILES_VALUE,
-                    inputField: 'inputValueMiles',
-                    newValue: e.target.value,
-                  });
-                }}
-                onMouseUp={() => {
-                  //   // here we check if only one box is checked, if yes
-                  //   // we loop on the checked checkboxs array, and for each one
-                  //   // we dispatch GET_DATAS_FROM_API to request the api
-                  console.log(getAllCheckedCheckboxs(allCheckboxs));
-                  if (getAllCheckedCheckboxs(allCheckboxs).length > 0) {
-                    getAllCheckedCheckboxs(allCheckboxs).forEach((checkBoxeName) => {
-                      dispatch({
-                        type: GET_DATAS_FROM_API,
-                        keyword: checkBoxeName,
-                      });
-                    });
-                  }
-                }}
-              />
-            </div>
           </div>
         </div>
         <div className={style.search__button}>

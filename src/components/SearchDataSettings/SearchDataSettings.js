@@ -1,6 +1,5 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import { useDispatch, useSelector } from 'react-redux';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useLocation } from 'react-router';
 import ReactTooltip from 'react-tooltip';
 import style from './SearchDataSettings.module.scss';
@@ -57,7 +56,17 @@ const SearchDataSettings = () => {
                 // borderColor="black"
               />
               ) }
-              <div data-tip={checkboxe.checkBoxeName} data-for={checkboxe.checkBoxeName} className={style.slider__icon}><FontAwesomeIcon className={style.switch__font} icon={checkboxe.icon} size="2x" /></div>
+              <div
+                data-tip={checkboxe.checkBoxeName}
+                data-for={checkboxe.checkBoxeName}
+                className={style.slider__icon}
+              >
+                <img
+                  src={checkboxe.icon}
+                  alt={checkboxe.checkBoxeName}
+                  className={style.icon__size}
+                />
+              </div>
               <span className={location === '/explore' ? style.labels__display : style.labels__none}>{checkboxe.checkBoxeName}</span>
             </label>
           </div>

@@ -7,6 +7,7 @@ import { faScroll } from '@fortawesome/free-solid-svg-icons';
 import ReactTooltip from 'react-tooltip';
 import style from './InputSwitch.module.scss';
 import { SWITCH_OFFERS } from '../../store/actions';
+import house from '../../assets/image/house.png';
 
 const InputSwitch = () => {
   const location = useLocation().pathname;
@@ -16,7 +17,13 @@ const InputSwitch = () => {
     <div className={style.container}>
       {location === '/'
               && <ReactTooltip id="Annonces" place="top" effect="float" /> }
-      <FontAwesomeIcon data-tip="Annonces" data-for="Annonces" icon={faScroll} size="2x" color="#406F8A" />
+      <img
+        data-tip="Annonces"
+        data-for="Annonces"
+        src={house}
+        alt="annonces button"
+        className={style.icon__size}
+      />
       <span className={location === '/explore' ? style.text : style.display__none}>Annonces</span>
 
       <input

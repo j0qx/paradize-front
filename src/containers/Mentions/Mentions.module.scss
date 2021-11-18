@@ -31,7 +31,7 @@ justify-content: center;
   flex-direction: column;
   width: 80%;
   height: 60%;
-  background: vars.$primaryColor;
+  background: rgba(255, 255, 255, 0.9);
   justify-content: center;
   align-items: center;
   padding: 5%;
@@ -77,10 +77,10 @@ justify-content: center;
     flex-direction: column;
     width: 50%;
     height: 60%;
-    background: vars.$primaryColor;
+    background: rgba(255, 255, 255, 0.90);
     justify-content: center;
     align-items: center;
-    padding: 5%;
+    padding: 2%;
     border-radius: 25px;
     
 

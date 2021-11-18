@@ -15,7 +15,6 @@ import {
 } from '../../store/actions';
 import getAllCheckedCheckboxs from '../../store/selectors/getAllCheckedCheckboxs';
 import AutoComplete from '../Autocomplete/Autocomplete';
-import InputSwitch from '../InputSwitch';
 
 const SearchZoneSettings = () => {
   const dispatch = useDispatch();
@@ -120,7 +119,6 @@ const SearchZoneSettings = () => {
                 //   // here we check if only one box is checked, if yes
                 //   // we loop on the checked checkboxs array, and for each one
                 //   // we dispatch GET_DATAS_FROM_API to request the api
-                  console.log(getAllCheckedCheckboxs(allCheckboxs));
                   if (getAllCheckedCheckboxs(allCheckboxs).length > 0) {
                     getAllCheckedCheckboxs(allCheckboxs).forEach((checkBoxeName) => {
                       dispatch({

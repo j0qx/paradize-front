@@ -12,6 +12,7 @@ import {
   GET_ISOCHRONE,
   GET_DATAS_FROM_API,
   TOGGLE_OPEN_EXPLORE_SLIDE,
+  TOGGLE_OPEN_SLIDE,
 } from '../../store/actions';
 import getAllCheckedCheckboxs from '../../store/selectors/getAllCheckedCheckboxs';
 import AutoComplete from '../Autocomplete/Autocomplete';
@@ -26,6 +27,8 @@ const SearchZoneSettings = () => {
   const milesConverted = Math.round(Number(inputValueMiles) / 1000);
   const timeConverted = Math.round(Number(inputValueTime) / 60);
   const allCheckboxs = useSelector((state) => state.search.apiSettings);
+  const isLeftSlideOpen = useSelector((state) => state.domSettings.isLeftSlideOpen);
+  const isRightSlideOpen = useSelector((state) => state.domSettings.isRightSlideOpen);
   const history = useHistory();
 
   return (
@@ -230,6 +233,18 @@ const SearchZoneSettings = () => {
             buttonName="C'est parti !"
             classCSS=""
             handleButtonClick={() => {
+              if (isRightSlideOpen === false) {
+                dispatch({
+                  type: TOGGLE_OPEN_SLIDE,
+                  slide: 'isRightSlideOpen',
+                });
+              }
+              if (isLeftSlideOpen === false) {
+                dispatch({
+                  type: TOGGLE_OPEN_SLIDE,
+                  slide: 'isLeftSlideOpen',
+                });
+              }
               dispatch({
                 type: TOGGLE_OPEN_EXPLORE_SLIDE,
                 openslide: 'isMapSlideOpen',

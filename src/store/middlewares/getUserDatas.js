@@ -37,7 +37,6 @@ const getUserMiddleware = (store) => (next) => (action) => {
       });
   }
   else if (action.type === 'GET_USER_DATAS_REFRESH') {
-    const state = store.getState();
     // on prépare la requete
     const config = {
       method: 'post',

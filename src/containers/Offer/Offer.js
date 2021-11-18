@@ -43,7 +43,7 @@ const Offer = () => {
                       slide: 'isRightSlideOpen',
                     });
                   }
-                  else if (isLeftSlideOpen === false) {
+                  if (isLeftSlideOpen === false) {
                     dispatch({
                       type: TOGGLE_OPEN_SLIDE,
                       slide: 'isLeftSlideOpen',

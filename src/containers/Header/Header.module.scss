@@ -9,13 +9,24 @@
   padding: 1rem 5rem;
   background-color: white;
 
+  &__username{
+    padding-right: 3%;
+  }
+
   &__logoContainer{
     width: 15%;
     z-index: 2;
   }
-
+  
   &__linksContainer{
     display: flex;
+    align-items: center;
+
+    &__avatar{
+      display: none;
+      
+      
+    }
 
     &__link{
       padding: 0 0.3rem;
@@ -63,23 +74,25 @@
       flex-direction: column;
       justify-content: flex-start;
       height: 100vh;
-      width: 65vw;
+      width: 67vw;
       align-items: center;
       position: absolute;
       right:-100vw;
       top: 0;
-      padding: 2rem 1rem;
+      padding: 2rem 0.3rem;
       padding-top: 100px;
       background: linear-gradient(to bottom, rgba(255, 255, 255,1), rgba(255, 255, 255, 0.8)) ;
       z-index: 3;
       transition: all ease 600ms;
 
-      
   
       &__link{
         display: block;
+        justify-content: center;
+        align-items: center;
         padding: 0.3rem 1.5rem;
         text-align: right;
+
       }
     } 
     &__burger{

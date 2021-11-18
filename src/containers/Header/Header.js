@@ -1,6 +1,7 @@
 // import component
 import { useDispatch, useSelector } from 'react-redux';
 import { Turn as Hamburger } from 'hamburger-react';
+import Avatar from 'avataaars';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ButtonSubmit } from '../../components';
@@ -13,10 +14,12 @@ const Header = () => {
   const isModalHidden = useSelector((state) => state.domSettings.isModalHidden);
   const isAccountListOpen = useSelector((state) => state.domSettings.isAccountListOpen);
   const isLogged = useSelector((state) => state.user.isLogged);
+  const username = useSelector((state) => (state.user.username));
   // state about NavBar opening ( here we use usestate because the npm modul
   // that we using for is using this way and not redux state)
   const [isOpen, setOpen] = useState(false);
   const isMobile = window.screen.width < 500;
+  const isDesktop = window.screen.width > 500;
 
   return (
     <nav className={isOpen ? `${style.navbar} ${style.navbarOpened}` : style.navbar}>
@@ -70,32 +73,61 @@ const Header = () => {
       {/* IF User is connected, we show profil and logout  Button  */}
       {isLogged && (
       <ul className={style.navbar__linksContainer}>
-        <li className={style.navbar__linksContainer__link}>
-          <Link to="/">
-            <ButtonSubmit
-              classCSS={isOpen ? 'navbar_button' : ''}
-              buttonName="Se déconnecter"
-              handleButtonClick={() => {
-                dispatch({ type: 'LOGOUT' });
-                localStorage.clear();
-              }}
-            />
-          </Link>
-        </li>
+        {isDesktop && (
+        <div className={style.navbar.username}>
+          <h4>Bienvenue {username}</h4>
+        </div>
+        )}
         <li className={style.navbar__linksContainer__link}>
           <Link to="/account/infos">
-            <ButtonSubmit
-              classCSS={isOpen ? 'navbar_button' : ''}
-              handleButtonClick={() => {
-                setOpen(false);
-                dispatch({ type: TOGGLE_OPEN_BURGER_ACCOUNT });
-              // TODO
-              }}
-              buttonName="Mon compte"
+            {isLogged && isDesktop && (
+            <Avatar
+              style={{ width: '50px', height: '50px' }}
+              avatarStyle="Circle"
+              topType="LongHairDreads"
+              accessoriesType="Sunglasses"
+              hairColor="BrownDark"
+              facialHairType="BeardLight"
+              facialHairColor="BrownDark"
+              clotheType="BlazerShirt"
+              eyeType="Happy"
+              eyebrowType="Default"
+              mouthType="Smile"
+              skinColor="Light"
             />
+            )}
           </Link>
         </li>
       </ul>
+      )}
+      {isLogged && isMobile && (
+        <ul className={style.navbar__linksContainer}>
+          <li className={style.navbar__linksContainer__link}>
+            <Link to="/">
+              <ButtonSubmit
+                classCSS={isOpen ? 'navbar_button' : ''}
+                buttonName="Se déconnecter"
+                handleButtonClick={() => {
+                  dispatch({ type: 'LOGOUT' });
+                  localStorage.clear();
+                }}
+              />
+            </Link>
+          </li>
+          <li>
+            <Link to="/account/infos">
+              <ButtonSubmit
+                classCSS={isOpen ? 'navbar_button' : ''}
+                handleButtonClick={() => {
+                  dispatch({ type: TOGGLE_OPEN_BURGER_ACCOUNT });
+                  setOpen(true);
+                  // TODO
+                }}
+                buttonName="Mon compte"
+              />
+            </Link>
+          </li>
+        </ul>
       )}
       {isLogged && isAccountListOpen === true && isMobile && (
         <ul className={style.navbar__linksContainer}>
@@ -179,7 +211,7 @@ const Header = () => {
                   setOpen(false);
                 // TODO
                 }}
-                buttonName="Paramétres"
+                buttonName="Paramètres"
               />
             </Link>
           </li>

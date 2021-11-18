@@ -20,8 +20,8 @@ const Offer = () => {
   // find pour recuperer l'id du user
   const offer = CardOffers.find((element) => element.id === id);
   offer.pictures = offer.picture.map((image) => ({
-    original: `http://localhost:3333/${image}`,
-    thumbnail: `http://localhost:3333/${image}`,
+    original: `https://oparadise-back.herokuapp.com/${image}`,
+    thumbnail: `https://oparadise-back.herokuapp.com/${image}`,
     originalHeight: 350,
   }));
   console.log('une offre', offer);

@@ -6,7 +6,7 @@ const CardOffer = ({
   title, description, picture, id, price,
 }) => {
   if (picture) {
-    const image = `http://localhost:3333/${picture[0]}`;
+    const image = `https://oparadise-back.herokuapp.com/${picture[0]}`;
     console.log(image);
   }
   return (
@@ -15,7 +15,7 @@ const CardOffer = ({
     && (
     <img
       className={style.offer__picture}
-      src={`http://localhost:3333/${picture[0]}`}
+      src={`https://oparadise-back.herokuapp.com/${picture[0]}`}
       alt={title}
     />
     )}

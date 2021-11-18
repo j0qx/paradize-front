@@ -1,7 +1,7 @@
 .button__back {
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
-  border-radius: 10px;
+  border-radius:  4px;
   color: #FFFFFF;
   font-family: Brush Script MT;
   font-size: 20px;
@@ -13,6 +13,7 @@
   cursor: pointer;
   border: none;
   text-align: center;
+  margin-right: 1%;
 }
 
 .button__back:hover {
@@ -25,6 +26,6 @@
   background-image: -webkit-gradient(to bottom, #476B5E, #476B5E);
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
-  border-radius: 10px;
+  border-radius:  4px;
   text-decoration: none;
 }

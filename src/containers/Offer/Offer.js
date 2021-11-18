@@ -10,6 +10,7 @@ import style from './Offer.module.scss';
 import BoardDatas from '../BoardDatas';
 import 'react-image-gallery/styles/scss/image-gallery.scss';
 import 'react-image-gallery/styles/css/image-gallery.css';
+import BackButton from '../../components/BackButton';
 
 const Offer = () => {
   const isMobile = window.screen.width < 500;
@@ -33,6 +34,7 @@ const Offer = () => {
           <div className={style.Offer__containerLeft__content__description}>
             <p className={style.Offer__containerLeft__content__title}>{offer.title}</p>
             <p className={style.Offer__containerLeft__content__description__description}> {offer.description}</p>
+            <BackButton className={style.back__button} />
           </div>
         </div>
 

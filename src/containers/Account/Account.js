@@ -18,10 +18,6 @@ const Account = ({ children }) => {
     <div>
       <TabNavBar navPages={[
         {
-          linkTo: '/explore',
-          title: 'La carte',
-        },
-        {
           linkTo: '/account/infos',
           title: 'Mon compte',
         },

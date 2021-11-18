@@ -6,7 +6,7 @@ import style from './BackButton.module.scss';
 const BackButton = () => (
   <input
     type="submit"
-    value="Retour"
+    value="Map"
     className={style.button__back}
     onClick={() => {
 

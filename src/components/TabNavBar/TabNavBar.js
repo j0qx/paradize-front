@@ -1,14 +1,16 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink,Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import style from './TabNavBar.module.scss';
-import BackButton from '../../components/BackButton';
+import BackButton from '../BackButton';
 
 // Check Navlink et creation des routes sans id.
 
 const TabNavBar = ({ navPages }) => (
 
   <nav className={style.TabNavBar__menu}>
-    <BackButton />
+    <Link to="/explore">
+      <BackButton />
+    </Link>
     {
       navPages.map(({ linkTo, title }) => (
         <NavLink

@@ -57,7 +57,17 @@ const SearchDataSettings = () => {
                 // borderColor="black"
               />
               ) }
-              <div data-tip={checkboxe.checkBoxeName} data-for={checkboxe.checkBoxeName} className={style.slider__icon}><FontAwesomeIcon className={style.switch__font} icon={checkboxe.icon} size="2x" /></div>
+              <div
+                data-tip={checkboxe.checkBoxeName}
+                data-for={checkboxe.checkBoxeName}
+                className={style.slider__icon}
+              >
+                <img
+                  src={checkboxe.icon}
+                  alt={checkboxe.checkBoxeName}
+                  className={style.icon__size}
+                />
+              </div>
               <span className={location === '/explore' ? style.labels__display : style.labels__none}>{checkboxe.checkBoxeName}</span>
             </label>
           </div>

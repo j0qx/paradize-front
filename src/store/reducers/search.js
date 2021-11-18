@@ -1,7 +1,4 @@
 import {
-  faCocktail, faClinicMedical, faShoppingCart, faTree, faHatCowboy, faSchool,
-} from '@fortawesome/free-solid-svg-icons';
-import {
   CHANGE_INPUT_MILES_VALUE,
   CHANGE_INPUT_TIME_VALUE,
   CHANGE_INPUT_TRANS_VALUE,
@@ -15,6 +12,12 @@ import {
   SWITCH_OFFERS,
   // GET_DATAS_FROM_API_ERROR,
 } from '../actions';
+import hopital from '../../assets/image/hospital.png';
+import ecole from '../../assets/image/ecole.png';
+import parc from '../../assets/image/parc.png';
+import police from '../../assets/image/police.png';
+import cocktail from '../../assets/image/cocktail.png';
+import shop from '../../assets/image/shop.png';
 
 export const initialState = {
   apiSettings:
@@ -22,37 +25,37 @@ export const initialState = {
      {
        checkBoxeName: 'Bar',
        checked: false,
-       icon: faCocktail,
+       icon: cocktail,
        result: [],
      },
      {
        checkBoxeName: 'Hopital',
        checked: false,
-       icon: faClinicMedical,
+       icon: hopital,
        result: [],
      },
      {
        checkBoxeName: 'Supermarché',
        checked: false,
-       icon: faShoppingCart,
+       icon: shop,
        result: [],
      },
      {
        checkBoxeName: 'École',
        checked: false,
-       icon: faSchool,
+       icon: ecole,
        result: [],
      },
      {
        checkBoxeName: 'Parc',
        checked: false,
-       icon: faTree,
+       icon: parc,
        result: [],
      },
      {
        checkBoxeName: 'Police',
        checked: false,
-       icon: faHatCowboy,
+       icon: police,
        result: [],
      },
    ],

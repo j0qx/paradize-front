@@ -30,11 +30,8 @@ const Offer = () => {
 
   return (
     <div className={style.Offer}>
-      <div className={style.Offer__containerLeft}>
-        <div className={style.Offer__containerLeft__content}>
-          <div className={style.Offer__containerLeft__content__description}>
-            <p className={style.Offer__containerLeft__content__title}>{offer.title}</p>
-            <p className={style.Offer__containerLeft__content__description__description}> {offer.description}</p>
+      { isMobile
+            && (
             <Link to="/explore">
               <BackButton
                 value="retour à la carte"
@@ -55,6 +52,35 @@ const Offer = () => {
                 }}
               />
             </Link>
+            )}
+      <div className={style.Offer__containerLeft}>
+        <div className={style.Offer__containerLeft__content}>
+          <div className={style.Offer__containerLeft__content__description}>
+            <p className={style.Offer__containerLeft__content__title}>{offer.title}</p>
+            <p className={style.Offer__containerLeft__content__description__description}> {offer.description}</p>
+            { !isMobile
+            && (
+            <Link to="/explore">
+              <BackButton
+                value="retour à la carte"
+                classCss="back__map__button"
+                handleButtonClick={() => {
+                  if (isRightSlideOpen === false) {
+                    dispatch({
+                      type: TOGGLE_OPEN_SLIDE,
+                      slide: 'isRightSlideOpen',
+                    });
+                  }
+                  else if (isLeftSlideOpen === false) {
+                    dispatch({
+                      type: TOGGLE_OPEN_SLIDE,
+                      slide: 'isLeftSlideOpen',
+                    });
+                  }
+                }}
+              />
+            </Link>
+            )}
           </div>
         </div>
 

@@ -10,7 +10,6 @@ import { TOGGLE_OPEN_SLIDE } from '../../store/actions';
 const SlideBottom = ({ children }) => {
   const dispatch = useDispatch();
   const isBottomSlideOpen = useSelector((state) => state.domSettings.isBottomSlideOpen);
-
   return (
     <>
       <div className={isBottomSlideOpen ? style.slide__bottom__open : style.slide}>

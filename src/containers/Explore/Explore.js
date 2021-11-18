@@ -1,6 +1,7 @@
 /* eslint-disable max-len */
 import { useSelector, useDispatch } from 'react-redux';
 import useWindowDimension from 'use-window-dimensions';
+import ReactTooltip from 'react-tooltip';
 
 // import  Icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -15,7 +16,6 @@ import BoardDatas from '../BoardDatas';
 // import style
 import style from './Explore.module.scss';
 import { TOGGLE_OPEN_EXPLORE_SLIDE, TOGGLE_PRINT_EXPLORE_SEARCH } from '../../store/actions';
-
 // Comments
 // Modal to add after div Boardatas
 
@@ -27,6 +27,7 @@ const Explore = () => {
   const isOffersSlideOpen = useSelector((state) => state.domSettings.slide.isOffersSlideOpen);
   const isStatisticsSlideOpen = useSelector((state) => state.domSettings.slide.isStatisticsSlideOpen);
   const isSearchSettingsOpen = useSelector((state) => state.domSettings.isSearchSettingsOpen);
+  const searchTooltip = "Içi, vous pouvez cliquer afin d'afficher le panneau de recherche!";
 
   return (
     <div className={style.container}>
@@ -81,15 +82,22 @@ const Explore = () => {
         <div className={style.searchContainer__and__icon}>
           {width > 1100
           && (
-          <div className={isSearchSettingsOpen ? style.faDown_icon : style.faUp_icon}>
-            <FontAwesomeIcon
-              icon={faChevronUp}
-              size="2x"
-              onClick={() => {
-                dispatch({ type: TOGGLE_PRINT_EXPLORE_SEARCH });
-              }}
-            />
-          </div>
+            <>
+              <ReactTooltip
+                id={searchTooltip}
+                place="top"
+                effect="float"
+              />
+              <div data-tip={searchTooltip} data-for={searchTooltip} className={isSearchSettingsOpen ? style.faDown_icon : style.faUp_icon}>
+                <FontAwesomeIcon
+                  icon={faChevronUp}
+                  size="2x"
+                  onClick={() => {
+                    dispatch({ type: TOGGLE_PRINT_EXPLORE_SEARCH });
+                  }}
+                />
+              </div>
+            </>
           )}
           {(isSearchSlideOpen || width > 1100)
           && (

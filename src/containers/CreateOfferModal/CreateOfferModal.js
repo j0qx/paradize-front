@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 // import REACT COMPONENT
 import Switch from 'react-switch';
 // Import COMPONENT
+import ImageGallery from 'react-image-gallery';
 import { ButtonSubmit, InputBase } from '../../components';
 import {
   CHANGE_INPUT_VALUE_OFFERS,
@@ -10,13 +11,14 @@ import {
   CREATE_OFFER,
   SET_PICTURES,
 } from '../../store/actions';
-import style from './CreateOfferModal.module.scss';
+import housePhoto from '../../assets/image/house-gebf9565a0_640.jpg';
 import AutoComplete from '../../components/Autocomplete/Autocomplete';
 import UploadImages from '../../components/UploadImages/UploadImages';
+import style from './CreateOfferModal.module.scss';
 
 const CreateOfferModal = ({ classCSS }) => {
   const title = useSelector((state) => state.offers.inputValueTitle);
-  const picture = useSelector((state) => state.offers.inputValuePicture);
+  const pictures = useSelector((state) => state.offers.pictures);
   const description = useSelector((state) => state.offers.inputValueDescription);
   const status = useSelector((state) => state.offers.isOfferOnline);
   const coordinateLat = useSelector((state) => state.offers.inputValueLatCoordinate);
@@ -30,9 +32,34 @@ const CreateOfferModal = ({ classCSS }) => {
   const handleChangeToggle = () => {
     dispatch({ type: TOGGLE_ONLINE_OFFER });
   };
+  const defaulPicture = [{
+    original: housePhoto,
+    thumbnail: housePhoto,
+    originalHeight: 200,
+  }, {
+    original: housePhoto,
+    thumbnail: housePhoto,
+    originalHeight: 200,
+  }];
+  // if the user has imported pictures we set these value in an array, if not
+  // importedPictures value is undefined
+  const importedPictures = pictures.length > 0 ? pictures.map((image) => ({
+    original: `https://oparadise-back.herokuapp.com/${image}`,
+    thumbnail: `https://oparadise-back.herokuapp.com/${image}`,
+    originalHeight: 350,
+  })) : undefined;
+
   return (
     <div className={style.CreateOfferModal}>
       <h2 className={style.CreateOfferModal__intro}> Création d'une Annonce</h2>
+      <ImageGallery
+        items={importedPictures || defaulPicture}
+        originalWidth="100"
+        slideInterval="5000"
+        thumbnailHeight="100"
+        showBullets="true"
+        autoPlay="true"
+      />
       <UploadImages
         labelButton="importer vos images"
         dispatchToRedux={{ type: SET_PICTURES, keyName: 'pictures' }}
@@ -61,7 +88,7 @@ const CreateOfferModal = ({ classCSS }) => {
               width={48}
             />
           </div>
-          <p> L'annonce est <h4>{status ? 'en ligne' : 'hors-ligne'}</h4></p>
+          <p> L'annonce est <span>{status ? 'en ligne' : 'hors-ligne'}</span></p>
         </div>
         <div className={style.CreateOfferModal__inputs}>
           <InputBase

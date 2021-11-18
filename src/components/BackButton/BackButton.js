@@ -3,15 +3,21 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import style from './BackButton.module.scss';
 
-const BackButton = () => (
-  <input
+const BackButton = ({ value, classCss, handleButtonClick }) => (
+  <button
     type="submit"
-    value="Map"
-    className={style.button__back}
-    onClick={() => {
-
-    }}
-  />
+    className={`${style[classCss]}`}
+    onClick={handleButtonClick}
+  >
+    {value}
+  </button>
 );
 
+BackButton.propTypes = {
+
+  value: PropTypes.string.isRequired,
+  classCss: PropTypes.string.isRequired,
+  handleButtonClick: PropTypes.func,
+
+};
 export default BackButton;

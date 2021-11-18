@@ -1,4 +1,4 @@
-import { NavLink,Link } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import style from './TabNavBar.module.scss';
 import BackButton from '../BackButton';
@@ -9,7 +9,10 @@ const TabNavBar = ({ navPages }) => (
 
   <nav className={style.TabNavBar__menu}>
     <Link to="/explore">
-      <BackButton />
+      <BackButton
+        value="Direction la carte"
+        classCss="button__back"
+      />
     </Link>
     {
       navPages.map(({ linkTo, title }) => (

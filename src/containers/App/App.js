@@ -12,11 +12,16 @@ const App = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     const token = localStorage.getItem('token');
+    const mail = localStorage.getItem('mail');
     // if there is a token in the local storage, we set the token an user information in the state
     if (token) {
       dispatch({
         type: GET_USER_TOKEN_SUCCESS,
         accessToken: token,
+      });
+      dispatch({
+        type: 'GET_USER_DATAS_REFRESH',
+        mail,
       });
     }
     // If not, we logout the user

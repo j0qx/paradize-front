@@ -27,7 +27,7 @@ const Account = ({ children }) => {
         },
         {
           linkTo: '/account/settings',
-          title: 'Paramétres',
+          title: 'Paramètres',
         },
       ]}
       />

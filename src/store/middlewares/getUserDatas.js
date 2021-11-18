@@ -36,6 +36,32 @@ const getUserMiddleware = (store) => (next) => (action) => {
         // store.dispatch({ type: GET_USER_TOKEN_ERROR });
       });
   }
+  else if (action.type === 'GET_USER_DATAS_REFRESH') {
+    const state = store.getState();
+    // on prépare la requete
+    const config = {
+      method: 'post',
+      url,
+      data: {
+        query: getUserDatas(
+          action.mail,
+        ),
+      },
+    };
+    // on joue la requête avec axios
+    axios(config)
+      // si réussite
+      .then(({ data }) => {
+        store.dispatch({
+          type: UPDATE_USER_DATAS,
+          payload: data.data.user,
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+        // store.dispatch({ type: GET_USER_TOKEN_ERROR });
+      });
+  }
   // TODO Need to be fix
   else if (action.type === MODIFY_USER_DATAS) {
     const state = store.getState();

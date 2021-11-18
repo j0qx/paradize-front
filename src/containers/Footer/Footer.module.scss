@@ -6,6 +6,7 @@
   align-items: center;
   background-color: vars.$primaryColor;
   padding: 3%;
+  z-index: 2;
 
   &__copyright {
     width: 100%;

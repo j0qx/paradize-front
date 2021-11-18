@@ -16,16 +16,13 @@ import AutoComplete from '../../components/Autocomplete/Autocomplete';
 import UploadImages from '../../components/UploadImages/UploadImages';
 import style from './CreateOfferModal.module.scss';
 
-const CreateOfferModal = ({ classCSS }) => {
+const CreateOfferModal = () => {
   const title = useSelector((state) => state.offers.inputValueTitle);
   const pictures = useSelector((state) => state.offers.pictures);
   const description = useSelector((state) => state.offers.inputValueDescription);
   const price = useSelector((state) => state.offers.inputValuePrice);
   const status = useSelector((state) => state.offers.isOfferOnline);
-  const coordinateLat = useSelector((state) => state.offers.inputValueLatCoordinate);
-  const coordinateLong = useSelector((state) => state.offers.inputValueLongCoordinate);
   const dispatch = useDispatch();
-  const filteredSuggestions = useSelector((state) => state.search.autoComplete.filteredSuggestions);
   const handleSubmitForm = (event) => {
     event.preventDefault();
     dispatch({ type: CREATE_OFFER });

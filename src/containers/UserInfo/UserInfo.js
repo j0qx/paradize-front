@@ -27,7 +27,7 @@ const UserInfo = () => {
     id,
     first_name,
     last_name,
-    mail,
+    email,
     address,
     city_code,
     city,
@@ -93,7 +93,7 @@ const UserInfo = () => {
               <h4 className={style.text__text}>Pseudo <span>{username}</span></h4>
             </div>
             <div className={style.userinfo__second__right__inputs__input}>
-              <h4 className={style.text__text}>Email <span>{mail}</span></h4>
+              <h4 className={style.text__text}>Email <span>{email}</span></h4>
             </div>
             <div className={style.userinfo__second__right__inputs__input}>
               <h4 className={style.text__text}>Téléphone <span>{phone}</span></h4>
@@ -172,7 +172,7 @@ const UserInfo = () => {
               <InputBase
                 type="text"
                 inputName="inputValueEmail"
-                placeholder={mail}
+                placeholder={email}
                 classCSS="input__userinfo"
                 inputValue={inputValueEmail}
                 actionType="CHANGE_INPUT_VALUE_ACCOUNT"

@@ -13,6 +13,10 @@ const ButtonSubmit = ({ classCSS, handleButtonClick, buttonName }) => (
   </button>
 );
 
+ButtonSubmit.defaultProps = {
+  handleButtonClick: () => {},
+};
+
 ButtonSubmit.propTypes = {
   classCSS: PropTypes.string.isRequired,
   handleButtonClick: PropTypes.func,

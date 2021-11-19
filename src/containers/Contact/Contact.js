@@ -1,9 +1,9 @@
 import style from './Contact.module.scss';
-import mountains from '../../assets/image/map.jpg';
+import image from '../../assets/image/pexels-roberto-shumski-1903702.jpg';
 
 const Contact = () => (
   <div className={style.container__contact}>
-    <img className={style.background} src={mountains} alt="" />
+    <img className={style.background} src={image} alt="" />
     <div className={style.container__contact__card}>
       <img
         className={style.container__contact__card__img}

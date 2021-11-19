@@ -61,7 +61,7 @@ export const initialState = {
    ],
   inputValueAddress: '',
   inputValueTime: '900',
-  inputValueMiles: 1000,
+  inputValueMiles: 10000,
   inputValueTrans: 'voiture',
   valueRadio: 2,
   isochroneResults: null,

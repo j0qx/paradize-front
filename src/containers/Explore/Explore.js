@@ -9,7 +9,7 @@ import { faChevronUp, faMapMarkedAlt } from '@fortawesome/free-solid-svg-icons';
 // import components
 import {
   Map, ListCardOffer, SlideRight, SlideLeft, SearchDataSettings,
-  SearchZoneSettings,
+  SearchZoneSettingsExplore, InputSwitch,
 } from '../../components';
 // import container
 import BoardDatas from '../BoardDatas';
@@ -102,8 +102,11 @@ const Explore = () => {
           {(isSearchSlideOpen || width > 1100)
           && (
           <div className={isSearchSettingsOpen ? style.searchContainer_open : style.searchContainer}>
+
             <SearchDataSettings />
-            <SearchZoneSettings />
+
+            <SearchZoneSettingsExplore />
+
           </div>
           )}
         </div>

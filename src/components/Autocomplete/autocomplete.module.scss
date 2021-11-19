@@ -2,17 +2,17 @@
 
 .input_autocomplete{
   border: 1px solid vars.$primaryColor;
-  padding: 0.6rem 1.5rem;
+  width: 100%;
   font-size: 1rem;
-  width: 90%;
+  padding: 0.5rem;
   border-radius: 4px;
 }
 .autocomplete_container{
-  position: relative;
+  width: 100%;
 }
 
 @media screen and (min-width: 1100px){
   .input_autocomplete{
-    width: 17.5rem;
+    width: 100%;
   }
 }

@@ -11,10 +11,8 @@ import {
   GET_DATAS_FROM_API_ERROR,
   GET_ISOCHRONE,
   GET_ISOCHRONE_SUCCESS,
-  GET_ISOCHRONE_ERROR,
   GET_DATA_AIR_POLLUTION,
   GET_DATA_AIR_POLLUTION_SUCCESS,
-  GET_DATA_AIR_POLLUTION_ERROR,
 } from '../actions';
 
 const getDateApi = (store) => (next) => (action) => {
@@ -83,7 +81,7 @@ const getDateApi = (store) => (next) => (action) => {
     const lat = state.map.currentPos[0];
     const lng = state.map.currentPos[1];
     axios({
-      url: `https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lng}&appid=20f05e618a16e58b7a3297b0a5b68b66`,
+      url: `https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lng}&appid=4807d0bd3a4ce066fd8eec39850b7c18`,
     })
       .then((result) => {
         if (result.data.list[0].components){

@@ -7,6 +7,7 @@ import { renderToStaticMarkup } from 'react-dom/server';
 const Offers = ({
   id, position, url, title,
 }) => {
+  console.log("photo d'offre ", Offers);
   // const icon = divIcon({
   //   icon: markerIconPng,
   //   iconSize: [0, 0],

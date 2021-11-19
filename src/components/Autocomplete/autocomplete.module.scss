@@ -8,11 +8,18 @@
   border-radius: 4px;
 }
 .autocomplete_container{
-  width: 100%;
+  width: 15.8rem;
+  position: relative;
+  left: 10%;
 }
 
 @media screen and (min-width: 1100px){
   .input_autocomplete{
     width: 100%;
+  }
+  .autocomplete_container{
+    width: 15.8rem;
+    position: static;
+    
   }
 }

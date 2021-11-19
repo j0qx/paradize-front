@@ -3,6 +3,7 @@ import {
   CREATE_OFFER,
   TOGGLE_PRINT_MODAL,
   SET_MODAL_CONTENT,
+  GET_USER_OFFERS,
 } from '../actions';
 
 import url from '../graphql/endpoint';
@@ -36,6 +37,7 @@ const createOfferMiddleware = (store) => (next) => (action) => {
             modalContent: 'isOffersModal',
           },
         );
+        store.dispatch({ type: GET_USER_OFFERS });
       })
       .catch((error) => {
         console.log(error);

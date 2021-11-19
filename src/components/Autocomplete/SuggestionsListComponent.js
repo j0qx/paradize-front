@@ -9,7 +9,7 @@ const SuggestionsListComponent = ({ onClick }) => {
   const filteredSuggestions = useSelector((state) => state.search.autoComplete.filteredSuggestions);
   const location = useLocation().pathname;
   return filteredSuggestions.length ? (
-    <ul className={location === '/explore' ? `${style.suggestions} ${style.suggestions__explore}` : style.suggestions}>
+    <ul className={location === '/explore' ? `${style.suggestions__explore}` : style.suggestions}>
       {filteredSuggestions.map((suggestion, index) => {
         let className;
         // Flag the active suggestion with a class
@@ -24,7 +24,7 @@ const SuggestionsListComponent = ({ onClick }) => {
       })}
     </ul>
   ) : (
-    <div className={style.no_suggestions}>
+    <div className={location === '/explore' ? style.no_suggestions__explore : style.no_suggestions}>
       <em>No suggestions, you're on your own!</em>
     </div>
   );

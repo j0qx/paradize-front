@@ -42,11 +42,10 @@ span {
   .searchContainer{
     display: flex;
     width: 100%;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     border-radius: 0 0 3px 3px;
     height: 0;
-    padding: 0 1rem;
     overflow-y: hidden ;
     transition: height 300ms ease-out;
 
@@ -54,11 +53,9 @@ span {
   .searchContainer_open{
     display: flex;
     width: 100%;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     height: 110px;
-    padding: 1rem;
-    border-radius: 0 0 3px 3px;
     transition: height 300ms ease-out;
 
   }

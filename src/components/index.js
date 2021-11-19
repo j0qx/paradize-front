@@ -12,6 +12,7 @@ import NavBar from './NavBar';
 import Pointer from './Pointer';
 import SearchDataSettings from './SearchDataSettings';
 import SearchZoneSettings from './SearchZoneSettings';
+import SearchZoneSettingsExplore from './SearchZoneSettingsExplore';
 import SlideLeft from './SlideLeft/SlideLeft';
 import SlideRight from './SlideRight/SlideRight';
 import SlideBottom from './SlideBottom/SlideBottom';
@@ -19,7 +20,7 @@ import TabNavBar from './TabNavBar';
 import ToolTip from './ToolTip';
 import InputBase from './InputBase';
 import UploadImage from './UploadImage';
-
+import InputSwitch from './InputSwitch';
 
 export {
   ButtonClose,
@@ -36,6 +37,7 @@ export {
   Pointer,
   SearchDataSettings,
   SearchZoneSettings,
+  SearchZoneSettingsExplore,
   SlideLeft,
   SlideRight,
   SlideBottom,
@@ -43,4 +45,5 @@ export {
   ToolTip,
   InputBase,
   UploadImage,
+  InputSwitch,
 };

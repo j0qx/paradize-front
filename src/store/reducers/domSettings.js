@@ -21,7 +21,7 @@ const initialState = {
     isOffersSlideOpen: false,
     isStatisticsSlideOpen: false,
   },
-  isSearchSettingsOpen: false,
+  isSearchSettingsOpen: true,
   isAccountListOpen: false,
 };
 

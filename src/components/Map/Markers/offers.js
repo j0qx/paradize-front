@@ -3,10 +3,12 @@ import { Marker, Popup } from 'react-leaflet';
 import { divIcon } from 'leaflet';
 import { Link } from 'react-router-dom';
 import { renderToStaticMarkup } from 'react-dom/server';
+import style from './Markers.module.scss';
 
 const Offers = ({
   id, position, url, title,
 }) => {
+  console.log("photo d'offre ", url);
   // const icon = divIcon({
   //   icon: markerIconPng,
   //   iconSize: [0, 0],
@@ -29,8 +31,9 @@ const Offers = ({
     <Marker key={id} icon={iconHouse} position={[position.latitude, position.longitude]}>
       <Popup>
         <img
-          src={url}
+          src={`https://oparadise-back.herokuapp.com/${url[0]}`}
           alt="offers house"
+          className={style.picture__map}
         />
         <p>{title}</p>
         <Link to={`/offer/${id}`}> En savoir plus...</Link>
